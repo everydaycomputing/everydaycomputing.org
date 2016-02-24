@@ -1,0 +1,500 @@
+   27  unzip 5C76746A-87AA-4AE8-9D51-7F92807EAEC2.xcactivitylog 
+   28  ls
+   29  more 5C76746A-87AA-4AE8-9D51-7F92807EAEC2.xcactivitylog 
+   30  man gz
+   31  gz
+   32  gunzip 5C76746A-87AA-4AE8-9D51-7F92807EAEC2.xcactivitylog 
+   33  gunzip "5C76746A-87AA-4AE8-9D51-7F92807EAEC2.xcactivitylog" 
+   34  man gunzip
+   35  open .
+   36  cp 5C76746A-87AA-4AE8-9D51-7F92807EAEC2.xcactivitylog test.gz
+   37  more test
+   38       ls
+   39  ls
+   40  man alias
+   41  alias
+   42  qls
+   43  ls
+   44  more test
+   45  tr "^M" "\n" test
+   46  tr '^M' '\n' test
+   47  cat test | tr
+   48  cat test | tr a f
+   49  cat test | tr ^M f
+   50  cat test | tr ^M ______
+   51  cat test | tr ^M \n
+   52  cat test | tr ^M --------------
+   53  cat test
+   54   ls
+   55  rm test
+   56  gunzip test.gz 
+   57  ls
+   58  ls
+   59  more test 
+   60  cat test | tr ^M ________________________
+   61  cat test
+   62  gunzip test.gz 
+   63  rm test 
+   64  gunzip test.gz 
+   65  ls
+   66  cp 5C76746A-87AA-4AE8-9D51-7F92807EAEC2.xcactivitylog test.gz
+   67  gunzip test.gz 
+   68  ls
+   69  more test 
+   70  dos2unix
+   71  man dos2
+   72  man dos2unix
+   73  dos2uni
+   74  dos2unix
+   75  ls /bin/
+   76  ls
+   77  man tr
+   78  man tr
+   79  ls
+   80  more test 
+   81  l
+   82  ls
+   83  ls
+   84  ls
+   85  h
+   86  cp  E7435FF0-AE4B-4CDA-B7AD-7AFA5329C2DD.xcactivitylog ./
+   87  ls
+   88  ls
+   89  cp ~/Library/Developer/Xcode/DerivedData/LoveLetter-dllxytcitwizfggpkmijgewbrjzu/Logs/Build/E7435FF0-AE4B-4CDA-B7AD-7AFA5329C2DD.xcactivitylog
+   90  cp ~/Library/Developer/Xcode/DerivedData/LoveLetter-dllxytcitwizfggpkmijgewbrjzu/Logs/Build/E7435FF0-AE4B-4CDA-B7AD-7AFA5329C2DD.xcactivitylog ./
+   91  ls
+   92  cp E7435FF0-AE4B-4CDA-B7AD-7AFA5329C2DD.xcactivitylog m.gz
+   93  unzip m.gz 
+   94  gunzip m.gz 
+   95  more m 
+   96  man dos2unix
+   97  unix2dos
+   98  qls
+   99  ls
+  100  more out.txt 
+  101  ls
+  102  morem 
+  103  ls
+  104  rm m
+  105  ls
+  106  more out.txt 
+  107  rm out.txt 
+  108  rm test 
+  109  ls
+  110  ls
+  111  ls
+  112  cd .logs/
+  113  ls
+  114  ls
+  115  cd /Users/tbinkowski/Google\ Drive/g-Teaching/uchicago.mobi/uchicago-mobi.github.io 
+  116  ls
+  117  jk
+  118  ls
+  119  mv mpcs51030-2015/ archive/
+  120  cd archive/
+  121  ls
+  122  ls
+  123  cd ..
+  124  ls
+  125  cd archive/
+  126  ls
+  127  cd mpcs51030-2015/
+  128  ls
+  129  cd sessions/
+  130  ls
+  131  cd ..
+  132  ls
+  133  cd ..
+  134  ls
+  135  cd ..
+  136  ls
+  137  rm -rf mpcs51030-2015/
+  138  ls
+  139  jk
+  140  ls
+  141  xed uchicago-mobi.github.io.xcodeproj/
+  142  ;d
+  143  ls
+  144  cd sessions/
+  145  s
+  146  ls
+  147  cd session6
+  148  ls
+  149  cd ..
+  150  ls
+  151  cd session5
+  152  ls
+  153  cp *.png ../session6/
+  154  ls
+  155  cp 1-layout.png ../session6/1-layout2.png
+  156  cp index.md ../session6/index-tictactoe.md
+  157  ls
+  158  cd ../../
+  159  ls
+  160  jk
+  161  bg
+  162  ls
+  163  cd _includes/
+  164  ls
+  165  cp head.html footer.html
+  166  fg
+  167  cd ..
+  168  ls
+  169  jk
+  170  ls
+  171  git checkout dev-primer
+  172  jk
+  173  cd ~/Library/Developer/Xcode/DerivedData/
+  174  ls
+  175  cd LoveLetter-dllxytcitwizfggpkmijgewbrjzu/
+  176  ls
+  177  cd Build/
+  178  s
+  179  ls
+  180  cd ..
+  181  ls
+  182  cd Logs/
+  183  ls
+  184  cd Build/
+  185  s
+  186  ls
+  187  ls
+  188  ls
+  189  cd ls
+  190  ls
+  191  cd ..
+  192  ls
+  193  cd ..
+  194  ls
+  195  cd Logs/
+  196  ls
+  197  ls
+  198  jjls
+  199  ls
+  200  cd Issues/
+  201  ls
+  202  cat 514C93A6-A7DA-4CC1-B049-476145732F11.xcactivitylog 
+  203  ls
+  204  ls
+  205  ls
+  206  cd ..
+  207  ls
+  208  cd Build/
+  209  ls
+  210  ls -tr
+  211  ls -tr
+  212  ls -tr
+  213  ll
+  214  ls
+  215  ls a-l
+  216  ls -al
+  217  ls -al
+  218  ls
+  219  classdump
+  220  objdump
+  221  ls
+  222  ls
+  223  ls -al
+  224  DF
+  225  df 
+  226  df -h
+  227  df
+  228  df -h
+  229  cd 
+  230  ls
+  231  clear
+  232  ls
+  233  more m
+  234  ls
+  235  rm m
+  236  ls
+  237  open 
+  238  df -h
+  239  df -h
+  240  df -h
+  241  df -h
+  242  df -h
+  243  df -h
+  244  df -h
+  245  df -h
+  246  df -h
+  247  df -h
+  248  df -h
+  249  df -h
+  250  df -h
+  251  df -h
+  252  df -h
+  253  df -h
+  254  wget https://github.com/mattneub/Programming-iOS-Book-Examples/blob/master/bk2ch14p640systemSound/ch27p910systemSound/test.aif
+  255  open .
+  256  DF
+  257  df -h
+  258  cd /Users/tbinkowski/Google\ Drive/g-Teaching/uchicago.mobi/uchicago-mobi.github.io/uchicago-mobi.github.io.xcodeproj 
+  259  cd ..
+  260  ls
+  261  jk
+  262  git clone http://github.com/progit/progit.git
+  263  cd progit/e
+  264  cd progit/en/
+  265  ls
+  266  perl -i -0pe 's/^Insert\s*(.*)\.png\s*\n([^\n]*)$/!\[\2](..\/figures\/\1-tn.png)/mg' */*.markdown
+  267  ls
+  268  emacs title.txt
+  269  pandoc -S -o progit.epub title.txt   01-introduction/01-chapter1.markdown   02-git-basics/01-chapter2.markdown   03-git-branching/01-chapter3.markdown   04-git-server/01-chapter4.markdown   05-distributed-git/01-chapter5.markdown   06-git-tools/01-chapter6.markdown   07-customizing-git/01-chapter7.markdown   08-git-and-other-scms/01-chapter8.markdown   09-git-internals/01-chapter9.markdown
+  270  brew update
+  271  cd /usr/local/
+  272  cd fetch origin
+  273  git fetch origin
+  274  git reset --hard origin/master
+  275  brew update
+  276  brew doctor
+  277  brew update
+  278  sudo chown -R $(whoami):admin /usr/local
+  279  brew update
+  280  brew install pandoc
+  281  cd
+  282  ls
+  283  cd progit/en
+  284  ls
+  285  pandoc -S -o progit.epub title.txt   01-introduction/01-chapter1.markdown   02-git-basics/01-chapter2.markdown   03-git-branching/01-chapter3.markdown   04-git-server/01-chapter4.markdown   05-distributed-git/01-chapter5.markdown   06-git-tools/01-chapter6.markdown   07-customizing-git/01-chapter7.markdown   08-git-and-other-scms/01-chapter8.markdown   09-git-internals/01-chapter9.markdown
+  286  ls
+  287  open progit.epub 
+  288  ls
+  289  cd progit.epub 
+  290  ls
+  291  unzip progit.epub 
+  292  ls
+  293  more ch001.xhtml 
+  294  cd ..
+  295  ls
+  296  cd en/
+  297  ls
+  298  emacs stylesheet.css 
+  299  ls
+  300  clean
+  301  ls
+  302  pandoc -S -o progit.epub title.txt   01-introduction/01-chapter1.markdown   02-git-basics/01-chapter2.markdown   03-git-branching/01-chapter3.markdown   04-git-server/01-chapter4.markdown   05-distributed-git/01-chapter5.markdown   06-git-tools/01-chapter6.markdown   07-customizing-git/01-chapter7.markdown   08-git-and-other-scms/01-chapter8.markdown   09-git-internals/01-chapter9.markdown --epub-stylesheet stylesheet.css
+  303  ls
+  304  open progit.epub 
+  305  df -h
+  306  ls
+  307  cd ..
+  308  ls
+  309  cd en/
+  310  l
+  311  cd en
+  312  ls
+  313  more 01-introduction/01-chapter1.markdown 
+  314         ls
+  315  more title.txt 
+  316  cd 01-introduction/
+  317  ls
+  318  more 01-chapter1.markdown 
+  319  ls
+  320  ls
+  321  more 01-chapter1.markdown 
+  322  ls
+  323  emacs preview.sh
+  324  ls
+  325  ls
+  326  mv preview.sh  ~/Dropbox/hackHers/hackhers/
+  327  ls
+  328  cd ../
+  329  ls
+  330  more stylesheet.css 
+  331  cp stylesheet.css ~/Dropbox/hackHers/hackhers
+  332  ls
+  333  more 01-introduction/
+  334  ls
+  335  more 01-introduction/01-chapter1.markdown 
+  336  cd ../../
+  337  ls
+  338  rm -rf progit/
+  339  ls
+  340  clear
+  341  ls
+  342  cd
+  343  cd Dropbox/
+  344  ls
+  345  more hackhers_pandoc.md 
+  346        ls
+  347  rm hackhers_pandoc.md 
+  348  ls
+  349  cd m2
+  350  ls
+  351  cd ..
+  352  ls
+  353  rm my-ebook.epub 
+  354  ls
+  355  rm open.json all.json 
+  356  ls
+  357  cd hackHers/
+  358  ls
+  359  ls
+  360  cd hackhers
+  361  ls
+  362  ---
+  363  title: Pro Git
+  364  author: Scott Chacon
+  365  rights:  Creative Commons Non-Commercial Share Alike 3.0
+  366  language: en-US
+  367  ls
+  368  emacs title.txt
+  369  mkdir 01
+  370  cd 01/
+  371  ls
+  372  emacs 01-chapter1.markdown
+  373  xed 01-chapter1.markdown 
+  374  ls
+  375  cd ..
+  376  ls
+  377  sh preview.sh 
+  378  ls
+  379  more title.txt 
+  380  ls
+  381  rm progit.epub 
+  382  emacs preview.sh 
+  383  ls
+  384  clean
+  385  clean
+  386  ls
+  387  sh preview.sh 
+  388  ls
+  389  open hackhers.epub 
+  390  ls
+  391  emacs preview.sh 
+  392  sh preview.sh 
+  393  open hackhers.epub 
+  394  sh preview.sh 
+  395  open hackhers.epub 
+  396  ls
+  397  cd 01/
+  398  ls
+  399  cd 01-chapter1.markdown 
+  400  ls
+  401  cd ..
+  402  ls
+  403  emacs preview.sh 
+  404  sh preview.sh 
+  405  ls
+  406  clean
+  407  ls
+  408  sh preview.sh 
+  409  emacs hackhers.epub 
+  410  ls
+  411  emacs preview.sh 
+  412  sh preview.sh 
+  413  pwd
+  414  emacs preview.sh 
+  415  sh preview.sh 
+  416  emacs preview.sh 
+  417  sh preview.sh 
+  418  sh preview.sh 
+  419  sh preview.sh 
+  420  sh preview.sh 
+  421  sh preview.sh 
+  422  sh preview.sh 
+  423  sh preview.sh 
+  424  ls
+  425  clean
+  426  cd hackhers.epub 
+  427  ls
+  428  man unzip
+  429  unzip hackhers.epub -d out
+  430  cd out/
+  431  ls
+  432  more ch001.xhtml 
+  433  cd ..
+  434  sh preview.sh 
+  435  ls
+  436  unzip hackhers.epub -d out
+  437  ls
+  438  cd out/
+  439  ls
+  440  more stylesheet.css 
+  441  ls
+  442  more ch001.xhtml 
+  443  ls
+  444  cd ..
+  445  ls
+  446  emacs stylesheet.css 
+  447  sh preview.sh 
+  448  emacs stylesheet.css
+  449  sh preview.sh 
+  450  more ch001.xhtml 
+  451  unzip hackhers.epub -d out
+  452  y
+  453  cd out/
+  454  ls
+  455  more ch001.xhtml 
+  456  ls
+  457  cd ..
+  458  ls
+  459  emacs stylesheet.css
+  460  sh preview.sh 
+  461  sh preview.sh 
+  462  sh preview.sh 
+  463  sh preview.sh 
+  464  more out/ch001.xhtml 
+  465  ls
+  466  cd out/
+  467  ls
+  468  open ch001.xhtml 
+  469  cp ch001.xhtml 1.hmlt
+  470  open 1.hmlt 
+  471  mv 1.hmlt 1.html
+  472  open 1.html 
+  473  ls
+  474  emacs 1.html 
+  475  cd ..
+  476  ls
+  477  emacs stylesheet.css
+  478  ls
+  479  clean
+  480  ls
+  481  sh preview.sh 
+  482  sh preview.sh 
+  483  sh preview.sh 
+  484  sh preview.sh 
+  485  sh preview.sh 
+  486  sh preview.sh 
+  487  sh preview.sh 
+  488  sh preview.sh 
+  489  sh preview.sh 
+  490  sh preview.sh 
+  491  sh preview.sh 
+  492  sh preview.sh 
+  493  sh preview.sh 
+  494  sh preview.sh 
+  495  ls
+  496  emacs title.txt 
+  497  emacs title.txt 
+  498  sh preview.sh 
+  499  sh preview.sh 
+  500  sh preview.sh 
+  501  cd Stu
+  502  cd Desktop/Stuff/
+  503  ls
+  504  cd appengine-modules-helloworld-python-master/
+  505  ls
+  506  appcfg.py update app.yaml mobile_frontend.yaml static_backend.yaml
+  507  cd /Users/tbinkowski/Desktop/Stuff/CurriculumKit-AppEngine/CurriculumKit-AppEngine.xcodeproj 
+  508  cd ..
+  509  ls
+  510  dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml
+  511  gcloud components update
+  512   
+  513  rm /Users/tbinkowski/google-cloud-sdk/platform/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/dev_appserver.py
+  514  gcloud components update
+  515  dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml
+  516  ev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml
+  517  dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml
+  518  dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml lincoln.yaml
+  519  bg
+  520  fg
+  521  dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml lincoln.yaml
+  522  JOBS
+  523  jobs
+  524  h
+  525  h
+  526  h > work_sunday.txt

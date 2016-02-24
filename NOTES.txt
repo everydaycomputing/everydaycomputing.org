@@ -1,0 +1,10 @@
+Start the server
+=================
+dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml lincoln.yaml
+
+
+Post from Command Line
+======================
+curl -XPOST -H "Content-Type: application/json" --data @test.json http://localhost:8081
+
+

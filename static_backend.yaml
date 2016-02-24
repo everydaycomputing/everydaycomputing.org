@@ -1,0 +1,13 @@
+application: everydaycomputing
+module: static-backend
+version: uno
+runtime: python27
+api_version: 1
+threadsafe: true
+
+manual_scaling:
+  instances: 1
+
+handlers:
+- url: /.*
+  script: printenv.APP
