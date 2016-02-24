@@ -1,19 +1,29 @@
 application: everydaycomputing
-version: uno
+
+module: admin
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
 
 #automatic_scaling:
-#  max_idle_instances: 20
+#  min_idle_instances: 2
+#  max_pending_latency: 1s
+
+manual_scaling:
+  instances: 1
 
 handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /bootstrap
+  static_dir: bootstrap
+
 - url: /.*
-  script: helloworld.APP
+  script: admin.APP
+
 
 libraries:
 - name: webapp2

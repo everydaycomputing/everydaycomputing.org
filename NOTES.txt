@@ -8,3 +8,10 @@ Post from Command Line
 curl -XPOST -H "Content-Type: application/json" --data @test.json http://localhost:8081
 
 
+ {"items": [{"number": "1", "title": "A multidisciplinary approach towards computational thinking for science majors", "booktitle": "ACM SIGCSE Bulletin", "volume": "41", "issued": {"literal": "2009"}, "type": "inproceedings", "id": "hambrusch2009multidisciplinary", "author":
+ [{"given": "Susanne", "family": "Hambrusch"},
+  {"given": "Christoph", "family": "Hoffmann"},
+  {"given": "John T", "family": "Korb"},
+  {"given": "Mark", "family": "Haugan"},
+  {"given": "Antony L", "family": "Hosking"}],
+ "organization": "ACM", "page": "183-187"}]}

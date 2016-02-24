@@ -6,8 +6,8 @@ dispatch:
   module: default
 
 # Send all mobile traffic to the mobile frontend.
-- url: "*/lincoln/*"
-  module: lincoln
+- url: "*/admin/*"
+  module: admin
 
 # Send all mobile traffic to the mobile frontend.
 - url: "*/mobile/*"
