@@ -3,40 +3,40 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-    <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-      blockquote {
-        margin-bottom: 10px;
-        border-left-color: #bbb;
-      }
-      form {
-        margin-top: 10px;
-      }
-      .form-signin input[type="text"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-      .row {
-        margin-left: 0px;
-        margin-top: 10px;
-        overflow: scroll;
-      }
-    </style>
-  </head>
+      
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        
+        <style type="text/css">
+          body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+          }
+        blockquote {
+          margin-bottom: 10px;
+          border-left-color: #bbb;
+        }
+        form {
+          margin-top: 10px;
+        }
+        .form-signin input[type="text"] {
+          font-size: 16px;
+          height: auto;
+          margin-bottom: 15px;
+          padding: 7px 9px;
+        }
+        .row {
+          margin-left: 0px;
+          margin-top: 10px;
+          overflow: scroll;
+        }
+        </style>
+        </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -54,34 +54,50 @@
       </div>
     </div>
     <div class="container">
+      
+      
+      {% for article in articles %}
+      <div class="row">
+      {% for author in article.author_names %}
+        <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
+      {% endfor %}.
+      <span>"{{ article.title}}."</span>
+      <span>{{ article.journal}}.</span>
+      <span>({{ article.year}}).</span>
+      <span>{{ article.pages}}.</span>
 
+      </div>
+      {% endfor %}
+      
+      
+      
       {% for greeting in greetings %}
       <div class="row">
         {% if greeting.author %}
-          <b>{{ greeting.author.email }}
-            {% if user and user.user_id() == greeting.author.identity %}
-              (You)
-            {% endif %}
-          </b> wrote:
+        <b>{{ greeting.author.email }}
+          {% if user and user.user_id() == greeting.author.identity %}
+          (You)
+          {% endif %}
+        </b> wrote:
         {% else %}
-         An anonymous person wrote:
+        An anonymous person wrote:
         {% endif %}
         <blockquote>{{ greeting.content }}</blockquote>
       </div>
       {% endfor %}
-
+      
       <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
         <div><textarea name="content" class="input-block-level" rows="3"></textarea></div>
         <div><input type="submit" class="btn btn-large btn-primary" value="Sign Guestbook"></div>
       </form>
-
+      
       <hr>
-
+      
       <form>Guestbook name:
         <input value="{{ guestbook_name }}" name="guestbook_name">
-        <input type="submit" value="switch">
-      </form>
-
+          <input type="submit" value="switch">
+            </form>
+      
       <a href="{{ url|safe }}">{{ url_linktext }}</a>
     </div>
   </body>

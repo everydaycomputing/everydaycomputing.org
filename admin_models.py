@@ -1,6 +1,6 @@
 from google.appengine.api import users
 from google.appengine.ext import ndb
-
+import logging
 
 class Creator(ndb.Model):
   """
@@ -9,6 +9,16 @@ class Creator(ndb.Model):
   identity = ndb.StringProperty(indexed=False)
   email = ndb.StringProperty(indexed=False)
 
+#
+#
+#
+#
+#
+class Greeting(ndb.Model):
+  """A main model for representing an individual Guestbook entry."""
+  author = ndb.StructuredProperty(Creator)
+  content = ndb.StringProperty(indexed=False)
+  date = ndb.DateTimeProperty(auto_now_add=True)
 
 
 #
@@ -23,33 +33,42 @@ class Author(ndb.Model):
   family_name = ndb.StringProperty(indexed=True)
   given_name = ndb.StringProperty(indexed=True)
 
+  # This is redundant
+  articles = ndb.KeyProperty(kind='Article', repeated=True)
+
   @property
   def name(self):
     return self.given_name+" "+self.family_name
 
-
-class Greeting(ndb.Model):
-  """A main model for representing an individual Guestbook entry."""
-  author = ndb.StructuredProperty(Creator)
-  content = ndb.StringProperty(indexed=False)
-  date = ndb.DateTimeProperty(auto_now_add=True)
-
-##
-#
-# {"items": [{"author":
-#  [{"family": "Wing", "given": "Jeannette M"}], "volume": "49", "page": "33-35", "journal":
-# "Communications of the ACM", "issued": {"literal": "2006"}, "title": "Computational thinking",
-# "id": "wing2006computational", "type": "article", "number": "3"}]}
-#
 class Article(ndb.Model):
-  """Sub model for representing an author."""
-  creator = ndb.StructuredProperty(Creator)
+  # Sub model for representing an author.
+  # Note: The key is the "id" from bibtex
+  #
+  #creator = ndb.StructuredProperty(Creator)
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
   
-  author = ndb.KeyProperty(Author)
+  authors = ndb.KeyProperty(kind='Author', repeated=True)
   
+  title = ndb.StringProperty(indexed=False)
   journal = ndb.StringProperty(indexed=False)
   volume = ndb.StringProperty(indexed=False)
   number = ndb.StringProperty(indexed=False)
   pages = ndb.StringProperty(indexed=False)
   year = ndb.IntegerProperty(indexed=True)
+  publisher =  ndb.StringProperty(indexed=False)
+  
+  @property
+  def author_names(self):
+    return ndb.get_multi(self.authors)
+    #.query().filter(Person.guilds == self.key)
+
+
+class AuthorArticle(ndb.Model):
+  #
+  #
+  author = ndb.KeyProperty(kind=Author,required=True)
+  article = ndb.KeyProperty(kind=Article,required=True)
+
+
+
+

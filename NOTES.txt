@@ -1,6 +1,6 @@
 Start the server
 =================
-dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml lincoln.yaml
+dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml admin.yaml
 
 
 Post from Command Line
@@ -15,3 +15,49 @@ curl -XPOST -H "Content-Type: application/json" --data @test.json http://localho
   {"given": "Mark", "family": "Haugan"},
   {"given": "Antony L", "family": "Hosking"}],
  "organization": "ACM", "page": "183-187"}]}
+
+
+
+{u'booktitle': u'ACM SIGCSE Bulletin', u'title': u'Thinking about computational thinking', u'number': u'1', u'organization': u'ACM', u'author': [{u'family': u'Lu', u'given': u'James J'}, {u'family': u'Fletcher', u'given': u'George HL'}], u'id': u'lu2009thinking', u'type': u'inproceedings', u'page': u'260-264', u'issued': {u'literal': u'2009'}, u'volume': u'41'}
+
+
+ {u'number': u'1', u'title': u'Computational Thinking in K--12 A Review of the State of the Field', u'publisher': u'SAGE Publications', u'page': u'38-43', u'type': u'article', u'id': u'grover2013computational', u'author': [{u'family': u'Grover', u'given': u'Shuchi'}, {u'family': u'Pea', u'given': u'Roy'}], u'volume': u'42', u'issued': {u'literal': u'2013'}, u'journal': u'Educational Researcher'}
+
+
+ @article{grover2013computational,
+  title={Computational Thinking in K--12 A Review of the State of the Field},
+  author={Grover, Shuchi and Pea, Roy},
+  journal={Educational Researcher},
+  volume={42},
+  number={1},
+  pages={38--43},
+  year={2013},
+  publisher={SAGE Publications}
+}
+@article{wing2006computational,
+  title={Computational thinking},
+  author={Wing, Jeannette M},
+  journal={Communications of the ACM},
+  volume={49},
+  number={3},
+  pages={33--35},
+  year={2006}
+}
+@article{barr2011bringing,
+  title={Bringing computational thinking to K-12: what is Involved and what is the role of the computer science education community?},
+  author={Barr, Valerie and Stephenson, Chris},
+  journal={Acm Inroads},
+  volume={2},
+  number={1},
+  pages={48--54},
+  year={2011},
+  publisher={ACM}
+}
+
+##
+#
+# {"items": [{"author":
+#  [{"family": "Wing", "given": "Jeannette M"}], "volume": "49", "page": "33-35", "journal":
+# "Communications of the ACM", "issued": {"literal": "2006"}, "title": "Computational thinking",
+# "id": "wing2006computational", "type": "article", "number": "3"}]}
+#
