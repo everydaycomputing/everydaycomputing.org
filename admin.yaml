@@ -18,12 +18,12 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /bootstrap
-  static_dir: bootstrap
+- url: /public
+  static_dir: public
 
 - url: /.*
   script: admin.APP
-
+  login: required
 
 libraries:
 - name: webapp2

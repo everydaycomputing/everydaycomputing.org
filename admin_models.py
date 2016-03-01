@@ -2,10 +2,8 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 import logging
 
-class Creator(ndb.Model):
-  """
-    Sub model for representing an the person who actually entered the data
-    """
+class Researcher(ndb.Model):
+  """ Sub model for representing an the person who actually entered the data """
   identity = ndb.StringProperty(indexed=False)
   email = ndb.StringProperty(indexed=False)
 
@@ -16,7 +14,7 @@ class Creator(ndb.Model):
 #
 class Greeting(ndb.Model):
   """A main model for representing an individual Guestbook entry."""
-  author = ndb.StructuredProperty(Creator)
+  author = ndb.StructuredProperty(Researcher)
   content = ndb.StringProperty(indexed=False)
   date = ndb.DateTimeProperty(auto_now_add=True)
 
