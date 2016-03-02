@@ -39,20 +39,31 @@
       </div>
     </header>
     
+
+    <div class="container">
+     {% for author in article.author_names %}
+      <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
+      {% endfor %}.
+      <span>"<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}">{{ article.title}}</a>."</span>
+      <span>{{ article.journal}}.</span>
+      <span>({{ article.year}}).</span>
+      <span>{{ article.pages}}.</span>
+      </div>
+    </div>
+
+    
     <div class="container about-that">
       <div class="columns">
+        
+        {% for category in categories %}
+        
         <div class="one-third column">
-          <h2>Made at GitHub</h2>
-          <p>Primer is the basecoat of GitHub, made by nerds just like you who share a passion for HTML and CSS.</p>
+          <h2>{{ category }}</h2>
+          <p>Make a bib string function to print to the screen. Also use this to tighten up the search on google scholar</p>
+          </p><a href="{{ category }}/" class="btn">Edit {{ category }}</a></p>
         </div>
-        <div class="one-third column">
-          <h2>Open source</h2>
-          <p>Available for use under the MIT license and built with open source projects like SCSS, Jekyll, Grunt, and more.</p>
-        </div>
-        <div class="one-third column">
-          <h2>Build tools</h2>
-          <p>Includes a small Gruntfile for compiling our SCSS, Autoprefixer for vendor prefixes, and Parker for CSS stats.</p>
-        </div>
+        {% endfor %}
+        
       </div>
     </div>
     
@@ -63,67 +74,8 @@
         Created and maintained by the CSS team at GitHub. <strong>Currently v2.3.5.</strong>
       </footer>
     </div>
-    
-    
-    
-    
-    
-    <!-- -->
-    <div class="container">
-    
-    {% for article in articles %}
-    <li><div class="row">
-      <a href="category/{{ article.key.urlsafe() }}/">Edit</a>
-      {% for author in article.author_names %}
-      <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
-      {% endfor %}.
-      <span>"{{ article.title}}."</span>
-      <span>{{ article.journal}}.</span>
-      <span>({{ article.year}}).</span>
-      <span>{{ article.pages}}.</span>
-      
-    </div>
-    {% endfor %}
-    
-    
-    
-    {% for greeting in greetings %}
-    <div class="row">
-      {% if greeting.author %}
-      <b>{{ greeting.author.email }}
-        {% if user and user.user_id() == greeting.author.identity %}
-        (You)
-        {% endif %}
-      </b> wrote:
-      {% else %}
-      An anonymous person wrote:
-      {% endif %}
-      <blockquote>{{ greeting.content }}</blockquote>
-    </div>
-    {% endfor %}
-    
-    <form action="insert/" method="post"> <!--sign?guestbook_name={{ guestbook_name }}" method="post">-->
-      <div><textarea name="content" class="input-block-level" rows="3"></textarea></div>
-      <div><input type="submit" class="btn btn-large btn-primary" value="Sign Guestbook"></div>
-    </form>
-    
-    <hr>
-    
-    <form>Guestbook name:
-      <input value="{{ guestbook_name }}" name="guestbook_name">
-        <input type="submit" value="switch">
-          </form>
-    
-
-    </div> <!-- /container -->
-    
-    
-    
-    
-    
-    
-    
-    
+  
+  
     <script src="/js/anchor.min.js"></script>
     <script>
       var selector = '.markdown-body h2, .markdown-body h3';

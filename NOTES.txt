@@ -24,7 +24,16 @@ curl -XPOST -H "Content-Type: application/json" --data @test.json http://localho
  {u'number': u'1', u'title': u'Computational Thinking in K--12 A Review of the State of the Field', u'publisher': u'SAGE Publications', u'page': u'38-43', u'type': u'article', u'id': u'grover2013computational', u'author': [{u'family': u'Grover', u'given': u'Shuchi'}, {u'family': u'Pea', u'given': u'Roy'}], u'volume': u'42', u'issued': {u'literal': u'2013'}, u'journal': u'Educational Researcher'}
 
 
-
+@article{crooks2004weblogo,
+  title={WebLogo: a sequence logo generator},
+  author={Crooks, Gavin E and Hon, Gary and Chandonia, John-Marc and Brenner, Steven E},
+  journal={Genome research},
+  volume={14},
+  number={6},
+  pages={1188--1190},
+  year={2004},
+  publisher={Cold Spring Harbor Lab}
+}
 
 @article{wing2006computational,
   title={Computational thinking},

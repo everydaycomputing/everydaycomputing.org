@@ -21,6 +21,10 @@
 		3732C5BF1C7516F70027D9AF /* admin.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = admin.py; sourceTree = "<group>"; };
 		3732C5C01C7516F70027D9AF /* admin.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = admin.yaml; sourceTree = "<group>"; };
 		3732C5C21C7517190027D9AF /* printenv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = printenv.py; sourceTree = "<group>"; };
+		374CE2791C875E0700D0E41A /* admin_category.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = admin_category.html; sourceTree = "<group>"; };
+		374CE27A1C876A0B00D0E41A /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
+		374CE27B1C8787F100D0E41A /* admin_category.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = admin_category.py; sourceTree = "<group>"; };
+		374CE27D1C878A7F00D0E41A /* article_handler.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_handler.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -38,6 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				3732C5B41C75163D0027D9AF /* NOTES.txt */,
+				374CE27A1C876A0B00D0E41A /* TODO.txt */,
 				3732C5B31C75154E0027D9AF /* everydaycomputing.sh */,
 				3732C5B51C7516490027D9AF /* README.md */,
 				3732C5B61C7516490027D9AF /* work_sunday.txt */,
@@ -68,12 +73,23 @@
 		3732C5C11C7516FE0027D9AF /* module-admin */ = {
 			isa = PBXGroup;
 			children = (
-				370980441C7E20F100E0BD90 /* admin.html */,
-				3732C5BF1C7516F70027D9AF /* admin.py */,
-				370980451C7E3D1500E0BD90 /* admin_models.py */,
 				3732C5C01C7516F70027D9AF /* admin.yaml */,
+				3732C5BF1C7516F70027D9AF /* admin.py */,
+				374CE27D1C878A7F00D0E41A /* article_handler.py */,
+				374CE27B1C8787F100D0E41A /* admin_category.py */,
+				370980451C7E3D1500E0BD90 /* admin_models.py */,
+				374CE27C1C878A2500D0E41A /* templates */,
 			);
 			name = "module-admin";
+			sourceTree = "<group>";
+		};
+		374CE27C1C878A2500D0E41A /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				370980441C7E20F100E0BD90 /* admin.html */,
+				374CE2791C875E0700D0E41A /* admin_category.html */,
+			);
+			name = templates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

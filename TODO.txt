@@ -1,0 +1,1 @@
+- Make a bib string function to print to the screen. Also use this to tighten up the search on google scholar
