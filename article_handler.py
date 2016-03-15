@@ -170,7 +170,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
     return author
 
 
-class ArticleHandler(webapp2.RequestHandler):
+class ArticleHandler2(webapp2.RequestHandler):
   def get(self):
     """
     """
@@ -192,7 +192,7 @@ class ArticleHandler(webapp2.RequestHandler):
     self.response.write(template.render(template_values))
 
 
-class ArticleInsertHandler2(webapp2.RequestHandler):
+class ArticleHandler(webapp2.RequestHandler):
   def get(self):
     self.response.headers['Content-Type'] = 'text/plain'
     self.response.write('Get, Hello, webapp2 World! This is the default module. Hi')

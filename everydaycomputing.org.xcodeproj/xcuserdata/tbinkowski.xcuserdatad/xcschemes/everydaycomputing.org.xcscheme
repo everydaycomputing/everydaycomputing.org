@@ -38,7 +38,7 @@
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/tbinkowski/Google Drive/g-Projects/g-StemC/everydaycomputing.org"
+      customWorkingDirectory = "/Users/tbinkowski/Development/GitHub/everydaycomputing.org"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
