@@ -18,20 +18,22 @@ class ArticleCategoryHandler(webapp2.RequestHandler):
     article = ndb.Key(urlsafe=key).get()
     
     template_values = {
-      'url': self.request.application_url,
+      'key': key,
+      'application_url': self.request.application_url,
       'user': users.get_current_user(),
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout",
       'article': article,
-      'categories': ['Summary','LearningGoals','Methodology','Learning Goals']
+      'categories': ['summary','learninggoals','methodology']
     }
     
     template = JINJA_ENVIRONMENT.get_template('admin_category.html')
     self.response.write(template.render(template_values))
 
 class ArticleCategoryEditHandler(webapp2.RequestHandler):
-  def get(self,key):
+  def get(self,category,key):
     article = ndb.Key(urlsafe=key).get()
+    logging.info(category)
     
     template_values = {
       'url': self.request.application_url,

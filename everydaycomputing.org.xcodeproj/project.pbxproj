@@ -10,6 +10,8 @@
 		370980441C7E20F100E0BD90 /* admin.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = admin.html; sourceTree = "<group>"; };
 		370980451C7E3D1500E0BD90 /* admin_models.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = admin_models.py; sourceTree = "<group>"; };
 		370980491C987C5200E0BD90 /* static_backend.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = static_backend.yaml; sourceTree = "<group>"; };
+		3709804C1C98854000E0BD90 /* admin_summary.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = admin_summary.html; sourceTree = "<group>"; };
+		3709804D1C98BEA400E0BD90 /* base_template.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = base_template.html; sourceTree = "<group>"; };
 		3732C5B31C75154E0027D9AF /* everydaycomputing.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = everydaycomputing.sh; sourceTree = "<group>"; };
 		3732C5B41C75163D0027D9AF /* NOTES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = NOTES.txt; sourceTree = "<group>"; };
 		3732C5B51C7516490027D9AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -94,8 +96,10 @@
 		374CE27C1C878A2500D0E41A /* templates */ = {
 			isa = PBXGroup;
 			children = (
+				3709804D1C98BEA400E0BD90 /* base_template.html */,
 				370980441C7E20F100E0BD90 /* admin.html */,
 				374CE2791C875E0700D0E41A /* admin_category.html */,
+				3709804C1C98854000E0BD90 /* admin_summary.html */,
 			);
 			name = templates;
 			sourceTree = "<group>";

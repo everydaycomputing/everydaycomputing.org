@@ -45,7 +45,7 @@ APP = webapp2.WSGIApplication([
                                   webapp2.Route('/', ArticleHandler, 'user-overview'),
                                   webapp2.Route('/insert/', ArticleInsertHandler, 'user-projects'),
                                   webapp2.Route('/category/<key>/', ArticleCategoryHandler, 'user-profile'),
-                                  webapp2.Route('/category/<category>/edit/<key>', ArticleCategoryEditHandler, 'user-projects'),
+                                  webapp2.Route('/category/<category>/edit/<key>/', ArticleCategoryEditHandler, 'user-projects'),
                                   ]),
                                #webapp2.Route('/article/<operation:.*?>/<:/?>/', handler=ArticleHandler, name='insert'),
                                #webapp2.Route('/article/edit/<key>/', handler=ArticleHandler, name='edit'),
