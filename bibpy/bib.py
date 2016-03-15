@@ -24,6 +24,7 @@ import fileinput
 import re
 import json
 from pprint import pprint
+import logging
 
 def clear_comments(data):
     """Return the bibtex content without comments"""
@@ -246,7 +247,7 @@ class Parser() :
 
     def parse_authors( self, authors ) :
         res = []        
-        authors = authors.split('and')
+        authors = authors.split(' and ')
         for author in authors :
             _author = author.split(',')
             family = _author[0].strip().rstrip()

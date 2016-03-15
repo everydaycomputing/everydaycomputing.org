@@ -162,6 +162,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
     # name combinations.
     # Todo: There is a chance that someone might have identical names, so we
     # may want to use a unique id instead
+    logging.info(author)
     key_name = author['family']+"_"+author['given']
     k = ndb.Key('Author',key_name)
     author = Author.get_or_insert(k.id(), \
@@ -170,7 +171,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
     return author
 
 
-class ArticleHandler2(webapp2.RequestHandler):
+class ArticleHandler(webapp2.RequestHandler):
   def get(self):
     """
     """
@@ -191,8 +192,3 @@ class ArticleHandler2(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('admin.html')
     self.response.write(template.render(template_values))
 
-
-class ArticleHandler(webapp2.RequestHandler):
-  def get(self):
-    self.response.headers['Content-Type'] = 'text/plain'
-    self.response.write('Get, Hello, webapp2 World! This is the default module. Hi')
