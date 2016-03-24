@@ -1,4 +1,4 @@
-{% extends "base_template.html" %}
+{% extends "templates/base_template.html" %}
 
 {% block body %}
 
@@ -22,7 +22,7 @@
     <div class="one-third column">
       <h2>{{ category }}</h2>
       <p>Make a bib string function to print to the screen. Also use this to tighten up the search on google scholar</p>
-      </p><a href="{{application_url}}/article/category/{{ category }}/edit/{{key}}/" class="btn">Edit {{ category }}</a></p>
+      </p><a href="{{application_url}}/article/category/edit/{{ category }}/{{key}}/" class="btn">Edit {{ category }}</a></p>
     </div>
     {% endfor %}
     

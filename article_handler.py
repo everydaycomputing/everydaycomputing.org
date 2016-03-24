@@ -147,8 +147,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
         a.articles.append(article_key)
       a.put()
       
-      # Relationship stuff
-      AuthorArticle(author=a.key,article=article.key).put()
+      #AuthorArticle(author=a.key,article=article.key).put()
       if not a.key in article.authors:
         article.authors.append(a.key)
 
@@ -189,6 +188,6 @@ class ArticleHandler(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
     
-    template = JINJA_ENVIRONMENT.get_template('admin.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/admin.html')
     self.response.write(template.render(template_values))
 

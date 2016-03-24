@@ -1,5 +1,8 @@
 Start the server
 =================
+
+dev_appserver.py --clear_datastore=yes app.yaml
+
 dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml admin.yaml
  lsof -P | grep '8080' | awk '{print $2}' | xargs kill -9
 
@@ -149,7 +152,7 @@ class MainPage(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
     
-    template = JINJA_ENVIRONMENT.get_template('admin.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/admin.html')
     self.response.write(template.render(template_values))
 
 #
