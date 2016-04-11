@@ -1,0 +1,123 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+
+<div class="container">
+  <h1>Learning Goals</h1>
+  <p>Something...</p>
+  
+  
+  <form action="/article/category/edit/{{category}}/{{key}}/" method="post">
+    
+    <div>
+      <label for="domain">Domain:
+        <textarea name="domain" class="input-block" rows="2" placeholder="Broadest categories of learning goals, perhaps defining the trajectories.">{{ article.domain }}</textarea>
+      </label>
+    </div>
+    
+    
+    <div>
+      <label for="star">Empirical Support: </label>
+      <input type="checkbox" name="star"{% if article.empirical_support %}checked="yes"{% endif %}/>
+    </div>
+    
+    <div>
+      <label for="goal">Goal:
+        <textarea name="goal" class="input-block" rows="2" placeholder="Text of a single learning goal that the resource identifies.">{{ article.goal }}</textarea>
+      </label>
+    </div>
+    
+    <!-- Subgoals -->
+    <div>
+      <label for="subgoals">Subgoals:
+        <textarea name="subgoals" class="input-block" rows="2" placeholder="Any subgoals of the goal mentioned in the resource.">{{ article.subgoals }}</textarea>
+      </label>
+    </div>
+    
+    <!-- Relationships -->
+    <div>
+      <label for="subgoals">Relationships:
+        <textarea name="subgoals" class="input-block" rows="2" placeholder="Notes about how this goal might relate to other goals mentioned in the resource.">{{ article.relationships }}</textarea>
+      </label>
+    </div>
+    
+    
+    <!-- Age Level -->
+    <div>
+      <fieldset>
+        <legend>Age Level:</legend>
+        
+        {% for item in [0,1,2,3,4,5,6,7,8] %}
+        <input type="checkbox" name="age_level" value="{{ item }}" required {% if item in article.age_level %} checked="yes"{% endif %}/>
+        {{ item }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <!-- Acitivity Origin -->
+    <div>
+      <fieldset>
+      
+        <legend>Activity Origin:</legend>
+        {% for item in ['Custom','Pre-existing'] %}
+          <input type="checkbox" name="activity_origin" value="{{ item }}" required
+          {% if item in article.activity_origin %}
+          checked="yes"
+          {% endif %}/>
+          {{ item }}
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <!-- Relationships -->
+    <div>
+      <label for="subgoals">Activity Source:
+        <textarea name="subgoals" class="input-block" rows="2" placeholder="If activities are pre-existing, indicate where they come from. If they are custom, leave blank.">{{ article.activity_source }}</textarea>
+      </label>
+    </div>
+    
+    
+    <div>
+      <fieldset>
+        <legend>CCSM-M Domains:</legend>
+        
+        {% for item in ['CC','OA','NBT','NF','MD','G'] %}
+        <input type="checkbox" name="ccssm_domains" value="{{ item }}" required {% if item in article.ccssm_domains %} checked="yes"{% endif %}/>
+        {{ item }}&nbsp;
+        {% endfor %}
+      </fieldset>
+    </div>
+    
+    <!-- -->
+    <div>
+      <label for="ccssm_cotent_standards">CCSS-M Content Standards:
+        <textarea name="ccssm_cotent_standards" class="input-block" rows="2" placeholder="Codes for any CCSS-M content standards that are related to the goal.">{{ article.ccssm_cotent_standards }}</textarea>
+      </label>
+    </div>
+    
+    <!-- -->
+    <div>
+      <fieldset>
+        <legend>CCSM-M Practice Standards:</legend>
+        
+        {% for item in [1,2,3,4,5,6,7,8] %}
+        <input type="checkbox" name="ccssm_practice_standards" value="{{ item }}" required {% if item in article.ccssm_practice_standards %} checked="yes"{% endif %}/>
+        {{ item }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <div><br><input type="submit" class="btn btn-large btn-primary"></div>
+  </form>
+  
+  
+</div>
+
+{% endblock %}

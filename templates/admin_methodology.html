@@ -1,0 +1,189 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+
+<div class="container">
+  <h1>Research Methodology</h1>
+  <p>Something...</p>
+  
+  <form action="/article/edit/{{category}}/{{key}}/" method="post">
+    
+    <div>
+      <label for="domain">Sample Size:
+        <textarea name="sample_size" class="input-block" rows="1" placeholder="The size of a sample used in a study.">{{ article._methodology.sample_size}}</textarea>
+      </label>
+    </div>
+    
+
+    <div>
+      <fieldset>
+        <legend>Gender:</legend>
+        
+        {% for item in ['female','male'] %}
+        <input type="checkbox" name="sample_gender" value="{{ item }}" required {% if item in article._methodology.sample_gender %} checked="yes"{% endif %}/>
+        {{ item|title }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    
+    <div>
+      <label for="goal">Sample SES:
+        <textarea name="sample_ses" class="input-block" rows="2" placeholder="The socioeconomical status of the students in the sample.">{{ article._methodology.sample_ses }}</textarea>
+      </label>
+    </div>
+    
+    
+    
+    <div>
+      <fieldset>
+        <legend>Sample Disability Status:</legend>
+        
+        {% for item in  ['Mild','Moderate','Severe'] %}
+        <input type="checkbox" name="sample_disability_status" value="{{ item }}" required {% if item in article._methodology.sample_disability_status %} checked="yes"{% endif %}/>
+        {{ item }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    
+    
+    <div>
+      <fieldset>
+        <legend>Sample Ethnicity:</legend>
+        
+        {% for item in ['Caucasian', 'African American', 'Hispanic', 'Asian PI', 'Native American', 'Multiracial', 'Other'] %}
+        <input type="checkbox" name="sample_ethnicity" value="{{ item }}" required {% if item in article._methodology.sample_ethnicity %} checked="yes"{% endif %}/>
+        {{ item }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    
+    <div>
+      <label for="goal">Sample Notes:
+        <textarea name="sample_notes" class="input-block" rows="2" placeholder="Any additional notes about the sample that aren't captured in the other fields.">{{ article._methodology.sample_notes }}</textarea>
+      </label>
+    </div>
+    
+    
+    <div>
+      <label for="subgoals">Participant type:
+        <textarea name="sample_participant_type" class="input-block" rows="2" placeholder="Are the participants students, teachers, someone else?">{{ article._methodology.sample_participant_type }}</textarea>
+      </label>
+    </div>
+    
+    
+    <div>
+      <fieldset>
+        <legend>Environment:</legend>
+        
+        {% for item in ['in school', 'after school', 'informal setting'] %}
+        <input type="checkbox" name="sample_environment" value="{{ item }}" required {% if item in article._methodology.sample_environment %} checked="yes"{% endif %}/>
+        {{ item|title }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    <div>
+      <fieldset>
+        <legend>Setting:</legend>
+        
+        {% for item in ['rural', 'urban', 'public', 'private'] %}
+        <input type="checkbox" name="sample_setting" value="{{ item }}" required {% if item in article._methodology.sample_setting %} checked="yes"{% endif %}/>
+        {{ item|title }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <div>
+      <label for="domain">Size of School:
+        <textarea name="sample_size_of_school" class="input-block" rows="1" placeholder="How many students are in the school or setting which the study took place.">{{ article._methodology.sample_size_of_school}}</textarea>
+      </label>
+    </div>
+    
+    <div>
+      <fieldset>
+        <legend>Design:</legend>
+        
+        {% for item in ['case study', 'qualitative', 'quanitative', 'other'] %}
+        <input type="checkbox" name="sample_design" value="{{ item }}" required {% if item in article._methodology.sample_design %} checked="yes"{% endif %}/>
+        {{ item|title }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    
+    
+    <div>
+      <label for="domain">Data Collection Instrument:
+        <textarea name="sample_data_collection_instrument" class="input-block" rows="1" placeholder="Instruments used in the study.">{{ article._methodology.sample_data_collection_instrument}}</textarea>
+      </label>
+    </div>
+    
+    
+    
+    
+    <div>
+      <label for="domain">Data Collection Procedure:
+        <textarea name="sample_data_collection_procedure" class="input-block" rows="1" placeholder="Procedures how instruments were applied on the sample .">{{ article._methodology.sample_data_collection_procedure}}</textarea>
+      </label>
+    </div>
+    
+    
+    
+    
+    <div>
+      <fieldset>
+        <legend>Analytic Technique:</legend>
+        
+        {% for item in ['t-test', 'anova', 'regression', 'factor analysis', 'interviews', 'artifacts', 'other'] %}
+        <input type="checkbox" name="sample_data_analytic_technique" value="{{ item }}" required {% if item in article._methodology.sample_data_analytic_technique %} checked="yes"{% endif %}/>
+        {{ item|title }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    
+    
+    <div>
+      <label for="domain">Effect Size:
+        <textarea name="sample_effect_size" class="input-block" rows="1" placeholder="Type of effect size and interpretation (e.g., odds ratio).">{{ article._methodology.sample_effect_size}}</textarea>
+      </label>
+    </div>
+    
+    
+    
+    
+    <div>
+      <label for="domain">Agreement:
+        <textarea name="sample_agreement" class="input-block" rows="1" placeholder="How much authors agree across studies on the effect size.">{{ article._methodology.sample_agreement}}</textarea>
+      </label>
+    </div>
+    
+
+    
+    
+    <div><br><input type="submit" class="btn btn-large btn-primary"></div>
+  </form>
+  
+  
+</div>
+
+{% endblock %}
+
+

@@ -58,8 +58,8 @@ APP = webapp2.WSGIApplication([
                                routes.PathPrefixRoute('/article', [
                                                                    webapp2.Route('/', ArticleHandler, 'user-overview'),
                                                                    webapp2.Route('/insert/', ArticleInsertHandler, 'user-projects'),
-                                                                   webapp2.Route('/<key>/', ArticleCategoryHandler, 'user-profile'),
-                                                                   webapp2.Route('/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
+                                                                   webapp2.Route('/category/<key>/', ArticleCategoryHandler, 'user-profile'),
+                                                                   webapp2.Route('/category/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
                                                                    ]),
                                #webapp2.Route('/article/<operation:.*?>/<:/?>/', handler=ArticleHandler, name='insert'),
                                #webapp2.Route('/article/edit/<key>/', handler=ArticleHandler, name='edit'),

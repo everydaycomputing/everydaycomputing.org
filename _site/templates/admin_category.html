@@ -3,9 +3,6 @@
 {% block body %}
 
 <div class="container">
-
-<div class="flash flash-warn">
-
   {% for author in article.author_names %}
   <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
   {% endfor %}.
@@ -13,7 +10,6 @@
   <span>{{ article.journal}}.</span>
   <span>({{ article.year}}).</span>
   <span>{{ article.pages}}.</span>
-  </div>
   <hr>
 </div>
 
@@ -27,7 +23,7 @@
     <div class="one-half column">
       <h2>{{ category|title }}</h2>
       <p>Something usefull here...</p>
-      </p><a href="{{application_url}}/article/edit/{{ category }}/{{key}}/" class="btn">Edit {{ category }}</a></p>
+      </p><a href="{{application_url}}/article/category/edit/{{ category }}/{{key}}/" class="btn">Edit {{ category }}</a></p>
     <br/>
     </div>
     {% endfor %}

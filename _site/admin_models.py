@@ -66,26 +66,7 @@ class Article(ndb.Model):
   audience = ndb.StringProperty(choices=['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'], repeated=True)
   #rating = ndb.StringProperty(choices=['Poor','OK','Good','Very Good','Great'])
 
-   # Methodology
-  methodology = ndb.KeyProperty(kind='Methodology')
-  learning_goal = ndb.KeyProperty(kind='LearningGoal')
-  
-  @property
-  def author_names(self):
-    return ndb.get_multi(self.authors)
-    #.query().filter(Person.guilds == self.key)
-
-  @property
-  def _methodology(self):
-    return self.methodology.get()
-
-  @property
-  def _learning_goal(self):
-    return self.learning_goal.get()
-
-
-class LearningGoal(ndb.Model):
-  """ Learning Goals """
+  # Learning Goals
   domain = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8], repeated=True)
@@ -99,32 +80,9 @@ class LearningGoal(ndb.Model):
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
 
 
-
-class Timestamp(ndb.Model):
-  """ """
-  timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
-  created = ndb.DateTimeProperty(auto_now_add=True)
-  created_by = ndb.KeyProperty(kind='Researcher')
-  updated = ndb.DateTimeProperty(auto_now=True)
-  updated_by = ndb.KeyProperty(kind='Researcher')
-
-
-class Greeting(ndb.Model):
-  """A main model for representing an individual Guestbook entry."""
-  author = ndb.StructuredProperty(Researcher)
-  content = ndb.StringProperty(indexed=False)
-  date = ndb.DateTimeProperty(auto_now_add=True)
-
-
-
-class Methodology(ndb.Model):
-  """ 
-  "
-  "
-  "
-  """
+  # Methodology
   sample_size = ndb.IntegerProperty(default=0)
-  sample_gender = ndb.StringProperty(choices=['female','male'], repeated=True)
+  sample_gender = ndb.StringProperty(choices=['Female','Male'], repeated=True)
   sample_ses = ndb.StringProperty(default="")
   sample_disability_status = ndb.StringProperty(choices=['Mild','Moderate','Severe'], repeated=True)
   sample_ethnicity = ndb.StringProperty(choices=['Caucasian', 'African American', 'Hispanic', 'Asian PI', 'Native American', 'Multiracial', 'Other'], repeated=True)
@@ -133,7 +91,7 @@ class Methodology(ndb.Model):
   sample_environment = ndb.StringProperty(choices=['in school', 'after school', 'informal setting'], repeated=True)
   sample_setting = ndb.StringProperty(choices=['rural', 'urban', 'public', 'private'], repeated=True)
 
-  sample_size_of_school = ndb.IntegerProperty(default=0)
+  sample_size_of_school = ndb.IntegerProperty()
   sample_design = ndb.StringProperty(choices=['case study', 'qualitative', 'quanitative', 'other'], repeated=True)
 
   sample_data_collection_instrument = ndb.StringProperty(default="")
@@ -143,6 +101,38 @@ class Methodology(ndb.Model):
 
   sample_effect_size = ndb.StringProperty(default="")
   sample_agreement = ndb.StringProperty(default="")
+
+
+
+  @property
+  def author_names(self):
+    return ndb.get_multi(self.authors)
+    #.query().filter(Person.guilds == self.key)
+
+
+
+
+
+class LearningGoal(ndb.Model):
+  """ 
+  ""
+  ""
+  ""
+  """
+  timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
+  created = ndb.DateTimeProperty(auto_now_add=True)
+  created_by = ndb.KeyProperty(kind='Researcher')
+  updated = ndb.DateTimeProperty(auto_now=True)
+  updated_by = ndb.KeyProperty(kind='Researcher')
+
+
+
+class Greeting(ndb.Model):
+  """A main model for representing an individual Guestbook entry."""
+  author = ndb.StructuredProperty(Researcher)
+  content = ndb.StringProperty(indexed=False)
+  date = ndb.DateTimeProperty(auto_now_add=True)
+
 
 
 
