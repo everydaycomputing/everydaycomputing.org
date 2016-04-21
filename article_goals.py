@@ -23,6 +23,7 @@ class LearningGoal(ndb.Model):
   ccssm_domains = ndb.StringProperty(choices=['CC','OA','NBT','NF','MD','G'], repeated=True)
   ccssm_cotent_standards = ndb.StringProperty(default="") # repeated??
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
+  ccssm_grades = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8,9,10,11,12], repeated=True)
 
   @property
   def _domain(self):
@@ -36,6 +37,16 @@ class LearningGoal(ndb.Model):
     if self.domain == 7: return "Efficiency and performance constraints"
     if self.domain == 8: return "Debugging and systematic error detection"
 
+  @staticmethod
+  def _ccssm_practice_standards(code):
+    if code == 1: return "1. Make sense of problems and persevere in solving them."
+    if code == 2: return "2. Reason abstractly and quantitatively."
+    if code == 3: return "3. Construct viable arguments and critique the reasoning of others."
+    if code == 4: return "4. Model with mathematics."
+    if code == 5: return "5. Use appropriate tools strategically."
+    if code == 6: return "6. Attend to precision."
+    if code == 7: return "7. Look for and make use of structure."
+    if code == 8: return "8. Look for and express regularity in repeated reasoning."
 
 
 class ArticleGoalHandler(webapp2.RequestHandler):
