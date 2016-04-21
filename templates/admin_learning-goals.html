@@ -7,37 +7,54 @@
   <h1>Learning Goals</h1>
   <p>Something...</p>
   
-  <form action="/article/edit/{{category}}/{{key}}/" method="post">
-    
+  <form action="/article/goal/{{article_key}}/{{learning_goal_key}}/" method="post">
+      {% if learning_goal.domain==1 %} selected="selected" {% endif %}
+    <!--<input type="hidden" name="learing_goal_key" value="{{learning_goal_key}}">-->
+    <!--
     <div>
       <label for="domain">Domain:
-        <textarea name="domain" class="input-block" rows="2" placeholder="Broadest categories of learning goals, perhaps defining the trajectories.">{{ article._learning_goal.domain }}</textarea>
-      </label>
+        <textarea name="domain" class="input-block" rows="2" placeholder="Broadest categories of learning goals, perhaps defining the trajectories.">{{ learning_goal.domain }}</textarea>
+
     </div>
-    
-    
+    -->
+        <label for="domain">Domain:
+    <select name="domain">
+      <option value="0"  {% if learning_goal.domain==0 %} selected="selected" {% endif %}>Abstraction and pattern generalization</option>
+      <option value="1"  {% if learning_goal.domain==1 %} selected="selected" {% endif %}>Systematic processing of data</option>
+      <option value="2"  {% if learning_goal.domain==2 %} selected="selected" {% endif %}>Symbol systems and representations</option>
+      <option value="3"  {% if learning_goal.domain==3 %} selected="selected" {% endif %}>Algorithmic notions of flow of control</option>
+      <option value="4"  {% if learning_goal.domain==4 %} selected="selected" {% endif %}>Structured problem decomposition (modularizing)</option>
+      <option value="5"  {% if learning_goal.domain==5 %} selected="selected" {% endif %}>Iterative, recursive, and parallel thinking</option>
+      <option value="6"  {% if learning_goal.domain==6 %} selected="selected" {% endif %}>Conditional logic</option>
+      <option value="7"  {% if learning_goal.domain==7 %} selected="selected" {% endif %}>Efficiency and performance constraints</option>
+      <option value="8"  {% if learning_goal.domain==8 %} selected="selected" {% endif %}>Debugging and systematic error detection</option>
+    </select>
+       </label>
+       
+
+ 
     <div>
       <label for="star">Empirical Support: </label>
-      <input type="checkbox" name="star"{% if article._learning_goal.empirical_support %}checked="yes"{% endif %}/>
+      <input type="checkbox" name="star"{% if learning_goal.empirical_support %}checked="yes"{% endif %}/>
     </div>
     
     <div>
       <label for="goal">Goal:
-        <textarea name="goal" class="input-block" rows="2" placeholder="Text of a single learning goal that the resource identifies.">{{ article._learning_goal.goal }}</textarea>
+        <textarea name="goal" class="input-block" rows="2" placeholder="Text of a single learning goal that the resource identifies.">{{ learning_goal.goal }}</textarea>
       </label>
     </div>
     
     <!-- Subgoals -->
     <div>
       <label for="subgoals">Subgoals:
-        <textarea name="subgoals" class="input-block" rows="2" placeholder="Any subgoals of the goal mentioned in the resource.">{{ article._learning_goal.subgoals }}</textarea>
+        <textarea name="subgoals" class="input-block" rows="2" placeholder="Any subgoals of the goal mentioned in the resource.">{{ learning_goal.subgoals }}</textarea>
       </label>
     </div>
     
     <!-- Relationships -->
     <div>
       <label for="relationships_goals">Relationships:
-        <textarea name="relationships_goals" class="input-block" rows="2" placeholder="Notes about how this goal might relate to other goals mentioned in the resource.">{{ article._learning_goal.relationships_goals }}</textarea>
+        <textarea name="relationships_goals" class="input-block" rows="2" placeholder="Notes about how this goal might relate to other goals mentioned in the resource.">{{ learning_goal.relationships_goals }}</textarea>
       </label>
     </div>
     
@@ -48,7 +65,7 @@
         <legend>Age Level:</legend>
         
         {% for item in [0,1,2,3,4,5,6,7,8] %}
-        <input type="checkbox" name="age_level" value="{{ item }}" required {% if item in article._learning_goal.age_level %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="age_level" value="{{ item }}" required {% if item in learning_goal.age_level %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
         
@@ -63,7 +80,7 @@
         <legend>Activity Origin:</legend>
         {% for item in ['Custom','Pre-existing'] %}
           <input type="checkbox" name="activity_origin" value="{{ item }}" required
-          {% if item in article._learning_goal.activity_origin %}
+          {% if item in learning_goal.activity_origin %}
           checked="yes"
           {% endif %}/>
           {{ item }}
@@ -76,7 +93,7 @@
     <!-- Relationships -->
     <div>
       <label for="subgoals">Activity Source:
-        <textarea name="activity_source" class="input-block" rows="2" placeholder="If activities are pre-existing, indicate where they come from. If they are custom, leave blank.">{{ article._learning_goal.activity_source }}</textarea>
+        <textarea name="activity_source" class="input-block" rows="2" placeholder="If activities are pre-existing, indicate where they come from. If they are custom, leave blank.">{{ learning_goal.activity_source }}</textarea>
       </label>
     </div>
     
@@ -86,7 +103,7 @@
         <legend>CCSM-M Domains:</legend>
         
         {% for item in ['CC','OA','NBT','NF','MD','G'] %}
-        <input type="checkbox" name="ccssm_domains" value="{{ item }}" required {% if item in article._learning_goal.ccssm_domains %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="ccssm_domains" value="{{ item }}" required {% if item in learning_goal.ccssm_domains %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
       </fieldset>
@@ -95,7 +112,7 @@
     <!-- -->
     <div>
       <label for="ccssm_cotent_standards">CCSS-M Content Standards:
-        <textarea name="ccssm_cotent_standards" class="input-block" rows="2" placeholder="Codes for any CCSS-M content standards that are related to the goal.">{{ article._learning_goal.ccssm_cotent_standards }}</textarea>
+        <textarea name="ccssm_cotent_standards" class="input-block" rows="2" placeholder="Codes for any CCSS-M content standards that are related to the goal.">{{ learning_goal.ccssm_cotent_standards }}</textarea>
       </label>
     </div>
     
@@ -105,7 +122,7 @@
         <legend>CCSM-M Practice Standards:</legend>
         
         {% for item in [1,2,3,4,5,6,7,8] %}
-        <input type="checkbox" name="ccssm_practice_standards" value="{{ item }}" required {% if item in article._learning_goal.ccssm_practice_standards %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="ccssm_practice_standards" value="{{ item }}" required {% if item in learning_goal.ccssm_practice_standards %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
         
