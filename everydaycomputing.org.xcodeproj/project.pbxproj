@@ -19,6 +19,7 @@
 		374CE27B1C8787F100D0E41A /* admin_category.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = admin_category.py; sourceTree = "<group>"; };
 		374CE27D1C878A7F00D0E41A /* article_handler.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_handler.py; sourceTree = "<group>"; };
 		376665651CBAFDBA00B8B21B /* article_methodology.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_methodology.py; sourceTree = "<group>"; };
+		37A91B0C1CC66B5A00E4F6C1 /* article_goals.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_goals.py; sourceTree = "<group>"; };
 		37E387281CA4F8F400CFE94B /* resource_handler.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = resource_handler.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,6 +32,7 @@
 				376665651CBAFDBA00B8B21B /* article_methodology.py */,
 				370980451C7E3D1500E0BD90 /* admin_models.py */,
 				37E387281CA4F8F400CFE94B /* resource_handler.py */,
+				37A91B0C1CC66B5A00E4F6C1 /* article_goals.py */,
 			);
 			name = app;
 			sourceTree = "<group>";

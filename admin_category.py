@@ -17,9 +17,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 
 class ArticleCategoryHandler(webapp2.RequestHandler):
   def get(self,key):
-    '''
-    ' This is 
-    '''
+    """ This is """
     article = ndb.Key(urlsafe=key).get()
     
     template_values = {
@@ -40,17 +38,6 @@ class ArticleCategoryHandler(webapp2.RequestHandler):
 class ArticleCategoryEditHandler(webapp2.RequestHandler):
   
   def post(self,category,key):
-    """
-    article = ndb.Key(urlsafe=key).get()
-    article.findings = self.request.get('findings')
-    article.purpose = self.request.get('purpose')
-    article.recommendations = self.request.get('recommendations')
-    article.star = self.request.get('star') != ''
-    article.audience = self.request.get_all('audience')
-    article.put()
-    """
-    
-    #logging.info(article.audience)
     # Get the correct category from ndb
     if category == 'summary':
       self.updateSummary(key,self.request)
@@ -58,8 +45,7 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
       self.updateLearningGoals(key,self.request)
     elif category == 'methodology':
       self.updateMethodology(key,self.request)
-    
-    # Reload
+
     self.redirect("/article/" + key + "/")
 
 
@@ -68,6 +54,7 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
     "
     """
     article = ndb.Key(urlsafe=key).get()
+    #learning_goal = ndb.Key(urlsafe=key).get()
     template_values = {
       'key': key,
       'category': category,
@@ -75,11 +62,13 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
       'user': users.get_current_user(),
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout",
-      'article': article
+      'article': article,
+      #'learning_goal': learning_goal
     }
     
     template = JINJA_ENVIRONMENT.get_template('templates/admin_%s.html' % category)
     self.response.write(template.render(template_values))
+  
   
   def updateSummary(self,key,data):
     """ """
@@ -97,10 +86,9 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
   def updateLearningGoals(self,key,data):
     """ """
     article = ndb.Key(urlsafe=key).get()
-    if article.learning_goal == None:
-      learning_goal = LearningGoal()
-    else:
-      learning_goal = article._learning_goal
+    learning_goal_key = data.get('learning_goal_key')
+    logging.info("HI" + learning_goal_key)
+    learning_goal = ndb.Key(urlsafe=learning_goal_key).get()
 
     learning_goal.domain = data.get('domain')
     learning_goal.goal = data.get('goal')
@@ -114,16 +102,17 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
     learning_goal.ccssm_cotent_standards = data.get('ccssm_cotent_standards')
     learning_goal.ccssm_practice_standards = map(int, data.get_all('ccssm_practice_standards'))
     learning_goal.put()
-    article.learning_goal = learning_goal.key
-    article.put()
+    #article.learning_goal = learning_goal.key
+    #article.put()
+
+
 
   def updateMethodology(self,key,data):
     """ """
     article = ndb.Key(urlsafe=key).get()
-    if article.methodology == None:
-      methodology = Methodology()
-    else:
-      methodology = article.methodology.get()
+    methodology = article._methodology
+    logging.info("METHODOLOGY: ")
+    logging.info(methodology)
 
     methodology.sample_size = int(data.get('sample_size'))
     methodology.sample_gender = data.get_all('sample_gender')

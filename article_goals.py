@@ -1,5 +1,6 @@
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from protorpc import messages
 import os
 import jinja2
 import webapp2
@@ -22,6 +23,18 @@ class LearningGoal(ndb.Model):
   ccssm_domains = ndb.StringProperty(choices=['CC','OA','NBT','NF','MD','G'], repeated=True)
   ccssm_cotent_standards = ndb.StringProperty(default="") # repeated??
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
+
+  @property
+  def _domain(self):
+    if self.domain == 0: return "Abstraction and pattern generalization"
+    if self.domain == 1: return "Systematic processing of data"
+    if self.domain == 2: return "Symbol systems and representations"
+    if self.domain == 3: return "Algorithmic notions of flow of control"
+    if self.domain == 4: return "Structured problem decomposition (modularizing)"
+    if self.domain == 5: return "Iterative, recursive, and parallel thinking"
+    if self.domain == 6: return "Conditional logic"
+    if self.domain == 7: return "Efficiency and performance constraints"
+    if self.domain == 8: return "Debugging and systematic error detection"
 
 
 

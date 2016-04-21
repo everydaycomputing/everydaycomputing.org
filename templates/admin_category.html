@@ -51,13 +51,38 @@
 
 <div class="container about-that">
   <div class="columns">
-    
-    <div class="one-half column">
+    <div class="one-fourth column">
       <p>Sample Size: {{ article._methodology.sample_size }}</p>
     </div>
-    <div class="one-half column">
-      <p>Notes: {{ article._methodology.sample_notes }}</p>
+    <div class="one-fourth column">
+      <p>Gender: {{ article._methodology.sample_gender | join(",") }}</p>
     </div>
+    <div class="one-fourth column">
+      <p>Ethnicity: {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>School Size: {{ article._methodology.sample_size_of_school }}</p>
+    </div>
+
+
+    <!-- row 2 -->
+    <div class="one-fourth column">
+      <p>Participant Type: {{ article._methodology.sample_participant_type }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Environment: {{ article._methodology.sample_environment | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Setting: {{ article._methodology.sample_setting | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Disability Status: {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+
+  </div>
+  
+  <div>
+    <p>Notes: {{ article._methodology.sample_notes }}</p>
   </div>
 </div>
 
@@ -65,21 +90,26 @@
 <!-- ----------------------------------------------------------- METHODOLOGY -->
 
 <div class="container about-that">
-    <hr/>
+  <hr/>
   <h1>Learning Goals
     <a href="{{application_url}}/article/goal/insert/{{key}}/" class="btn">Add New Learning Goal</a></h1>
-  
-  {% for goal in article.learning_goals %}
-  
-  <li><a href="{{application_url}}/article/goal/edit/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}">{{ goal.get().domain }}</a>
-  <a href="{{application_url}}/article/goal/delete/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}" style="color:red;">Delete</a>
-  
-  <br>
+  <table style="width:100%;border-color:gray;">
+    {% for goal in article.learning_goals %}
+    <tr class="{{ loop.cycle('odd', 'even') }}">
+      <td>
+        <a href="{{application_url}}/article/goal/edit/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}">{{ goal.get()._domain }}</a>
+        <p>
+        Goal: {{ goal.get().goal }}<br/>
+        Age Level: {{ goal.get().age_level | join(",") }}</p>
+      </td>
+      <td><a href="{{application_url}}/article/goal/delete/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}" style="color:red;">Delete</a></td>
+      
+    </tr>
     {% endfor %}
-    
-    <hr/>
-    
-    </div>
+  </table>
+  <hr/>
+  
+</div>
 
 <!--
  <div class="container about-that">
