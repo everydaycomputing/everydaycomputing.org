@@ -5,7 +5,6 @@
 
 <div class="container">
   <h1>Learning Goals</h1>
-  <p>Something...</p>
   
   <form action="/article/goal/{{article_key}}/{{learning_goal_key}}/" method="post">
       {% if learning_goal.domain==1 %} selected="selected" {% endif %}
@@ -17,6 +16,12 @@
 
     </div>
     -->
+    <div>
+      <label for="page_number">Page Number:
+        <input type="number" name="page_number" class="input-block" value="{{ learning_goal.page_number }}">
+      </label>
+    </div>
+    
         <label for="domain">Domain:
     <select name="domain">
       <option value="0"  {% if learning_goal.domain==0 %} selected="selected" {% endif %}>Abstraction and pattern generalization</option>
@@ -32,12 +37,24 @@
        </label>
        
 
- 
+    <!-- Support -->
+    <!-- 
     <div>
       <label for="star">Empirical Support: </label>
       <input type="checkbox" name="star"{% if learning_goal.empirical_support %}checked="yes"{% endif %}/>
     </div>
+    -->
+    <div>
+    <label for="support">Support:
+    <select name="support">
+      <option value="0"  {% if learning_goal.support==0 %} selected="selected" {% endif %}>Classroom Evidence</option>
+      <option value="1"  {% if learning_goal.support==1 %} selected="selected" {% endif %}>Literature Evidence</option>
+      <option value="2"  {% if learning_goal.support==2 %} selected="selected" {% endif %}>Theoretical</option>
+    </select>
+   </label>
+   </div>
     
+    <!-- Goal -->
     <div>
       <label for="goal">Goal:
         <textarea name="goal" class="input-block" rows="2" placeholder="Text of a single learning goal that the resource identifies.">{{ learning_goal.goal }}</textarea>
@@ -65,7 +82,7 @@
         <legend>Age Level:</legend>
         
         {% for item in [0,1,2,3,4,5,6,7,8] %}
-        <input type="checkbox" name="age_level" value="{{ item }}" required {% if item in learning_goal.age_level %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="age_level" value="{{ item }}" {% if item in learning_goal.age_level %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
         
@@ -79,7 +96,7 @@
       
         <legend>Activity Origin:</legend>
         {% for item in ['Custom','Pre-existing'] %}
-          <input type="checkbox" name="activity_origin" value="{{ item }}" required
+          <input type="checkbox" name="activity_origin" value="{{ item }}"
           {% if item in learning_goal.activity_origin %}
           checked="yes"
           {% endif %}/>
@@ -103,7 +120,7 @@
         <legend>CCSM-M Grade:</legend>
         
         {% for item in [0,1,2,3,4,5,6,7,8,9,10,11,12] %}
-        <input type="checkbox" name="ccssm_grades" value="{{ item }}" required {% if item in learning_goal.ccssm_grades %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="ccssm_grades" value="{{ item }}"  {% if item in learning_goal.ccssm_grades %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
       </fieldset>
@@ -115,7 +132,7 @@
         <legend>CCSM-M Domains:</legend>
         
         {% for item in ['CC','OA','NBT','NF','MD','G'] %}
-        <input type="checkbox" name="ccssm_domains" value="{{ item }}" required {% if item in learning_goal.ccssm_domains %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="ccssm_domains" value="{{ item }}"  {% if item in learning_goal.ccssm_domains %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
       </fieldset>
@@ -134,7 +151,7 @@
         <legend>CCSM-M Practice Standards:</legend>
         
         {% for item in [1,2,3,4,5,6,7,8] %}
-        <input type="checkbox" name="ccssm_practice_standards" value="{{ item }}" required {% if item in learning_goal.ccssm_practice_standards %} checked="yes"{% endif %}>&nbsp;{{ learning_goal._ccssm_practice_standards(item) }}</input>
+        <input type="checkbox" name="ccssm_practice_standards" value="{{ item }}" req {% if item in learning_goal.ccssm_practice_standards %} checked="yes"{% endif %}>&nbsp;{{ learning_goal._ccssm_practice_standards(item) }}</input>
         <br/>
         {% endfor %}
         

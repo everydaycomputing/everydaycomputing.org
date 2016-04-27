@@ -10,12 +10,19 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
 
+################################################################################
+#
+# Learning Goal
+#
+################################################################################
 class LearningGoal(ndb.Model):
   """ Learning Goals """
   domain = ndb.IntegerProperty(default=0)
+  page_number = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8], repeated=True)
-  empirical_support = ndb.BooleanProperty(default=False)
+  #empirical_support = ndb.BooleanProperty(default=False)
+  support = ndb.IntegerProperty(default=0)
   subgoals = ndb.TextProperty(default="")
   relationships_goals = ndb.TextProperty(default="")
   activity_origin = ndb.StringProperty(choices=['Custom','Pre-existing'], repeated=True)
@@ -24,7 +31,7 @@ class LearningGoal(ndb.Model):
   ccssm_cotent_standards = ndb.StringProperty(default="") # repeated??
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
   ccssm_grades = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8,9,10,11,12], repeated=True)
-
+  
   @property
   def _domain(self):
     if self.domain == 0: return "Abstraction and pattern generalization"
@@ -36,7 +43,13 @@ class LearningGoal(ndb.Model):
     if self.domain == 6: return "Conditional logic"
     if self.domain == 7: return "Efficiency and performance constraints"
     if self.domain == 8: return "Debugging and systematic error detection"
-
+  
+  @property
+  def _support(self):
+    if self.support == 0: return "Clasroom Evidence"
+    if self.support == 1: return "Literature Evidence"
+    if self.support == 2: return "Theorectical Evidence"
+  
   @staticmethod
   def _ccssm_practice_standards(code):
     if code == 1: return "1. Make sense of problems and persevere in solving them."
@@ -49,26 +62,31 @@ class LearningGoal(ndb.Model):
     if code == 8: return "8. Look for and express regularity in repeated reasoning."
 
 
+################################################################################
+#
+# ArticleGoalHandler
+#
+################################################################################
 class ArticleGoalHandler(webapp2.RequestHandler):
-
+  
   def post(self,article_key,learning_goal_key):
     """
-    article = ndb.Key(urlsafe=key).get()
-    article.findings = self.request.get('findings')
-    article.purpose = self.request.get('purpose')
-    article.recommendations = self.request.get('recommendations')
-    article.star = self.request.get('star') != ''
-    article.audience = self.request.get_all('audience')
-    article.put()
-    """
+      article = ndb.Key(urlsafe=key).get()
+      article.findings = self.request.get('findings')
+      article.purpose = self.request.get('purpose')
+      article.recommendations = self.request.get('recommendations')
+      article.star = self.request.get('star') != ''
+      article.audience = self.request.get_all('audience')
+      article.put()
+      """
     data = self.request
     article = ndb.Key(urlsafe=article_key).get()
     #learning_goal_key = data.get('learning_goal_key')
     #logging.info("LGK: " + learning_goal_key)
     learning_goal = ndb.Key(urlsafe=learning_goal_key).get()
-    
-
     learning_goal.domain = int(data.get('domain'))
+    learning_goal.support = int(data.get('support'))
+    learning_goal.page_number = str(data.get('page_number'))
     learning_goal.goal = data.get('goal')
     learning_goal.age_level = map(int, data.get_all('age_level'))
     learning_goal.empirical_support = data.get('empirical_support') != ''
@@ -82,9 +100,12 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     learning_goal.put()
     # Reload
     self.redirect("/article/" + article_key + "/")
-
+  
+  
   def get(self,task,article_key):
-    """ We are using a different key based on the type of task """
+    """
+      " Note: We are using a different key based on the type of task
+      """
     article = ndb.Key(urlsafe=article_key).get()
     if task == 'insert':
       # Create a new learing goal
@@ -100,10 +121,10 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     else:
       learning_goal_key = self.request.get('learning_goal_key')
       learning_goal = ndb.Key(urlsafe=learning_goal_key).get()
-
+    
     # Save any changes we made
     article.put()
-
+    
     if task == 'delete':
       self.redirect("/article/" + article_key + "/")
     else:
