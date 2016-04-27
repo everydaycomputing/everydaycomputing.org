@@ -38,7 +38,7 @@
           
           {% for item in ['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'] %}
           <label>
-            <input type="checkbox" name="audience" value="{{ item }}" required {% if item in article.audience %} checked="yes"{% endif %}/>
+            <input type="checkbox" name="audience" value="{{ item }}" {% if item in article.audience %} checked="yes"{% endif %}/>
             {{ item }}
           </label>
           {% endfor %}

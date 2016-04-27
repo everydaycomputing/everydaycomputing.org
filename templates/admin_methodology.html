@@ -22,7 +22,7 @@
         <legend>Gender:</legend>
         
         {% for item in ['female','male'] %}
-        <input type="checkbox" name="sample_gender" value="{{ item }}" required {% if item in article._methodology.sample_gender %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_gender" value="{{ item }}"  {% if item in article._methodology.sample_gender %} checked="yes"{% endif %}/>
         {{ item|title }}&nbsp;
         {% endfor %}
         
@@ -44,7 +44,7 @@
         <legend>Sample Disability Status:</legend>
         
         {% for item in  ['Mild','Moderate','Severe'] %}
-        <input type="checkbox" name="sample_disability_status" value="{{ item }}" required {% if item in article._methodology.sample_disability_status %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_disability_status" value="{{ item }}"  {% if item in article._methodology.sample_disability_status %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
         
@@ -59,7 +59,7 @@
         <legend>Sample Ethnicity:</legend>
         
         {% for item in ['Caucasian', 'African American', 'Hispanic', 'Asian PI', 'Native American', 'Multiracial', 'Other'] %}
-        <input type="checkbox" name="sample_ethnicity" value="{{ item }}" required {% if item in article._methodology.sample_ethnicity %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_ethnicity" value="{{ item }}"  {% if item in article._methodology.sample_ethnicity %} checked="yes"{% endif %}/>
         {{ item }}&nbsp;
         {% endfor %}
         
@@ -87,7 +87,7 @@
         <legend>Environment:</legend>
         
         {% for item in ['in school', 'after school', 'informal setting'] %}
-        <input type="checkbox" name="sample_environment" value="{{ item }}" required {% if item in article._methodology.sample_environment %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_environment" value="{{ item }}"  {% if item in article._methodology.sample_environment %} checked="yes"{% endif %}/>
         {{ item|title }}&nbsp;
         {% endfor %}
         
@@ -99,7 +99,7 @@
         <legend>Setting:</legend>
         
         {% for item in ['rural', 'urban', 'public', 'private'] %}
-        <input type="checkbox" name="sample_setting" value="{{ item }}" required {% if item in article._methodology.sample_setting %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_setting" value="{{ item }}"  {% if item in article._methodology.sample_setting %} checked="yes"{% endif %}/>
         {{ item|title }}&nbsp;
         {% endfor %}
         
@@ -118,7 +118,7 @@
         <legend>Design:</legend>
         
         {% for item in ['case study', 'qualitative', 'quanitative', 'other'] %}
-        <input type="checkbox" name="sample_design" value="{{ item }}" required {% if item in article._methodology.sample_design %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_design" value="{{ item }}"  {% if item in article._methodology.sample_design %} checked="yes"{% endif %}/>
         {{ item|title }}&nbsp;
         {% endfor %}
         
@@ -151,7 +151,7 @@
         <legend>Analytic Technique:</legend>
         
         {% for item in ['t-test', 'anova', 'regression', 'factor analysis', 'interviews', 'artifacts', 'other'] %}
-        <input type="checkbox" name="sample_data_analytic_technique" value="{{ item }}" required {% if item in article._methodology.sample_data_analytic_technique %} checked="yes"{% endif %}/>
+        <input type="checkbox" name="sample_data_analytic_technique" value="{{ item }}"  {% if item in article._methodology.sample_data_analytic_technique %} checked="yes"{% endif %}/>
         {{ item|title }}&nbsp;
         {% endfor %}
         
