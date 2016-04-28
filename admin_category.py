@@ -46,7 +46,7 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
     elif category == 'methodology':
       self.updateMethodology(key,self.request)
 
-    self.redirect("/article/" + key + "/")
+    self.redirect("/resource/article/" + key + "/")
 
 
   def get(self,category,key):

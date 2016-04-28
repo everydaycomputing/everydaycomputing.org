@@ -99,7 +99,7 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     learning_goal.ccssm_practice_standards = map(int, data.get_all('ccssm_practice_standards'))
     learning_goal.put()
     # Reload
-    self.redirect("/article/" + article_key + "/")
+    self.redirect("/resource/article/" + article_key + "/")
   
   
   def get(self,task,article_key):
@@ -126,7 +126,7 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     article.put()
     
     if task == 'delete':
-      self.redirect("/article/" + article_key + "/")
+      self.redirect("/resource/article/" + article_key + "/")
     else:
       template_values = {
         'url': self.request.application_url,

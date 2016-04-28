@@ -54,14 +54,15 @@ class MainPage(webapp2.RequestHandler):
 #
 APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=MainPage, name='home'),
-                               webapp2.Route('/resource/', handler=ResourceHandler, name='resource-handler'),
-                               routes.PathPrefixRoute('/article', [
-                                                                   webapp2.Route('/', ArticleHandler, 'user-overview'),
-                                                                   webapp2.Route('/insert/', ArticleInsertHandler, 'user-projects'),
-                                                                   webapp2.Route('/<key>/', ArticleCategoryHandler, 'user-profile'),
-                                                                   webapp2.Route('/goal/<task:(insert|edit|delete)>/<article_key>/', ArticleGoalHandler, 'user-projects'),
-                                                                   webapp2.Route('/goal/<article_key>/<learning_goal_key>/', ArticleGoalHandler, 'user-projects'),
-                                                                   webapp2.Route('/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
+                               #webapp2.Route('/resource/', handler=ResourceHandler, name='resource-handler'),
+                               routes.PathPrefixRoute('/resource', [
+                                                                   webapp2.Route('/', ResourceHandler, 'user-overview'),
+                                                                   webapp2.Route('/article/insert/', ArticleInsertHandler, 'user-projects'),
+                                                                   webapp2.Route('/article/<key>/', ArticleCategoryHandler, 'user-profile'),
+                                                                   webapp2.Route('/article/', ArticleHandler, 'user-overview'),
+                                                                   webapp2.Route('/article/goal/<task:(insert|edit|delete)>/<article_key>/', ArticleGoalHandler, 'user-projects'),
+                                                                   webapp2.Route('/article/goal/<article_key>/<learning_goal_key>/', ArticleGoalHandler, 'user-projects'),
+                                                                   webapp2.Route('/article/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
                                                                    ]),
                                #webapp2.Route('/article/<operation:.*?>/<:/?>/', handler=ArticleHandler, name='insert'),
                                #webapp2.Route('/article/edit/<key>/', handler=ArticleHandler, name='edit'),

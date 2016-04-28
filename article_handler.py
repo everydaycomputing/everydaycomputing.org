@@ -107,7 +107,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
     logging.info(article)
     
     query_params = {'guestbook_name': "guestbook_name"}
-    self.redirect('/article/')  #?' + urllib.urlencode(query_params))
+    self.redirect('/resource/article/')  #?' + urllib.urlencode(query_params))
 
   
   def bib2data(self,string):
