@@ -177,7 +177,7 @@ class ArticleHandler(webapp2.RequestHandler):
     """
     # Fetch all articles
     articles_query = Article.query(ancestor=article_ancestor_key())#.order(-Article.timestamp.created)
-    articles = articles_query.fetch(10)
+    articles = articles_query.fetch(100)
     
     template_values = {
       'url': self.request.application_url,

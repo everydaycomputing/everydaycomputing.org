@@ -14,12 +14,17 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
                                        autoescape=True)
 
 
+
 class HomePage(webapp2.RequestHandler):
+  """ Handlers for the public facing website.
+
+  """
+  
   
   def get(self):
-    """ """
-    template_values = {
-    }
+    """ 
+    """
+    template_values = {}
     
     template = JINJA_ENVIRONMENT.get_template('templates/public/public_home.html')
     self.response.write(template.render(template_values))
@@ -37,6 +42,8 @@ class HomePage(webapp2.RequestHandler):
 
 
 class AboutPage(webapp2.RequestHandler):
+  """ About the project page for the public facing website
+  """
   def get(self):
     template_values = {}
     template = JINJA_ENVIRONMENT.get_template('templates/public/public_about.html')
