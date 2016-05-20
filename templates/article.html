@@ -12,7 +12,7 @@
     <table>
     {% for article in articles %}
     <tr class="{{ loop.cycle('odd', 'even') }}"><td>
-    <div class="row">
+    <div class="row"><li>
 
       {% for author in article.author_names %}
       <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
@@ -21,7 +21,7 @@
       <span>{{ article.journal}}.</span>
       <span>({{ article.year}}).</span>
       <span>{{ article.pages}}.</span>
-      
+      </li>
     </div>
     </td></tr>
     {% endfor %}
