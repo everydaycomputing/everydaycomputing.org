@@ -29,11 +29,13 @@
   <div class="columns">
     
     <div class="one-half column">
+      <p>Type: {{ article.type | join(",") }}</p>
       <p>Purpose: {{ article.purpose }}</p>
-      <p>Findings: {{ article.findings }}</p>
+
     </div>
     
     <div class="one-half column">
+      <p>Findings: {{ article.findings }}</p>
       <p>Recommendations: {{ article.recommendations }}</p>
     </div>
     

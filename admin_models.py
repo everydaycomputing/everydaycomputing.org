@@ -45,11 +45,14 @@ class Resource(ndb.Model):
 
 
 class Article(ndb.Model):
-  """ Sub model for representing an author.
-    "   Note: The key is the "id" from bibtex
+  """
+    Model representing a resource type article
+    Note: The key is the "id" from bibtex
     """
+  # Entry metadata
   timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
-  
+
+  # Article metadata
   authors = ndb.KeyProperty(kind='Author', repeated=True)
   title = ndb.StringProperty(indexed=False)
   journal = ndb.StringProperty(indexed=False)
@@ -61,7 +64,8 @@ class Article(ndb.Model):
   # link =
   # pdf =
   
-  # Summary
+  # Summary data
+  type = ndb.StringProperty(choices=['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'], repeated=True)
   star = ndb.BooleanProperty(indexed=True,default=False)
   purpose = ndb.TextProperty(default="")
   findings = ndb.TextProperty(default="")
@@ -80,9 +84,9 @@ class Article(ndb.Model):
   
   @property
   def _methodology(self):
-    """ A shortcut for the methodology property that can be accessed from a 
-    template so that we do not have to call get() in a template.
-    """
+    """ A shortcut for the methodology property that can be accessed from a
+      template so that we do not have to call get() in a template.
+      """
     if self.methodology == None:
       methodology = Methodology()
       self.methodology = methodology.key
@@ -94,13 +98,13 @@ class Article(ndb.Model):
   @property
   def _learning_goal(self):
     """
-    if self.learning_goal == None:
+      if self.learning_goal == None:
       learning_goal = LearningGoal()
-    else:
+      else:
       learning_goal = self.learning_goal.get_multi()
-    
-    return learning_goal
-    """
+      
+      return learning_goal
+      """
     return ndb.get_multi(self.learning_goal)
 
 

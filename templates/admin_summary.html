@@ -8,6 +8,19 @@
   
   <form action="/resource/article/edit/{{category}}/{{key}}/" method="post">
     
+    
+    <div>
+      <legend>Type:</legend>
+      {% for item in ['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'] %}
+      <label>
+        <input type="checkbox" name="type" value="{{ item }}" {% if item in article.type %} checked="yes"{% endif %}/>
+        {{ item }}
+      </label>
+      {% endfor %}
+    </div>
+    
+    
+    
     <fieldset>
       <legend></legend>
       
