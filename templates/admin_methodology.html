@@ -145,7 +145,7 @@
     
     
     
-    
+    <!-------------------------------------------------- Analytics Technique -->
     <div>
       <fieldset>
         <legend>Analytic Technique:</legend>
@@ -158,9 +158,14 @@
       </fieldset>
     </div>
     
+    <div>
+      <label for="sample_data_analytic_technique_note">Analytic Technique Note:
+        <textarea name="sample_data_analytic_technique_note" class="input-block" rows="3">{{ article._methodology.sample_data_analytic_technique_note}}</textarea>
+      </label>
+    </div>
     
     
-    
+    <!-------------------------------------------------- Effect Size -->
     <div>
       <label for="domain">Effect Size:
         <textarea name="sample_effect_size" class="input-block" rows="1" placeholder="Type of effect size and interpretation (e.g., odds ratio).">{{ article._methodology.sample_effect_size}}</textarea>

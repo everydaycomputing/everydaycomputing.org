@@ -30,6 +30,7 @@ class Methodology(ndb.Model):
   sample_data_collection_procedure = ndb.StringProperty(default="")
   
   sample_data_analytic_technique = ndb.StringProperty(choices=['t-test', 'anova', 'regression', 'factor analysis', 'interviews', 'artifacts', 'other'], repeated=True)
+  sample_data_analytic_technique_note = ndb.TextProperty(default="")
   
   sample_effect_size = ndb.StringProperty(default="")
   sample_agreement = ndb.StringProperty(default="")

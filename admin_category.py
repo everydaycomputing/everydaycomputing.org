@@ -128,6 +128,7 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
     methodology.sample_data_collection_instrument = data.get('sample_data_collection_instrument')
     methodology.sample_data_collection_procedure = data.get('sample_data_collection_procedure')
     methodology.sample_data_analytic_technique = data.get_all('sample_data_analytic_technique')
+    methodology.sample_data_analytic_technique_note = data.get('sample_data_analytic_technique_note')
     methodology.sample_effect_size = data.get('sample_effect_size')
     methodology.sample_agreement = data.get('sample_agreement')
 
