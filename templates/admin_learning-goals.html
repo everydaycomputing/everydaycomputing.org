@@ -7,55 +7,68 @@
   <h1>Learning Goals</h1>
   
   <form action="/resource/article/goal/{{article_key}}/{{learning_goal_key}}/" method="post">
-
+    
     <!--
-          {% if learning_goal.domain==1 %} selected="selected" {% endif %}
-          
-    <input type="hidden" name="learing_goal_key" value="{{learning_goal_key}}">-->
+     {% if learning_goal.domain==1 %} selected="selected" {% endif %}
+     
+     <input type="hidden" name="learing_goal_key" value="{{learning_goal_key}}">-->
     <!--
-    <div>
-      <label for="domain">Domain:
-        <textarea name="domain" class="input-block" rows="2" placeholder="Broadest categories of learning goals, perhaps defining the trajectories.">{{ learning_goal.domain }}</textarea>
-
-    </div>
-    -->
+     <div>
+     <label for="domain">Domain:
+     <textarea name="domain" class="input-block" rows="2" placeholder="Broadest categories of learning goals, perhaps defining the trajectories.">{{ learning_goal.domain }}</textarea>
+     
+     </div>
+     -->
     <div>
       <label for="page_number">Page Number:
         <input type="number" name="page_number" class="input-block" value="{{ learning_goal.page_number }}">
+          </label>
+    </div>
+
+
+    <div>
+    <label for="domainFromLiteratureReview">Domain:
+      <select name="domainFromLiteratureReview">
+        <option value="0"  {% if learning_goal.domainFromLiteratureReview==0 %} selected="selected" {% endif %}>Program development (Iterative development of computational solutions)</option>
+        <option value="1"  {% if learning_goal.domainFromLiteratureReview==1 %} selected="selected" {% endif %}>Computing languages, environments, and constructs</option>
+        <option value="2"  {% if learning_goal.domainFromLiteratureReview==2 %} selected="selected" {% endif %}>Algorithms (Flow of control)</option>
+        <option value="3"  {% if learning_goal.domainFromLiteratureReview==3 %} selected="selected" {% endif %}>Applications of computing (Recognizing computational problems and interpreting computational results)</option>
+      </select>
+    </label>
+  </div>
+
+  <div>
+    <label for="domain">Concept:
+      <select name="domain">
+        <option value="0"  {% if learning_goal.domain==0 %} selected="selected" {% endif %}>Abstraction and pattern generalization</option>
+        <option value="1"  {% if learning_goal.domain==1 %} selected="selected" {% endif %}>Systematic processing of data</option>
+        <option value="2"  {% if learning_goal.domain==2 %} selected="selected" {% endif %}>Symbol systems and representations</option>
+        <option value="3"  {% if learning_goal.domain==3 %} selected="selected" {% endif %}>Algorithmic notions of flow of control</option>
+        <option value="4"  {% if learning_goal.domain==4 %} selected="selected" {% endif %}>Structured problem decomposition (modularizing)</option>
+        <option value="5"  {% if learning_goal.domain==5 %} selected="selected" {% endif %}>Iterative, recursive, and parallel thinking</option>
+        <option value="6"  {% if learning_goal.domain==6 %} selected="selected" {% endif %}>Conditional logic</option>
+        <option value="7"  {% if learning_goal.domain==7 %} selected="selected" {% endif %}>Efficiency and performance constraints</option>
+        <option value="8"  {% if learning_goal.domain==8 %} selected="selected" {% endif %}>Debugging and systematic error detection</option>
+      </select>
+    </label>
+      </div>
+    
+    <!-- Support -->
+    <!--
+     <div>
+     <label for="star">Empirical Support: </label>
+     <input type="checkbox" name="star"{% if learning_goal.empirical_support %}checked="yes"{% endif %}/>
+     </div>
+     -->
+    <div>
+      <label for="support">Support:
+        <select name="support">
+          <option value="0"  {% if learning_goal.support==0 %} selected="selected" {% endif %}>Classroom Evidence</option>
+          <option value="1"  {% if learning_goal.support==1 %} selected="selected" {% endif %}>Literature Evidence</option>
+          <option value="2"  {% if learning_goal.support==2 %} selected="selected" {% endif %}>Theoretical</option>
+        </select>
       </label>
     </div>
-    
-        <label for="domain">Domain:
-    <select name="domain">
-      <option value="0"  {% if learning_goal.domain==0 %} selected="selected" {% endif %}>Abstraction and pattern generalization</option>
-      <option value="1"  {% if learning_goal.domain==1 %} selected="selected" {% endif %}>Systematic processing of data</option>
-      <option value="2"  {% if learning_goal.domain==2 %} selected="selected" {% endif %}>Symbol systems and representations</option>
-      <option value="3"  {% if learning_goal.domain==3 %} selected="selected" {% endif %}>Algorithmic notions of flow of control</option>
-      <option value="4"  {% if learning_goal.domain==4 %} selected="selected" {% endif %}>Structured problem decomposition (modularizing)</option>
-      <option value="5"  {% if learning_goal.domain==5 %} selected="selected" {% endif %}>Iterative, recursive, and parallel thinking</option>
-      <option value="6"  {% if learning_goal.domain==6 %} selected="selected" {% endif %}>Conditional logic</option>
-      <option value="7"  {% if learning_goal.domain==7 %} selected="selected" {% endif %}>Efficiency and performance constraints</option>
-      <option value="8"  {% if learning_goal.domain==8 %} selected="selected" {% endif %}>Debugging and systematic error detection</option>
-    </select>
-       </label>
-       
-
-    <!-- Support -->
-    <!-- 
-    <div>
-      <label for="star">Empirical Support: </label>
-      <input type="checkbox" name="star"{% if learning_goal.empirical_support %}checked="yes"{% endif %}/>
-    </div>
-    -->
-    <div>
-    <label for="support">Support:
-    <select name="support">
-      <option value="0"  {% if learning_goal.support==0 %} selected="selected" {% endif %}>Classroom Evidence</option>
-      <option value="1"  {% if learning_goal.support==1 %} selected="selected" {% endif %}>Literature Evidence</option>
-      <option value="2"  {% if learning_goal.support==2 %} selected="selected" {% endif %}>Theoretical</option>
-    </select>
-   </label>
-   </div>
     
     <!-- Goal -->
     <div>
@@ -96,14 +109,14 @@
     <!-- Acitivity Origin -->
     <div>
       <fieldset>
-      
+        
         <legend>Activity Origin:</legend>
         {% for item in ['Custom','Pre-existing'] %}
-          <input type="checkbox" name="activity_origin" value="{{ item }}"
-          {% if item in learning_goal.activity_origin %}
-          checked="yes"
-          {% endif %}/>
-          {{ item }}
+        <input type="checkbox" name="activity_origin" value="{{ item }}"
+        {% if item in learning_goal.activity_origin %}
+        checked="yes"
+        {% endif %}/>
+        {{ item }}
         {% endfor %}
         
       </fieldset>
@@ -117,7 +130,7 @@
       </label>
     </div>
     
-     
+    
     <div>
       <fieldset>
         <legend>CCSM-M Grade:</legend>

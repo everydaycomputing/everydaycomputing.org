@@ -16,8 +16,14 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 #
 ################################################################################
 class LearningGoal(ndb.Model):
-  """ Learning Goals """
+  """ Learning Goals that are identified in article resource. """
+  
+  # The original domain is not referred to as a `concept`
   domain = ndb.IntegerProperty(default=0)
+  # This is referred to as a domain
+  domainFromLiteratureReview = ndb.IntegerProperty(default=0)
+  
+  
   page_number = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8], repeated=True)
@@ -33,7 +39,23 @@ class LearningGoal(ndb.Model):
   ccssm_grades = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8,9,10,11,12], repeated=True)
   
   @property
+  def _domainFromLiteratureReview(self):
+    """ Mapping of emergent domains (those that came from the literature review
+      after the name "domain" was previously applied to the Grover and Pea
+      domains """
+    
+    if self.domainFromLiteratureReview == 0: return 'Program development (Iterative development of computational solutions)'
+    if self.domainFromLiteratureReview == 1: return 'Computing languages, environments, and constructs'
+    if self.domainFromLiteratureReview == 2: return 'Algorithms (Flow of control)'
+    if self.domainFromLiteratureReview == 3: return 'Applications of computing (Recognizing computational problems and interpreting computational results)'
+  
+  @property
   def _domain(self):
+    """ Mapping so that we can freely change names at a later time
+      
+      Note: In all the documents moving forward from June, 2016, these are
+      referred to as the "Concepts"
+      """
     if self.domain == 0: return "Abstraction and pattern generalization"
     if self.domain == 1: return "Systematic processing of data"
     if self.domain == 2: return "Symbol systems and representations"
@@ -46,9 +68,9 @@ class LearningGoal(ndb.Model):
   
   @property
   def _support(self):
-    if self.support == 0: return "Clasroom Evidence"
-    if self.support == 1: return "Literature Evidence"
-    if self.support == 2: return "Theorectical Evidence"
+    if self.support == 0: return 'Clasroom Evidence'
+    if self.support == 1: return 'Literature Evidence'
+    if self.support == 2: return 'Theorectical Evidence'
   
   @staticmethod
   def _ccssm_practice_standards(code):
@@ -85,6 +107,7 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     #logging.info("LGK: " + learning_goal_key)
     learning_goal = ndb.Key(urlsafe=learning_goal_key).get()
     learning_goal.domain = int(data.get('domain'))
+    learning_goal.domainFromLiteratureReview = int(data.get('domainFromLiteratureReview'))
     learning_goal.support = int(data.get('support'))
     learning_goal.page_number = str(data.get('page_number'))
     learning_goal.goal = data.get('goal')
