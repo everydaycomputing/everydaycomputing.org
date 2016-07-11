@@ -77,6 +77,7 @@ class ArticleCategoryEditHandler(webapp2.RequestHandler):
     article.findings = data.get('findings')
     article.purpose = data.get('purpose')
     article.recommendations = data.get('recommendations')
+    article.citation = data.get('citation')
     article.star = data.get('star') != ''
     article.audience = data.get_all('audience')
     article.type = data.get_all('type')

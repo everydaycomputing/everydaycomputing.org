@@ -69,7 +69,8 @@ class Article(ndb.Model):
   star = ndb.BooleanProperty(indexed=True,default=False)
   purpose = ndb.TextProperty(default="")
   findings = ndb.TextProperty(default="")
-  recommendations = ndb.TextProperty(default="")
+  recommendations = ndb.StringProperty(default="")
+  citation = ndb.TextProperty(default="")
   audience = ndb.StringProperty(choices=['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'], repeated=True)
   #rating = ndb.StringProperty(choices=['Poor','OK','Good','Very Good','Great'])
   
