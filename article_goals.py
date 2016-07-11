@@ -19,16 +19,16 @@ class LearningGoal(ndb.Model):
   """ Learning Goals that are identified in article resource. """
   
   # The original domain is not referred to as a `concept`
-  domain = ndb.IntegerProperty(default=0)
+  domain = ndb.IntegerProperty(default=9)
   # This is referred to as a domain
-  domainFromLiteratureReview = ndb.IntegerProperty(default=0)
+  domainFromLiteratureReview = ndb.IntegerProperty(default=4)
   
   
   page_number = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
   #empirical_support = ndb.BooleanProperty(default=False)
-  support = ndb.IntegerProperty(default=0)
+  support = ndb.IntegerProperty(default=3)
   subgoals = ndb.TextProperty(default="")
   relationships_goals = ndb.TextProperty(default="")
   activity_origin = ndb.StringProperty(choices=['Custom','Pre-existing'], repeated=True)
@@ -57,7 +57,8 @@ class LearningGoal(ndb.Model):
     if self.domainFromLiteratureReview == 1: return 'Computing languages, environments, and constructs'
     if self.domainFromLiteratureReview == 2: return 'Algorithms (Flow of control)'
     if self.domainFromLiteratureReview == 3: return 'Applications of computing (Recognizing computational problems and interpreting computational results)'
-  
+    if self.domainFromLiteratureReview == 4: return 'None'
+
   @property
   def _domain(self):
     """ Mapping so that we can freely change names at a later time
@@ -74,12 +75,14 @@ class LearningGoal(ndb.Model):
     if self.domain == 6: return "Conditional logic"
     if self.domain == 7: return "Efficiency and performance constraints"
     if self.domain == 8: return "Debugging and systematic error detection"
+    if self.domain == 9: return "None"
   
   @property
   def _support(self):
     if self.support == 0: return 'Clasroom Evidence'
     if self.support == 1: return 'Literature Evidence'
     if self.support == 2: return 'Theorectical Evidence'
+    if self.support == 3: return 'None'
   
   @staticmethod
   def _ccssm_practice_standards(code):
