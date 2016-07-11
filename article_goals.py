@@ -26,7 +26,7 @@ class LearningGoal(ndb.Model):
   
   page_number = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
-  age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8], repeated=True)
+  age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
   #empirical_support = ndb.BooleanProperty(default=False)
   support = ndb.IntegerProperty(default=0)
   subgoals = ndb.TextProperty(default="")
@@ -36,7 +36,16 @@ class LearningGoal(ndb.Model):
   ccssm_domains = ndb.StringProperty(choices=['CC','OA','NBT','NF','MD','G'], repeated=True)
   ccssm_cotent_standards = ndb.StringProperty(default="") # repeated??
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
-  ccssm_grades = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8,9,10,11,12], repeated=True)
+  ccssm_grades = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
+  
+  @staticmethod
+  def _pretty_grades(code):
+    if code == 0: return "K"
+    if code > 0 and code < 13: return str(code)
+    if code == 13: return "Elementary School"
+    if code == 14: return "Junior High"
+    if code == 15: return "Middle School"
+    if code == 16: return "High School"
   
   @property
   def _domainFromLiteratureReview(self):
@@ -118,6 +127,7 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     learning_goal.activity_origin = data.get_all('activity_origin')
     learning_goal.activity_source = data.get('activity_source')
     learning_goal.ccssm_domains = data.get_all('ccssm_domains')
+    learning_goal.ccssm_grades = map(int, data.get_all('ccssm_grades'))
     learning_goal.ccssm_cotent_standards = data.get('ccssm_cotent_standards')
     learning_goal.ccssm_practice_standards = map(int, data.get_all('ccssm_practice_standards'))
     learning_goal.put()
