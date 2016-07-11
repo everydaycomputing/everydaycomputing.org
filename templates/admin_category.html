@@ -21,7 +21,7 @@
 <!-- --------------------------------------------------------------- SUMMARY -->
 <div class="container about-that">
   <h1>Summary
-    <a href="{{application_url}}/resource/article/edit/summary/{{key}}/" class="btn">Edit Summary</a>
+    <a href="{{application_url}}/resource/article/edit/summary/{{key}}/" class="btn right">Edit Summary</a>
   </h1>
 </div>
 
@@ -47,7 +47,7 @@
 <div class="container about-that">
   <hr/>
   <h1>Methodology
-    <a href="{{application_url}}/resource/article/edit/methodology/{{key}}/" class="btn">Edit Methodology</a></h1>
+    <a href="{{application_url}}/resource/article/edit/methodology/{{key}}/" class="btn right">Edit Methodology</a></h1>
   </h1>
 </div>
 
@@ -93,8 +93,10 @@
 
 <div class="container about-that">
   <hr/>
-  <h1>Learning Goals
-    <a href="{{application_url}}/resource/article/goal/insert/{{key}}/" class="btn">Add New Learning Goal</a></h1>
+  <h1>Learning Goals <span class="counter">{{ article.learning_goals | length}} </span>
+    
+    <a href="{{application_url}}/resource/article/goal/insert/{{key}}/" class="btn right">Add New Learning Goal</a>
+    </h1>
   <table style="width:100%;border-color:gray;">
     {% for goal in article.learning_goals %}
     <tr class="{{ loop.cycle('odd', 'even') }}">
