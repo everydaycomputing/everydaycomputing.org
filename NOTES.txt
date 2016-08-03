@@ -1,10 +1,39 @@
-Start the server
-=================
-
+Start the Development Server
+================================================================================
+dev_appserver.py app.yaml
 dev_appserver.py --clear_datastore=yes app.yaml
+
+* This was for the modules version (its somewhere in the git repo, possibly
+  before the first big merge with dev (August 2, 2016)
 
 dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml admin.yaml
  lsof -P | grep '8080' | awk '{print $2}' | xargs kill -9
+
+Update Server
+================================================================================
+* `cd` to the directory containing everydaycomputing.org/
+
+appcfg.py update everydaycomputing.org/
+
+Set Credentials for Remote API
+================================================================================
+* The .json file was downloaded from the console
+
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/tbinkowski/Development/GitHub/EverydayComputing/everydaycomputing.org/EverydayComputingOrg-a3501e320e92.json
+
+Download the Datastore
+================================================================================
+
+appcfg.py download_data --application=everydaycomputingorg --url=http://everydaycomputingorg.appspot.com/_ah/remote_api --filename=<filename>.sql3
+
+Upload the Datastore Backup to Local Development Server
+================================================================================
+You have to upload the API server.
+
+dev_appserver.py --clear_datastore=yes app.yaml
+appcfg.py upload_data --url=http://localhost:53692/_ah/remote_api --filename=20160802.sql3 --application=dev~everydaycomputingorg
+
+
 
 Post from Command Line
 ======================
