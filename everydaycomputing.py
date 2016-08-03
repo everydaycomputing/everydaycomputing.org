@@ -53,7 +53,7 @@ class MainPage(webapp2.RequestHandler):
 #
 #
 APP = webapp2.WSGIApplication([
-                               webapp2.Route('/', handler=MainPage, name='home'),
+                               #webapp2.Route('/', handler=MainPage, name='home'),
                                #webapp2.Route('/resource/', handler=ResourceHandler, name='resource-handler'),
                                routes.PathPrefixRoute('/resource', [
                                                                    webapp2.Route('/', ResourceHandler, 'user-overview'),

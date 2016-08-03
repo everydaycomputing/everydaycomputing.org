@@ -9,6 +9,12 @@ import jinja2
 import webapp2
 import logging
 
+# Custom imports
+from google.appengine.ext import ndb
+from admin_models import *
+from admin_category import *
+
+#
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
@@ -43,6 +49,7 @@ class HomePage(webapp2.RequestHandler):
 
 class AboutPage(webapp2.RequestHandler):
   """ About the project page for the public facing website
+    
   """
   def get(self):
     template_values = {}
@@ -50,9 +57,35 @@ class AboutPage(webapp2.RequestHandler):
     self.response.write(template.render(template_values))
 
 
+
+class PageLiterature(webapp2.RequestHandler):
+  """ About the project page for the public facing website
+
+  """
+  
+  def get(self):
+    # Fetch all articles
+    articles_query = Article.query()#.order(-Article.timestamp.created)
+    articles = articles_query.fetch(500)
+    
+    template_values = {
+      'url': self.request.application_url,
+      'user': users.get_current_user(),
+      'articles': articles,
+      #'greetings': greetings,
+      #'guestbook_name': urllib.quote_plus(guestbook_name),
+      'url': users.create_logout_url(self.request.uri),
+      'url_linktext': "Logout"
+    }
+
+    template = JINJA_ENVIRONMENT.get_template('templates/public/public_literature_query.html')
+    self.response.write(template.render(template_values))
+
+
 APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=HomePage, name='home'),
                                webapp2.Route('/about/', handler=AboutPage, name='home'),
+                               webapp2.Route('/literature/', handler=PageLiterature),
                                ], debug=True)
 
 
