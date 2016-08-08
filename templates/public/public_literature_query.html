@@ -111,6 +111,7 @@
           <th>Authors</th>
           <th>Title</th>
           <th>Year</th>
+          <th>Goals</th>
         </tr>
       </thead>
       <tbody>
@@ -125,6 +126,26 @@
             </td>
             <td><a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}">{{ article.title}}</a></td>
             <td>{{ article.year}}</td>
+            <td>
+            {% for goal in article.learning_goals %}
+            <li>{{ goal.get().age_level | join(",") }} - <b>{{ goal.get()._domain }}</b>{{ goal.get().goal }},<br/>
+            {% endfor %}
+            </td>
+<!--
+            <td>
+            {% for goal in article.learning_goals %}
+            <li>{{ goal.get().goal }},<br/>
+            {% endfor %}
+            </td>
+            
+            <td>
+            {% for goal in article.learning_goals %}
+            <li>{{ goal.get().age_level | join(",") }},</br>
+            {% endfor %}
+            </td>
+-->
+            
+
         </tr>
         {% endfor %}
 

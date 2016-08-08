@@ -82,10 +82,55 @@ class PageLiterature(webapp2.RequestHandler):
     self.response.write(template.render(template_values))
 
 
+
+class PageGoals(webapp2.RequestHandler):
+  """ About the project page for the public facing website
+
+  """
+  def post(self):
+    domain=int(self.request.get('domain'))
+    grade_level=int(self.request.get('grade_level'))
+    concept=int(self.request.get('concept'))
+  
+    query = LearningGoal.query(LearningGoal.domainFromLiteratureReview==domain,LearningGoal.age_level==grade_level,LearningGoal.domain==concept)
+    #.order(-Article.timestamp.created)
+    articles = query.fetch(500)
+    template_values = {
+      'url': self.request.application_url,
+      'user': users.get_current_user(),
+      'articles': articles,
+      'params': self.request,
+      'url': users.create_logout_url(self.request.uri),
+      'url_linktext': "Logout"
+    }
+
+    template = JINJA_ENVIRONMENT.get_template('templates/public/public_literature_goals.html')
+    self.response.write(template.render(template_values))
+
+
+  def get(self):
+    # Fetch all articles
+    query = LearningGoal.query()#.order(-Article.timestamp.created)
+    articles = query.fetch(500)
+    
+    template_values = {
+      'url': self.request.application_url,
+      'user': users.get_current_user(),
+      'articles': articles,
+      #'greetings': greetings,
+      #'guestbook_name': urllib.quote_plus(guestbook_name),
+      'url': users.create_logout_url(self.request.uri),
+      'url_linktext': "Logout"
+    }
+
+    template = JINJA_ENVIRONMENT.get_template('templates/public/public_literature_goals.html')
+    self.response.write(template.render(template_values))
+
 APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=HomePage, name='home'),
                                webapp2.Route('/about/', handler=AboutPage, name='home'),
                                webapp2.Route('/literature/', handler=PageLiterature),
+                               webapp2.Route('/goals/', handler=PageGoals),
                                ], debug=True)
 
 

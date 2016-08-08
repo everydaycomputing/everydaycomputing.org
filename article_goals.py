@@ -63,7 +63,9 @@ class LearningGoal(ndb.Model):
   def _domain(self):
     """ Mapping so that we can freely change names at a later time
       
-      Note: In all the documents moving forward from June, 2016, these are
+      Note: In all the documents moving forward from June, 2016, 
+      
+      these are
       referred to as the "Concepts"
       """
     if self.domain == 0: return "Abstraction and pattern generalization"
@@ -79,7 +81,7 @@ class LearningGoal(ndb.Model):
   
   @property
   def _support(self):
-    if self.support == 0: return 'Clasroom Evidence'
+    if self.support == 0: return 'Classroom Evidence'
     if self.support == 1: return 'Literature Evidence'
     if self.support == 2: return 'Theorectical Evidence'
     if self.support == 3: return 'None'
