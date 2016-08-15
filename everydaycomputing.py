@@ -13,10 +13,13 @@ import json
 import logging
 
 # Custom imports
-from admin_models import *
-from article_handler import *
-from admin_category import *
-from resource_handler import *
+from database_site import *
+#from admin_models import *
+#from article_handler import *
+#from admin_category import *
+#from resource_handler import *
+
+
 
 class MainPage(webapp2.RequestHandler):
   
@@ -33,7 +36,7 @@ class MainPage(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
     
-    template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+    template = JINJA_ENVIRONMENT.get_template('database_site/templates/home.html')
     self.response.write(template.render(template_values))
 
   def post(self):

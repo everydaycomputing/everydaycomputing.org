@@ -1,0 +1,61 @@
+{% extends "public_site/templates/public_base_template.html" %}
+
+{% block body %}
+
+
+<section class="bg-primary" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">Clusters</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br/>
+<br/>
+
+<div class="container">
+  
+  
+  
+  <table class="table table-striped display">
+    <thead>
+      <tr>
+        <th>Age</th>
+        <th>Domain</th>
+        <th>Concept</th>
+        <th>Support</th>
+        <th>Goal</th>
+        <th>Cluster</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for cluster,goals in clusters.iteritems() %}
+      <tr style="background-color:black;color:white;">
+        <td colspan="6"><h4>{{ cluster }} <span class="tag tag-default tag-pill pull-xs-right"></span></h4>
+        </td>
+      </tr>
+      
+      
+      {% for goal in goals %}
+      <tr>
+        <td>{{ goal.age_level | join(",") }}</td>
+        <td>{{ goal._domainFromLiteratureReview }}</td>
+        <td>{{ goal._domain }}</td>
+        <td>{{ goal._support }}</td>
+        <td>{{ goal.goal }}</td>
+        <td>{{ goal.cluster | join(",") }}</td>
+      </tr>
+      {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+  
+</div>
+
+{% endblock %}
+
+

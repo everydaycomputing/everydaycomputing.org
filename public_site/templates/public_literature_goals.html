@@ -1,38 +1,38 @@
-{% extends "templates/public/public_base_template.html" %}
+{% extends "public_site/templates/public_base_template.html" %}
 
 {% block body %}
 
 <script type="text/javascript" class="init">
-$(document).ready(function() {
-    // Setup - add a text input to each footer cell
-    $('#example tfoot th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    } );
- 
-    // DataTable
-    var table = $('#example').DataTable( {
-        scrollY:        "500px",
-        scrollX:        false,
-        scrollCollapse: true,
-        paging:         false,
-        fixedColumns:   false
-    } );
-    
-    // Apply the search
-    table.columns().every( function () {
-        var that = this;
- 
-        $( 'input', this.footer() ).on( 'keyup change', function () {
-            if ( that.search() !== this.value ) {
-                that
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
-} );
-</script>
+  $(document).ready(function() {
+                    // Setup - add a text input to each footer cell
+                    $('#example tfoot th').each( function () {
+                                                var title = $(this).text();
+                                                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                                                } );
+                    
+                    // DataTable
+                    var table = $('#example').DataTable( {
+                                                        scrollY:        "500px",
+                                                        scrollX:        false,
+                                                        scrollCollapse: true,
+                                                        paging:         false,
+                                                       
+                                                        } );
+                    
+                    // Apply the search
+                    table.columns().every( function () {
+                                          var that = this;
+                                          
+                                          $( 'input', this.footer() ).on( 'keyup change', function () {
+                                                                         if ( that.search() !== this.value ) {
+                                                                         that
+                                                                         .search( this.value )
+                                                                         .draw();
+                                                                         }
+                                                                         } );
+                                          } );
+                    } );
+  </script>
 
 <section class="bg-primary" id="about">
   <div class="container">
@@ -123,51 +123,50 @@ $(document).ready(function() {
 
 
 <!-- Results -->
-<div class="container">
-  <h2>Sort</h2>
-  
-  <div class="table-responsive">
-    <table id="example" class="table table-striped display">
-      <thead>
-        <tr>
-          <th>Age</th>
-          <th>Domain</th>
-          <th>Concept</th>
-          <th>Support</th>
-          <th>Goal</th>
+<form class="form-horizontal" action="/goals/cluster/" method="post">
+  <div class="container">
+    <h2>Sort</h2>
+    <button type="submit" class="btn btn-default">Create cluster from Selection</button>
+    <div class="table-responsive">
+      <table id="example" class="table table-striped display">
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Domain</th>
+            <th>Concept</th>
+            <th>Support</th>
+            <th>Goal</th>
+            <th>Cluster</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Age</th>
+            <th>Domain</th>
+            <th>Concept</th>
+            <th>Support</th>
+            <th>Goal</th>
+            <th>Cluster</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for goal in articles %}
+          <tr>
+            <td><input type="checkbox" name="selected" value="{{ goal.key.urlsafe() }}"/> {{ goal.age_level | join(",") }}</td>
+            <td>{{ goal._domainFromLiteratureReview }}</td>
+            <td>{{ goal._domain }}</td>
+            <td>{{ goal._support }}</td>
+            <td>{{ goal.goal }}</td>
+            <td>{{ goal.cluster | join(",") }}</td>
+          </tr>
+          {% endfor %}
           
-        </tr>
-      </thead>
-      <tfoot>
-      <tr>
-          <th>Age</th>
-          <th>Domain</th>
-          <th>Concept</th>
-          <th>Support</th>
-          <th>Goal</th>
-          
-        </tr>
-</tfoot>
-      <tbody>
-        {% for goal in articles %}
-        <tr>
-          
-          <td>{{ goal.age_level | join(",") }}</td>
-          <td>{{ goal._domainFromLiteratureReview }}</td>
-          <td>{{ goal._domain }}</td>
-          <td>{{ goal._support }}</td>
-          <td>{{ goal.goal }}</td>
-          
-        </tr>
-        {% endfor %}
-        
-        
-        
-      </tbody>
-    </table>
-    <br/><br/>
+        </tbody>
+      </table>
+      <br/><br/>
+    </div>
   </div>
-</div>
+</form>
 
 <aside class="bg-dark">
   <div class="container text-center">

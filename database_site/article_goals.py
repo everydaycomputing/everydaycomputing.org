@@ -37,6 +37,7 @@ class LearningGoal(ndb.Model):
   ccssm_cotent_standards = ndb.StringProperty(default="") # repeated??
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
   ccssm_grades = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
+  cluster = ndb.StringProperty(repeated=True)
   
   @staticmethod
   def _pretty_grades(code):
