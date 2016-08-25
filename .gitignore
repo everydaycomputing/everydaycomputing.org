@@ -1,8 +1,10 @@
 bulkloader-*
+>>>>>>> dev
 *.pyc
 *.DS_Store
-
+bulkloader-*
 *~
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
