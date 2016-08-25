@@ -1,0 +1,22 @@
+[INFO     2016-08-12 19:37:27,605 bulkloader.py] Logging to bulkloader-log-20160812.193727
+[INFO     2016-08-12 19:37:27,606 bulkloader.py] Throttling transfers:
+[INFO     2016-08-12 19:37:27,606 bulkloader.py] Bandwidth: 250000 bytes/second
+[INFO     2016-08-12 19:37:27,606 bulkloader.py] HTTP connections: 8/second
+[INFO     2016-08-12 19:37:27,607 bulkloader.py] Entities inserted/fetched/modified: 20/second
+[INFO     2016-08-12 19:37:27,607 bulkloader.py] Batch Size: 10
+[INFO     2016-08-12 19:37:27,609 bulkloader.py] Opening database: bulkloader-progress-20160812.193727.sql3
+[DEBUG    2016-08-12 19:37:27,613 bulkloader.py] [Thread-1] RestoreThread: started
+[DEBUG    2016-08-12 19:37:28,160 bulkloader.py] [Thread-2] RestoreThread: started
+[DEBUG    2016-08-12 19:37:28,161 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,161 bulkloader.py] [Thread-1] RestoreThread: exiting
+[DEBUG    2016-08-12 19:37:28,161 adaptive_thread_pool.py] [WorkerThread-1] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,161 adaptive_thread_pool.py] [WorkerThread-2] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,162 adaptive_thread_pool.py] [WorkerThread-3] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,162 adaptive_thread_pool.py] [WorkerThread-4] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,162 adaptive_thread_pool.py] [WorkerThread-5] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,162 adaptive_thread_pool.py] [WorkerThread-6] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,163 adaptive_thread_pool.py] [WorkerThread-7] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,163 adaptive_thread_pool.py] [WorkerThread-8] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,163 bulkloader.py] Configuring remote_api. url_path = /_ah/remote_api, servername = localhost:53692
+[DEBUG    2016-08-12 19:37:28,168 adaptive_thread_pool.py] [WorkerThread-9] WorkerThread: started
+[DEBUG    2016-08-12 19:37:28,174 bulkloader.py] [Thread-2] RestoreThread: exiting

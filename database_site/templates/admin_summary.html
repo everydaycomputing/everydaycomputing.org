@@ -1,0 +1,92 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+
+<div class="container">
+  <h1>Summary</h1>
+  
+  <form action="/resource/article/edit/{{category}}/{{key}}/" method="post">
+    
+    
+    <div>
+      <legend>Type:</legend>
+      {% for item in ['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'] %}
+      <label>
+        <input type="checkbox" name="type" value="{{ item }}" {% if item in article.type %} checked="yes"{% endif %}/>
+        {{ item }}
+      </label>
+      {% endfor %}
+    </div>
+    
+    
+    
+    <fieldset>
+      <legend></legend>
+      
+      <div>
+        <label for="purpose">Purpose:
+          <textarea name="purpose" class="input-block" rows="5" placeholder="Summary of overall purpose or goal of article.">{{ article.purpose }}</textarea>
+        </label>
+      </div>
+      
+      <div>
+        <label for="findings">Findings:</label>
+        <textarea name="findings" class="input-block" rows="2" placeholder="Summary of overall findings.">{{ article.findings }}</textarea>
+      </div>
+      
+      <div>
+        <label for="name">Recommendations:</label>
+        <textarea name="recommendations" class="input-block" rows="2" placeholder="Summary of recommendations made by authors.">{{ article.recommendations }}</textarea>
+      </div>
+      
+      <div>
+        <label for="star">Star this as a favorite article: </label>
+        <input type="checkbox" name="star"{% if article.star %}checked="yes"{% endif %}>
+          </div>
+      
+      <div>
+        <fieldset>
+          <legend>Audience:</legend>
+          
+          {% for item in ['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'] %}
+          <label>
+            <input type="checkbox" name="audience" value="{{ item }}" {% if item in article.audience %} checked="yes"{% endif %}/>
+            {{ item }}
+          </label>
+          {% endfor %}
+          
+        </fieldset>
+      </div>
+      
+       
+      <div>
+        <label for="citation">Citation:
+          <textarea name="citation" class="input-block" rows="5" placeholder="APA Citation">{{ article.citation }}</textarea>
+        </label>
+      </div>
+      
+      <br/>
+      <br/>
+      
+      
+      <div><input type="submit" class="btn btn-large btn-primary"></div>
+      
+      
+      
+      <!--
+       <label for="article-type">Article Type:
+       <select name="article-type">
+       <input type="checkbox" name="animal" value="0">Conceptual/Theortical discussion</option>
+       <option value="1">Literature review</option>
+       <option value="2">Empirical study</option>
+       <option value="3">Developmental/Taxonomy</option>
+       </select>
+       </label>
+       -->
+      </form>
+  
+  
+</div>
+
+{% endblock %}

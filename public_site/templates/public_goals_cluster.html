@@ -1,0 +1,59 @@
+{% extends "public_site/templates/public_base_template.html" %}
+
+{% block body %}
+
+
+<div class="container">
+  <h1>Research Methodology</h1>
+  <p>Something...</p>
+  
+    <form action="/goals/cluster/insert/" method="post">
+    <div>
+      <label for="domain">Cluster Name:
+        <textarea name="cluster_name" width="100%" class="input-block" rows="1" placeholder="The name of the cluster for this group."></textarea>
+      </label>
+    </div>
+    <div><br><input type="submit" class="btn btn-large btn-primary"></div>
+
+   
+   <br/>
+  <br/>
+  <hr>
+  </div>
+
+ <div class="container">
+     <table id="example" class="table table-striped display">
+    <thead>
+      <tr>
+        <th>Age</th>
+        <th>Domain</th>
+        <th>Concept</th>
+        <th>Support</th>
+        <th>Goal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for goal in objects %}
+      <input type="hidden" name="selected" value="{{ goal.key.urlsafe() }}">
+
+      <tr>
+        <td>{{ goal.age_level | join(",") }}</td>
+        <td>{{ goal._domainFromLiteratureReview }}</td>
+        <td>{{ goal._domain }}</td>
+        <td>{{ goal._support }}</td>
+        <td>{{ goal.goal }}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  
+  
+  </form>
+  
+  
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,187 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+
+<div class="container">
+  <h1>Learning Goals</h1>
+  
+  <form action="/resource/article/goal/{{article_key}}/{{learning_goal_key}}/" method="post">
+    
+    <!--
+     {% if learning_goal.domain==1 %} selected="selected" {% endif %}
+     
+     <input type="hidden" name="learing_goal_key" value="{{learning_goal_key}}">-->
+    <!--
+     <div>
+     <label for="domain">Domain:
+     <textarea name="domain" class="input-block" rows="2" placeholder="Broadest categories of learning goals, perhaps defining the trajectories.">{{ learning_goal.domain }}</textarea>
+     
+     </div>
+     -->
+    <div>
+      <label for="page_number">Page Number:
+        <input type="number" name="page_number" class="input-block" value="{{ learning_goal.page_number }}">
+          </label>
+    </div>
+
+
+    <div>
+    <label for="domainFromLiteratureReview">Domain:
+      <select name="domainFromLiteratureReview">
+        <option value="0"  {% if learning_goal.domainFromLiteratureReview==0 %} selected="selected" {% endif %}>Program development (Iterative development of computational solutions)</option>
+        <option value="1"  {% if learning_goal.domainFromLiteratureReview==1 %} selected="selected" {% endif %}>Computing languages, environments, and constructs</option>
+        <option value="2"  {% if learning_goal.domainFromLiteratureReview==2 %} selected="selected" {% endif %}>Algorithms (Flow of control)</option>
+        <option value="3"  {% if learning_goal.domainFromLiteratureReview==3 %} selected="selected" {% endif %}>Applications of computing (Recognizing computational problems and interpreting computational results)</option>
+        <option value="4"  {% if learning_goal.domainFromLiteratureReview==4 %} selected="selected" {% endif %}>--</option>
+      </select>
+    </label>
+  </div>
+
+  <div>
+    <label for="domain">Concept:
+      <select name="domain">
+        <option value="0"  {% if learning_goal.domain==0 %} selected="selected" {% endif %}>Abstraction and pattern generalization</option>
+        <option value="1"  {% if learning_goal.domain==1 %} selected="selected" {% endif %}>Systematic processing of data</option>
+        <option value="2"  {% if learning_goal.domain==2 %} selected="selected" {% endif %}>Symbol systems and representations</option>
+        <option value="3"  {% if learning_goal.domain==3 %} selected="selected" {% endif %}>Algorithmic notions of flow of control</option>
+        <option value="4"  {% if learning_goal.domain==4 %} selected="selected" {% endif %}>Structured problem decomposition (modularizing)</option>
+        <option value="5"  {% if learning_goal.domain==5 %} selected="selected" {% endif %}>Iterative, recursive, and parallel thinking</option>
+        <option value="6"  {% if learning_goal.domain==6 %} selected="selected" {% endif %}>Conditional logic</option>
+        <option value="7"  {% if learning_goal.domain==7 %} selected="selected" {% endif %}>Efficiency and performance constraints</option>
+        <option value="8"  {% if learning_goal.domain==8 %} selected="selected" {% endif %}>Debugging and systematic error detection</option>
+        <option value="9"  {% if learning_goal.domain==9 %} selected="selected" {% endif %}>--</option>
+      </select>
+    </label>
+      </div>
+    
+    <!-- Support -->
+    <!--
+     <div>
+     <label for="star">Empirical Support: </label>
+     <input type="checkbox" name="star"{% if learning_goal.empirical_support %}checked="yes"{% endif %}/>
+     </div>
+     -->
+    <div>
+      <label for="support">Support:
+        <select name="support">
+          <option value="0"  {% if learning_goal.support==0 %} selected="selected" {% endif %}>Classroom Evidence</option>
+          <option value="1"  {% if learning_goal.support==1 %} selected="selected" {% endif %}>Literature Evidence</option>
+          <option value="2"  {% if learning_goal.support==2 %} selected="selected" {% endif %}>Theoretical</option>
+          <option value="3"  {% if learning_goal.support==3 %} selected="selected" {% endif %}>--</option>
+        </select>
+      </label>
+    </div>
+    
+    <!-- Goal -->
+    <div>
+      <label for="goal">Goal:
+        <textarea name="goal" class="input-block" rows="2" placeholder="Text of a single learning goal that the resource identifies.">{{ learning_goal.goal }}</textarea>
+      </label>
+    </div>
+    
+    <!-- Subgoals -->
+    <div>
+      <label for="subgoals">Subgoals:
+        <textarea name="subgoals" class="input-block" rows="2" placeholder="Any subgoals of the goal mentioned in the resource.">{{ learning_goal.subgoals }}</textarea>
+      </label>
+    </div>
+    
+    <!-- Relationships -->
+    <div>
+      <label for="relationships_goals">Relationships:
+        <textarea name="relationships_goals" class="input-block" rows="2" placeholder="Notes about how this goal might relate to other goals mentioned in the resource.">{{ learning_goal.relationships_goals }}</textarea>
+      </label>
+    </div>
+    
+    
+    <!-- Age Level -->
+    <div>
+      <fieldset>
+        <legend>Grade Level:</legend>
+        
+        {% for item in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] %}
+        <input type="checkbox" name="age_level" value="{{ item }}" {% if item in learning_goal.age_level %} checked="yes"{% endif %}/>
+        {{ learning_goal._pretty_grades(item) }}&nbsp;
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <!-- Acitivity Origin -->
+    <div>
+      <fieldset>
+        
+        <legend>Activity Origin:</legend>
+        {% for item in ['Custom','Pre-existing'] %}
+        <input type="checkbox" name="activity_origin" value="{{ item }}"
+        {% if item in learning_goal.activity_origin %}
+        checked="yes"
+        {% endif %}/>
+        {{ item }}
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <!-- Relationships -->
+    <div>
+      <label for="subgoals">Activity Source:
+        <textarea name="activity_source" class="input-block" rows="2" placeholder="If activities are pre-existing, indicate where they come from. If they are custom, leave blank.">{{ learning_goal.activity_source }}</textarea>
+      </label>
+    </div>
+    
+    
+    <div>
+      <fieldset>
+        <legend>CCSM-M Grade:</legend>
+        
+        {% for item in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] %}
+        <input type="checkbox" name="ccssm_grades" value="{{ item }}"  {% if item in learning_goal.ccssm_grades %} checked="yes"{% endif %}/>
+        {{ learning_goal._pretty_grades(item) }}&nbsp;
+        {% endfor %}
+      </fieldset>
+    </div>
+    
+    
+    <div>
+      <fieldset>
+        <legend>CCSM-M Domains:</legend>
+        
+        {% for item in ['CC','OA','NBT','NF','MD','G'] %}
+        <input type="checkbox" name="ccssm_domains" value="{{ item }}"  {% if item in learning_goal.ccssm_domains %} checked="yes"{% endif %}/>
+        {{ item }}&nbsp;
+        {% endfor %}
+      </fieldset>
+    </div>
+    
+    <!-- -->
+    <div>
+      <label for="ccssm_cotent_standards">CCSS-M Content Standards:
+        <textarea name="ccssm_cotent_standards" class="input-block" rows="2" placeholder="Codes for any CCSS-M content standards that are related to the goal.">{{ learning_goal.ccssm_cotent_standards }}</textarea>
+      </label>
+    </div>
+    
+    <!-- -->
+    <div>
+      <fieldset>
+        <legend>CCSM-M Practice Standards:</legend>
+        
+        {% for item in [1,2,3,4,5,6,7,8] %}
+        <input type="checkbox" name="ccssm_practice_standards" value="{{ item }}" req {% if item in learning_goal.ccssm_practice_standards %} checked="yes"{% endif %}>&nbsp;{{ learning_goal._ccssm_practice_standards(item) }}</input>
+        <br/>
+        {% endfor %}
+        
+      </fieldset>
+    </div>
+    
+    
+    <div><br><input type="submit" class="btn btn-large btn-primary"></div>
+  </form>
+  
+  
+</div>
+
+{% endblock %}

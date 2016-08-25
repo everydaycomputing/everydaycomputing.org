@@ -7,65 +7,47 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		370980451C7E3D1500E0BD90 /* admin_models.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = admin_models.py; sourceTree = "<group>"; };
-		3732C5B31C75154E0027D9AF /* everydaycomputing.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = everydaycomputing.sh; sourceTree = "<group>"; };
-		3732C5B41C75163D0027D9AF /* NOTES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = NOTES.txt; sourceTree = "<group>"; };
-		3732C5B51C7516490027D9AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3732C5B61C7516490027D9AF /* work_sunday.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = work_sunday.txt; sourceTree = "<group>"; };
 		3732C5BC1C7516BC0027D9AF /* app.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = app.yaml; sourceTree = "<group>"; };
 		3732C5BF1C7516F70027D9AF /* everydaycomputing.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = everydaycomputing.py; sourceTree = "<group>"; };
-		3747FC991C9A104400C21775 /* templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = templates; sourceTree = "<group>"; };
-		374CE27A1C876A0B00D0E41A /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
-		374CE27B1C8787F100D0E41A /* admin_category.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = admin_category.py; sourceTree = "<group>"; };
-		374CE27D1C878A7F00D0E41A /* article_handler.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_handler.py; sourceTree = "<group>"; };
-		376665651CBAFDBA00B8B21B /* article_methodology.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_methodology.py; sourceTree = "<group>"; };
-		37A91B0C1CC66B5A00E4F6C1 /* article_goals.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = article_goals.py; sourceTree = "<group>"; };
-		37E387281CA4F8F400CFE94B /* resource_handler.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = resource_handler.py; sourceTree = "<group>"; };
+		3747248E1D5E951E00030B9B /* public.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = public.py; sourceTree = "<group>"; };
+		3747248F1D5E97A200030B9B /* public_site */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public_site; sourceTree = "<group>"; };
+		374724901D5E99A300030B9B /* database_site */ = {isa = PBXFileReference; lastKnownFileType = folder; path = database_site; sourceTree = "<group>"; };
+		3747249A1D5EA12900030B9B /* NOTES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = NOTES.txt; sourceTree = "<group>"; };
+		3747249B1D5EA12900030B9B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3747249C1D5EA12900030B9B /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
+		3771291D1CD1650400BF5DD1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		3709804B1C987D1A00E0BD90 /* app */ = {
-			isa = PBXGroup;
-			children = (
-				374CE27D1C878A7F00D0E41A /* article_handler.py */,
-				374CE27B1C8787F100D0E41A /* admin_category.py */,
-				376665651CBAFDBA00B8B21B /* article_methodology.py */,
-				370980451C7E3D1500E0BD90 /* admin_models.py */,
-				37E387281CA4F8F400CFE94B /* resource_handler.py */,
-				37A91B0C1CC66B5A00E4F6C1 /* article_goals.py */,
-			);
-			name = app;
-			sourceTree = "<group>";
-		};
 		3732C5A81C7514720027D9AF = {
 			isa = PBXGroup;
 			children = (
-				3732C5B71C7516610027D9AF /* notes */,
-				3732C5B91C7516A00027D9AF /* YAML */,
+				374724981D5EA12900030B9B /* NOTES */,
+				3732C5B91C7516A00027D9AF /* Apps */,
+				3771291D1CD1650400BF5DD1 /* static */,
+				3747248F1D5E97A200030B9B /* public_site */,
+				374724901D5E99A300030B9B /* database_site */,
 			);
 			sourceTree = "<group>";
 		};
-		3732C5B71C7516610027D9AF /* notes */ = {
-			isa = PBXGroup;
-			children = (
-				3732C5B41C75163D0027D9AF /* NOTES.txt */,
-				374CE27A1C876A0B00D0E41A /* TODO.txt */,
-				3732C5B31C75154E0027D9AF /* everydaycomputing.sh */,
-				3732C5B51C7516490027D9AF /* README.md */,
-				3732C5B61C7516490027D9AF /* work_sunday.txt */,
-			);
-			name = notes;
-			sourceTree = "<group>";
-		};
-		3732C5B91C7516A00027D9AF /* YAML */ = {
+		3732C5B91C7516A00027D9AF /* Apps */ = {
 			isa = PBXGroup;
 			children = (
 				3732C5BC1C7516BC0027D9AF /* app.yaml */,
+				3747248E1D5E951E00030B9B /* public.py */,
 				3732C5BF1C7516F70027D9AF /* everydaycomputing.py */,
-				3709804B1C987D1A00E0BD90 /* app */,
-				3747FC991C9A104400C21775 /* templates */,
 			);
-			name = YAML;
+			name = Apps;
+			sourceTree = "<group>";
+		};
+		374724981D5EA12900030B9B /* NOTES */ = {
+			isa = PBXGroup;
+			children = (
+				3747249A1D5EA12900030B9B /* NOTES.txt */,
+				3747249B1D5EA12900030B9B /* README.md */,
+				3747249C1D5EA12900030B9B /* TODO.txt */,
+			);
+			path = NOTES;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
