@@ -49,6 +49,20 @@ class MainPage(webapp2.RequestHandler):
     # Loop through the dictionary and print out some basic info (for debugging)
     self.response.write(structured_dictionary)
 
+
+class GoalHandler(webapp2.RequestHandler):
+  def get(self):
+    """ """
+    self.response.headers['Content-Type'] = 'text/plain'
+    query = LearningGoal.query()#.order(-Article.timestamp.created)
+    goals = query.fetch()
+    for goal in goals:
+      self.response.write(goal.goal + "\n")
+
+    #self.response.write('Everyday computing')
+    #self.response.headers['Content-Type'] = 'application/csv'
+
+
 #for item in structured_dictionary:
 #    self.response.write("%s %s - %s\n" % (item['lessonNumber'],item['title'],item['parentCourse']))
 
@@ -66,9 +80,10 @@ APP = webapp2.WSGIApplication([
                                                                    webapp2.Route('/article/goal/<task:(insert|edit|delete)>/<article_key>/', ArticleGoalHandler, 'user-projects'),
                                                                    webapp2.Route('/article/goal/<article_key>/<learning_goal_key>/', ArticleGoalHandler, 'user-projects'),
                                                                    webapp2.Route('/article/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
+                                                                   webapp2.Route('/goals/', GoalHandler, 'user-projects'),
                                                                    ]),
                                #webapp2.Route('/article/<operation:.*?>/<:/?>/', handler=ArticleHandler, name='insert'),
-                               #webapp2.Route('/article/edit/<key>/', handler=ArticleHandler, name='edit'),
+                                #webapp2.Route('/regoals/', handler=GoalHandler, name='edit'),
                                #webapp2.Route('/sign', handler=Guestbook),
                                ], debug=True)
 
