@@ -65,7 +65,7 @@ class PageLiterature(webapp2.RequestHandler):
   def get(self):
     # Fetch all articles
     articles_query = Article.query()#.order(-Article.timestamp.created)
-    articles = articles_query.fetch(500)
+    articles = articles_query.fetch()
     
     template_values = {
       'url': self.request.application_url,
@@ -114,7 +114,7 @@ class PageGoalsCluster(webapp2.RequestHandler):
     """
     # Fetch all articles
     query = LearningGoal.query()#.order(-Article.timestamp.created)
-    goals = query.fetch(500)
+    goals = query.fetch()
     
     cluster_dict = dict()
     
@@ -178,7 +178,7 @@ class PageGoals(webapp2.RequestHandler):
     
     query = LearningGoal.query(LearningGoal.domainFromLiteratureReview==domain,LearningGoal.age_level==grade_level,LearningGoal.domain==concept)
     #.order(-Article.timestamp.created)
-    articles = query.fetch(500)
+    articles = query.fetch()
     template_values = {
       'url': self.request.application_url,
       'user': users.get_current_user(),
@@ -195,7 +195,7 @@ class PageGoals(webapp2.RequestHandler):
   def get(self):
     # Fetch all articles
     query = LearningGoal.query()#.order(-Article.timestamp.created)
-    articles = query.fetch(500)
+    articles = query.fetch()
     
     template_values = {
       'url': self.request.application_url,

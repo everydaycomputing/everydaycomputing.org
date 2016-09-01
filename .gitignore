@@ -1,6 +1,7 @@
 *.pyc
 *.DS_Store
 bulkloader-*
+*.sql3
 *~
 
 # Xcode
