@@ -50,18 +50,27 @@ class MainPage(webapp2.RequestHandler):
     self.response.write(structured_dictionary)
 
 
+""" Handle a print out of the goals in CSV, JSON, etc. """
 class GoalHandler(webapp2.RequestHandler):
+  
   def get(self):
     """ """
+    outputFormat = self.request.get('format')
     self.response.headers['Content-Type'] = 'text/plain'
     query = LearningGoal.query()#.order(-Article.timestamp.created)
     goals = query.fetch()
-    for goal in goals:
-      self.response.write(goal.goal + "\n")
+    
+    if outputFormat == 'json':
+      s = json.dumps([p.to_dict() for p in goals])
+      self.response.write(s)
+    else:
+      for goal in goals:
+        outputString = ''
+        outputString = "> %s | %s | %s | %s | %s\n" % (goal.key.urlsafe(), goal._domainFromLiteratureReview, goal._domain, goal._support, goal.age_level)
+        self.response.write(outputString)
 
     #self.response.write('Everyday computing')
     #self.response.headers['Content-Type'] = 'application/csv'
-
 
 #for item in structured_dictionary:
 #    self.response.write("%s %s - %s\n" % (item['lessonNumber'],item['title'],item['parentCourse']))
