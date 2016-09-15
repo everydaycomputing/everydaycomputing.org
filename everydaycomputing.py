@@ -66,7 +66,7 @@ class GoalHandler(webapp2.RequestHandler):
     else:
       for goal in goals:
         outputString = ''
-        outputString = "> %s | %s | %s | %s | %s\n" % (goal.key.urlsafe(), goal._domainFromLiteratureReview, goal._domain, goal._support, goal.age_level)
+        outputString = "> %s | %s | %s | %s | %s | %s\n" % (goal.key.urlsafe(), goal._domainFromLiteratureReview, goal._domain, goal._support, goal.age_level, goal.goal)
         self.response.write(outputString)
 
     #self.response.write('Everyday computing')
