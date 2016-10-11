@@ -27,6 +27,7 @@ Download the Datastore
 export GOOGLE_APPLICATION_CREDENTIALS=./EverydayComputingOrg-a3501e320e92.json
 appcfg.py download_data --application=everydaycomputingorg --url=http://everydaycomputingorg.appspot.com/_ah/remote_api --filename=data.sql3
 
+
 Upload the Datastore Backup to Local Development Server
 ================================================================================
 You have to upload the API server.
