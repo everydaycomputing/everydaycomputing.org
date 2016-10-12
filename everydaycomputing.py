@@ -19,15 +19,14 @@ from database_site import *
 #from admin_category import *
 #from resource_handler import *
 
-
-
+################################################################################
 class MainPage(webapp2.RequestHandler):
-  
+
   def get(self):
     """ """
     #self.response.headers['Content-Type'] = 'text/plain'
     #self.response.write('Everyday computing')
-    
+
     template_values = {
       'hide': 1,
       'url': self.request.application_url,
@@ -35,31 +34,31 @@ class MainPage(webapp2.RequestHandler):
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
     }
-    
+
     template = JINJA_ENVIRONMENT.get_template('database_site/templates/home.html')
     self.response.write(template.render(template_values))
 
   def post(self):
     self.response.write("-------------------------------------------------")
     #self.response.write(structured_dictionary)
-    
+
     # structured_dictionary is the body of the post (which is the json file)
     structured_dictionary = json.loads(self.request.body)
-    
+
     # Loop through the dictionary and print out some basic info (for debugging)
     self.response.write(structured_dictionary)
 
 
 """ Handle a print out of the goals in CSV, JSON, etc. """
 class GoalHandler(webapp2.RequestHandler):
-  
+
   def get(self):
     """ """
     outputFormat = self.request.get('format')
     self.response.headers['Content-Type'] = 'text/plain'
     query = LearningGoal.query()#.order(-Article.timestamp.created)
     goals = query.fetch()
-    
+
     if outputFormat == 'json':
       s = json.dumps([p.to_dict() for p in goals])
       self.response.write(s)
@@ -95,6 +94,3 @@ APP = webapp2.WSGIApplication([
                                 #webapp2.Route('/regoals/', handler=GoalHandler, name='edit'),
                                #webapp2.Route('/sign', handler=Guestbook),
                                ], debug=True)
-
-
-
