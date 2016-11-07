@@ -17,7 +17,9 @@ indexes:
     direction: desc
   - name: goal
     direction: desc
-
+  - name: learning_goals
+    direction: desc
+    
 - kind: Greeting
   ancestor: yes
   properties:
