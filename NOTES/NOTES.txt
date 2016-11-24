@@ -1,43 +1,51 @@
 Start the Development Server
 ================================================================================
+```
 dev_appserver.py app.yaml
 dev_appserver.py --clear_datastore=yes app.yaml
+```
 
-
-* This was for the modules version (its somewhere in the git repo, possibly
+This was for the modules version (its somewhere in the git repo, possibly
   before the first big merge with dev (August 2, 2016)
 dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml admin.yaml
- lsof -P | grep '8080' | awk '{print $2}' | xargs kill -9
+
+```
+lsof -P | grep '8080' | awk '{print $2}' | xargs kill -9
+```
 
 Update Server
 ================================================================================
-* `cd` to the directory containing everydaycomputing.org/
+`cd` to the directory containing everydaycomputing.org/
   (probably ~/Development/GitHub)
 
+```
+cd ~/Development/GitHub
 appcfg.py update everydaycomputing.org/
+```
 
 Set Credentials for Remote API
 ================================================================================
-* The .json file was downloaded from the console
+The .json file was downloaded from the console
 
+```
 export GOOGLE_APPLICATION_CREDENTIALS=/Users/tbinkowski/Development/GitHub/EverydayComputing/everydaycomputing.org/EverydayComputingOrg-a3501e320e92.json
+```
 
 Download the Datastore
 ================================================================================
+```
 export GOOGLE_APPLICATION_CREDENTIALS=./EverydayComputingOrg-a3501e320e92.json
 appcfg.py download_data --application=everydaycomputingorg --url=http://everydaycomputingorg.appspot.com/_ah/remote_api --filename=data.sql3
-
+```
 
 Upload the Datastore Backup to Local Development Server
 ================================================================================
-You have to upload the API server.
+You have to start the server to upload to the API.
 
+```
 dev_appserver.py --clear_datastore=yes app.yaml
-appcfg.py upload_data --url=http://localhost:58151/_ah/remote_api --filename=data.sql3 --application=dev~everydaycomputingorg
-
-
-
-
+appcfg.py upload_data --filename=data.sql3 --application=dev~everydaycomputingorg --url=http://localhost:58151/_ah/remote_api
+```  
 
 
 
@@ -161,7 +169,7 @@ def article_key():
 #
 #
 class MainPage(webapp2.RequestHandler):
-  
+
   def get(self):
     #
     #
@@ -170,13 +178,13 @@ class MainPage(webapp2.RequestHandler):
     #greetings_query = Greeting.query(ancestor=guestbook_key(guestbook_name)).order(-Greeting.date)
     #greetings = greetings_query.fetch(10)
     #logging.info(greetings)
-    
+
     # Fetch all articles
     articles_query = Article.query().order(-Article.timestamp)
     articles = articles_query.fetch(10)
     logging.info("All articles")
     logging.info(articles)
-    
+
     user = users.get_current_user()
     template_values = {
       'user': user,
@@ -186,7 +194,7 @@ class MainPage(webapp2.RequestHandler):
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
     }
-    
+
     template = JINJA_ENVIRONMENT.get_template('templates/admin.html')
     self.response.write(template.render(template_values))
 
@@ -197,29 +205,29 @@ class MainPage(webapp2.RequestHandler):
 #
 #
 class Guestbook(webapp2.RequestHandler):
-  
+
   def post(self):
     # We set the same parent key on the 'Greeting' to ensure each
     # Greeting is in the same entity group. Queries across the
     # single entity group will be consistent. However, the write
     # rate to a single entity group should be limited to
     # ~1/second.
-    
+
     #guestbook_name = self.request.get('guestbook_name',DEFAULT_GUESTBOOK_NAME)
     #greeting = Greeting(parent=guestbook_key(guestbook_name))
     #greeting.content = self.request.get('content')
-    
+
     if users.get_current_user():
       researcher = Researcher(identity=users.get_current_user().user_id(),email=users.get_current_user().email())
-  
+
     self.bib2data(self.request.get('content'))
     researcher.put()
-    
+
     query_params = {'guestbook_name': "guestbook_name"}
     self.redirect('/')#?' + urllib.urlencode(query_params))
-  
-  
-  
+
+
+
   def bib2data(self,string):
     logging.info("enter bib2")
     # Parse the bibtex formatted string that is coming in from the request.
@@ -232,7 +240,7 @@ class Guestbook(webapp2.RequestHandler):
     items = json.loads(bib.json())
     data = items["items"][0]
     logging.info(data)
-    
+
     (article_key,article) = self.articleFromJSON(data)
     logging.info(article)
     """
@@ -246,22 +254,22 @@ class Guestbook(webapp2.RequestHandler):
       logging.info("HERE")
       a.articles.append(article_key)
       a.put()
-      
+
       # Relationship stuff
       AuthorArticle(author=a.key,article=article.key).put()
       if not a.key in article.authors:
       article.authors.append(a.key)
       article.put()
       """
-  
-  
+
+
   def articleFromJSON(self,json):
     # Return the article_key and article object from a JSON dictionary.
     # Unique (I think) article name from bibtex
     #
     article_key = ndb.Key(Article,json['id'])
     article = Article.get_or_insert(article_key.id(),parent=article_key)
-    
+
     if 'title' in json: article.title=json['title']
     if 'journal' in json: article.journal=json['journal']
     if 'volume' in json: article.volume=json['volume']
@@ -271,7 +279,7 @@ class Guestbook(webapp2.RequestHandler):
     if 'publisher' in json: article.publisher=json['publisher']
     if 'booktitle' in json: article.booktitle=json['booktitle']
     if 'organization' in json: article.organization=json['organization']
-    
+
     for author in json['author']:
       # The unique key the author record can be referred by family_given
       #key_name = author['family']+"_"+author['given']
@@ -281,16 +289,16 @@ class Guestbook(webapp2.RequestHandler):
       if not article_key in a.articles:
         a.articles.append(article_key)
       a.put()
-      
+
       # Relationship stuff
       AuthorArticle(author=a.key,article=article.key).put()
       if not a.key in article.authors:
         article.authors.append(a.key)
-    
+
     article.put()
     return (article_key,article)
-  
-  
+
+
   def authorObjectFromName(self,author):
     key_name = author['family']+"_"+author['given']
     k = ndb.Key('Author',key_name)
