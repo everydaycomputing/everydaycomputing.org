@@ -1,0 +1,106 @@
+{% extends "public_site/templates/public_base_template.html" %} {% block body %}
+
+<script type="text/javascript" class="init">
+    $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+        $('#example tfoot th').each(function() {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        });
+
+        // DataTable
+        var table = $('#example').DataTable({
+            scrollY: "500px",
+            scrollX: false,
+            scrollCollapse: true,
+            paging: false
+
+        });
+
+        // Apply the search
+        table.columns().every(function() {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change', function() {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- PAGE HEADER -->
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Methodology - Search and Filter</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br/>
+<br/>
+
+<div class="container">
+    <h2>Filter</h2>
+
+    <!-- DATASTORE RESULTS -->
+    <h2>Sort</h2>
+    <div class="table-responsive">
+        <table id="example" class="table table-striped cell-border display" width="100%">
+            <thead>
+                <tr>
+                    <th>Gender</th>
+                    <th>Sample<br/>Size</th>
+                    <th>SES</th>
+                    <th>Disability<br/>Status</th>
+                    <th>Ethnicity</th>
+                    <th>Environment</th>
+                    <th>Data Analytic<br/>Technique</th>
+                    <th>Data Collection<br/>Instrument</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Gender</th>
+                    <th>Sample<br/>Size</th>
+                    <th>SES</th>
+                    <th>Disability<br/>Status</th>
+                    <th>Ethnicity</th>
+                    <th>Environment</th>
+                    <th>Data Analytic<br/>Technique</th>
+                    <th>Data Collection<br/>Instrument</th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.sample_gender | join(",") }}</td>
+                    <td>{{ result.sample_size | default("-") }}</td>
+                    <td>{{ result.sample_ses | default("-") }}</td>
+                    <td>{{ result.sample_disability_status | default("-") }}</td>
+                    <td>{{ result.sample_ethnicity | join(",") }}</td>
+                    <td>{{ result.sample_environment | join(",") }}</td>
+                    <td><b>{{ result.sample_data_analytic_technique | join(",") }}</b><br>{{ result.sample_data_analytic_technique_note }}</td>
+                    <td>{{ result.sample_data_collection_instrument }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+    </div>
+</div>
+
+<aside class="bg-dark">
+    <div class="container text-center">
+    </div>
+</aside>
+{% endblock %}

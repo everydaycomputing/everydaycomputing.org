@@ -45,7 +45,7 @@ You have to start the server to upload to the API.
 ```
 dev_appserver.py --clear_datastore=yes app.yaml
 appcfg.py upload_data --filename=data.sql3 --application=dev~everydaycomputingorg --url=http://localhost:58151/_ah/remote_api
-```  
+```
 
 
 
@@ -65,9 +65,7 @@ curl -XPOST -H "Content-Type: application/json" --data @test.json http://localho
 
 
 {u'booktitle': u'ACM SIGCSE Bulletin', u'title': u'Thinking about computational thinking', u'number': u'1', u'organization': u'ACM', u'author': [{u'family': u'Lu', u'given': u'James J'}, {u'family': u'Fletcher', u'given': u'George HL'}], u'id': u'lu2009thinking', u'type': u'inproceedings', u'page': u'260-264', u'issued': {u'literal': u'2009'}, u'volume': u'41'}
-
-
- {u'number': u'1', u'title': u'Computational Thinking in K--12 A Review of the State of the Field', u'publisher': u'SAGE Publications', u'page': u'38-43', u'type': u'article', u'id': u'grover2013computational', u'author': [{u'family': u'Grover', u'given': u'Shuchi'}, {u'family': u'Pea', u'given': u'Roy'}], u'volume': u'42', u'issued': {u'literal': u'2013'}, u'journal': u'Educational Researcher'}
+{u'number': u'1', u'title': u'Computational Thinking in K--12 A Review of the State of the Field', u'publisher': u'SAGE Publications', u'page': u'38-43', u'type': u'article', u'id': u'grover2013computational', u'author': [{u'family': u'Grover', u'given': u'Shuchi'}, {u'family': u'Pea', u'given': u'Roy'}], u'volume': u'42', u'issued': {u'literal': u'2013'}, u'journal': u'Educational Researcher'}
 
 
 @article{crooks2004weblogo,

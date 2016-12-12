@@ -56,7 +56,7 @@ class AboutPage(webapp2.RequestHandler):
     self.response.write(template.render(template_values))
 
 
-
+################################################################################
 class PageLiterature(webapp2.RequestHandler):
   """ About the project page for the public facing website
 
@@ -80,6 +80,28 @@ class PageLiterature(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_literature_query.html')
     self.response.write(template.render(template_values))
 
+################################################################################
+#
+#
+#
+#
+################################################################################
+class PageMethodology(webapp2.RequestHandler):
+  """ Search and filtering for the Methodology database """
+  def get(self):
+    query = Methodology.query()#.order(-Article.timestamp.created)
+    results = query.fetch()
+
+    template_values = {
+      'url': self.request.application_url,
+      'user': users.get_current_user(),
+      'results': results,
+      'url': users.create_logout_url(self.request.uri),
+      'url_linktext': "Logout"
+    }
+
+    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_methodology_query.html')
+    self.response.write(template.render(template_values))
 
 ################################################################################
 #
@@ -223,6 +245,7 @@ APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=HomePage, name='home'),
                                webapp2.Route('/about/', handler=AboutPage, name='home'),
                                webapp2.Route('/literature/', handler=PageLiterature),
+                               webapp2.Route('/methodology/', handler=PageMethodology),
                                webapp2.Route('/goals/', handler=PageGoals),
                                webapp2.Route('/goals/cluster/', handler=PageGoalsCluster),
                                webapp2.Route('/goals/cluster/insert/', handler=PageGoalsClusterInsert),

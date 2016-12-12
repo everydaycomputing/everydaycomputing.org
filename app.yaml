@@ -28,6 +28,9 @@ libraries:
 - name: jinja2
   version: latest
 
+env_variables:
+  CLOUDSQL_DB: genes
+
 skip_files:
 - ^(.*/)?#.*#$
 - ^(.*/)?.*~$
