@@ -6,6 +6,8 @@ import jinja2
 import webapp2
 import logging
 
+import admin_models
+
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
@@ -17,13 +19,13 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 ################################################################################
 class LearningGoal(ndb.Model):
   """ Learning Goals that are identified in article resource. """
-  
+
   # The original domain is not referred to as a `concept`
   domain = ndb.IntegerProperty(default=9)
   # This is referred to as a domain
   domainFromLiteratureReview = ndb.IntegerProperty(default=4)
-  
-  
+
+
   page_number = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
@@ -38,7 +40,7 @@ class LearningGoal(ndb.Model):
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
   ccssm_grades = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
   cluster = ndb.StringProperty(repeated=True)
-  
+
   @staticmethod
   def _pretty_grades(code):
     if code == 0: return "K"
@@ -47,13 +49,13 @@ class LearningGoal(ndb.Model):
     if code == 14: return "Junior High"
     if code == 15: return "Middle School"
     if code == 16: return "High School"
-  
+
   @property
   def _domainFromLiteratureReview(self):
     """ Mapping of emergent domains (those that came from the literature review
       after the name "domain" was previously applied to the Grover and Pea
       domains """
-    
+
     if self.domainFromLiteratureReview == 0: return 'Program development (Iterative development of computational solutions)'
     if self.domainFromLiteratureReview == 1: return 'Computing languages, environments, and constructs'
     if self.domainFromLiteratureReview == 2: return 'Algorithms (Flow of control)'
@@ -61,11 +63,22 @@ class LearningGoal(ndb.Model):
     if self.domainFromLiteratureReview == 4: return 'None'
 
   @property
+  def _article(self):
+    """ Mapping of goal back to article.
+
+    This should have been done initially as a many-to-many, but wasn't
+    """
+    #select * from Article WHERE learning_goals CONTAINS Key(LearningGoal, 4786706423218176)
+    article = Article()
+    #article = ndb.GqlQuery("SELECT __key__ FROM Article WHERE learning_goals CONTAINS :1",  Key(LearningGoal, self.key))
+    return "hi"
+
+  @property
   def _domain(self):
     """ Mapping so that we can freely change names at a later time
-      
-      Note: In all the documents moving forward from June, 2016, 
-      
+
+      Note: In all the documents moving forward from June, 2016,
+
       these are
       referred to as the "Concepts"
       """
@@ -79,14 +92,14 @@ class LearningGoal(ndb.Model):
     if self.domain == 7: return "Efficiency and performance constraints"
     if self.domain == 8: return "Debugging and systematic error detection"
     if self.domain == 9: return "None"
-  
+
   @property
   def _support(self):
     if self.support == 0: return 'Classroom Evidence'
     if self.support == 1: return 'Literature Evidence'
     if self.support == 2: return 'Theorectical Evidence'
     if self.support == 3: return 'None'
-  
+
   @staticmethod
   def _ccssm_practice_standards(code):
     if code == 1: return "1. Make sense of problems and persevere in solving them."
@@ -105,7 +118,7 @@ class LearningGoal(ndb.Model):
 #
 ################################################################################
 class ArticleGoalHandler(webapp2.RequestHandler):
-  
+
   def post(self,article_key,learning_goal_key):
     """
       article = ndb.Key(urlsafe=key).get()
@@ -139,8 +152,8 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     learning_goal.put()
     # Reload
     self.redirect("/resource/article/" + article_key + "/")
-  
-  
+
+
   def get(self,task,article_key):
     """
       " Note: We are using a different key based on the type of task
@@ -160,10 +173,10 @@ class ArticleGoalHandler(webapp2.RequestHandler):
     else:
       learning_goal_key = self.request.get('learning_goal_key')
       learning_goal = ndb.Key(urlsafe=learning_goal_key).get()
-    
+
     # Save any changes we made
     article.put()
-    
+
     if task == 'delete':
       self.redirect("/resource/article/" + article_key + "/")
     else:
@@ -181,6 +194,3 @@ class ArticleGoalHandler(webapp2.RequestHandler):
       logging.info(article_key)
       template = JINJA_ENVIRONMENT.get_template('templates/admin_learning-goals.html')
       self.response.write(template.render(template_values))
-
-
-

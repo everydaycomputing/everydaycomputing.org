@@ -17,7 +17,6 @@ from admin_models import *
 from admin_category import *
 import bibpy
 
-
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
@@ -44,15 +43,14 @@ def article_ancestor_key():
   return ndb.Key(Article, 'article')
 
 
-
-#
+################################################################################
 #
 # Main Page
 #
-#
+################################################################################
 """
 class MainPage(webapp2.RequestHandler):
-  
+
   def get(self):
     #
     #
@@ -61,11 +59,11 @@ class MainPage(webapp2.RequestHandler):
     #greetings_query = Greeting.query(ancestor=guestbook_key(guestbook_name)).order(-Greeting.date)
     #greetings = greetings_query.fetch(10)
     #logging.info(greetings)
-    
+
     # Fetch all articles
     articles_query = Article.query(ancestor=article_ancestor_key()).order(-Article.timestamp)
     articles = articles_query.fetch(10)
-    
+
     template_values = {
       'user': users.get_current_user(),
       'articles': articles,
@@ -74,16 +72,16 @@ class MainPage(webapp2.RequestHandler):
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
     }
-    
+
     template = JINJA_ENVIRONMENT.get_template('admin.html')
     self.response.write(template.render(template_values))
 """
+
+################################################################################
 #
 #
 #
-#
-#
-#
+################################################################################
 class ArticleInsertHandler(webapp2.RequestHandler):
   def post(self):
     """We set the same parent key on the 'Greeting' to ensure each
@@ -96,20 +94,20 @@ class ArticleInsertHandler(webapp2.RequestHandler):
     #greeting = Greeting(parent=guestbook_key(guestbook_name))
     #greeting.content = self.request.get('content')
     #greeting.put()
-    
-    
+
+
     researcher = Researcher(identity=users.get_current_user().user_id(),\
       email=users.get_current_user().email())
     researcher.put()
-  
+
     data = self.bib2data(self.request.get('content'))
     (article_key,article) = self.articleFromJSON(data)
     logging.info(article)
-    
+
     query_params = {'guestbook_name': "guestbook_name"}
     self.redirect('/resource/article/')  #?' + urllib.urlencode(query_params))
 
-  
+
   def bib2data(self,string):
     """
     """
@@ -131,7 +129,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
     #
     article_key = ndb.Key(Article,json['id'])
     article = Article.get_or_insert(article_key.id(),parent=article_ancestor_key())
-    
+
     if 'title' in json: article.title=json['title']
     if 'journal' in json: article.journal=json['journal']
     if 'volume' in json: article.volume=json['volume']
@@ -147,15 +145,15 @@ class ArticleInsertHandler(webapp2.RequestHandler):
       if not article_key in a.articles:
         a.articles.append(article_key)
       a.put()
-      
+
       #AuthorArticle(author=a.key,article=article.key).put()
       if not a.key in article.authors:
         article.authors.append(a.key)
 
     article.put()
     return (article_key,article)
- 
-  
+
+
   def authorObjectFromName(self,author):
     # Create (or retrieve) an author object from a dictionary of author data
     # that is passed from bibtex input.  The key is contstructed from the
@@ -170,15 +168,17 @@ class ArticleInsertHandler(webapp2.RequestHandler):
       given_name=author['given'])
     return author
 
-
+################################################################################
+#
+#
+#
+################################################################################
 class ArticleHandler(webapp2.RequestHandler):
   def get(self):
-    """
-    """
     # Fetch all articles
     articles_query = Article.query(ancestor=article_ancestor_key())#.order(-Article.timestamp.created)
-    articles = articles_query.fetch(100)
-    
+    articles = articles_query.fetch()
+
     template_values = {
       'url': self.request.application_url,
       'user': users.get_current_user(),
@@ -188,12 +188,6 @@ class ArticleHandler(webapp2.RequestHandler):
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
     }
-    
+
     template = JINJA_ENVIRONMENT.get_template('templates/article.html')
     self.response.write(template.render(template_values))
-
-
-
-
-
-

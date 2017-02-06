@@ -1,4 +1,4 @@
-dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml 
+dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml
 
 # Modules Hello World
 
