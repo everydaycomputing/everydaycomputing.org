@@ -73,6 +73,31 @@ class GoalHandler(webapp2.RequestHandler):
     #self.response.write('Everyday computing')
     #self.response.headers['Content-Type'] = 'application/csv'
 
+"""
+Ran on 2017 02 22 
+class ArticleFix(webapp2.RequestHandler):
+    """Add the goals to articles and vice versa so we can access them"""
+    def get(self):
+        query = LearningGoal.query()#.order(-Article.timestamp.created)
+        goals = query.fetch()
+        i = 0
+        for goal in goals:
+            """ Removes the ghosts """
+            art = ndb.gql("SELECT __key__ from Article WHERE learning_goals = :1", goal.key).get()
+            if art == None:
+                self.response.write("Removing goal with no article: %s" % goal.goal)
+                goal.key.delete()
+            else:
+                goal.article = art.get().key
+                goal.put()
+
+            outputString = "> %d | %s | %s <br>" % \
+            (i,  goal.goal,goal.article)
+            self.response.write(outputString)
+            i += 1
+"""
+
+
 #for item in structured_dictionary:
 #    self.response.write("%s %s - %s\n" % (item['lessonNumber'],item['title'],item['parentCourse']))
 
@@ -83,6 +108,7 @@ APP = webapp2.WSGIApplication([
                                #webapp2.Route('/', handler=MainPage, name='home'),
                                #webapp2.Route('/resource/', handler=ResourceHandler, name='resource-handler'),
                                routes.PathPrefixRoute('/resource', [
+                                                                    webapp2.Route('/articlefix/', ArticleFix),
                                                                    webapp2.Route('/', ResourceHandler, 'user-overview'),
                                                                    webapp2.Route('/article/insert/', ArticleInsertHandler, 'user-projects'),
                                                                    webapp2.Route('/article/<key>/', ArticleCategoryHandler, 'user-profile'),

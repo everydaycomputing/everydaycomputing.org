@@ -26,6 +26,7 @@ class LearningGoal(ndb.Model):
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
   ccssm_grades = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
   cluster = ndb.StringProperty(repeated=True)
+  article = ndb.KeyProperty(kind='Article')
 
   @staticmethod
   def _pretty_grades(code):
@@ -54,14 +55,13 @@ class LearningGoal(ndb.Model):
     """ Mapping of goal back to article.
     This should have been done initially as a many-to-many, but wasn't
     """
+
     #select * from Article WHERE learning_goals CONTAINS Key(LearningGoal, 4786706423218176)
     #article = ndb.GqlQuery("SELECT * from Article").fetch()
     art = ndb.gql("SELECT __key__ from Article WHERE learning_goals = :1", self.key).get()
     #.fetch()
     #"SELECT __key__ FROM Article WHERE learning_goals CONTAINS :1", self.key)
 
-    #logging.info(art.t)
-    logging.info("-----")
     return art.get().key.urlsafe()
 
   @property

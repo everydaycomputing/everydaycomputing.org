@@ -156,15 +156,10 @@
             <td>{{ goal._domainFromLiteratureReview }}</td>
             <td>{{ goal._domain }}</td>
             <td>{{ goal._support }}</td>
-            <td><a target="_blank" href="http://everydaycomputing.org/resource/article/{{ goal._article}}/">{{ goal.goal }}</a></td>
+            <td><a target="_blank" href="http://everydaycomputing.org/resource/article/{{ goal.article.urlsafe() }}/">{{ goal.goal }}</a></td>
             <td><a target="_blank" href="http://everydaycomputing.org/goals/cluster/">{{ goal.cluster | join(",") }}</a></td>
           </tr>
           {% endfor %}
-<<<<<<< HEAD
-
-=======
-http://everydaycomputing.org/resource/article/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjMLEgdBcnRpY2xlIgdhcnRpY2xlDAsSB0FydGljbGUiEnRheWxvcjIwMTRjb21wdXRlcgw/
->>>>>>> dev
         </tbody>
       </table>
       <br/><br/>
