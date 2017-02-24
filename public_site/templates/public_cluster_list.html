@@ -17,9 +17,9 @@
 <br/>
 
 <div class="container">
-  
-  
-  
+
+
+
   <table class="table table-striped display">
     <thead>
       <tr>
@@ -32,14 +32,14 @@
       </tr>
     </thead>
     <tbody>
-      
+
       {% for cluster,goals in clusters.iteritems() %}
       <tr style="background-color:black;color:white;">
-        <td colspan="6"><h4>{{ cluster }} <span class="tag tag-default tag-pill pull-xs-right"></span></h4>
+        <td colspan="6"><h4>{{ cluster }} - {{goals|length}} <span class="tag tag-default tag-pill pull-xs-right"></span></h4>
         </td>
       </tr>
-      
-      
+
+
       {% for goal in goals %}
       <tr>
         <td>{{ goal.age_level | join(",") }}</td>
@@ -53,9 +53,7 @@
       {% endfor %}
     </tbody>
   </table>
-  
+
 </div>
 
 {% endblock %}
-
-
