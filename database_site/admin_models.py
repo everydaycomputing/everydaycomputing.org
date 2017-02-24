@@ -11,7 +11,7 @@ from article_methodology import *
 #
 ################################################################################
 class LearningGoal(ndb.Model):
-  """ Learning Goals that are identified in article resource. """
+  """Learning Goals that are identified in article resource."""
 
   # The original domain is not referred to as a `concept`
   domain = ndb.IntegerProperty(default=9)
