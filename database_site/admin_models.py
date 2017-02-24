@@ -5,20 +5,13 @@ import logging
 from article_goals import *
 from article_methodology import *
 
-################################################################################
-#
-# Learning Goal
-#
-################################################################################
 class LearningGoal(ndb.Model):
-  """Learning Goals that are identified in article resource."""
-
-  # The original domain is not referred to as a `concept`
+  """Learning Goals that are identified in article resource.
+  """
+  # The original domain is now referred to as a `concept`
   domain = ndb.IntegerProperty(default=9)
   # This is referred to as a domain
   domainFromLiteratureReview = ndb.IntegerProperty(default=4)
-
-
   page_number = ndb.StringProperty(default="")
   goal = ndb.TextProperty(default="")
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
@@ -36,19 +29,20 @@ class LearningGoal(ndb.Model):
 
   @staticmethod
   def _pretty_grades(code):
-    if code == 0: return "K"
-    if code > 0 and code < 13: return str(code)
-    if code == 13: return "Elementary School"
-    if code == 14: return "Junior High"
-    if code == 15: return "Middle School"
-    if code == 16: return "High School"
+      """Convert the numeric grade levels into a string"""
+      if code == 0: return "K"
+      if code > 0 and code < 13: return str(code)
+      if code == 13: return "Elementary School"
+      if code == 14: return "Junior High"
+      if code == 15: return "Middle School"
+      if code == 16: return "High School"
 
   @property
   def _domainFromLiteratureReview(self):
     """ Mapping of emergent domains (those that came from the literature review
-      after the name "domain" was previously applied to the Grover and Pea
-      domains """
-
+        after the name "domain" was previously applied to the Grover and Pea
+        domains
+    """
     if self.domainFromLiteratureReview == 0: return 'Program development (Iterative development of computational solutions)'
     if self.domainFromLiteratureReview == 1: return 'Computing languages, environments, and constructs'
     if self.domainFromLiteratureReview == 2: return 'Algorithms (Flow of control)'
@@ -58,7 +52,6 @@ class LearningGoal(ndb.Model):
   @property
   def _article(self):
     """ Mapping of goal back to article.
-
     This should have been done initially as a many-to-many, but wasn't
     """
     #select * from Article WHERE learning_goals CONTAINS Key(LearningGoal, 4786706423218176)
@@ -150,10 +143,9 @@ class Resource(ndb.Model):
 
 
 class Article(ndb.Model):
-  """
-    Model representing a resource type article
+  """Model representing a resource type article
     Note: The key is the "id" from bibtex
-    """
+"""
   # Entry metadata
   timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
 
