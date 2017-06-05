@@ -73,6 +73,8 @@ class GoalHandler(webapp2.RequestHandler):
     #self.response.write('Everyday computing')
     #self.response.headers['Content-Type'] = 'application/csv'
 
+
+
 #for item in structured_dictionary:
 #    self.response.write("%s %s - %s\n" % (item['lessonNumber'],item['title'],item['parentCourse']))
 

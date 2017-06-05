@@ -10,9 +10,6 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
-# GQL CONSOLE
-#select * from Article WHERE learning_goals CONTAINS Key(LearningGoal, 4786706423218176)
-
 - kind: Article
   ancestor: yes
   properties:

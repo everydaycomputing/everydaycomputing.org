@@ -3,9 +3,9 @@
 {% block body %}
 
 <div class="container">
-  
+
   <div class="flash flash-warn">
-    
+
     {% for author in article.author_names %}
     <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
     {% endfor %}.
@@ -21,24 +21,24 @@
 <!-- --------------------------------------------------------------- SUMMARY -->
 <div class="container about-that">
   <h1>Summary
-    <a href="{{application_url}}/resource/article/edit/summary/{{key}}/" class="btn right">Edit Summary</a>
+    <!-- <a href="{{application_url}}/resource/article/edit/summary/{{key}}/" class="btn right">Edit Summary</a> -->
   </h1>
 </div>
 
 <div class="container about-that">
   <div class="columns">
-    
+
     <div class="one-half column">
       <p>Type: {{ article.type | join(",") }}</p>
       <p>Purpose: {{ article.purpose }}</p>
 
     </div>
-    
+
     <div class="one-half column">
       <p>Findings: {{ article.findings }}</p>
       <p>Recommendations: {{ article.recommendations }}</p>
     </div>
-    
+
   </div>
 </div>
 
@@ -47,7 +47,7 @@
 <div class="container about-that">
   <hr/>
   <h1>Methodology
-    <a href="{{application_url}}/resource/article/edit/methodology/{{key}}/" class="btn right">Edit Methodology</a></h1>
+    <!-- <a href="{{application_url}}/resource/article/edit/methodology/{{key}}/" class="btn right">Edit Methodology</a></h1> -->
   </h1>
 </div>
 
@@ -82,7 +82,7 @@
     </div>
 
   </div>
-  
+
   <div>
     <p>Notes: {{ article._methodology.sample_notes }}</p>
   </div>
@@ -94,8 +94,8 @@
 <div class="container about-that">
   <hr/>
   <h1>Learning Goals <span class="counter">{{ article.learning_goals | length}} </span>
-    
-    <a href="{{application_url}}/resource/article/goal/insert/{{key}}/" class="btn right">Add New Learning Goal</a>
+
+    <!-- <a href="{{application_url}}/resource/article/goal/insert/{{key}}/" class="btn right">Add New Learning Goal</a> -->
     </h1>
   <table style="width:100%;border-color:gray;">
     {% for goal in article.learning_goals %}
@@ -106,21 +106,23 @@
         Goal: {{ goal.get().goal }}<br/>
         Age Level: {{ goal.get().age_level | join(",") }}</p>
       </td>
-      <td><a href="{{application_url}}/resource/article/goal/delete/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}" style="color:red;">Delete</a></td>
-      
+      <td>
+        <!--<a href="{{application_url}}/resource/article/goal/delete/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}" style="color:red;">Delete</a>-->
+      </td>
+
     </tr>
     {% endfor %}
   </table>
   <hr/>
-  
+
 </div>
 
 <!--
  <div class="container about-that">
  <div class="columns">
- 
+
  {% for category in categories %}
- 
+
  <div class="one-half column">
  <h2>{{ category|title }}</h2>
  <p>Something usefull here...</p>
@@ -128,7 +130,7 @@
  <br/>
  </div>
  {% endfor %}
- 
+
  </div>
  </div>
  -->

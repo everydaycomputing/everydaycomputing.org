@@ -26,6 +26,18 @@ class LearningGoal(ndb.Model):
   ccssm_practice_standards = ndb.IntegerProperty(choices=[1,2,3,4,5,6,7,8], repeated=True)
   ccssm_grades = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
   cluster = ndb.StringProperty(repeated=True)
+  article = ndb.KeyProperty(kind='Article')
+
+  # new
+  programming_environment = ndb.TextProperty(default="")
+  contextual_approach = ndb.StringProperty(choices=['game design', 'storytelling', 'simulations', 'world-building'])
+  student_experience_level = ndb.StringProperty(choices=['none','some'])
+  duration_of_intervention = ndb.StringProperty(choices=["0-2", "3-10", "11-20", "21+"])
+  pacing_of_intervention = ndb.StringProperty(choices=["daily", "weekly", "monthly", "less than monthly"])
+  student_evidence_type = ndb.StringProperty(choices=["program analysis", "other work analysis", "performance on programming challenges", "paper and pencil assessment", "attitude surveys", "observation data", "interviews", "focus groups"])
+  experiment_duplication = ndb.BooleanProperty(default=False)
+  instructor = ndb.StringProperty(choices=["no instructor", "classroom teacher", "researcher"])
+  structured_vs_open_ended = ndb.StringProperty(choices=["structured", "hybrid", "open-ended projects"])
 
   @staticmethod
   def _pretty_grades(code):
@@ -54,14 +66,13 @@ class LearningGoal(ndb.Model):
     """ Mapping of goal back to article.
     This should have been done initially as a many-to-many, but wasn't
     """
+
     #select * from Article WHERE learning_goals CONTAINS Key(LearningGoal, 4786706423218176)
     #article = ndb.GqlQuery("SELECT * from Article").fetch()
     art = ndb.gql("SELECT __key__ from Article WHERE learning_goals = :1", self.key).get()
     #.fetch()
     #"SELECT __key__ FROM Article WHERE learning_goals CONTAINS :1", self.key)
 
-    #logging.info(art.t)
-    logging.info("-----")
     return art.get().key.urlsafe()
 
   @property
@@ -162,7 +173,7 @@ class Article(ndb.Model):
   # pdf =
 
   # Summary data
-  type = ndb.StringProperty(choices=['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'], repeated=True)
+  type = ndb.StringProperty(indexed=True,choices=['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'], repeated=True)
   star = ndb.BooleanProperty(indexed=True,default=False)
   purpose = ndb.TextProperty(default="")
   findings = ndb.TextProperty(default="")
