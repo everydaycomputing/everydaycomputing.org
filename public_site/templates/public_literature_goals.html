@@ -132,6 +132,7 @@
         <thead>
           <tr>
             <th>Age</th>
+            <th>Article<br/>Type</th>
             <th>Domain</th>
             <th>Concept</th>
             <th>Support</th>
@@ -142,6 +143,7 @@
         <tfoot>
           <tr>
             <th>Age</th>
+            <th>Article<br/>Type</th>
             <th>Domain</th>
             <th>Concept</th>
             <th>Support</th>
@@ -153,6 +155,7 @@
           {% for goal in articles %}
           <tr>
             <td><input type="checkbox" name="selected" value="{{ goal.key.urlsafe() }}"/> {{ goal.age_level | join(",") }}</td>
+            <td>{{ goal.article.type }}</td>
             <td>{{ goal._domainFromLiteratureReview }}</td>
             <td>{{ goal._domain }}</td>
             <td>{{ goal._support }}</td>

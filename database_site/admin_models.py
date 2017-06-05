@@ -28,6 +28,17 @@ class LearningGoal(ndb.Model):
   cluster = ndb.StringProperty(repeated=True)
   article = ndb.KeyProperty(kind='Article')
 
+  # new
+  programming_environment = ndb.TextProperty(default="")
+  contextual_approach = ndb.StringProperty(choices=['game design', 'storytelling', 'simulations', 'world-building'])
+  student_experience_level = ndb.StringProperty(choices=['none','some'])
+  duration_of_intervention = ndb.StringProperty(choices=["0-2", "3-10", "11-20", "21+"])
+  pacing_of_intervention = ndb.StringProperty(choices=["daily", "weekly", "monthly", "less than monthly"])
+  student_evidence_type = ndb.StringProperty(choices=["program analysis", "other work analysis", "performance on programming challenges", "paper and pencil assessment", "attitude surveys", "observation data", "interviews", "focus groups"])
+  experiment_duplication = ndb.BooleanProperty(default=False)
+  instructor = ndb.StringProperty(choices=["no instructor", "classroom teacher", "researcher"])
+  structured_vs_open_ended = ndb.StringProperty(choices=["structured", "hybrid", "open-ended projects"])
+
   @staticmethod
   def _pretty_grades(code):
       """Convert the numeric grade levels into a string"""
@@ -162,7 +173,7 @@ class Article(ndb.Model):
   # pdf =
 
   # Summary data
-  type = ndb.StringProperty(choices=['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'], repeated=True)
+  type = ndb.StringProperty(indexed=True,choices=['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'], repeated=True)
   star = ndb.BooleanProperty(indexed=True,default=False)
   purpose = ndb.TextProperty(default="")
   findings = ndb.TextProperty(default="")
