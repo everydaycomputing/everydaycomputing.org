@@ -1,0 +1,61 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+<div class="container">
+  <table width="100%">
+    <th><td>Left Arrow</td></th>
+    <tr><td>a</td><td>a</td><td>a</td></tr>
+  </table>
+  <h1>Trajectory Tool</h1>
+
+
+  <!-- -->
+  <div>
+    <a href="{{ node.arrow_in }}">Arrow In</a>
+  </div>
+
+  <form action="/tools/trajectory/node/{{ node.key.urlsafe() }}/" method="post">
+
+    <div>
+      <label for="summary">Summary
+        <textarea name="summary" class="input-block" rows="2" placeholder="">
+          {{ node.summary }}
+        </textarea>
+      </label>
+    </div>
+
+    <div>
+      <label for="understanding">Understanding
+        <textarea name="understanding" class="input-block" rows="2" placeholder="">
+          {{ node.understanding }}
+        </textarea>
+      </label>
+    </div>
+
+
+
+
+    <!-- -->
+    <label for="goals_in_lesson_plans">Goals in Lesson Plans
+      <input type="checkbox" name="type" {% if node.goals_in_lesson_plans %} checked="yes"{% endif %}/>
+      {{ item }}
+  </label>
+</div>
+
+
+
+
+    <div>
+      <input type="submit" class="btn btn-large btn-primary">
+    </div>
+  </form>
+
+  <!-- -->
+  <div>
+    <a href="{{ node.arrow_out}}">Arrow Out</a>
+  </div>
+
+</div>
+
+{% endblock %}

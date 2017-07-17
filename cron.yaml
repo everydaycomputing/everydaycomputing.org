@@ -1,0 +1,7 @@
+# cron.yaml
+
+cron:
+- description: daily summary job
+  url: /summary_email/
+  target: tasks-backend
+  schedule: every 1 minutes

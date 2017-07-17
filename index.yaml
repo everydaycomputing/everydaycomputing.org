@@ -25,3 +25,19 @@ indexes:
   properties:
   - name: date
     direction: desc
+
+- kind: Trajectory
+  ancestor: yes
+  properties:
+  - name: timestamp
+    direction: desc
+
+- kind: TrajectoryArrow
+  ancestor: yes
+  properties:
+  - name: timestamp
+
+- kind: TrajectoryNode
+  ancestor: yes
+  properties:
+  - name: timestamp

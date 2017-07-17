@@ -3,7 +3,7 @@
 {% block body %}
 
 
-<h1>Nodes for {{ trajectory.name }}</h1>
+<h1 style="padding-bottom:50px;">Nodes for {{ trajectory.name }}</h1>
 
 <style>
 thead th {
@@ -11,13 +11,25 @@ thead th {
   padding: 1px !important;
   height: 15px;
 }
-h4 {padding-top:10px;}
+h4 {padding-top:10px;color:#555}
+.circle-uuid {
+    display: block;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+
+    background-color: black;
+    text-align: center;
+}
 </style>
 
 <table class="table table-striped">
   <thead class="thead-inverse">
     <tr>
-    <th>Node Id</th>
+    <th style="width:150px;">Id</th>
     <th>Node</th>
     <th>Understanding</th>
     <th>Action</th>
@@ -30,8 +42,8 @@ h4 {padding-top:10px;}
     <tr>
 
   <!-- Node Id -->
-  <td>
-    <div style="font-size: 2.0em;">
+  <td><span class='circle-uuid'>
+    <div>
       <a href="#"
       id="uuid"
       data-type="text"
@@ -39,15 +51,43 @@ h4 {padding-top:10px;}
       data-pk="{{ node.key.urlsafe() }}" data-placement="right" class="is_editable" data-title="Unique Node Id">{{ node.uuid}}
       </a>
     </div>
+  </span>
  </td>
+
+
  <td>
+    <!-- Summary  -->
     <div>
       <h4>Node Summary</h4>
       <a href="#"
       id="summary"
       data-type="textarea" data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/" data-pk="{{ node.key.urlsafe() }}" data-placement="right" class="is_editable" data-title="Enter Node Summary">{{ node.summary}}
-                  </a>
+      </a>
     </div>
+
+    <!-- Unplugged -->
+    <div>
+      <h4>Unplugged Node</h4>
+          <a href="#" id="node_unplugged-{{ node.key.urlsafe() }}"
+          data-type="select"
+          data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+          data-pk="{{ node.key.urlsafe() }}"
+          data-title="Unplugged Node"
+          data-value="{{ node.unplugged }}"></a>
+          <script>
+          $(function(){
+              $('#node_unplugged-{{ node.key.urlsafe() }}').editable({
+                  source: [
+                      {value: 0, text: 'False'},
+                      {value: 1, text: 'True'}
+                     ]
+              });
+          });
+          </script>
+        </div>
+
+
+
                 <!-- goal in lesson plan -->
                 <!-- -->
                 <div><h4>Goals in Lesson Plan</h4>
@@ -121,81 +161,31 @@ h4 {padding-top:10px;}
     </a>
   </div>
 
+  <!-- Learning Goal list -->
   <div><h4>Understanding Learning Goals</h4>
-    list
+    {% for l in node.understanding_learning_goals %}
+    <li>
+        <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=understanding&mode=edit&goal={{ l.urlsafe() }}">
+      {{l.get().text}}</a> - {{l.get()._support}}
+
+    {% endfor %}
+
+    <!-- Add Learning Goals -->
     <div>
-      <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe()}}/learning_goal/?type=understanding class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+      <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=understanding"
+      class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Add Learning Goal</a>
     </div>
 
-
-    <a href="#" id="understanding_learning_goals-{{ node.key.urlsafe() }}"
-    data-type="checklist"
-    data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-    data-pk="{{ node.key.urlsafe() }}"
-    data-title="Learning Goals"
-    data-value="{{ node.understanding_learning_goals|join(',') }}"></a>
-    <script>
-    $(function(){
-        $('#understanding_learning_goals-{{ node.key.urlsafe() }}').editable({
-            source: [
-              {% if (learning_goals is defined) and learning_goals %}
-              {% for g in learning_goals %}
-              {value: '{{ g.key.urlsafe() }}', text: '{{ g.goal  | replace('\r\n', '') | replace("\'",'') | safe }}'},
-          {% endfor %}
-              {% endif %}
-
-               ]
-        });
-    });
-    </script>
-  </div>
-
 <div><h4>Understanding Learning Goal Evidence</h4>
-{{ node._understanding_learning_goal_score  }}
+{% for k,v in node._understanding_learning_goal_score.items() %}
+  <li>{{k}} <span class='badge'>{{v}}</span></li>
+{% endfor %}
 </div>
 
-  <!-- Understanding support -->
-  <!--
-    <div>
-    <h4>Understanding Support:</h4>
-    <a href="#" id="understanding_support-{{ node.key.urlsafe() }}" data-type="select" data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/" data-pk="{{ node.key.urlsafe() }}" data-title="understanding Support Level" data-value="{{ node.understanding_support }}"></a>
-    <script>
-      $(function() {
-        $('#understanding_support-{{ node.key.urlsafe() }}').editable({
-          source: [{
-              value: 0,
-              text: 'Professional Judgement'
-            },
-            {
-              value: 1,
-              text: 'Student Support'
-            },
-            {
-              value: 2,
-              text: 'Theoretical'
-            }
-          ]
-        });
-      });
-    </script>
-  </div>
-   -->
 
-        <!-- understanding_score -->
-        <!--
-        <div><h4>Understanding Score:</h4>
-          <a href="#" id="understanding_score"
-            data-type="text"
-            data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-            data-pk="{{ node.key.urlsafe() }}"
-            data-placement="right"
-            class="is_editable"
-            data-title="Enter Understanding Score">{{ node.understanding_score }}
-          </a>
-        </div>
-      -->
+
       </td>
 
       <!-- action -->
@@ -211,98 +201,68 @@ h4 {padding-top:10px;}
           </a>
         </div>
 
+        <!-- actino activity -->
+          <div><h4>Assesment Activity Text</h4>
+            <a href="#" id="action_activity_text"
+              data-type="textarea"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ node.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Enter Action Acivity Assessment">{{ node.action_activity_text }}
+            </a>
+          </div>
+          <br/>
+          <div><h4>Assesment Link:</h4>
+            <a href="#" id="action_activity_url"
+              data-type="text"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ node.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Enter Action Acivity Assessment Link">{{ node.action_activity_url }}
+            </a>
+          </div>
+          <br/>
+          <div><h4>Assesment PDF:</h4>
+            <a href="#" id="action_activity_pdf"
+              data-type="text"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ node.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Enter Action Acivity Assessment Link">{{ node.action_activity_pdf }}
+            </a>
+          </div>
+
+          <!-- Action Learning  Goal list -->
           <div><h4>Action Learning Goals</h4>
-            <a href="#" id="action_learning_goals-{{ node.key.urlsafe() }}"
-            data-type="checklist"
-            data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-            data-pk="{{ node.key.urlsafe() }}"
-            data-title="Action Learning Goals"
-            data-value="{{ node.action_learning_goals|join(',') }}"></a>
-            <script>
-            $(function(){
-                $('#action_learning_goals-{{ node.key.urlsafe() }}').editable({
-                    source: [
-                      {% if (learning_goals is defined) and learning_goals %}
-                      {% for g in learning_goals %}
-                      {value: '{{ g.key.urlsafe() }}', text: '{{ g.goal  | replace('\r\n', '') | replace("\'",'') | safe }}'},
-                  {% endfor %}
-                      {% endif %}
+            {% for l in node.action_learning_goals %}
+            <li>
+                <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=action&mode=edit&goal={{ l.urlsafe() }}">
+              {{l.get().text}}</a> - {{l.get()._support}}
+            {% endfor %}
 
-                       ]
-                });
-            });
-            </script>
-          </div>
-
+            <!-- Add Learning Goals -->
+            <div>
+              <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=action"
+              class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add Learning Goal</a>
+            </div>
           <div><h4>Action Learning Goal Evidence</h4>
-          {{ node._action_learning_goal_score  }}
+            {% for k,v in node._action_learning_goal_score.items() %}
+              <li>{{k}} <span class='badge'>{{v}}</span></li>
+            {% endfor %}
+            </div>
+
           </div>
 
 
-      <!-- action supprt
 
-        <div><h4>Action Support</h4>
-          <a href="#" id="action_support-{{ node.key.urlsafe() }}"
-          data-type="select"
-          data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-          data-pk="{{ node.key.urlsafe() }}"
-          data-title="Action Support Level"
-          data-value="{{ node.action_support }}"></a>
-          <script>
-          $(function(){
-              $('#action_support-{{ node.key.urlsafe() }}').editable({
-                  source: [
-                        {value: 0, text: 'Professional Judgement'},
-                        {value: 1, text: 'Student Support'},
-                        {value: 2, text: 'Theoretical'}
-                     ]
-              });
-          });
-          </script>
-        </div>
--->
-      <!-- actino activity -->
-        <div><h4>Assesment Activity Text</h4>
-          <a href="#" id="action_activity_text"
-            data-type="textarea"
-            data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-            data-pk="{{ node.key.urlsafe() }}"
-            data-placement="right"
-            class="is_editable"
-            data-title="Enter Action Acivity Assessment">{{ node.action_activity_text }}
-          </a>
-        </div>
-        <br/>
-        <div><h4>Assesment Link:</h4>
-          <a href="#" id="action_activity_url"
-            data-type="text"
-            data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-            data-pk="{{ node.key.urlsafe() }}"
-            data-placement="right"
-            class="is_editable"
-            data-title="Enter Action Acivity Assessment Link">{{ node.action_activity_url }}
-          </a>
-        </div>
-        <br/>
-        <div><h4>Assesment PDF:</h4>
-          <a href="#" id="action_activity_pdf"
-            data-type="text"
-            data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
-            data-pk="{{ node.key.urlsafe() }}"
-            data-placement="right"
-            class="is_editable"
-            data-title="Enter Action Acivity Assessment Link">{{ node.action_activity_pdf }}
-          </a>
-        </div>
+
       </td>
 
-      <!--
-       DLETE
-      <td>
-        <a href="/tools/trajectory/node/{{ node.key.urlsafe() }}/?mode=delete">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-      </td>
-    -->
 
 
     <!-- /table row -->
@@ -323,7 +283,7 @@ h4 {padding-top:10px;}
   <table class="table table-striped">
     <thead class="thead-inverse">
       <tr>
-      <th>Id</th>
+      <th style="width:150px;" >Id</th>
       <th>Node Start</th>
       <th>Node End</th>
       <th>Explanation</th>
@@ -331,6 +291,7 @@ h4 {padding-top:10px;}
       <th>Link</th>
       <th>PDF</th>
       <th>Unplugged</th>
+      <th>Arrow Color</th>
     </tr>
   </thead>
   <tbody>
@@ -338,10 +299,22 @@ h4 {padding-top:10px;}
         {% for arrow in arrows %}
 
         <tr>
-          <!-- summary -->
-            <td>
-            {{arrow.key.id()}}
+            <!-- Arrow Id -->
+          <td><span class='circle-uuid'>
+            <div>
+              <a href="#"
+              id="uuid"
+              data-type="text"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ arrow.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Unique Arrow Id">{{ arrow.uuid}}
+              </a>
+            </div>
+          </span>
           </td>
+
 
           <!-- Node in -->
           <td>
@@ -449,10 +422,10 @@ h4 {padding-top:10px;}
             </div>
           </td>
 
-          <!-- Unplugged -->
+          <!-- Arrow Unplugged -->
           <td>
             <div>
-                <a href="#" id="unplugged-{{ arrow.key.urlsafe() }}"
+                <a href="#" id="arrow-unplugged-{{ arrow.key.urlsafe() }}"
                 data-type="select"
                 data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
                 data-pk="{{ arrow.key.urlsafe() }}"
@@ -460,10 +433,34 @@ h4 {padding-top:10px;}
                 data-value="{{ arrow.unplugged }}"></a>
                 <script>
                 $(function(){
-                    $('#unplugged-{{ arrow.key.urlsafe() }}').editable({
+                    $('#arrow-unplugged-{{ arrow.key.urlsafe() }}').editable({
                         source: [
                             {value: 0, text: 'False'},
                             {value: 1, text: 'True'}
+                           ]
+                    });
+                });
+                </script>
+              </div>
+          </td>
+
+          <!-- Arrow Color -->
+          <td>
+            <div>
+                <a href="#" id="arrow_color-{{ arrow.key.urlsafe() }}"
+                data-type="select"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-title="Select Arrows Color"
+                data-value="{{ arrow.color }}"></a>
+                <script>
+                $(function(){
+                    $('#arrow_color-{{ arrow.key.urlsafe() }}').editable({
+                        source: [
+                            {value: 0, text: 'Black'},
+                            {value: 1, text: 'Gray'},
+                            {value: 2, text: 'Red'},
+                            {value: 3, text: 'Other'}
                            ]
                     });
                 });

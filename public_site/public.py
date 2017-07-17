@@ -13,8 +13,9 @@ import logging
 #from database_site.google.appengine.ext import ndb
 #from database_site.admin_models import *
 #from database_site.admin_category import *
-from database_site import *
+from site_database import *
 from public_site import *
+from methodology import *
 
 #
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -31,7 +32,7 @@ class HomePage(webapp2.RequestHandler):
       """
     template_values = {}
 
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_home.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_home.html')
     self.response.write(template.render(template_values))
 
 
@@ -52,7 +53,7 @@ class AboutPage(webapp2.RequestHandler):
     """
   def get(self):
     template_values = {}
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_about.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_about.html')
     self.response.write(template.render(template_values))
 
 
@@ -77,7 +78,7 @@ class PageLiterature(webapp2.RequestHandler):
       'url_linktext': "Logout"
       }
 
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_literature_query.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_literature_query.html')
     self.response.write(template.render(template_values))
 
 ################################################################################
@@ -100,7 +101,7 @@ class PageMethodology(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
 
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_methodology_query.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_methodology_query.html')
     self.response.write(template.render(template_values))
 
 ################################################################################
@@ -127,7 +128,7 @@ class PageGoalsCluster(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
 
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_goals_cluster.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_goals_cluster.html')
     self.response.write(template.render(template_values))
 
 
@@ -161,7 +162,7 @@ class PageGoalsCluster(webapp2.RequestHandler):
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
     }
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_cluster_list.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_cluster_list.html')
     self.response.write(template.render(template_values))
 
 
@@ -213,7 +214,7 @@ class PageGoals(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
 
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_literature_goals.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_literature_goals.html')
     self.response.write(template.render(template_values))
 
 
@@ -233,7 +234,7 @@ class PageGoals(webapp2.RequestHandler):
       'url_linktext': "Logout"
         }
 
-    template = JINJA_ENVIRONMENT.get_template('public_site/templates/public_literature_goals.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/public_literature_goals.html')
     self.response.write(template.render(template_values))
 
 ################################################################################

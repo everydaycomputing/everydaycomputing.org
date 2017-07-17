@@ -20,8 +20,12 @@ Update Server
 
 ```
 cd ~/Development/GitHub
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.pyc update everydaycomputing.org/
 appcfg.py update everydaycomputing.org/
 ```
+
+## FOR MICROSERVICE ##
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update backend-tools.yaml -A everydaycomputingorg -V 0
 
 Set Credentials for Remote API
 ================================================================================
@@ -50,13 +54,21 @@ dev_appserver.py --clear_datastore=yes app.yaml
 gcloud auth login
 gcloud auth print-access-token
 
-appcfg.py upload_data  --oauth2_access_token=<oauth2_access_token> --filename=data.sql3 --application=dev~everydaycomputingorg --url=http://localhost:58151/_ah/remote_api
+appcfg.py upload_data  --oauth2_access_token=<oauth2_access_token> --filename=data_updated.sql3 --application=dev~everydaycomputingorg --url=http://localhost:58151/_ah/remote_api
 ```
 
 Example
+> With microservice do not need to specify the application.  It doesn't work.  I don't know
+why.
 ```
- /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py upload_data --filename=data.sql3 --application=dev~everydaycomputingorg --url=http://localhost:64634/_ah/remote_api --oauth2_access_token=ya29.Glz8A5pSeSMRAcZugWcS4fOgZi1OnGEPSMXdPvQlLynQQ2IHLvni6EiOF4CIz10gAn0WPhiS1EsZEFj6F17tvUC_GcQqJjWipMB2cVZVdwVCqjBvwC8YYnNbexOHDg
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py upload_data --filename=data.sql3 --url=http://localhost:62342/_ah/remote_api --oauth2_access_token=ya29.Glz8A5pSeSMRAcZugWcS4fOgZi1OnGEPSMXdPvQlLynQQ2IHLvni6EiOF4CIz10gAn0WPhiS1EsZEFj6F17tvUC_GcQqJjWipMB2cVZVdwVCqjBvwC8YYnNbexOHDg
+```
+> Single service
+```
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py upload_data --filename=data.sql3 --application=dev~everydaycomputingorg --url=http://localhost:52900/_ah/remote_api --oauth2_access_token=ya29.Glz8A5pSeSMRAcZugWcS4fOgZi1OnGEPSMXdPvQlLynQQ2IHLvni6EiOF4CIz10gAn0WPhiS1EsZEFj6F17tvUC_GcQqJjWipMB2cVZVdwVCqjBvwC8YYnNbexOHDg
  ```
+
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py upload_data --filename=data.sql3  --url=http://localhost:54606/_ah/remote_api --oauth2_access_token=ya29.Glz8A5pSeSMRAcZugWcS4fOgZi1OnGEPSMXdPvQlLynQQ2IHLvni6EiOF4CIz10gAn0WPhiS1EsZEFj6F17tvUC_GcQqJjWipMB2cVZVdwVCqjBvwC8YYnNbexOHDg
 
 
 

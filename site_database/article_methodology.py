@@ -34,3 +34,30 @@ class Methodology(ndb.Model):
 
   sample_effect_size = ndb.StringProperty(default="")
   sample_agreement = ndb.StringProperty(default="")
+
+  # Direct key to the article that the methodology summarizes
+  #article = ndb.KeyProperty(kind='Article')
+
+  @property
+  def _article(self):
+      """ Mapping of goal back to article.
+      This should have been done initially as a many-to-many, but wasn't
+      """
+
+      #select * from Article WHERE learning_goals CONTAINS Key(LearningGoal, 4786706423218176)
+      #article = ndb.GqlQuery("SELECT * from Article").fetch()
+      art = ndb.gql("SELECT __key__ from Article WHERE methodology = :1", self.key).get()
+      #.fetch()
+      #"SELECT __key__ FROM Article WHERE learning_goals CONTAINS :1", self.key)
+
+      return art.get().citation
+
+  @property
+  def _article_url(self):
+      art = ndb.gql("SELECT __key__ from Article WHERE methodology = :1", self.key).get()
+      return "http://everydaycomputing.org/resource/article/"+ art.get().key.urlsafe() + "/"
+
+  @property
+  def _article_findings(self):
+    art = ndb.gql("SELECT __key__ from Article WHERE methodology = :1", self.key).get()
+    return art.get().findings

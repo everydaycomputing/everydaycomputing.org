@@ -1,0 +1,27 @@
+application: everydaycomputingorg
+
+dispatch:
+  # Default service serves the typical web resources and all static resources.
+  - url: "*/favicon.ico"
+    service: default
+
+  - url: "*/static/"
+    service: default
+
+  # Send all work to the one static backend.
+  #- url: "*/tasks/*"
+  #  service: tasks-backend
+
+  # Send all work to the one static backend.
+  - url: "*/tools/"
+    service: backend-tools
+
+  - url: "*/resource/"
+    service: site-database
+    #login: required
+
+
+
+# Default service serves simple hostname request.
+  - url: "*/" #uchicago-cloud-photo-timeline.appspot.com/"
+    service: default

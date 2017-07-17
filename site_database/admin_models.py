@@ -98,8 +98,8 @@ class LearningGoal(ndb.Model):
   @property
   def _support(self):
     if self.support == 0: return 'Classroom Evidence'
-    if self.support == 1: return 'Literature Evidence'
-    if self.support == 2: return 'Theorectical Evidence'
+    if self.support == 1: return 'Theoretical Evidence'
+    if self.support == 2: return 'Theoretical Evidence'
     if self.support == 3: return 'None'
 
   @staticmethod
