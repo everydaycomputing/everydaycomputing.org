@@ -5,21 +5,23 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <meta name="description" content="">
           <meta name="keywords" content="">
             <meta name="author" content="">
-              
+
               <title>
                 Home &middot; Everyday Computing
               </title>
-              
-              <link rel="stylesheet" href="http://primercss.io/docs.css"/>
-              
+
+              <link rel="stylesheet" href="/static/docs.css"/>
+<!--   <link rel="stylesheet" href="https://everydaycomputing.org/static/docs.css"/> -->
+
+
               <!-- Favicons -->
               <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon-precomposed.png"/>
               <link rel="icon" href="/favicon.ico"/>
-              
+
               <style>
                 legend {font-size: 13px; font-weight: bold;}
                 label,legend {line-height: 4em; font-size: 1.0em;}
@@ -28,8 +30,8 @@
                 .even {background-color:#eee;}
                 </style>
   </head>
-  
-  
+
+
   <body>
     {% if hide != 1 %}
     <!-- Navigation Bar -->
@@ -39,7 +41,7 @@
           <span class="mega-octicon octicon-package"></span>
           Everyday Computing
         </a>
-        
+
         <nav class="masthead-nav">
           <a href="">{{ user }}</a>
           <a href="/resource/">Resources</a>
@@ -48,14 +50,14 @@
         </nav>
       </div>
     </header>
-    
+
     {% endif %}
-    
+
     {% block body %}
     {% endblock %}
-    
-    
-    
+
+
+
     <!-- -->
     <div class="container">
       <footer class="footer">
@@ -63,9 +65,9 @@
         <br> Copyright EverydayComputing.org, 2016
       </footer>
     </div>
-    
+
   </body>
-  
+
   <script src="/js/anchor.min.js"></script>
   <script>
     var selector = '.markdown-body h2, .markdown-body h3';
@@ -75,6 +77,6 @@
     };
   anchors.add(selector);
     </script>
-  
+
 </html>
 {% endautoescape %}
