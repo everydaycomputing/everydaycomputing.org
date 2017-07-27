@@ -13,11 +13,12 @@ import logging
 #from database_site.google.appengine.ext import ndb
 #from database_site.admin_models import *
 #from database_site.admin_category import *
+
 from site_database import *
 from public_site import *
 from methodology import *
-# from backend_tools.tool import NodeHandler as NodeHandler
-# from backend_tools.tool import TrajectoryHandler as TrajectoryHandler
+
+
 from backend_tools.tool import MainPage as ToolPage
 from backend_tools.tool import *
 from backend_tools.learning_goals import LearningGoalHandler as LearningGoalHandler

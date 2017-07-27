@@ -60,7 +60,14 @@ class VisualizationHandler(webapp2.RequestHandler):
                 classes += ' programming'
             else: 
                 classes += ' unplugged'
-            data = {'id' : uuid, 'summary' : summary, 'name' : name, 'temp_name' : name, 'clicked_var' : clicked_var, 'href': []}
+            ulgs = []
+            algs = []
+            for lg in node.understanding_learning_goals:
+                ulgs.append(lg.get().text)
+            for lg in node.action_learning_goals:
+                algs.append(lg.get().text)
+
+            data = {'id' : uuid, 'summary' : summary, 'name' : name, 'temp_name' : name, 'ulgs' : ulgs, 'algs' : algs, 'clicked_var' : clicked_var, 'href': []}
             elements.append(json.dumps({'data' : data, 'classes' : classes}))
         
         # initializes arrows to be sent to jinja template

@@ -108,7 +108,7 @@ class TrajectoryHandler(webapp2.RequestHandler):
         trajectory.put()
         self.redirect(self.request.uri)
 
-
+        
 ##
 ##
 ##
