@@ -6,7 +6,7 @@ import json
 import logging
 import jinja2
 import os
-import HTMLParser 
+
 
 #from google.appengine.api import mail
 #from google.appengine.api import users
@@ -25,20 +25,23 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 
 class VisualizationHandler(webapp2.RequestHandler):
     def get(self, key):
+        # checks to make sure key is urlsafe
         try:
             trajectory = ndb.Key(urlsafe=key).get()
-            
         except TypeError:
             logging.info('Only string allowed as urlsafe input')
             return
         except ProtocolBufferDecodeError:
             logging.info('Urlsafe string invalid')
             return
+
+        # queries for nodes and arrows
         nodes_query = TrajectoryNode.query(ancestor=trajectory_node_key(key)).order(TrajectoryNode.timestamp)
         nodes = nodes_query.fetch()
         arrows = TrajectoryArrow.query(ancestor=trajectory_node_key(key)).order(TrajectoryArrow.timestamp).fetch()
         elements = []
-        parser = HTMLParser.HTMLParser()
+        
+        # initializes nodes to be sent to jinja template
         for node in nodes:
             uuid = str(node.uuid)
             summary = str(node.summary)
@@ -58,12 +61,9 @@ class VisualizationHandler(webapp2.RequestHandler):
             else: 
                 classes += ' unplugged'
             data = {'id' : uuid, 'name' : name, 'temp_name' : name, 'clicked_var' : clicked_var, 'href': []}
-            # unescaped_data = {}
-            # for key in data:
-            #     unescaped_data[parser.unescape(key)] = parser.unescape(data[key])
-
-            # data = unescaped_data
             elements.append(json.dumps({'data' : data, 'classes' : classes}))
+        
+        # initializes arrows to be sent to jinja template
         for arrow in arrows:
             uuid = arrow.uuid
             key = arrow.start_node
@@ -78,23 +78,16 @@ class VisualizationHandler(webapp2.RequestHandler):
             else:
                 unplugged = 'programming'
             data = {'source' : source, 'target' : target, 'label' : uuid, 'unplugged' : unplugged}
-            # unescaped_data = {}
-            # for key in data:
-            #     unescaped_data[parser.unescape(key)] = parser.unescape(data[key])
-            # data = unescaped_data
             elements.append(json.dumps({'data' : data}))
-        # elements = json.dumps(elements).replace(u'<', u'\\u003c').replace(u'>', u'\\u003e').replace(u'&', u'\\u0026').replace(u''', u'\\u0027')
+            
         template_values = {
             'elements' : elements,
             'trajectory' : key
         }
+
+        # renders template values
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
-        # json_values = json.dumps(template_values).replace(u'<', u'\\u003c').replace(u'>', u'\\u003e').replace(u'&', u'\\u0026').replace(u''', u'\\u0027')
-        #logging.info('json values')
-        #logging.info(json_values)
-        #logging.info('\n\n\n\n')
         self.response.write(template.render(template_values, name=template_values))
         
         return
-        # self.redirect('/tools/trajectory/%s/visualization/' % (key))
     

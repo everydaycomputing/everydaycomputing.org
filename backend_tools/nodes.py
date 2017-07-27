@@ -32,14 +32,12 @@ class NodesPage(webapp2.RequestHandler):
         trajectory = ndb.Key(urlsafe=key).get()
         logging.info(trajectory)
         if self.request.get("mode") == "new":
-            logging.info("NODE MODE")
             node = TrajectoryNode(parent=trajectory_node_key(key))
             node.put()
             #trajectory.nodes.append(node.key)
             self.redirect("/tools/trajectory/%s/nodes/" % (key))
 
         elif self.request.get("mode") == "new_arrow":
-            logging.info("ARROW MODE")
             arrow = node = TrajectoryArrow(parent=trajectory_node_key(key))
             arrow.put()
             self.redirect("/tools/trajectory/%s/nodes/" % (key))

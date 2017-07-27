@@ -237,8 +237,6 @@ class PageGoals(webapp2.RequestHandler):
       'url': self.request.application_url,
       'user': users.get_current_user(),
       'articles': articles,
-      #'greetings': greetings,
-      #'guestbook_name': urllib.quote_plus(guestbook_name),
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
         }
@@ -249,6 +247,7 @@ class PageGoals(webapp2.RequestHandler):
 ################################################################################
 #
 ################################################################################
+# added application handlers for all backend tools
 """ WSGI Application
 """
 APP = webapp2.WSGIApplication([
@@ -262,7 +261,6 @@ APP = webapp2.WSGIApplication([
                                webapp2.Route('/tools/trajectory/', handler=ToolPage),
                                webapp2.Route('/tools/trajectory/<key>/', handler=TrajectoryHandler),
                                webapp2.Route('/tools/trajectory/<key>/nodes/', handler=NodesPage),
-                               #webapp2.Route('/tools/trajectory/nodes/', NodesPage),
                                webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
                                webapp2.Route('/tools/trajectory/node/<node_key>/', handler=NodeHandler),
                                webapp2.Route('/tools/trajectory/<key>/visualization/', handler=VisualizationHandler)

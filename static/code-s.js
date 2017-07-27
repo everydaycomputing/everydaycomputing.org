@@ -1,7 +1,9 @@
+
+// elements array initialized
 var elements = [];
-var type = 0;
+
 $(function() {
-  console.log(elements)
+  // console.log(elements)
   // on dom ready
   var cy = cytoscape({
     container: document.getElementById("cy"),
@@ -51,7 +53,7 @@ $(function() {
           "font-family": "liberation-sans, sans-serif",
           "font-weight": "600",
           "font-size": "17",
-          "border-width": "4px 0px 4px 0px",
+          "border-width": "4px",
           height: 250,
           width: 250,
           padding: 10,
@@ -61,7 +63,6 @@ $(function() {
       {
         selector: "node.beginning",
         style: {
-          // "border-width": 4,
           "border-color": "green",
           "border-style": "solid"
         }
@@ -69,7 +70,6 @@ $(function() {
       {
         selector: "node.intermediate",
         style: {
-          // "border-width": 4,
           "border-color": "orange",
           "border-style": "solid"
         }
@@ -77,7 +77,6 @@ $(function() {
       {
         selector: "node.advanced",
         style: {
-          // "border-width": 4,
           "border-color": "purple",
           "border-style": "solid"
         }
@@ -98,6 +97,7 @@ $(function() {
     ]
   });
 
+  // reformats breadthfirst layout
   function rotate() {
     setTimeout(function() {
       cy.nodes().positions(function(node, i) {
@@ -111,6 +111,7 @@ $(function() {
   }
   rotate();
 
+  // right click menus, need support for understanding and action learning goals
   cy.contextMenus({
     menuItems: [
       {
@@ -188,6 +189,7 @@ $(function() {
     cy.$(".intermediate").hide();
   });
 
+  // on hover over nodes, highlight border
   cy.nodes().on("mouseover", function() {
     cy
       .style()
@@ -199,6 +201,8 @@ $(function() {
       })
       .update(); // update the elements in the graph with the new style
   });
+
+  // resets border
   cy.nodes().on("mouseout", function() {
     cy
       .style()
@@ -219,32 +223,16 @@ $(function() {
       .update(); // update the elements in the graph with the new style
   });
 
-
+  // changes text on click
   cy.nodes().on("click", function() {
-    //   cy.style()
-    //     .selector(this)
-    //     .style({
-    //       'border-color' : 'black'
-    //     // 'background-color': 'yellow'
-    //   })
-
-    // .update() // update the elements in the graph with the new style
     function fn1(node) {
-      function fn_x(node) {
-        return node.renderedPosition("x");
-      }
-      function fn_y(node) {
-        return node.renderedPosition("y");
-      }
       if (node.data("clicked_var") == 1) {
         node.data("clicked_var", 0);
-        // document.getElementById("my-btn").style.visibility = "hidden";
         cy
           .style()
           .selector(node)
           .style({
             "font-size": "17"
-            // 'background-color': 'yellow'
           })
           .update();
         return node.data("temp_name");
@@ -264,21 +252,11 @@ $(function() {
             .update();
         });
         node.data("clicked_var", 1);
-        // document.getElementById("my-btn").style.visibility = "visible";
-        // document.getElementById("my-btn").style.border = "solid";
-        // document.getElementById("my-btn").style.borderColor = "black";
-        // document.getElementById("my-btn").style.border = "solid";
-        // document.getElementById("my-btn").style.borderWidth = "2px";
-        // console.log("x :" + fn_x(node));
-        // document.getElementById("my-btn").style.left = 47 + fn_x(node) + "px"; //548 + fn_x(node) * 0.546 + "px";//fn2(node) + "px";
-        // console.log("y :" + fn_y(node));
-        // document.getElementById("my-btn").style.top = 50 + fn_y(node) + "px"; //40 + fn_y(node) * -0.546 + "px";
         cy
           .style()
           .selector(node)
           .style({
             "font-size": "80"
-            // 'background-color': 'yellow'
           })
           .update(); // update the elements in the graph with the new style
         return node.data("id");
@@ -286,87 +264,31 @@ $(function() {
     }
     this.data({ name: fn1(this) });
 
-    // window.open('http://maroonstack.com')
-
-    //   cy.$('node:selected').neighborhood('edge').style({
-    //   'line-color': 'black'
-    // }); console.log('hi');
   });
 
 }); // on dom ready
 
-// function clear_elements() {
-//   elements = { nodes: [], edges: [] };
-// }
-
-// function accept_data(input) {
-//   // input = JSON.parse(input);
-//   // console.log(input);
-//   alert(input);
-//   if (type == 0) {
-//     type = 1;
-//     for (node in input[0]) {
-//       var data = node.data; //["data"];
-//       var id = data.id; //data["id"];
-//       var name = data.name; //data["name"];
-//       var temp_name = name;
-//       var clicked_var = 0;
-//       var href = [];
-//       var classes = node.classes; //node["classes"];
-//       var grabbable = false;
-//       data = {
-//         id: id,
-//         clicked_var: clicked_var,
-//         temp_name: temp_name,
-//         name: name,
-//         href: href
-//       };
-//       elements[nodes].append({
-//         data: data,
-//         grabbable: grabbable,
-//         classes: classes
-//       });
-//     }
-//   } else {
-//     type = 0;
-//     for (arrow in input[1]) {
-//       var data = arrow.data; //["data"];
-//       var label = data.data; //["label"];
-//       var source = data.source; //["source"];
-//       var target = data.target; //["target"];
-//       var unplugged = data.unplugged; //["unplugged"];
-//       data = {
-//         source: source,
-//         target: target,
-//         label: label,
-//         unplugged: unplugged
-//       };
-//       elements[edges].append({ data: data });
-//     }
-//   }
-// }
-
+// reads in json data from jinja template values
 function accept_data(input) {
   if(!('classes' in input)) {
     var data = input.data;
-    console.log(data)
+    // console.log(data)
     var source = data.source;
     var target = data.target;
     var label = data.label;
     var unplugged = data.unplugged;
-    console.log(label);
+    // console.log(label);
     elements.push({data : {source : source, target : target, label : label, unplugged : unplugged}});
   } else {
     var data = input.data;
-    console.log(data);
+    // console.log(data);
     var classes = input.classes;
     var id = data.id;
     var name = data.name;
     var temp_name = data.temp_name;
     var clicked_var = data.clicked_var;
     var href = data.href;
-    // var classes = class_dict.classes;
-    console.log(id);
+    // console.log(id);
     elements.push({data : {id : id, temp_name : temp_name, name : name, clicked_var : clicked_var, href : href}, 
       grabbable : false, classes : classes});
   }

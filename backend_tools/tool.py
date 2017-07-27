@@ -109,30 +109,15 @@ class TrajectoryHandler(webapp2.RequestHandler):
         self.redirect(self.request.uri)
 
 
-# class VisualizationHandler(webapp2.RequestHandler):
-#     def get(self, key):
-#         key = ndb.Key(urlsafe=key).get()
-#         # template = JINJA_ENVIRONMENT.get_template('templates/index.html')
-#         # template_values = {}
-#         # self.response.write(template.render(template_values))
-#         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
-#         self.redirect("/tools/trajectory/%s/visualization/" % (key))
-#     def post(self, key):
-#         data = self.request
-#         trajectory = ndb.Key(urlsafe=key).get()
-#         trajectory.put()
-#         self.redirect(self.request.uri)
+##
+##
+##
 
-##
-##
-##
+# unused, all web handlers now registered in public site
 app = webapp2.WSGIApplication([
     ('/tools/trajectory/', MainPage),
     webapp2.Route('/tools/trajectory/<key>/', TrajectoryHandler),
     webapp2.Route('/tools/trajectory/<key>/nodes/', NodesPage),
-    #webapp2.Route('/tools/trajectory/nodes/', NodesPage),
     webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', LearningGoalHandler),
     webapp2.Route('/tools/trajectory/node/<node_key>/', NodeHandler),
-
-    #('/tools/trajectory/arrow/', ArrowPage),
 ], debug=True)
