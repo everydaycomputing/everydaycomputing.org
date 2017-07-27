@@ -127,4 +127,3 @@ class TrajectoryNode(ndb.Model):
             evidence_types.append(goal._support)
         pretty = dict((x,evidence_types.count(x)) for x in set(evidence_types))
         return pretty
-    
