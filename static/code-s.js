@@ -52,7 +52,7 @@ $(function() {
           "text-valign": "center",
           "font-family": "liberation-sans, sans-serif",
           "font-weight": "600",
-          "font-size": "17",
+          "font-size": "24",
           "border-width": "4px",
           height: 250,
           width: 250,
@@ -189,6 +189,18 @@ $(function() {
     cy.$(".intermediate").hide();
   });
 
+  var beginningtButton = document.getElementById("unplugged-btn");
+  beginningtButton.addEventListener("click", function() {
+    cy.$("*").show();
+    cy.$(".programming").hide();
+  });
+
+  var beginningtButton = document.getElementById("programming-btn");
+  beginningtButton.addEventListener("click", function() {
+    cy.$("*").show();
+    cy.$(".unplugged").hide();
+  });
+
   // on hover over nodes, highlight border
   cy.nodes().on("mouseover", function() {
     cy
@@ -222,22 +234,27 @@ $(function() {
       })
       .update(); // update the elements in the graph with the new style
   });
-
-  // changes text on click
-  cy.nodes().on("click", function() {
-    function fn1(node) {
-      if (node.data("clicked_var") == 1) {
-        node.data("clicked_var", 0);
-        cy
-          .style()
-          .selector(node)
-          .style({
-            "font-size": "17"
-          })
-          .update();
-        return node.data("temp_name");
-      } else {
-        var collection = cy.nodes();
+  var view1_btn = document.getElementById("view1");
+  view1_btn.addEventListener("click", function() {
+    var collection = cy.nodes();
+        function get_name(ele) {
+          return ele.data("id") + ': ' +ele.data("summary");
+        }
+        collection.map(function change_name(ele) {
+          ele.data("name", get_name(ele));
+          cy
+            .style()
+            .selector(ele)
+            .style({
+              "font-size": "24"
+            })
+            .update();
+          ele.data("clicked_var", 0);
+        });
+  });
+  var view2_btn = document.getElementById("view2");
+  view2_btn.addEventListener("click", function() {
+    var collection = cy.nodes();
         function get_name(ele) {
           return ele.data("temp_name");
         }
@@ -250,16 +267,76 @@ $(function() {
               "font-size": "17"
             })
             .update();
+          ele.data("clicked_var", 1);
         });
+  });
+  var view3_btn = document.getElementById("view3");
+  view3_btn.addEventListener("click", function() {
+    var collection = cy.nodes();
+        function get_name(ele) {
+          return ele.data("summary") + "\n\n" + ele.data("temp_name");
+        }
+        collection.map(function change_name(ele) {
+          ele.data("name", get_name(ele));
+          cy
+            .style()
+            .selector(ele)
+            .style({
+              "font-size": "17"
+            })
+            .update();
+          ele.data("clicked_var", 2);
+        });
+  });
+  // changes text on click
+  cy.nodes().on("click", function() {
+    function fn1(node) {
+      if (node.data("clicked_var") == 1) {
+        node.data("clicked_var", 2);
+        cy
+          .style()
+          .selector(node)
+          .style({
+            "font-size": "17"
+          })
+          .update();
+        var temp = node.data("summary") + "\n\n" + node.data("temp_name");
+        return temp;
+      } else if(node.data("clicked_var") == 2) {
+        node.data("clicked_var", 0);
+        cy
+          .style()
+          .selector(node)
+          .style({
+            "font-size" : "24"
+          })
+          .update();
+        
+        return node.data("id") + ': ' + node.data("summary");
+      } else {
+        // var collection = cy.nodes();
+        // function get_name(ele) {
+        //   return ele.data("id") + ": " + ele.data("summary");
+        // }
+        // collection.map(function change_name(ele) {
+        //   ele.data("name", get_name(ele));
+        //   cy
+        //     .style()
+        //     .selector(ele)
+        //     .style({
+        //       "font-size": "24"
+        //     })
+        //     .update();
+        // });
         node.data("clicked_var", 1);
         cy
           .style()
           .selector(node)
           .style({
-            "font-size": "80"
+            "font-size": "24"
           })
           .update(); // update the elements in the graph with the new style
-        return node.data("id");
+        return node.data("temp_name");
       }
     }
     this.data({ name: fn1(this) });
@@ -284,13 +361,14 @@ function accept_data(input) {
     // console.log(data);
     var classes = input.classes;
     var id = data.id;
+    var summary = data.summary;
     var name = data.name;
     var temp_name = data.temp_name;
     var clicked_var = data.clicked_var;
     var href = data.href;
     // console.log(id);
-    elements.push({data : {id : id, temp_name : temp_name, name : name, clicked_var : clicked_var, href : href}, 
-      grabbable : false, classes : classes});
+    elements.push({data : {id : id, summary : summary, temp_name : temp_name, name : id + ': ' + summary, clicked_var : clicked_var, href : href}, 
+      grabbable : true, classes : classes});
   }
 
 }

@@ -12,10 +12,10 @@ body {
 #cy {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 100 !important;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: 90%;
   width: 100%;
 }
 
@@ -28,45 +28,19 @@ body {
   top: 1em;
 }
 
+
 #beginning {
-  border-radius: 15px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  width: 120px;
-  height: 40px;
-  position: absolute;
+  left: 5%;
   top: 5%;
-  right: 5%;
   background-color: #36ad29;
-  color: black;
-  border: solid;
-  font-size: 16px;
 }
 #intermediate {
-  border-radius: 15px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  width: 120px;
-  height: 40px;
-  position: absolute;
-  top: 20%;
-  right: 5%;
+  left: 17%;
   background-color: #e2a32d;
-  border: solid;
-  font-size: 16px;
 }
 #advanced {
-  border-radius: 15px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  width: 120px;
-  height: 40px;
-  position: absolute;
-  top: 35%;
-  right: 5%;
+  left: 29%;
   background-color: #6030ad;
-  border: solid;
-  font-size: 16px;
 }
 
 /*#legend {
@@ -77,23 +51,24 @@ body {
   height: 80px;
   position: absolute;
   top: 50%;
-  right: 5%;
+  left: 5%;
   border: none;
   font-size: 16px;
 }*/
 tr {
   height: 50px;
 }
-#square {
+
+.view_btn {
   width: 120px;
   height: 40px;
   position: absolute;
-  right: 5%;
-  border-style: solid;
-  border-color: black;
+  top: 5%;
   border-radius: 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
+   border-style: solid;
+  border-color: black;
   font-size: 16px;
   text-align: center;
   vertical-align: middle;
@@ -103,17 +78,26 @@ tr {
   user-select: none;
   outline:none;
 }
+#view1 {
+  left: 41%;
+}
+#view2 {
+  left: 53%;
+}
+#view3 {
+  left: 65%;
+}
+
 .square1 {
   background-color:#0169D9;
-  bottom: 20%;
+  left: 77%;
 }
 .square2 {
-  background-color: white;
-  bottom: 5%;
+  background-color: #F2F2F2;
+  left: 89%;
+  right: 5% !important;
 }
-#callout {
-  padding-bottom: 20px;
-}
+
 
 .a-btn {
   z-index: 3;
@@ -125,4 +109,8 @@ tr {
   border-radius: 50%;
   background-color: #c3c3c3;
   border: none;
+}
+
+.hoverable:hover {
+  background-color:rgba(0, 0, 0, 0.1);
 }

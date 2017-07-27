@@ -47,7 +47,7 @@ class VisualizationHandler(webapp2.RequestHandler):
             summary = str(node.summary)
             understanding = node.understanding
             action = node.action
-            name = str(understanding) + '\n\n' + str(action)
+            name = uuid + 'U: ' + str(understanding) + '\n\n' + uuid + 'A: ' + str(action)
             clicked_var = 0
             classes = ''
             if node.level == 0:
@@ -60,7 +60,7 @@ class VisualizationHandler(webapp2.RequestHandler):
                 classes += ' programming'
             else: 
                 classes += ' unplugged'
-            data = {'id' : uuid, 'name' : name, 'temp_name' : name, 'clicked_var' : clicked_var, 'href': []}
+            data = {'id' : uuid, 'summary' : summary, 'name' : name, 'temp_name' : name, 'clicked_var' : clicked_var, 'href': []}
             elements.append(json.dumps({'data' : data, 'classes' : classes}))
         
         # initializes arrows to be sent to jinja template
