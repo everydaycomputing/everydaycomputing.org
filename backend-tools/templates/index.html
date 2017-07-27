@@ -1,0 +1,29 @@
+{% extends "templates/base_vis_template.html" %}
+{% block body %}
+
+{% if (elements is defined) and elements %}
+<script src="/static/code-s.js"></script>
+{% for dict in elements %}
+<script>
+  var dict =  {{ dict|safe }} ;
+  accept_data( dict );
+</script>
+{% endfor %}
+{% endif %}
+<div id="cy">
+</div>
+
+<div class="btn-container">
+  
+  <div class="hoverable"><input type='button' id='beginning' class='view_btn btn' value='Beginning'></div>
+  <div class="hoverable"><input type='button' id='intermediate' class='view_btn btn' value='Intermediate'></div>
+  <div class="hoverable"><input type='button' id='advanced' class='view_btn btn' value='Advanced'></div>
+  <div class="hoverable"><input type='button' id='view1' class='view_btn btn' value='View 1'></div>
+  <div class="hoverable"><input type='button' id='view2' class='view_btn btn' value='View 2'></div>
+  <div class="hoverable"><input type='button' id='view3' class='view_btn btn' value='View 3'></div>
+  <div class="hoverable"><input type='button' id='unplugged-btn' class='view_btn square1 btn' value='Unplugged'></div>
+  <div class="hoverable"><input type='button' id='programming-btn' class='view_btn square2 btn' value='Programming'></div>
+
+</div>
+
+{% endblock %}

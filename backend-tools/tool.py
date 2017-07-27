@@ -54,6 +54,8 @@ class NodeHandler(webapp2.RequestHandler):
         node.put()
 
         self.redirect(self.request.uri) # + article_key + "/")
+    
+    
 
 
 
@@ -105,16 +107,17 @@ class TrajectoryHandler(webapp2.RequestHandler):
             trajectory.status = int(data.get('value'))
         trajectory.put()
         self.redirect(self.request.uri)
+
+        
 ##
 ##
 ##
+
+# unused, all web handlers now registered in public site
 app = webapp2.WSGIApplication([
     ('/tools/trajectory/', MainPage),
     webapp2.Route('/tools/trajectory/<key>/', TrajectoryHandler),
     webapp2.Route('/tools/trajectory/<key>/nodes/', NodesPage),
-    #webapp2.Route('/tools/trajectory/nodes/', NodesPage),
     webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', LearningGoalHandler),
     webapp2.Route('/tools/trajectory/node/<node_key>/', NodeHandler),
-
-    #('/tools/trajectory/arrow/', ArrowPage),
 ], debug=True)

@@ -28,6 +28,7 @@ class NodesPage(webapp2.RequestHandler):
 
     def get(self,key):
         logging.info("?????????")
+        # setLevel(logging.INFO)
         trajectory = ndb.Key(urlsafe=key).get()
         logging.info(trajectory)
         if self.request.get("mode") == "new":
