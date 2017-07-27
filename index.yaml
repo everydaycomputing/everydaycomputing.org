@@ -38,6 +38,18 @@ indexes:
   - name: timestamp
 
 - kind: TrajectoryNode
+  properties:
+  - name: uuid
+  - name: timestamp
+    direction: desc
+
+- kind: TrajectoryNode
   ancestor: yes
   properties:
+  - name: timestamp
+
+- kind: TrajectoryNode
+  ancestor: yes
+  properties:
+  - name: uuid
   - name: timestamp

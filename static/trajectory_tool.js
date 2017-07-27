@@ -1,5 +1,6 @@
 $(document).ready(function() {
     //toggle `popup` / `inline` mode
+    console.log('hi');
     $.fn.editable.defaults.mode = 'popup';
 
     //make username editable

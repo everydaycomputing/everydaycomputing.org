@@ -1,0 +1,48 @@
+{% extends "templates/base_vis_template.html" %}
+{% block body %}
+
+<!-- old one
+<script src="code.js"></script>
+-->
+{% if (elements is defined) and elements %}
+<script src="/static/code-s.js"></script>
+{% for dict in elements %}
+<script>
+  var dict =  {{ dict|safe }} ;
+  // new_dict = {}
+  // for(var key in dict) {
+  //   if(dict.hasOwnProperty(key)) {
+  //     new_dict[decodeURI(key)] = decodeURI(dict[key]);
+  //   }
+  // }
+  // var parsed = JSON.parse(dict);
+  // console.log(parsed);
+  // clear_elements();
+  accept_data( dict );
+</script>
+{% endfor %}
+{% endif %}
+<div id="cy">
+</div>
+
+<div>
+  
+  <input type='button' id='beginning' value='Beginning'>
+  <input type='button' id='intermediate' value='Intermediate'>
+  <input type='button' id='advanced' value='Advanced'>
+  <input type='button' id='square' class='square1' value='Unplugged'>
+  <input type='button' id='square' class='square2' value='Programming'>
+
+<!--<table>
+    <tr><td id="square" class="square1" style="background-color:#c6c6c6;">Unplugged</td></tr>
+    <tr><td id="square" class="square2" style="background-color:white;">Programming</td></tr>
+  </table>-->
+<!--<div id='legend'>
+  <table>
+    <tr><td id="square" class="square1" style="background-color:#c6c6c6;">Unplugged</td></tr>
+    <tr><td id="square" class="square2" style="background-color:white;">Programming</td></tr>
+  </table>
+</div>-->
+</div>
+
+{% endblock %}

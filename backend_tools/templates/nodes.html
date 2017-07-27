@@ -1,0 +1,548 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+
+<h1 >Nodes for {{ trajectory.name }}</h1>
+<a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/visualization/" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+  Generate Visualization
+</a>
+<!--{% if (nodes is defined) and nodes %}
+<script type="text/javascript" src="code-s.js"></script>
+<script>clear_elements();</script>
+{% for node in nodes %}
+<script type="text/javascript" src="code-s.js"></script>
+<script>
+  var uuid = {{ node.uuid }};
+  var summary = {{ node.summary }};
+  var understanding = {{ node.understanding }};
+  var action = {{ node.action }};
+  var id = uuid + '';
+  var name = understanding + '\n\n' + action;
+  var classes = '';
+  switch( {{ node.level }} ) {
+    case 0: 
+      classes += 'beginning';
+      break;
+    case 1:
+      classes += 'intermediate';
+      break;
+    case 2:
+      classes += 'advanced';
+      break;
+  }
+  if( {{ node.unplugged}} == 0) {
+    classes += ' programming';
+  } else {
+    classes += ' unplugged';
+  }
+  var data = { id : id, clicked_var : 0, temp_name : name, name : name, href : []};
+  var grabbale = false;
+  var prepped_node = {data : data, grabbable : grabbable, classes : classes};
+  accept_data(prepped_node, 'node');
+</script>
+{% endfor %}
+{% endif %}-->
+<style>
+
+thead th {
+  font-size: 1.5em;
+  padding: 1px !important;
+  height: 15px;
+}
+h4 {padding-top:10px;color:#555}
+.circle-uuid {
+    display: block;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+
+    background-color: black;
+    text-align: center;
+}
+</style>
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+    <th style="width:150px;">Id</th>
+    <th>Node</th>
+    <th>Understanding</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+
+    {% if (nodes is defined) and nodes %}
+    {% for node in nodes %}
+    <tr>
+
+  <!-- Node Id -->
+  <td><span class='circle-uuid'>
+    <div>
+      <a href="#"
+      id="uuid"
+      data-type="text"
+      data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+      data-pk="{{ node.key.urlsafe() }}" data-placement="right" class="is_editable" data-title="Unique Node Id">{{ node.uuid}}
+      </a>
+    </div>
+  </span>
+ </td>
+
+
+ <td>
+    <!-- Summary  -->
+    <div>
+      <h4>Node Summary</h4>
+      <a href="#"
+      id="summary"
+      data-type="textarea" data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/" data-pk="{{ node.key.urlsafe() }}" data-placement="right" class="is_editable" data-title="Enter Node Summary">{{ node.summary}}
+      </a>
+    </div>
+
+    <!-- Unplugged -->
+    <div>
+      <h4>Unplugged Node</h4>
+          <a href="#" id="node_unplugged-{{ node.key.urlsafe() }}"
+          data-type="select"
+          data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+          data-pk="{{ node.key.urlsafe() }}"
+          data-title="Unplugged Node"
+          data-value="{{ node.unplugged }}"></a>
+          <script>
+          $(function(){
+              $('#node_unplugged-{{ node.key.urlsafe() }}').editable({
+                  source: [
+                      {value: 0, text: 'False'},
+                      {value: 1, text: 'True'}
+                     ]
+              });
+          });
+          </script>
+        </div>
+
+
+
+                <!-- goal in lesson plan -->
+                <!-- -->
+                <div><h4>Goals in Lesson Plan</h4>
+                    <a href="#" id="goals_in_lesson_plans-{{ node.key.urlsafe() }}"
+                    data-type="select"
+                    data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                    data-pk="{{ node.key.urlsafe() }}"
+                    data-title="Goals in Lesson Plans"
+                    data-value="{{ node.goals_in_lesson_plans }}"></a>
+                    <script>
+                    $(function(){
+                        $('#goals_in_lesson_plans-{{ node.key.urlsafe() }}').editable({
+                            source: [
+                                  {value: 0, text: 'False'},
+                                  {value: 1, text: 'True'}
+                               ]
+                        });
+                    });
+                    </script>
+                  </div>
+
+                  <div>
+                    <!-- Level-->
+                    <div><h4>Level</h4>
+                      <a href="#" id="level-{{ node.key.urlsafe() }}"
+                      data-type="select"
+                      data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                      data-pk="{{ node.key.urlsafe() }}"
+                      data-title="Level"
+                      data-value="{{ node.level }}"></a>
+                      <script>
+                      $(function(){
+                          $('#level-{{ node.key.urlsafe() }}').editable({
+                              source: [
+                                    {value: 0, text: 'Beginner'},
+                                    {value: 1, text: 'Intermediate'},
+                                    {value: 2, text: 'Advanced'}
+                                 ]
+                          });
+                      });
+                      </script>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+        </td>
+
+
+      </td>
+
+
+<!-- understanding -->
+<td>
+  <div>
+    <h4>Understanding</h4>
+    <a href="#" id="understanding"
+    data-type="textarea"
+    data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+    data-pk="{{ node.key.urlsafe() }}"
+    data-placement="right"
+    class="is_editable"
+    data-title="Enter Node Understanding">{{ node.understanding }}
+    </a>
+  </div>
+
+  <!-- Learning Goal list -->
+  <div><h4>Understanding Learning Goals</h4>
+    {% for l in node.understanding_learning_goals %}
+    <li>
+        <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=understanding&mode=edit&goal={{ l.urlsafe() }}">
+      {{l.get().text}}</a> - {{l.get()._support}}
+
+    {% endfor %}
+
+    <!-- Add Learning Goals -->
+    <div>
+      <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=understanding"
+      class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add Learning Goal</a>
+    </div>
+
+<div><h4>Understanding Learning Goal Evidence</h4>
+{% for k,v in node._understanding_learning_goal_score.items() %}
+  <li>{{k}} <span class='badge'>{{v}}</span></li>
+{% endfor %}
+</div>
+
+
+
+      </td>
+
+      <!-- action -->
+      <td>
+        <div><h4>Action Summary</h4>
+          <a href="#" id="action"
+            data-type="textarea"
+            data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+            data-pk="{{ node.key.urlsafe() }}"
+            data-placement="right"
+            class="is_editable"
+            data-title="Enter Node Action">{{ node.action }}
+          </a>
+        </div>
+
+        <!-- actino activity -->
+          <div><h4>Assessment Activity Text</h4>
+            <a href="#" id="action_activity_text"
+              data-type="textarea"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ node.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Enter Action Acivity Assessment">{{ node.action_activity_text }}
+            </a>
+          </div>
+          <br/>
+          <div><h4>Assessment Link:</h4>
+            <a href="#" id="action_activity_url"
+              data-type="text"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ node.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Enter Action Acivity Assessment Link">{{ node.action_activity_url }}
+            </a>
+          </div>
+          <br/>
+          <div><h4>assessment PDF:</h4>
+            <a href="#" id="action_activity_pdf"
+              data-type="text"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ node.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Enter Action Acivity Assessment Link">{{ node.action_activity_pdf }}
+            </a>
+          </div>
+
+          <!-- Action Learning  Goal list -->
+          <div><h4>Action Learning Goals</h4>
+            {% for l in node.action_learning_goals %}
+            <li>
+                <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=action&mode=edit&goal={{ l.urlsafe() }}">
+              {{l.get().text}}</a> - {{l.get()._support}}
+            {% endfor %}
+
+            <!-- Add Learning Goals -->
+            <div>
+              <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/node/{{ node.key.urlsafe() }}/learning_goals/?type=action"
+              class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add Learning Goal</a>
+            </div>
+          <div><h4>Action Learning Goal Evidence</h4>
+            {% for k,v in node._action_learning_goal_score.items() %}
+              <li>{{k}} <span class='badge'>{{v}}</span></li>
+            {% endfor %}
+            </div>
+
+          </div>
+
+
+
+
+      </td>
+
+
+
+    <!-- /table row -->
+    </tr>
+    {% endfor %}
+    {% endif %}
+  </table>
+
+  <div>
+    <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/?mode=new"
+      class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+      Add New Nodes</a>
+  </div>
+
+
+  <h1>Arrows for {{ trajectory.name }}</h1>
+
+  <!--{% if (arrows is defined) and arrows %}
+  {% for arrow in arrows %}
+  <script type="text/javascript" src="code-s.js"></script>
+  <script>
+    var source = {{ arrow.start_node }};
+    var target = {{ arrow.end_node }};
+    var label = {{ arrow.uuid }};
+    var unplugged = '';
+    if( {{ arrow.unplugged}} == 0) {
+      unplugged = 'programming';
+    } else {
+      unplugged += 'unplugged';
+    }
+    var data = { source : source, target : target, label : label, unplugged : unplugged };
+    var grabbale = false;
+    var prepped_edge = {data : data, grabbable : grabbable};
+    accept_data(prepped_edge, 'edge');
+  </script>
+{% endfor %}
+{% endif %}-->
+  <table class="table table-striped">
+    <thead class="thead-inverse">
+      <tr>
+      <th style="width:150px;" >Id</th>
+      <th>Node Start</th>
+      <th>Node End</th>
+      <th>Explanation</th>
+      <th>Text</th>
+      <th>Link</th>
+      <th>PDF</th>
+      <th>Unplugged</th>
+      <th>Arrow Color</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% if (arrows is defined) and arrows %}
+        {% for arrow in arrows %}
+
+        <tr>
+            <!-- Arrow Id -->
+          <td><span class='circle-uuid'>
+            <div>
+              <a href="#"
+              id="uuid"
+              data-type="text"
+              data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+              data-pk="{{ arrow.key.urlsafe() }}"
+              data-placement="right"
+              class="is_editable"
+              data-title="Unique Arrow Id">{{ arrow.uuid}}
+              </a>
+            </div>
+          </span>
+          </td>
+
+
+          <!-- Node in -->
+          <td>
+            <div>
+                <a href="#" id="arrow_start_node-{{ arrow.key.urlsafe() }}"
+                data-type="select"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-title="Select Arrows In"
+                data-value="{{ arrow.start_node }}"></a>
+                <script>
+                $(function(){
+                    $('#arrow_start_node-{{ arrow.key.urlsafe() }}').editable({
+                        source: [
+                          {% if (nodes is defined) and nodes %}
+                          {% for node in nodes %}
+                              {value: {{ node.uuid }}, text: '{{ node.uuid }}'},
+                          {% endfor %}
+                          {% endif %}
+                           ]
+                    });
+                });
+                </script>
+              </div>
+          </td>
+<!-- value key node.key.id() -->
+
+
+          <!-- Node Out -->
+          <td>
+            <div>
+                <a href="#" id="arrow_end_node-{{ arrow.key.urlsafe() }}"
+                data-type="select"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-title="Select Arrows In"
+                data-value="{{ arrow.end_node }}"></a>
+                <script>
+                $(function(){
+                    $('#arrow_end_node-{{ arrow.key.urlsafe() }}').editable({
+                        source: [
+                          {% if (nodes is defined) and nodes %}
+                          {% for node in nodes %}
+                              {value: {{ node.uuid }}, text: '{{ node.uuid }}'},
+                          {% endfor %}
+                          {% endif %}
+                           ]
+                    });
+                });
+                </script>
+              </div>
+          </td>
+
+
+
+          <td>
+            <div>
+              <a href="#" id="arrow_explination"
+                data-type="textarea"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-placement="right"
+                class="is_editable"
+                data-title="Enter Arrow Description">{{ arrow.explination}}
+              </a>
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <a href="#" id="arrow_description"
+                data-type="textarea"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-placement="right"
+                class="is_editable"
+                data-title="Enter Arrow Description">{{ arrow.description}}
+              </a>
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <a href="#" id="arrow_url"
+                data-type="text"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-placement="right"
+                class="is_editable"
+                data-title="Enter Arrow Link">{{ arrow.url}}
+              </a>
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <a href="#" id="arrow_pdf"
+                data-type="text"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-placement="right"
+                class="is_editable"
+                data-title="Enter Arrow Description">{{ arrow.pdf}}
+              </a>
+            </div>
+          </td>
+
+          <!-- Arrow Unplugged -->
+          <td>
+            <div>
+                <a href="#" id="arrow-unplugged-{{ arrow.key.urlsafe() }}"
+                data-type="select"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-title="Select Arrows Out"
+                data-value="{{ arrow.unplugged }}"></a>
+                <script>
+                $(function(){
+                    $('#arrow-unplugged-{{ arrow.key.urlsafe() }}').editable({
+                        source: [
+                            {value: 0, text: 'False'},
+                            {value: 1, text: 'True'}
+                           ]
+                    });
+                });
+                </script>
+              </div>
+          </td>
+
+          <!-- Arrow Color -->
+          <td>
+            <div>
+                <a href="#" id="arrow_color-{{ arrow.key.urlsafe() }}"
+                data-type="select"
+                data-url="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/"
+                data-pk="{{ arrow.key.urlsafe() }}"
+                data-title="Select Arrows Color"
+                data-value="{{ arrow.color }}"></a>
+                <script>
+                $(function(){
+                    $('#arrow_color-{{ arrow.key.urlsafe() }}').editable({
+                        source: [
+                            {value: 0, text: 'Black'},
+                            {value: 1, text: 'Gray'},
+                            {value: 2, text: 'Red'},
+                            {value: 3, text: 'Other'}
+                           ]
+                    });
+                });
+                </script>
+              </div>
+          </td>
+
+
+        </tr>
+          {% endfor %}
+          {% endif %}
+          </table>
+
+          <div>
+            <a href="/tools/trajectory/{{ trajectory.key.urlsafe() }}/nodes/?mode=new_arrow"
+              class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              Add New Arrow</a>
+          </div>
+
+
+
+
+{% endblock %}

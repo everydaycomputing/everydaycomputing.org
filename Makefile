@@ -2,7 +2,7 @@ deploy:
 	gcloud app deploy app.yaml --project gene-tree
 
 download:
-	e
+	appcfg.py download_data --application=everydaycomputingorg --url=everydaycomputingorg.appspot.com/_ah/remote_api --filename=data.sql3
 
 upload_local_database:
 	appcfg.py upload_data \

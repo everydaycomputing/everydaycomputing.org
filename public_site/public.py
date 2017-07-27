@@ -16,11 +16,20 @@ import logging
 from site_database import *
 from public_site import *
 from methodology import *
-
+# from backend_tools.tool import NodeHandler as NodeHandler
+# from backend_tools.tool import TrajectoryHandler as TrajectoryHandler
+from backend_tools.tool import MainPage as ToolPage
+from backend_tools.tool import *
+from backend_tools.learning_goals import LearningGoalHandler as LearningGoalHandler
+from backend_tools.nodes import NodesPage as NodesPage
+from backend_tools.visualization import VisualizationHandler as VisualizationHandler
+from backend_tools import *
 #
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
+
+
 
 
 class HomePage(webapp2.RequestHandler):
@@ -250,4 +259,11 @@ APP = webapp2.WSGIApplication([
                                webapp2.Route('/goals/', handler=PageGoals),
                                webapp2.Route('/goals/cluster/', handler=PageGoalsCluster),
                                webapp2.Route('/goals/cluster/insert/', handler=PageGoalsClusterInsert),
+                               webapp2.Route('/tools/trajectory/', handler=ToolPage),
+                               webapp2.Route('/tools/trajectory/<key>/', handler=TrajectoryHandler),
+                               webapp2.Route('/tools/trajectory/<key>/nodes/', handler=NodesPage),
+                               #webapp2.Route('/tools/trajectory/nodes/', NodesPage),
+                               webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
+                               webapp2.Route('/tools/trajectory/node/<node_key>/', handler=NodeHandler),
+                               webapp2.Route('/tools/trajectory/<key>/visualization/', handler=VisualizationHandler)
                                ], debug=True)
