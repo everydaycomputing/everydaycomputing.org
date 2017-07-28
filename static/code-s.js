@@ -103,7 +103,7 @@ $(function() {
       cy.nodes().positions(function(node, i) {
         return {
           x: node.position("y") * 0.8,
-          y: -1 * node.position("x") * 0.7
+          y: node.position("x") * 0.7
         };
       });
       cy.fit();
