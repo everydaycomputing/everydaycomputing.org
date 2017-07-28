@@ -73,12 +73,13 @@ class VisualizationHandler(webapp2.RequestHandler):
         # initializes arrows to be sent to jinja template
         for arrow in arrows:
             uuid = arrow.uuid
+          
+            # causing NeedIndexError            
             key = arrow.start_node
-            logging.info(key)
-            logging.info("\n\n")
             source = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
             key = arrow.end_node
             target = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
+
             unplugged = ''
             if arrow.unplugged == 0: 
                 unplugged = 'unplugged'
