@@ -43,11 +43,11 @@ class VisualizationHandler(webapp2.RequestHandler):
         
         # initializes nodes to be sent to jinja template
         for node in nodes:
-            uuid = str(node.uuid)
-            summary = str(node.summary)
+            uuid = (node.uuid).encode('utf-8')
+            summary = (node.summary).encode('utf-8')
             understanding = node.understanding
             action = node.action
-            name = uuid + 'U: ' + str(understanding) + '\n\n' + uuid + 'A: ' + str(action)
+            name = uuid + 'U: ' + (understanding).encode('utf-8') + '\n\n' + uuid + 'A: ' + (action).encode('utf-8')
             clicked_var = 0
             classes = ''
             if node.level == 0:
