@@ -13,8 +13,10 @@ dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml
 lsof -P | grep '8080' | awk '{print $2}' | xargs kill -9
 ```
 
-Update Server
+# Update App Engine Server #
 ================================================================================
+The following updates a server that is using a single default service.
+
 `cd` to the directory containing everydaycomputing.org/
   (probably ~/Development/GitHub)
 
@@ -26,6 +28,13 @@ appcfg.py update everydaycomputing.org/
 
 ## FOR MICROSERVICE ##
  /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update backend-tools.yaml -A everydaycomputingorg -V 0
+
+* Public site
+```
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update app.yaml -A everydaycomputingorg -V 0
+```
+
+
 
 Set Credentials for Remote API
 ================================================================================
