@@ -115,9 +115,10 @@ class TrajectoryHandler(webapp2.RequestHandler):
 
 # unused, all web handlers now registered in public site
 app = webapp2.WSGIApplication([
-    ('/tools/trajectory/', MainPage),
-    webapp2.Route('/tools/trajectory/<key>/', TrajectoryHandler),
-    webapp2.Route('/tools/trajectory/<key>/nodes/', NodesPage),
-    webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', LearningGoalHandler),
-    webapp2.Route('/tools/trajectory/node/<node_key>/', NodeHandler),
+                            webapp2.Route('/tools/trajectory/', MainPage),
+                            webapp2.Route('/tools/trajectory/<key>/', handler=TrajectoryHandler),
+                            webapp2.Route('/tools/trajectory/<key>/nodes/', handler=NodesPage),
+                            webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
+                            webapp2.Route('/tools/trajectory/node/<node_key>/', handler=NodeHandler),
+                            webapp2.Route('/tools/trajectory/<key>/visualization/', handler=VisualizationHandler)
 ], debug=True)
