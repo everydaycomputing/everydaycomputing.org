@@ -20,6 +20,7 @@ from google.appengine.ext import deferred
 from models import *
 from nodes import *
 from learning_goals import *
+from visualization import *
 
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
