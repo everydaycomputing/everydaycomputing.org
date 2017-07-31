@@ -1,0 +1,110 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+<div class="container">
+
+  <div class="flash flash-warn">
+
+    {% for author in article.author_names %}
+    <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
+    {% endfor %}.
+    <span>"<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}">{{ article.title}}</a>."</span>
+    <span>{{ article.journal}}.</span>
+    <span>({{ article.year}}).</span>
+    <span>{{ article.pages}}.</span>
+  </div>
+  <hr>
+</div>
+
+
+<!-- --------------------------------------------------------------- SUMMARY -->
+<div class="container about-that">
+  <h1>Summary
+  </h1>
+</div>
+
+<div class="container about-that">
+  <div class="columns">
+
+    <div class="one-half column">
+      <p>Type: {{ article.type | join(",") }}</p>
+      <p>Purpose: {{ article.purpose }}</p>
+
+    </div>
+
+    <div class="one-half column">
+      <p>Findings: {{ article.findings }}</p>
+      <p>Recommendations: {{ article.recommendations }}</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------- METHODOLOGY -->
+<div class="container about-that">
+  <hr/>
+  <h1>Methodology</h1>
+</div>
+
+<div class="container about-that">
+  <div class="columns">
+    <div class="one-fourth column">
+      <p>Sample Size: {{ article._methodology.sample_size }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Gender: {{ article._methodology.sample_gender | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Ethnicity: {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>School Size: {{ article._methodology.sample_size_of_school }}</p>
+    </div>
+
+
+    <!-- row 2 -->
+    <div class="one-fourth column">
+      <p>Participant Type: {{ article._methodology.sample_participant_type }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Environment: {{ article._methodology.sample_environment | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Setting: {{ article._methodology.sample_setting | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Disability Status: {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+
+  </div>
+
+  <div>
+    <p>Notes: {{ article._methodology.sample_notes }}</p>
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------- METHODOLOGY -->
+
+
+<!--
+ <div class="container about-that">
+ <div class="columns">
+
+ {% for category in categories %}
+
+ <div class="one-half column">
+ <h2>{{ category|title }}</h2>
+ <p>Something usefull here...</p>
+ </p><a href="{{application_url}}/article/add/{{ category }}/{{key}}/" class="btn">Edit {{ category }}</a></p>
+ <br/>
+ </div>
+ {% endfor %}
+
+ </div>
+ </div>
+ -->
+
+{% endblock %}
