@@ -26,10 +26,13 @@ from backend_tools.nodes import NodesPage as NodesPage
 from backend_tools.visualization import VisualizationHandler as VisualizationHandler
 from backend_tools import *
 
-from site_database.admin_models import *
-from site_database.article_handler import *
-from site_database.admin_category import *
-from site_database.resource_handler import *
+
+from site_database.article_handler import ArticleInsertHandler as ArticleInsertHandler
+from site_database.article_goals import ArticleGoalHandler as ArticleGoalHandler
+from site_database.admin_category import ArticleCategoryEditHandler as ArticleCategoryEditHandler
+from site_database.admin_category import ArticleCategoryHandler as ArticleCategoryHandler
+from site_database.resource_handler import ResourceHandler as ResourceHandler
+from site_database import *
 #
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
