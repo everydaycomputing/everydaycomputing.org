@@ -25,6 +25,11 @@ from backend_tools.learning_goals import LearningGoalHandler as LearningGoalHand
 from backend_tools.nodes import NodesPage as NodesPage
 from backend_tools.visualization import VisualizationHandler as VisualizationHandler
 from backend_tools import *
+
+from site_database.admin_models import *
+from site_database.article_handler import *
+from site_database.admin_category import *
+from site_database.resource_handler import *
 #
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
@@ -259,10 +264,22 @@ APP = webapp2.WSGIApplication([
                                webapp2.Route('/goals/', handler=PageGoals),
                                webapp2.Route('/goals/cluster/', handler=PageGoalsCluster),
                                webapp2.Route('/goals/cluster/insert/', handler=PageGoalsClusterInsert),
-                               webapp2.Route('/tools/trajectory/', handler=ToolPage),
-                               webapp2.Route('/tools/trajectory/<key>/', handler=TrajectoryHandler),
-                               webapp2.Route('/tools/trajectory/<key>/nodes/', handler=NodesPage),
-                               webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
-                               webapp2.Route('/tools/trajectory/node/<node_key>/', handler=NodeHandler),
-                               webapp2.Route('/tools/trajectory/<key>/visualization/', handler=VisualizationHandler)
+                               routes.PathPrefixRoute('/tools/trajectory', [
+                                                                  webapp2.Route('/', handler=ToolPage),
+                                                                  webapp2.Route('/<key>/', handler=TrajectoryHandler),
+                                                                  webapp2.Route('/<key>/nodes/', handler=NodesPage),
+                                                                  webapp2.Route('/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
+                                                                  webapp2.Route('/node/<node_key>/', handler=NodeHandler),
+                                                                  webapp2.Route('/<key>/visualization/', handler=VisualizationHandler),
+                               ]),
+                               routes.PathPrefixRoute('/resource', [
+                                                                   webapp2.Route('/', ResourceHandler, 'user-overview'),
+                                                                   webapp2.Route('/article/insert/', ArticleInsertHandler, 'user-projects'),
+                                                                   webapp2.Route('/article/<key>/', ArticleCategoryHandler, 'user-profile'),
+                                                                   webapp2.Route('/article/', ArticleHandler, 'user-overview'),
+                                                                   webapp2.Route('/article/goal/<task:(insert|edit|delete)>/<article_key>/', ArticleGoalHandler, 'user-projects'),
+                                                                   webapp2.Route('/article/goal/<article_key>/<learning_goal_key>/', ArticleGoalHandler, 'user-projects'),
+                                                                   webapp2.Route('/article/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
+                                                                   webapp2.Route('/goals/', GoalHandler, 'user-projects'),
+                                                                   ]),
                                ], debug=True)
