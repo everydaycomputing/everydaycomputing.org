@@ -32,6 +32,7 @@ from site_database.article_goals import ArticleGoalHandler as ArticleGoalHandler
 from site_database.admin_category import ArticleCategoryEditHandler as ArticleCategoryEditHandler
 from site_database.admin_category import ArticleCategoryHandler as ArticleCategoryHandler
 from site_database.resource_handler import ResourceHandler as ResourceHandler
+from site_database.main import GoalHandler as GoalHandler
 from site_database import *
 #
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
