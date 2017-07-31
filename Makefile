@@ -12,4 +12,4 @@ upload_local_database:
 		--url=http://localhost:53814/_ah/remote_api 
 
 local:
-	dev_appserver.py .
+	./../google-cloud-sdk/platform/google_appengine/dev_appserver.py .

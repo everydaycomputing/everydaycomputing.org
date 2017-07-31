@@ -176,7 +176,7 @@ class ArticleInsertHandler(webapp2.RequestHandler):
 class ArticleHandler(webapp2.RequestHandler):
   def get(self):
     # Fetch all articles
-    articles_query = Article.query(ancestor=article_ancestor_key()).order(Article.authors[0].get().name)#.order(-Article.timestamp.created)
+    articles_query = Article.query(ancestor=article_ancestor_key())#.order(-Article.timestamp.created)
     articles = articles_query.fetch()
 
     template_values = {

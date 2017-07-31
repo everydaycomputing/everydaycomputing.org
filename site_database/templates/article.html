@@ -10,7 +10,7 @@
 
   <div class="four-fifths column">
     <table>
-    {% for article in articles %}
+    {% for article in articles|sort(attribute='family_name') %}
     <tr class="{{ loop.cycle('odd', 'even') }}"><td>
     <div class="row">
       <li>{{ article.citation}} <a href="{{ article.key.urlsafe() }}/">View Summary.</a>
