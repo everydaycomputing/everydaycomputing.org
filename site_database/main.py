@@ -35,7 +35,7 @@ class MainPage(webapp2.RequestHandler):
       'url_linktext': "Logout"
     }
 
-    template = JINJA_ENVIRONMENT.get_template('database_site/templates/home.html')
+    template = JINJA_ENVIRONMENT.get_template('templates/home.html')
     self.response.write(template.render(template_values))
 
   def post(self):
