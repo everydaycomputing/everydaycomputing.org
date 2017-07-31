@@ -35,6 +35,12 @@ from site_database.resource_handler import ResourceHandler as ResourceHandler
 from site_database.main import GoalHandler as GoalHandler
 from site_database.resource_handler import ResourceHandler as ResourceHandler
 from site_database import *
+
+
+from public_site_database.main import PublicResourcePage as PublicResourcePage
+from public_site_database.main import PublicArticlePage as PublicArticlePage
+from public_site_database.main import PublicArticleCategoryHandler as PublicArticleCategoryHandler
+from public_site_database import *
 #
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
