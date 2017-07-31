@@ -15,6 +15,13 @@ import logging
 # Custom imports
 from admin_models import *
 
+def article_ancestor_key():
+  """
+  Constructs a Datastore key for a Guestbook entity.
+  We use guestbook_name as the key.
+  """
+  return ndb.Key(Article, 'article')
+
 ################################################################################
 class PublicResourcePage(webapp2.RequestHandler):
 
@@ -71,7 +78,7 @@ class PublicArticleCategoryHandler(webapp2.RequestHandler):
 APP = webapp2.WSGIApplication([
                                routes.PathPrefixRoute('/public/resource', [
                                                                   webapp2.Route('/', PublicResourcePage),
-                                                                  webapp2.Route('/article/', PublicArticlePage).
+                                                                  webapp2.Route('/article/', PublicArticlePage),
                                                                   webapp2.Route('/article/<key>/', PublicArticleCategoryHandler)
                                ])
                                ], debug=True)

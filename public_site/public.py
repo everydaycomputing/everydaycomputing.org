@@ -295,7 +295,7 @@ APP = webapp2.WSGIApplication([
                                                                   ]),
                                routes.PathPrefixRoute('/public/resource', [
                                                                   webapp2.Route('/', PublicResourcePage),
-                                                                  webapp2.Route('/article/', PublicArticlePage).
+                                                                  webapp2.Route('/article/', PublicArticlePage),
                                                                   webapp2.Route('/article/<key>/', PublicArticleCategoryHandler)
                                ])
                                ], debug=True)
