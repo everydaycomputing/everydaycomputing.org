@@ -5,14 +5,14 @@
 <div class="container">
 
   <div class="flash flash-warn">
-
-    {% for author in article.author_names %}
+    <span>{{article.citation}}<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}"></a></span>
+    <!--{% for author in article.author_names %}
     <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
     {% endfor %}.
     <span>({{ article.year}}).</span>
     <span>"<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}">{{ article.title}}</a>."</span>
     <span>{{ article.journal}}.</span>
-    <span>{{ article.pages}}.</span>
+    <span>{{ article.pages}}.</span>-->
   </div>
   <hr>
 </div>
