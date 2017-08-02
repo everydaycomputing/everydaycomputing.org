@@ -1,53 +1,20 @@
 {% extends "templates/public_base_template.html" %}
-
 {% block body %}
 
-
 <div class="container">
-  <div class="columns">
-
-
-
   <div class="four-fifths column">
     <table>
     {% for article in articles|sort(attribute='citation') %}
-    <tr class="{{ loop.cycle('odd', 'even') }}"><td>
-    <div class="row">
-      <li>{{ article.citation}} <a href="{{ article.key.urlsafe() }}/">View Summary.</a>
-      <!--
-      {% for author in article.author_names %}
-      <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
-      {% endfor %}.
-      <span>"      <a href="{{ article.key.urlsafe() }}/">{{ article.title}}."</a></span>
-      <span>{{ article.journal}}.</span>
-      <span>({{ article.year}}).</span>
-      <span>{{ article.pages}}.</span>
-    -->
-      </li>
-    </div>
-    </td></tr>
+      <tr class="{{ loop.cycle('odd', 'even') }}">
+        <td>
+          <div class="row">
+            <li>  {{ article.citation}} <a href="{{ article.key.urlsafe() }}/">View Summary.</a></li>
+          </div>
+        </td>
+      </tr>
     {% endfor %}
     </table>
-
-
-    {% for greeting in greetings %}
-    <div class="row">
-      {% if greeting.author %}
-      <b>{{ greeting.author.email }}
-        {% if user and user.user_id() == greeting.author.identity %}
-        (You)
-        {% endif %}
-      </b> wrote:
-      {% else %}
-      An anonymous person wrote:
-      {% endif %}
-      <blockquote>{{ greeting.content }}</blockquote>
-    </div>
-    {% endfor %}
-      </div>
+  </div>
 </div> <!-- /container -->
-
-
-
 
 {% endblock %}
