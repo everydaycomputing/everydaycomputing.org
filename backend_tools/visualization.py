@@ -78,7 +78,7 @@ class VisualizationHandler(webapp2.RequestHandler):
             if color_id == 0:
                 color = 'black'
             else:
-                color = 'gray'
+                color = 'silver'
             # causing NeedIndexError            
             key = arrow.start_node
             source = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid

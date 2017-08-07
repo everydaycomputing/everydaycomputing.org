@@ -367,6 +367,8 @@ function accept_data(input) {
     var name = data.name;
     var temp_name = data.temp_name;
     var clicked_var = data.clicked_var;
+    var ulgs = data.ulgs;
+    var algs = data.algs;
     var href = data.href;
     // console.log(id);
     elements.push({data : {id : id, summary : summary, temp_name : temp_name, name : id + ': ' + summary, clicked_var : clicked_var, href : href}, 
