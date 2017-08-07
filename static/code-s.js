@@ -58,7 +58,7 @@ $(function() {
           height: 250,
           width: 250,
           padding: 10,
-          label: "data(ulgs[0])"
+          label: "data(name)"
         }
       },
       {
@@ -184,7 +184,7 @@ $(function() {
   });
 
   var beginningButton = document.getElementById("beginning");
-  beginningtButton.addEventListener("click", function() {
+  beginningButton.addEventListener("click", function() {
     cy.$("*").show();
     cy.$(".advanced").hide();
     cy.$(".intermediate").hide();
