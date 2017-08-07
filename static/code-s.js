@@ -58,7 +58,7 @@ $(function() {
           height: 250,
           width: 250,
           padding: 10,
-          label: "data(name)"
+          label: "data(ulgs[0])"
         }
       },
       {
@@ -183,21 +183,21 @@ $(function() {
     cy.$(".advanced").hide();
   });
 
-  var beginningtButton = document.getElementById("beginning");
+  var beginningButton = document.getElementById("beginning");
   beginningtButton.addEventListener("click", function() {
     cy.$("*").show();
     cy.$(".advanced").hide();
     cy.$(".intermediate").hide();
   });
 
-  var beginningtButton = document.getElementById("unplugged-btn");
-  beginningtButton.addEventListener("click", function() {
+  var unpluggedButton = document.getElementById("unplugged-btn");
+  unpluggedButton.addEventListener("click", function() {
     cy.$("*").show();
     cy.$(".programming").hide();
   });
 
-  var beginningtButton = document.getElementById("programming-btn");
-  beginningtButton.addEventListener("click", function() {
+  var programmingButton = document.getElementById("programming-btn");
+  programmingButton.addEventListener("click", function() {
     cy.$("*").show();
     cy.$(".unplugged").hide();
   });
