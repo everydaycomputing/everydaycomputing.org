@@ -371,7 +371,10 @@ function accept_data(input) {
     var algs = data.algs;
     var href = data.href;
     // console.log(id);
-    elements.push({data : {id : id, summary : summary, temp_name : temp_name, name : id + ': ' + summary, clicked_var : clicked_var, href : href}, 
+    elements.push({data : {id : id, summary : summary, temp_name : temp_name, name : id + ': ' + summary, 
+          clicked_var : clicked_var, href : href,
+          ulgs : ulgs, algs : algs
+        }, 
       grabbable : true, classes : classes});
   }
 
