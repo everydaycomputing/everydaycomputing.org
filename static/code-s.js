@@ -34,10 +34,11 @@ $(function() {
         selector: "edge",
         style: {
           width: "4",
+          "line-color":"data(color)",
+          "target-arrow-color":"data(color)",
           "target-arrow-shape": "triangle",
           "curve-style": "bezier",
           "control-point-step-size": 40,
-          label: "data(label)",
           "font-family": "liberation-sans, sans-serif",
           "font-weight": "600",
           "font-size": "60"
@@ -354,8 +355,9 @@ function accept_data(input) {
     var target = data.target;
     var label = data.label;
     var unplugged = data.unplugged;
+    var color = data.color;
     // console.log(label);
-    elements.push({data : {source : source, target : target, label : label, unplugged : unplugged}});
+    elements.push({data : {source : source, target : target, label : label, color : color, unplugged : unplugged}});
   } else {
     var data = input.data;
     // console.log(data);

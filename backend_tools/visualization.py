@@ -73,7 +73,12 @@ class VisualizationHandler(webapp2.RequestHandler):
         # initializes arrows to be sent to jinja template
         for arrow in arrows:
             uuid = arrow.uuid
-          
+            color = ''
+            color_id = arrow.color
+            if color_id == 0:
+                color = 'black'
+            else:
+                color = 'gray'
             # causing NeedIndexError            
             key = arrow.start_node
             source = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
@@ -85,7 +90,7 @@ class VisualizationHandler(webapp2.RequestHandler):
                 unplugged = 'unplugged'
             else:
                 unplugged = 'programming'
-            data = {'source' : source, 'target' : target, 'label' : uuid, 'unplugged' : unplugged}
+            data = {'source' : source, 'target' : target, 'label' : uuid, 'unplugged' : unplugged, 'color' : color}
             elements.append(json.dumps({'data' : data}))
             
         template_values = {
