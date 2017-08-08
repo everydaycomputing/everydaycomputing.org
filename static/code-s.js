@@ -58,7 +58,7 @@ $(function() {
           height: 250,
           width: 250,
           padding: 10,
-          label: "data(name)"
+          label: "data(ulgs)"
         }
       },
       {
