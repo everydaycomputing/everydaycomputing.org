@@ -63,9 +63,10 @@ class VisualizationHandler(webapp2.RequestHandler):
             ulgs = []
             algs = []
             for lg in node.understanding_learning_goals:
-                ulgs.append(lg.get().text)
-            for lg in node.action_learning_goals:
-                algs.append(lg.get().text)
+                temp_data = [lg.get().text, lg.get()._support]
+                ulgs.append(temp_data)
+            for lg in node.action_learning_goals: 
+                algs.append([lg.get().text, lg.get()._support])
 
             data = {'id' : uuid, 'summary' : summary, 'name' : name, 'temp_name' : name, 'ulgs' : ulgs, 'algs' : algs, 'clicked_var' : clicked_var, 'href': []}
             elements.append(json.dumps({'data' : data, 'classes' : classes}))
