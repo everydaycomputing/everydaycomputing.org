@@ -121,6 +121,13 @@ $(function() {
         selector: "node",
         onClickFunction: function(event) {
           var target = event.target || event.cyTarget;
+          var trajectory_key = target.data("trajectory_key");
+          var node_key = target.data("node_key");
+          var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/action/";
+          var win = window.open(url);
+          if (!win) {
+            alert("Please allow popups to see learning goals!");
+          }
           // target.data("name", target.data("algs"));
           // cy
           //   .style()
@@ -143,6 +150,13 @@ $(function() {
         selector: "node",
         onClickFunction: function(event) {
           var target = event.target || event.cyTarget;
+          var trajectory_key = target.data("trajectory_key");
+          var node_key = target.data("node_key");
+          var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/understanding/";
+          var win = window.open(url);
+          if (!win) {
+            alert("Please allow popups to see learning goals!");
+          }
           // target.data("name", target.data("ulgs"));
           // target.style({'font-size': "17"});
           // console.log(target.position("y"));
@@ -367,13 +381,15 @@ function accept_data(input) {
     var name = data.name;
     var temp_name = data.temp_name;
     var clicked_var = data.clicked_var;
-    var ulgs = data.ulgs;
-    var algs = data.algs;
+    var node_urlsafe = data.node_urlsafe;
+    var trajectory_urlsafe = data.trajectory_urlsafe;
+    // var ulgs = data.ulgs;
+    // var algs = data.algs;
     var href = data.href;
     // console.log(id);
     elements.push({data : {id : id, summary : summary, temp_name : temp_name, name : id + ': ' + summary, 
           clicked_var : clicked_var, href : href,
-          ulgs : ulgs, algs : algs
+          node_key : node_urlsafe, trajectory_key : trajectory_urlsafe
         }, 
       grabbable : true, classes : classes});
   }

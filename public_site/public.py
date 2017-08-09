@@ -24,6 +24,8 @@ from backend_tools.tool import *
 from backend_tools.learning_goals import LearningGoalHandler as LearningGoalHandler
 from backend_tools.nodes import NodesPage as NodesPage
 from backend_tools.visualization import VisualizationHandler as VisualizationHandler
+from backend_tools.visualization import ActionGoalsHandler as ActionGoalsHandler
+from backend_tools.visualization import UnderstandingGoalsHandler as UnderstandingGoalsHandler
 from backend_tools import *
 
 
@@ -282,6 +284,8 @@ APP = webapp2.WSGIApplication([
                                                                   webapp2.Route('/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
                                                                   webapp2.Route('/node/<node_key>/', handler=NodeHandler),
                                                                   webapp2.Route('/<key>/visualization/', handler=VisualizationHandler),
+                                                                  webapp2.Route('/<trajectory_key>/visualization/<node_key>/understanding/', UnderstandingGoalsHandler),
+                                                                  webapp2.Route('/<trajectory_key>/visualization/<node_key>/action/', ActionGoalsHandler)
                                ]),
                                routes.PathPrefixRoute('/resource', [
                                                                   webapp2.Route('/', ResourceHandler, 'user-overview'),

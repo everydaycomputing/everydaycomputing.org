@@ -13,7 +13,7 @@ class LearningGoal(ndb.Model):
   # This is referred to as a domain
   domainFromLiteratureReview = ndb.IntegerProperty(default=4)
   page_number = ndb.StringProperty(default="")
-  goal = ndb.TextProperty(default="")
+  goal = ndb.TextProperty(default="", indexed=True)
   age_level = ndb.IntegerProperty(choices=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], repeated=True)
   #empirical_support = ndb.BooleanProperty(default=False)
   support = ndb.IntegerProperty(default=3)
