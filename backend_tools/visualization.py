@@ -61,6 +61,12 @@ class VisualizationHandler(webapp2.RequestHandler):
                 classes += ' programming'
             else: 
                 classes += ' unplugged'
+            ulg_check = 0
+            alg_check = 0
+            if node.understanding_learning_goals != []:
+                ulg_check = 1
+            if node.action_learning_goals != []:
+                alg_check = 1
             # ulgs = []
             # algs = []
             # for lg in node.understanding_learning_goals:
@@ -85,7 +91,7 @@ class VisualizationHandler(webapp2.RequestHandler):
             #     algs.append([lg_text, lg_support, lg_article_key])
 
             data = {'id' : uuid, 'summary' : summary, 'name' : name, 'temp_name' : name, \
-                'clicked_var' : clicked_var, 'href': [], \
+                'clicked_var' : clicked_var, 'href': [], 'ulg_check' : ulg_check, 'alg_check' : alg_check,\
                 'node_urlsafe' : node.key.urlsafe(), 'trajectory_urlsafe' : key}
             elements.append(json.dumps({'data' : data, 'classes' : classes}))
         

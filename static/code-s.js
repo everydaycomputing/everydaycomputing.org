@@ -123,10 +123,14 @@ $(function() {
           var target = event.target || event.cyTarget;
           var trajectory_key = target.data("trajectory_key");
           var node_key = target.data("node_key");
-          var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/action/";
-          var win = window.open(url);
-          if (!win) {
-            alert("Please allow popups to see learning goals!");
+          if(target.data("alg_check") == 1) {
+            var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/action/";
+            var win = window.open(url);
+            if (!win) {
+              alert("Please allow popups to see learning goals!");
+            }
+          } else {
+            alert("This node has no action learning goals.")
           }
           // target.data("name", target.data("algs"));
           // cy
@@ -152,11 +156,16 @@ $(function() {
           var target = event.target || event.cyTarget;
           var trajectory_key = target.data("trajectory_key");
           var node_key = target.data("node_key");
-          var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/understanding/";
-          var win = window.open(url);
-          if (!win) {
-            alert("Please allow popups to see learning goals!");
+          if(target.data("ulg_check") == 1) {
+            var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/understanding/";
+            var win = window.open(url);
+            if (!win) {
+              alert("Please allow popups to see learning goals!");
+            }
+          } else {
+            alert("This node has no understanding learning goals.")
           }
+          
           // target.data("name", target.data("ulgs"));
           // target.style({'font-size': "17"});
           // console.log(target.position("y"));
@@ -383,12 +392,12 @@ function accept_data(input) {
     var clicked_var = data.clicked_var;
     var node_urlsafe = data.node_urlsafe;
     var trajectory_urlsafe = data.trajectory_urlsafe;
-    // var ulgs = data.ulgs;
-    // var algs = data.algs;
+    var ulg_check = data.ulg_check;
+    var alg_check = data.alg_check;
     var href = data.href;
     // console.log(id);
     elements.push({data : {id : id, summary : summary, temp_name : temp_name, name : id + ': ' + summary, 
-          clicked_var : clicked_var, href : href,
+          clicked_var : clicked_var, href : href, alg_check : alg_check, ulg_check : ulg_check,
           node_key : node_urlsafe, trajectory_key : trajectory_urlsafe
         }, 
       grabbable : true, classes : classes});
