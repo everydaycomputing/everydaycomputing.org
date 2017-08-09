@@ -287,16 +287,16 @@ APP = webapp2.WSGIApplication([
                                                                   webapp2.Route('/<trajectory_key>/visualization/<node_key>/understanding/', UnderstandingGoalsHandler),
                                                                   webapp2.Route('/<trajectory_key>/visualization/<node_key>/action/', ActionGoalsHandler)
                                ]),
-                              #  routes.PathPrefixRoute('/resource', [
-                              #                                     webapp2.Route('/', ResourceHandler, 'user-overview'),
-                              #                                     webapp2.Route('/article/insert/', ArticleInsertHandler, 'user-projects'),
-                              #                                     webapp2.Route('/article/<key>/', ArticleCategoryHandler, 'user-profile'),
-                              #                                     webapp2.Route('/article/', ArticleHandler, 'user-overview'),
-                              #                                     webapp2.Route('/article/goal/<task:(insert|edit|delete)>/<article_key>/', ArticleGoalHandler, 'user-projects'),
-                              #                                     webapp2.Route('/article/goal/<article_key>/<learning_goal_key>/', ArticleGoalHandler, 'user-projects'),
-                              #                                     webapp2.Route('/article/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
-                              #                                     webapp2.Route('/goals/', GoalHandler, 'user-projects'),
-                              #                                     ]),
+                               routes.PathPrefixRoute('/resource', [
+                                                                  webapp2.Route('/', ResourceHandler, 'user-overview'),
+                                                                  webapp2.Route('/article/insert/', ArticleInsertHandler, 'user-projects'),
+                                                                  webapp2.Route('/article/<key>/', ArticleCategoryHandler, 'user-profile'),
+                                                                  webapp2.Route('/article/', ArticleHandler, 'user-overview'),
+                                                                  webapp2.Route('/article/goal/<task:(insert|edit|delete)>/<article_key>/', ArticleGoalHandler, 'user-projects'),
+                                                                  webapp2.Route('/article/goal/<article_key>/<learning_goal_key>/', ArticleGoalHandler, 'user-projects'),
+                                                                  webapp2.Route('/article/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
+                                                                  webapp2.Route('/goals/', GoalHandler, 'user-projects'),
+                                                                  ]),
                                routes.PathPrefixRoute('/public/resource', [
                                                                   webapp2.Route('/', PublicResourcePage),
                                                                   webapp2.Route('/article/', PublicArticlePage),
