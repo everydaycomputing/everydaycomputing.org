@@ -125,7 +125,7 @@ $(function() {
           var node_key = target.data("node_key");
           if(target.data("alg_check") == 1) {
             var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/action/";
-            var win = window.open(url, '_blank', 'toolbar=0,location=0,menubar=0');
+            var win = window.open(url, '_blank');
             if (!win) {
               alert("Please allow popups to see learning goals!");
             }
@@ -158,7 +158,7 @@ $(function() {
           var node_key = target.data("node_key");
           if(target.data("ulg_check") == 1) {
             var url = "/tools/trajectory/" + trajectory_key + "/visualization/" + node_key + "/understanding/";
-            var win = window.open(url, '_blank', 'toolbar=0,location=0,menubar=0');
+            var win = window.open(url, '_blank');
             if (!win) {
               alert("Please allow popups to see learning goals!");
             }
