@@ -182,16 +182,16 @@ $(function() {
           //   alert("Please allow popups");
           // }
         }
-      },
+      }//,
       {
-        id: "arrow_activities",
-        content: "Arrow Activities",
-        selector: "edge",
-        onClickFunction: function(event) {
-          var target = event.target || event.cyTarget;
-          // target.data("label", target.data("source"));
-        }
-      }
+      //   id: "arrow_activities",
+      //   content: "Arrow Activities",
+      //   selector: "edge",
+      //   onClickFunction: function(event) {
+      //     var target = event.target || event.cyTarget;
+      //     // target.data("label", target.data("source"));
+      //   }
+      // }
     ]
   });
 
