@@ -183,7 +183,7 @@ $(function() {
           // }
         }
       }//,
-      {
+      // {
       //   id: "arrow_activities",
       //   content: "Arrow Activities",
       //   selector: "edge",
