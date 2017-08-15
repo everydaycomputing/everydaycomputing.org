@@ -56,7 +56,7 @@ $(function() {
           "font-size": "24",
           "border-width": "4px",
           height: 250,
-          width: 250,
+          width: 350,
           padding: 10,
           label: "data(name)"
         }

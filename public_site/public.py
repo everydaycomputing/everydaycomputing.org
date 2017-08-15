@@ -263,6 +263,19 @@ class PageGoals(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('templates/public_literature_goals.html')
     self.response.write(template.render(template_values))
 
+
+class PublicVisualizationPage(webapp2.RequestHandler):
+  def get(self):
+    """ """
+    #self.response.headers['Content-Type'] = 'text/plain'
+    #self.response.write('Everyday computing')
+
+    template_values = {
+    }
+
+    template = JINJA_ENVIRONMENT.get_template('templates/vis_home.html')
+    self.response.write(template.render(template_values))
+
 ################################################################################
 #
 ################################################################################
@@ -297,6 +310,7 @@ APP = webapp2.WSGIApplication([
                                                                   webapp2.Route('/article/edit/<category>/<key>/', ArticleCategoryEditHandler, 'user-projects'),
                                                                   webapp2.Route('/goals/', GoalHandler, 'user-projects'),
                                                                   ]),
+                               webapp2.Route('/public/visualization/', PublicVisualizationPage),
                                routes.PathPrefixRoute('/public/resource', [
                                                                   webapp2.Route('/', PublicResourcePage),
                                                                   webapp2.Route('/article/', PublicArticlePage),
