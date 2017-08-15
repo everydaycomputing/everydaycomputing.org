@@ -71,7 +71,10 @@ class MainPage(webapp2.RequestHandler):
             logging.info("Redirect")
             trajectories = Trajectory.query(ancestor=trajectory_key()).order(-Trajectory.timestamp).fetch()
             template_values = {
-                'trajectories': trajectories
+                'trajectories': trajectories,
+                'user': users.get_current_user(),
+                'url' : users.create_logout_url(self.request.uri),
+                'url_linktext' : "Logout"
                 }
             template = JINJA_ENVIRONMENT.get_template('templates/trajectories.html')
             self.response.write(template.render(template_values))
