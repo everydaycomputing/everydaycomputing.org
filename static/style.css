@@ -12,10 +12,10 @@ body {
 #cy {
   position: absolute;
   left: 0;
-  top: 100 !important;
+  top: 120 !important;
   right: 0;
   bottom: 0;
-  height: 90%;
+  height: 86%;
   width: 100%;
 }
 
@@ -31,7 +31,6 @@ body {
 
 #beginning {
   left: 5%;
-  top: 5%;
   background-color: #36ad29;
 }
 #intermediate {
@@ -63,7 +62,7 @@ tr {
   width: 120px;
   height: 40px;
   position: absolute;
-  top: 5%;
+  top: 6.5%;
   border-radius: 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
