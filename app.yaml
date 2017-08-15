@@ -14,7 +14,7 @@ handlers:
 - url: /.*
   script: public_site.public.APP
 
-- url: /tools/trajectory
+- url: /backend_tools
   login: required
 
 libraries:
