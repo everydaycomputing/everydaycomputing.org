@@ -49,7 +49,7 @@ $(function() {
         style: {
           shape: "roundrectangle",
           "text-wrap": "wrap",
-          "text-max-width": 225,
+          "text-max-width": 325,
           "text-valign": "center",
           "font-family": "liberation-sans, sans-serif",
           "font-weight": "600",
