@@ -14,7 +14,8 @@ handlers:
 - url: /.*
   script: public_site.public.APP
 
-- url: /tools/.*
+- url: /backend_tools/.*
+  script: backend_tools.tool.app
   login: required
 
 libraries:
