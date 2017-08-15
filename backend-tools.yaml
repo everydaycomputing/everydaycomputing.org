@@ -12,7 +12,7 @@ handlers:
   static_dir: static
 
 - url: /.*
-  script: backend-tools.tool.app
+  script: backend_tools.tool.app
   login: required
 
 builtins:
