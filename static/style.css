@@ -113,3 +113,47 @@ tr {
 .hoverable:hover {
   background-color:rgba(0, 0, 0, 0.1);
 }
+
+#visualization-navbar {
+  background-color: #f05f40; 
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif; 
+  text-transform: uppercase; 
+  font-size: 13px; 
+  font-weight: 700; 
+}
+
+#vis-brand {
+  color: rgba(255,255,255,.7);
+}
+
+#vis-list {
+   color: rgba(255,255,255,.7);
+}
+
+#vis-list:hover {
+  background-color: #f26f50;
+}
+
+#vis-dropdown {
+  color: rgba(255,255,255,.7);
+}
+
+#vis-dropdown:hover {
+  background-color: #f26f50;
+}
+
+#vis-dropdown:focus {
+  background-color: #f26f50;
+}
+
+#vis-option {
+  color: rgba(255,255,255,.7);
+  font-weight: 650;
+}
+#vis-option:focus, #vis-option:hover {
+  background-color: #eaefea;
+  color: #333333;
+}
+.navbar-default .navbar-nav > .open > a {
+  background-color: #f26f50 !important;
+}

@@ -15,7 +15,7 @@
 
 <div class="btn-container">
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid" style="background-color: #f05f40; font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif; text-transform: uppercase; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7);">
+      <div id="visualization-navbar" class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -25,28 +25,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand page-scroll" href="/">Everyday Computing</a>
+          <a id="vis-brand" class="navbar-brand page-scroll" href="/">Everyday Computing</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a class="page-scroll" href="/">Home</a>
+              <a id="vis-list" class="page-scroll" href="/">Home</a>
             </li>
             <li>
-              <a class="page-scroll" href="http://blog.everydaycomputing.org">Blog</a>
+              <a id="vis-list" class="page-scroll" href="http://blog.everydaycomputing.org">Blog</a>
             </li>
             <li>
-              <a class="page-scroll" href="/public/resource/article/">Articles</a>
+              <a id="vis-list" class="page-scroll" href="/public/resource/article/">Articles</a>
             </li>
-            <li>
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Visualizations
+            <li id="vis-dropdown">
+              <a id="vis-dropdown" class="dropdown-toggle" data-toggle="dropdown" href="#">Visualizations
                 <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/">Sequence</a></li>
-                <li><a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/">Repetition</a></li>
-                <li><a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/">Conditionals</a></li>
+              <ul id="visualization-navbar" class="dropdown-menu">
+                <li><a id="vis-option" href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/">Sequence</a></li>
+                <li><a id="vis-option" href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/">Repetition</a></li>
+                <li><a id="vis-option" href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/">Conditionals</a></li>
               </ul> 
             </li>
           </ul>
