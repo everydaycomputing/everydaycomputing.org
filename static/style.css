@@ -113,16 +113,3 @@ tr {
 .hoverable:hover {
   background-color:rgba(0, 0, 0, 0.1);
 }
-
-#visualization-navbar {
-  background-color: #f05f40; 
-  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif; 
-  text-transform: uppercase; 
-  font-size: 13px; 
-  font-weight: 700; 
-  color: rgba(255,255,255,.7);
-}
-
-#visualization-navbar::selection {
-  color: #FFF;
-}
