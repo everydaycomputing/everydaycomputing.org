@@ -19,6 +19,7 @@ from google.appengine.ext import deferred
 from models import *
 from site_database import *
 
+
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
@@ -109,15 +110,18 @@ class VisualizationHandler(webapp2.RequestHandler):
             source = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
             key = arrow.end_node
             target = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
-
+            url = ''
+            if arrow.url:
+                url = arrow.url
+            else: 
+                url = 'none'
             unplugged = ''
             if arrow.unplugged == 0: 
                 unplugged = 'unplugged'
             else:
                 unplugged = 'programming'
-            data = {'source' : source, 'target' : target, 'label' : uuid, 'unplugged' : unplugged, 'color' : color}
+            data = {'source' : source, 'target' : target, 'label' : uuid, 'url' : url, 'unplugged' : unplugged, 'color' : color}
             elements.append(json.dumps({'data' : data}))
-            
         template_values = {
             'elements' : elements,
             'trajectory' : key

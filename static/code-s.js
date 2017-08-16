@@ -182,16 +182,21 @@ $(function() {
           //   alert("Please allow popups");
           // }
         }
-      }//,
-      // {
-      //   id: "arrow_activities",
-      //   content: "Arrow Activities",
-      //   selector: "edge",
-      //   onClickFunction: function(event) {
-      //     var target = event.target || event.cyTarget;
-      //     // target.data("label", target.data("source"));
-      //   }
-      // }
+      },
+      {
+        id: "arrow_activities",
+        content: "Arrow Activities",
+        selector: "edge.has_link",
+        onClickFunction: function(event) {
+          var target = event.target || event.cyTarget;
+          var url = target.data("url");
+          var win = window.open(url, '_blank', 'toolbar=0,location=0');
+          if (!win) {
+            alert("Please allow popups to see learning goals!");
+          }
+          // target.data("label", target.data("source"));
+        }
+      }
     ]
   });
 
@@ -377,10 +382,16 @@ function accept_data(input) {
     var source = data.source;
     var target = data.target;
     var label = data.label;
+    var url = data.url;
     var unplugged = data.unplugged;
     var color = data.color;
     // console.log(label);
-    elements.push({data : {source : source, target : target, label : label, color : color, unplugged : unplugged}});
+    if(url != 'none') {
+      elements.push({data : {source : source, target : target, label : label, color : color, url : url, unplugged : unplugged}, classes: "has_link"});
+    } else {
+      elements.push({data : {source : source, target : target, label : label, color : color, url : url, unplugged : unplugged}});
+    }
+    
   } else {
     var data = input.data;
     // console.log(data);
