@@ -113,7 +113,7 @@ $(function() {
   rotate();
 
   // right click menus, need support for understanding and action learning goals
-  cy.contextMenus({
+  var my_context = cy.contextMenus({
     menuItems: [
       {
         id: "action_lgs",
@@ -182,23 +182,51 @@ $(function() {
           //   alert("Please allow popups");
           // }
         }
-      },
-      {
-        id: "arrow_activities",
-        content: "Arrow Activities",
-        selector: "edge.has_link",
-        onClickFunction: function(event) {
-          var target = event.target || event.cyTarget;
-          var url = target.data("url");
-          var win = window.open(url, '_blank', 'toolbar=0,location=0');
-          if (!win) {
-            alert("Please allow popups to see learning goals!");
-          }
-          // target.data("label", target.data("source"));
-        }
-      }
+      }//,
+      // {
+      //   id: "arrow_activities",
+      //   content: "Arrow Activities",
+      //   selector: "edge.has_link",
+      //   onClickFunction: function(event) {
+      //     var target = event.target || event.cyTarget;
+      //     var url = target.data("url")[0];
+      //     var win = window.open(url, '_blank', 'toolbar=0,location=0');
+      //     if (!win) {
+      //       alert("Please allow popups to see learning goals!");
+      //     }
+      //     target.data("label", target.data("source"));
+      //   }
+      // }
     ]
   });
+  var i = 0;
+  var leng = elements.length
+  for(i = 0; i < leng; i++) {
+    if("classes" in elements[i]) {
+      if(elements[i].classes.substring(0,8) == "has_link") {
+        var count = 0; 
+        var a_label = elements[i].data.label;
+        for(url in elements[i].data.url) {
+          count++;
+          my_context.appendMenuItem(
+            {
+              id: "arrow_activities_list" + count + a_label,
+              content: "Arrow Activity " + count,
+              selector: "edge." + a_label,
+              onClickFunction: function(event) {
+                var target = event.target || event.cyTarget;
+                var url = target.data("url")[count - 1];
+                var win = window.open(url, '_blank', 'toolbar=0,location=0');
+                if (!win) {
+                  alert("Please allow popups to see learning goals!");
+                }
+              }
+            }
+          )
+        }
+      }
+    }
+  }
 
   var advancedButton = document.getElementById("advanced");
   advancedButton.addEventListener("click", function() {
@@ -386,10 +414,10 @@ function accept_data(input) {
     var unplugged = data.unplugged;
     var color = data.color;
     // console.log(label);
-    if(url != 'none') {
-      elements.push({data : {source : source, target : target, label : label, color : color, url : url, unplugged : unplugged}, classes: "has_link"});
+    if(url[0] != 'none') {
+      elements.push({data : {source : source, target : target, label : label, color : color, url : url, unplugged : unplugged}, classes: "has_link " + label});
     } else {
-      elements.push({data : {source : source, target : target, label : label, color : color, url : url, unplugged : unplugged}});
+      elements.push({data : {source : source, target : target, label : label, color : color, unplugged : unplugged}});
     }
     
   } else {

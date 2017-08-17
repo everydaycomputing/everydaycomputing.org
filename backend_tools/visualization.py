@@ -110,11 +110,11 @@ class VisualizationHandler(webapp2.RequestHandler):
             source = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
             key = arrow.end_node
             target = nodes_query.filter(TrajectoryNode.uuid == key).fetch()[0].uuid
-            url = ''
+            url = []
             if arrow.url:
-                url = arrow.url
+                url = [link.strip() for link in arrow.url.split(",")]
             else: 
-                url = 'none'
+                url = ['none']
             unplugged = ''
             if arrow.unplugged == 0: 
                 unplugged = 'unplugged'
