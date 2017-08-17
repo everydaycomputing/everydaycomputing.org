@@ -135,7 +135,9 @@ tr {
   color: rgba(255,255,255,.7);
 }
 
-
+#vis-dropdown:hover {
+  background-color: #f26f50;
+}
 
 #vis-option {
   color: rgba(255,255,255,.7);
