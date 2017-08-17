@@ -151,3 +151,64 @@ tr {
 .navbar-default .navbar-nav > .open > a {
   background-color: #f26f50 !important;
 }
+
+#admin-mast {
+  background-color: #f05f40; 
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif; 
+  text-transform: uppercase; 
+  font-size: 13px; 
+  font-weight: 700; 
+}
+
+#admin-btn {
+  color: grey;
+}
+
+#admin-btn:hover{
+  background-color: grey;
+  color: white;
+}
+
+#resource-btn:hover{
+  color:#f05f40;
+}
+
+#vis-btn{
+  border: solid 1px;
+  border-color: white;
+}
+
+#vis-btn:hover{
+  background-color:white;
+  color: #f05f40;
+}
+/*
+#resource-home-btn {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  background-color:#f05f40;
+  border: solid 1px white;
+  color: white;
+}
+
+#resource-home-btn:hover {
+  background-color: white;
+  color: #f05f40;
+}
+#resource-home {
+  background-color: #f05f40;*/
+}

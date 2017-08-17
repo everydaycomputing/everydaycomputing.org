@@ -1,20 +1,19 @@
-{% extends "templates/base_template.html" %}
-
-{% block body %}
+{% extends "templates/base_template.html" %} {% block body %}
 
 
 <div class="container">
-  <div class="columns">
+
 
 
 
   <div class="four-fifths column">
     <table>
-    {% for article in articles|sort(attribute='citation') %}
-    <tr class="{{ loop.cycle('odd', 'even') }}"><td>
-    <div class="row">
-      <li>{{ article.citation}} <a href="{{ article.key.urlsafe() }}/">View Summary.</a>
-      <!--
+      {% for article in articles|sort(attribute='citation') %}
+      <tr class="{{ loop.cycle('odd', 'even') }}">
+        <td>
+          <div class="row">
+            <li>{{ article.citation}} <a href="{{ article.key.urlsafe() }}/" style="color: #f05f40">View Summary.</a>
+              <!--
       {% for author in article.author_names %}
       <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
       {% endfor %}.
@@ -23,10 +22,11 @@
       <span>({{ article.year}}).</span>
       <span>{{ article.pages}}.</span>
     -->
-      </li>
-    </div>
-    </td></tr>
-    {% endfor %}
+            </li>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
     </table>
 
 
@@ -37,34 +37,33 @@
         {% if user and user.user_id() == greeting.author.identity %}
         (You)
         {% endif %}
-      </b> wrote:
-      {% else %}
-      An anonymous person wrote:
-      {% endif %}
+      </b> wrote: {% else %} An anonymous person wrote: {% endif %}
       <blockquote>{{ greeting.content }}</blockquote>
     </div>
     {% endfor %}
-      </div>
+  </div>
 
 
 
 
-      <div class="one-fifth column">
+  <div class="one-fifth column">
 
 
-      <h2>Add an article</h2>
-      <p>Cut and paste a reference in in bibtex format.</p>
+    <h2>Add an article</h2>
+    <p>Cut and paste a reference in in bibtex format.</p>
 
 
 
-    <form action="insert/" method="post"> <!--sign?guestbook_name={{ guestbook_name }}" method="post">-->
+    <form action="insert/" method="post">
+      <!--sign?guestbook_name={{ guestbook_name }}" method="post">-->
       <div><textarea name="content" class="input-block" rows="10"></textarea></div>
       <br>
-      <div><input type="submit" class="btn btn-large btn-primary" value="Add Article"></div>
+      <div><input id="admin-btn" type="submit" class="btn btn-large" value="Add Article"></div>
     </form>
   </div>
 
-</div> <!-- /container -->
+</div>
+<!-- /container -->
 
 
 

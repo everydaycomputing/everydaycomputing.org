@@ -39,7 +39,7 @@ from site_database.resource_handler import ResourceHandler as ResourceHandler
 from site_database import *
 
 
-from public_site_database.main import PublicResourcePage as PublicResourcePage
+# from public_site_database.main import PublicResourcePage as PublicResourcePage
 from public_site_database.main import PublicArticlePage as PublicArticlePage
 from public_site_database.main import PublicArticleCategoryHandler as PublicArticleCategoryHandler
 from public_site_database import *
@@ -263,6 +263,13 @@ class PageGoals(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('templates/public_literature_goals.html')
     self.response.write(template.render(template_values))
 
+class PublicResourcePage(webapp2.RequestHandler):
+  def get(self):
+    template_values = {
+    }
+
+    template = JINJA_ENVIRONMENT.get_template('templates/resource_home.html')
+    self.response.write(template.render(template_values))
 
 class PublicVisualizationPage(webapp2.RequestHandler):
   def get(self):
@@ -275,6 +282,8 @@ class PublicVisualizationPage(webapp2.RequestHandler):
 
     template = JINJA_ENVIRONMENT.get_template('templates/vis_home.html')
     self.response.write(template.render(template_values))
+
+
 
 ################################################################################
 #

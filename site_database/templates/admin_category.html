@@ -4,15 +4,8 @@
 
 <div class="container">
 
-  <div class="flash flash-warn">
-
-    {% for author in article.author_names %}
-    <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
-    {% endfor %}.
-    <span>"<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}">{{ article.title}}</a>."</span>
-    <span>{{ article.journal}}.</span>
-    <span>({{ article.year}}).</span>
-    <span>{{ article.pages}}.</span>
+  <div class="flash flash-warn" style="background-color: white">
+    <a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}" style="color: #f05f40"><span>{{article.citation}}</span></a>
   </div>
   <hr>
 </div>
@@ -93,7 +86,7 @@
 
 <div class="container about-that">
   <hr/>
-  <h1>Learning Goals for {{article.title}} <span class="counter">{{ article.learning_goals | length}} </span>
+  <h1>Learning Goals <span class="counter">{{ article.learning_goals | length}} </span>
 
     <a href="{{application_url}}/resource/article/goal/insert/{{key}}/" class="btn right">Add New Learning Goal</a>
     </h1>

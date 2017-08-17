@@ -23,28 +23,28 @@ def article_ancestor_key():
   return ndb.Key(Article, 'article')
 
 ################################################################################
-class PublicResourcePage(webapp2.RequestHandler):
+# class PublicResourcePage(webapp2.RequestHandler):
 
-  def get(self):
-    """ """
-    #self.response.headers['Content-Type'] = 'text/plain'
-    #self.response.write('Everyday computing')
+#   def get(self):
+#     """ """
+#     #self.response.headers['Content-Type'] = 'text/plain'
+#     #self.response.write('Everyday computing')
 
-    template_values = {
-    }
+#     template_values = {
+#     }
 
-    template = JINJA_ENVIRONMENT.get_template('templates/home.html')
-    self.response.write(template.render(template_values))
+#     template = JINJA_ENVIRONMENT.get_template('templates/home.html')
+#     self.response.write(template.render(template_values))
 
-  def post(self):
-    self.response.write("-------------------------------------------------")
-    #self.response.write(structured_dictionary)
+#   def post(self):
+#     self.response.write("-------------------------------------------------")
+#     #self.response.write(structured_dictionary)
 
-    # structured_dictionary is the body of the post (which is the json file)
-    structured_dictionary = json.loads(self.request.body)
+#     # structured_dictionary is the body of the post (which is the json file)
+#     structured_dictionary = json.loads(self.request.body)
 
-    # Loop through the dictionary and print out some basic info (for debugging)
-    self.response.write(structured_dictionary)
+#     # Loop through the dictionary and print out some basic info (for debugging)
+#     self.response.write(structured_dictionary)
 
 
 """ Handle a print out of the goals in CSV, JSON, etc. """
@@ -77,7 +77,7 @@ class PublicArticleCategoryHandler(webapp2.RequestHandler):
 #
 APP = webapp2.WSGIApplication([
                                routes.PathPrefixRoute('/public/resource', [
-                                                                  webapp2.Route('/', PublicResourcePage),
+                                                                  # webapp2.Route('/', PublicResourcePage),
                                                                   webapp2.Route('/article/', PublicArticlePage),
                                                                   webapp2.Route('/article/<key>/', PublicArticleCategoryHandler)
                                ])

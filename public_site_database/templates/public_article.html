@@ -2,17 +2,19 @@
 {% block body %}
 
 <div class="container">
-  <div class="four-fifths column">
+  
+  <div class="four-fifths column" style="background-color: white;">
     <table>
-    {% for article in articles|sort(attribute='citation') %}
+      {% for article in articles|sort(attribute='citation') %}
       <tr class="{{ loop.cycle('odd', 'even') }}">
         <td>
-          <div class="row">
-            <li>  {{ article.citation}} <a href="{{ article.key.urlsafe() }}/">View Summary.</a></li>
+          <div>
+            <li>{{ article.citation}} <a href="{{ article.key.urlsafe() }}/" style="color: #f05f40">View Summary.</a>
+            </li>
           </div>
         </td>
       </tr>
-    {% endfor %}
+      {% endfor %}
     </table>
   </div>
 </div> <!-- /container -->
