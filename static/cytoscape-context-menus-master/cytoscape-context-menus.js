@@ -130,7 +130,8 @@
         var callOnClickFcn;
 
         $component.on('click', callOnClickFcn = function() {
-          onClickFcn(getScratchProp('currentCyEvent'));
+          
+          onClickFcn(getScratchProp('currentCyEvent'), $component[0].id);
         });
 
         $component.data('call-on-click-function', callOnClickFcn); 
@@ -252,7 +253,7 @@
       // Creates a menu item as an html component
       function createMenuItemComponent(item) {
         var classStr = getMenuItemClassStr(options.menuItemClasses, item.hasTrailingDivider);
-        var itemStr = '<button id="' + item.id + '" class="' + classStr + '"';
+        var itemStr = '<button id="' + item.id + '" class="' + classStr + '"' + ' onClick="var index = (this.id.charAt(0));"';
 
         if(item.tooltipText) {
           itemStr += ' title="' + item.tooltipText + '"';
@@ -349,6 +350,7 @@
 
       function bindMenuItemClickFunction(component) {
         component.click( function() {
+            // console.log(component);
             hideComponent($cxtMenu);
             setScratchProp('cxtMenuPosition', undefined);
         });

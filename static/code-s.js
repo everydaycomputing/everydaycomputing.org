@@ -1,4 +1,4 @@
-
+var g_url = "";
 // elements array initialized
 var elements = [];
 
@@ -206,17 +206,22 @@ $(function() {
       if(elements[i].classes.substring(0,8) == "has_link") {
         var count = 0; 
         var a_label = elements[i].data.label;
-        for(url in elements[i].data.url) {
+        for(ind in elements[i].data.url) {
+          g_url = elements[i].data.url[ind];
           count++;
+          console.log(count);
           my_context.appendMenuItem(
             {
-              id: "arrow_activities_list" + count + a_label,
+              id: count + "arrow_activities_list" + a_label,
               content: "Arrow Activity " + count,
               selector: "edge." + a_label,
-              onClickFunction: function(event) {
+              onClickFunction: function(event, id) {
+                var index = id.substring(0,1);
                 var target = event.target || event.cyTarget;
-                var url = target.data("url")[count - 1];
-                var win = window.open(url, '_blank', 'toolbar=0,location=0');
+                var a_url = target.data("url")[index - 1];
+                console.log(index)
+                var target = event.target || event.cyTarget;
+                var win = window.open(a_url, '_blank', 'toolbar=0,location=0');
                 if (!win) {
                   alert("Please allow popups to see learning goals!");
                 }
