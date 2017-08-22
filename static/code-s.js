@@ -263,6 +263,12 @@ $(function() {
     cy.$(".unplugged").hide();
   });
 
+  // var scratchActivitiesBtn = document.getElementById("scratch-btn");
+  // scratchActivitiesBtn.addEventListener("click", function() {
+  //   window.open("")
+  // })
+  // var offComputerActivitiesBtn = document.getElementById("off-comp-btn");
+
   // on hover over nodes, highlight border
   cy.nodes().on("mouseover", function() {
     cy

@@ -27,8 +27,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 class VisualizationHandler(webapp2.RequestHandler):
     def get(self, key):
         # checks to make sure key is urlsafe
+        trajectory_name = ''
         try:
             trajectory = ndb.Key(urlsafe=key).get()
+            trajectory_name = trajectory.name
         except TypeError:
             logging.info('Only string allowed as urlsafe input')
             return
@@ -124,7 +126,8 @@ class VisualizationHandler(webapp2.RequestHandler):
             elements.append(json.dumps({'data' : data}))
         template_values = {
             'elements' : elements,
-            'trajectory' : key
+            'trajectory' : key,
+            'trajectory_name' : trajectory_name
         }
 
         # renders template values

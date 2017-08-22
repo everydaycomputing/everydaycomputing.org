@@ -30,16 +30,19 @@ body {
 
 
 #beginning {
-  left: 5%;
+  left: 2%;
   background-color: #36ad29;
+  font-size: 0.7vw !important;
 }
 #intermediate {
-  left: 17%;
+  left: 12%;
   background-color: #e2a32d;
+  font-size: 0.7vw !important;
 }
 #advanced {
-  left: 29%;
+  left: 22%;
   background-color: #6030ad;
+  font-size: 0.7vw !important;
 }
 
 /*#legend {
@@ -68,7 +71,6 @@ tr {
   -webkit-border-radius: 15px;
    border-style: solid;
   border-color: black;
-  font-size: 0.7vw !important;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -78,22 +80,39 @@ tr {
   outline:none;
 }
 #view1 {
-  left: 41%;
+  left: 32%;
+  font-size: 0.7vw !important;
 }
 #view2 {
-  left: 53%;
+  left: 42%;
+  font-size: 0.7vw !important;
 }
 #view3 {
-  left: 65%;
+  left: 52%;
+  font-size: 0.7vw !important;
+}
+
+#scratch-btn {
+  left: 92%;
+  font-size: 0.55vw !important;
+  background-color: #F2F2F2;
+}
+
+#off-comp-btn {
+  left: 82%;
+  font-size: 0.55vw !important;
+  background-color: #0169D9;
 }
 
 .square1 {
   background-color:#0169D9;
-  left: 77%;
+  font-size: 0.7vw !important;
+  left: 62%;
 }
 .square2 {
   background-color: #F2F2F2;
-  left: 89%;
+  font-size: 0.7vw !important;
+  left: 72%;
   right: 5% !important;
 }
 

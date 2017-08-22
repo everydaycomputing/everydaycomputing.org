@@ -69,7 +69,18 @@
   <div class="hoverable"><input type='button' id='view3' class='view_btn btn' value='View 3'></div>
   <div class="hoverable"><input type='button' id='unplugged-btn' class='view_btn square1 btn' value='Unplugged'></div>
   <div class="hoverable"><input type='button' id='programming-btn' class='view_btn square2 btn' value='Programming'></div>
-
+  {% if trajectory_name == 'Sequence' %}
+  <div class="hoverable"><input type='button' id='scratch-btn' class='view_btn btn' value='Scratch Activities' onclick="window.open('https://docs.google.com/document/d/10U6SxhnJjL6dP9dO5LyUyxpTl1GXGZpt2M_6Ufynx64/');"></div>
+  <div class="hoverable"><input type='button' id='off-comp-btn' class='view_btn btn' value='Unplugged Activities' onclick="window.open('https://docs.google.com/document/d/1z6hgDUyLIOHqKlli1xHwlLdBIY5yayvrpEq0fj6IKi0/');"></div>
+  {% endif %}
+  {% if trajectory_name == 'Repetition' %}
+  <div class="hoverable"><input type='button' id='scratch-btn' class='view_btn btn' value='Scratch Activities' onclick="window.open('https://docs.google.com/document/d/1XgxrLPvwzGTZvWkDGC_otX8Iswezs3k4lMUok8qyjjM/');"></div>
+  <div class="hoverable"><input type='button' id='off-comp-btn' class='view_btn btn' value='Unplugged Activities' onclick="window.open('https://docs.google.com/document/d/1aBTlz7uHpSiSiUPWXReqnR7Yi_ivURZ3E8m5Eo2bZtg/');"></div>
+  {% endif %}
+  {% if trajectory_name == 'Conditionals' %}
+  <div class="hoverable"><input type='button' id='scratch-btn' class='view_btn btn' value='Scratch Activities' onclick="window.open('https://docs.google.com/document/d/183q1gmfA1ZRsLsbwD4lGvWzBD6aEutnCuVs9wgmi1rE/');"></div>
+  <div class="hoverable"><input type='button' id='off-comp-btn' class='view_btn btn' value='Unplugged Activities' onclick="window.open('https://docs.google.com/document/d/1LOSGWKV9jxcraYx8tUnAerp9L4Uh-a3fA6uchEdb9vs/');"></div>
+  {% endif %}
 </div>
 
 {% endblock %}
