@@ -41,7 +41,8 @@ $(function() {
           "control-point-step-size": 40,
           "font-family": "liberation-sans, sans-serif",
           "font-weight": "600",
-          "font-size": "60"
+          "font-size": "60",
+          label: "data(label)"
         }
       },
       {
