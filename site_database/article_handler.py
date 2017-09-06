@@ -12,7 +12,7 @@ import webapp2
 import json
 import logging
 
-# Custom imports
+# Custom imports for classes in modules
 from admin_models import *
 from admin_category import *
 import bibpy
