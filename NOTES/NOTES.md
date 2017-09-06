@@ -31,7 +31,7 @@ appcfg.py update everydaycomputing.org/
 
 * Public site
 ```
- /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update app.yaml -A everydaycomputingorg -V 0
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update app.yaml -A everydaycomputingorg -V 1
 ```
 
 
