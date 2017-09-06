@@ -1,8 +1,48 @@
 {% extends "templates/public_base_template.html" %}
+
 {% block body %}
 
+<script type="text/javascript" class="init">
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
 <div class="container">
-  
+<!-- ------------------------------------------------------------------------- DATASTORE RESULTS -->
+<div class="table-responsive">
+    <table id="example" class="display" width="100%">
+        <thead>
+            <tr>
+                <th>Article</th>
+            </tr>
+        </thead>
+        <tbody>
+
+          {% for article in articles|sort(attribute='citation') %}
+          <tr class="{{ loop.cycle('odd', 'even') }}">
+            <td>
+              <div>
+                {{ article.citation}} <a href="{{ article.key.urlsafe() }}/" style="color: #f05f40">View Summary.</a>
+              </div>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    <br/>
+    <br/>
+</div>
+</div>
+</div>
+
+<aside class="bg-dark">
+<div class="container text-center">
+</div>
+</aside>
+
+{%endblock%}
+<!--
+<div class="container">
   <div class="four-fifths column" style="background-color: white;">
     <table>
       {% for article in articles|sort(attribute='citation') %}
@@ -17,6 +57,6 @@
       {% endfor %}
     </table>
   </div>
-</div> <!-- /container -->
-
-{% endblock %}
+</div>
+-->
+<!-- /container -->
