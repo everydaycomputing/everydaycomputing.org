@@ -182,7 +182,7 @@ class Article(ndb.Model):
   audience = ndb.StringProperty(choices=['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'], repeated=True)
   #rating = ndb.StringProperty(choices=['Poor','OK','Good','Very Good','Great'])
 
-  project - ndb.IntegerProperty(default=2)
+  project = ndb.IntegerProperty(default=2)
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
 
   # Methodology
