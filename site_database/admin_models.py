@@ -158,7 +158,7 @@ class Article(ndb.Model):
     Note: The key is the "id" from bibtex
 """
   # Entry metadata
-  timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
+  # timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
 
   # Article metadata
   authors = ndb.KeyProperty(kind='Author', repeated=True)
@@ -172,6 +172,11 @@ class Article(ndb.Model):
   # link =
   # pdf =
 
+
+  # Methodology
+  methodology = ndb.KeyProperty(kind='Methodology')
+  learning_goals = ndb.KeyProperty(kind='LearningGoal', repeated=True, indexed=True)
+
   # Summary data
   type = ndb.StringProperty(indexed=True,choices=['Theoretical','Empirical','Review Article','Taxonomy Development','Practitioner', 'Other'], repeated=True)
   star = ndb.BooleanProperty(indexed=True,default=False)
@@ -182,10 +187,9 @@ class Article(ndb.Model):
   audience = ndb.StringProperty(choices=['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'], repeated=True)
   #rating = ndb.StringProperty(choices=['Poor','OK','Good','Very Good','Great'])
 
-  # Methodology
-  methodology = ndb.KeyProperty(kind='Methodology')
-  learning_goals = ndb.KeyProperty(kind='LearningGoal', repeated=True)
-
+  project = ndb.IntegerProperty(default=2)
+  timestamp = ndb.DateTimeProperty(auto_now_add=True)
+  
   @property
   def author_names(self):
     return ndb.get_multi(self.authors)
@@ -204,17 +208,17 @@ class Article(ndb.Model):
     return methodology
 
 
-  @property
-  def _learning_goal(self):
-    """
-      if self.learning_goal == None:
-      learning_goal = LearningGoal()
-      else:
-      learning_goal = self.learning_goal.get_multi()
+  # @property
+  # def _learning_goal(self):
+  #   """
+  #     if self.learning_goal == None:
+  #     learning_goal = LearningGoal()
+  #     else:
+  #     learning_goal = self.learning_goal.get_multi()
 
-      return learning_goal
-      """
-    return ndb.get_multi(self.learning_goal)
+  #     return learning_goal
+  #     """
+  #   return ndb.get_multi(self.learning_goals)
 
 
 

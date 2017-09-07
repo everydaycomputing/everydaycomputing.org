@@ -158,7 +158,7 @@ class Article(ndb.Model):
     Note: The key is the "id" from bibtex
 """
   # Entry metadata
-  timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
+  # timestamp = ndb.KeyProperty(kind='Timestamp', repeated=True)
 
   # Article metadata
   authors = ndb.KeyProperty(kind='Author', repeated=True)
@@ -181,6 +181,9 @@ class Article(ndb.Model):
   citation = ndb.TextProperty(default="")
   audience = ndb.StringProperty(choices=['Practitioner', 'Researcher', 'Developer', 'Administrator', 'Other'], repeated=True)
   #rating = ndb.StringProperty(choices=['Poor','OK','Good','Very Good','Great'])
+
+  project - ndb.IntegerProperty(default=2)
+  timestamp = ndb.DateTimeProperty(auto_now_add=True)
 
   # Methodology
   methodology = ndb.KeyProperty(kind='Methodology')
