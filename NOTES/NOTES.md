@@ -1,21 +1,32 @@
-Start the Development Server
+# Start the Development Server #
 ================================================================================
+Start the default server.
 ```
 dev_appserver.py app.yaml
 dev_appserver.py --clear_datastore=yes app.yaml
 ```
 
+Start the backend tools (by itself).
+```
+dev_appserver.py dispatch.yaml backend-tools.yaml
+```
+
 This was for the modules version (its somewhere in the git repo, possibly
   before the first big merge with dev (August 2, 2016)
+```
 dev_appserver.py dispatch.yaml app.yaml mobile_frontend.yaml static_backend.yaml admin.yaml
+```
 
+## Kill the dev server ##
+Sometimes you need to kill some processes on a given port:
 ```
 lsof -P | grep '8080' | awk '{print $2}' | xargs kill -9
 ```
 
 # Update App Engine Server #
 ================================================================================
-The following updates a server that is using a single default service.
+The following updates a server that is using a single default service defined in
+app.yaml file.  
 
 `cd` to the directory containing everydaycomputing.org/
   (probably ~/Development/GitHub)
@@ -26,17 +37,30 @@ cd ~/Development/GitHub
 appcfg.py update everydaycomputing.org/
 ```
 
+## Public site ##
+Note that almost everything is on the public site.
+```
+/Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update app.yaml -A everydaycomputingorg -V 2-0-tweet
+```
+
+History:
+* /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update app.yaml -A everydaycomputingorg -V 1
+
 ## FOR MICROSERVICE ##
+> Microservices are deprecated for simplicity 8/2017.
+```
  /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update backend-tools.yaml -A everydaycomputingorg -V 0
-
-* Public site
-```
- /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py update app.yaml -A everydaycomputingorg -V 1
 ```
 
 
+## Update Cron Jobs ##
+================================================================================
+```
+gcloud app deploy cron.yaml
+````
 
-Set Credentials for Remote API
+
+# Set Credentials for Remote API #
 ================================================================================
 The .json file was downloaded from the console
 

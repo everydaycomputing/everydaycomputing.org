@@ -13,7 +13,7 @@ handlers:
 
 - url: /.*
   script: backend_tools.tool.app
-  login: required
+  #login: required
 
 builtins:
 - appstats: on
@@ -22,4 +22,6 @@ libraries:
 - name: webapp2
   version: latest
 - name: jinja2
+  version: latest
+- name: ssl
   version: latest

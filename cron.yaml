@@ -1,7 +1,13 @@
 # cron.yaml
-
 cron:
-- description: daily summary job
-  url: /summary_email/
-  target: tasks-backend
-  schedule: every 1 minutes
+- description: weekly twitter post
+  url: /tools/tasks/twitter-weekly/
+  target: backend-tools
+  schedule: every monday 13:00
+  timezone: America/Chicago
+
+- description: daily twitter job
+  url: /tools/tasks/twitter-daily/
+  target: backend-tools
+  schedule: every day 06:01
+  timezone: America/Chicago

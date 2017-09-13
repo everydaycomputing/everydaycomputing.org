@@ -21,10 +21,12 @@ from models import *
 from nodes import *
 from learning_goals import *
 from visualization import *
+from twitter import *
 
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
                                        extensions=['jinja2.ext.autoescape'],
                                        autoescape=True)
+
 
 
 
@@ -55,8 +57,8 @@ class NodeHandler(webapp2.RequestHandler):
         node.put()
 
         self.redirect(self.request.uri) # + article_key + "/")
-    
-    
+
+
 
 
 
@@ -112,7 +114,7 @@ class TrajectoryHandler(webapp2.RequestHandler):
         trajectory.put()
         self.redirect(self.request.uri)
 
-        
+
 ##
 ##
 ##
@@ -123,5 +125,7 @@ app = webapp2.WSGIApplication([
                             webapp2.Route('/tools/trajectory/<key>/', handler=TrajectoryHandler),
                             webapp2.Route('/tools/trajectory/<key>/nodes/', handler=NodesPage),
                             webapp2.Route('/tools/trajectory/<trajectory_key>/node/<node_key>/learning_goals/', handler=LearningGoalHandler),
-                            webapp2.Route('/tools/trajectory/node/<node_key>/', handler=NodeHandler)
+                            webapp2.Route('/tools/trajectory/node/<node_key>/', handler=NodeHandler),
+                            webapp2.Route('/tools/tasks/twitter-weekly/',handler=TweetHandler),
+                            webapp2.Route('/tools/tasks/twitter-daily/',handler=TweetHandler)
 ], debug=True)

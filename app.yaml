@@ -16,13 +16,15 @@ handlers:
 
 - url: /tools/trajectory/.*
   script: backend_tools.tool.app
-  login: required
+  #login: required
   auth_fail_action: unauthorized
 
 libraries:
 - name: webapp2
   version: latest
 - name: jinja2
+  version: latest
+- name: ssl
   version: latest
 
 builtins:
