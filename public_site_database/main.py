@@ -12,13 +12,23 @@ import webapp2
 import json
 import logging
 
-# Custom imports
-from admin_models import *
+# Load the `site-database` module that contains pretty much everrything needed
+# to run the site.  This was originall a seperate "service" but was moved back
+# to the default site.  There may be some duplicate files while the paths are
+# reconciled.
+# from admin_models import *
+from site_database import *
+
+################################################################################
+################################################################################
+################################################################################
+################################################################################
 
 def article_ancestor_key():
   """
-  Constructs a Datastore key for a Guestbook entity.
-  We use guestbook_name as the key.
+  Constructs a Datastore key for a Artticle entry.
+
+  Note: I don't know if this is being used.  -AB
   """
   return ndb.Key(Article, 'article')
 
@@ -65,12 +75,12 @@ class PublicArticlePage(webapp2.RequestHandler):
 class PublicArticleCategoryHandler(webapp2.RequestHandler):
   def get(self,key):
     article = ndb.Key(urlsafe=key).get()
-    
+
     template_values = {
       'article': article,
       'categories': ['summary','methodology']
     }
-    
+
     template = JINJA_ENVIRONMENT.get_template('templates/public_category.html')
     self.response.write(template.render(template_values))
 #

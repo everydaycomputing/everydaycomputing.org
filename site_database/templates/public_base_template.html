@@ -1,0 +1,147 @@
+<!DOCTYPE html> {% autoescape true %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <title>
+    Home &middot; Everyday Computing
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plu`gin CSS -->
+  <link rel="stylesheet" href="/static/css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <!--<link rel="stylesheet" href="/static/css/creative.css" type="text/css">-->
+
+  <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.3.js">
+    </script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+    </script>
+
+
+    <script type="text/javascript" language="javascript" src="   https://cdn.datatables.net/plug-ins/1.10.15/dataRender/ellipsis.js">
+      </script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="/static/docs.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <!--   <link rel="stylesheet" href="https://everydaycomputing.org/static/docs.css"/> -->
+
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon-precomposed.png" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    legend {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    label,
+    legend {
+      line-height: 4em;
+      font-size: 1.0em;
+    }
+
+    footer {
+      font-size: 0.5em;
+    }
+
+    .odd {
+      background-color: #fff;
+    }
+
+    .even {
+      background-color: #eee;
+    }
+    .navbar-default .navbar-nav>li>a {
+    color: #fff;
+    }
+  </style>
+</head>
+
+
+<body>
+  {% if hide != 1 %}
+  <!-- Navigation Bar -->
+  <header id="admin-mast" class="masthead">
+    <div class="container">
+      <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div id="visualization-navbar" class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a id="vis-brand" class="navbar-brand page-scroll" href="/">Everyday Computing</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a id="vis-list" class="page-scroll" href="/about/">About</a>
+              </li>
+              <li>
+                <a id="vis-list" class="page-scroll" href="http://blog.everydaycomputing.org">Blog</a>
+              </li>
+              <li>
+                <a id="vis-list" class="page-scroll" href="http://blog.everydaycomputing.org/publications">Publications</a>
+              </li>
+              <li>
+                <a id="vis-list" class="page-scroll" href="/public/resource/">Resources</a>
+              </li>
+              <li>
+                <a id="vis-list" class="page-scroll" href="/resource/">Login</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+    </div>
+  </header>
+
+  {% endif %} {% block body %} {% endblock %}
+
+
+
+  <!-- -->
+  <div class="container">
+    <footer class="footer">
+      Everyday Computing a joint research project between The University of Chicago and the University of Illinois at Urbana-Chapmpaign
+      and funded by the National Science Foundation.
+      <br> Copyright EverydayComputing.org, 2016
+    </footer>
+  </div>
+
+</body>
+
+<script src="/js/anchor.min.js"></script>
+<script>
+  var selector = '.markdown-body h2, .markdown-body h3';
+  anchors.options = {
+    placement: 'left',
+    class: 'anchor-link'
+  };
+  anchors.add(selector);
+</script>
+
+</html>
+{% endautoescape %}

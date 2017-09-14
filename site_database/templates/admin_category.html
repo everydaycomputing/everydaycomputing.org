@@ -83,7 +83,6 @@
 
 
 <!-- ----------------------------------------------------------- METHODOLOGY -->
-
 <div class="container about-that">
   <hr/>
   <h1>Learning Goals <span class="counter">{{ article.learning_goals | length}} </span>
@@ -93,7 +92,10 @@
   <table style="width:100%;border-color:gray;">
     {% for goal in article.learning_goals %}
     <tr class="{{ loop.cycle('odd', 'even') }}">
+
       <td>
+        {% set gae_goal = goal.get() %}
+        {% if gae_goal != None %}
         <a href="{{application_url}}/resource/article/goal/edit/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}">{{ goal.get()._domain }}</a>
         <p>
         Goal: {{ goal.get().goal }}<br/>
@@ -102,7 +104,9 @@
       <td>
         <!--<a href="{{application_url}}/resource/article/goal/delete/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}" style="color:red;">Delete</a>-->
       </td>
-
+      {% else %}
+      <td>missing</td><td>record</td>
+      {% endif %}
     </tr>
     {% endfor %}
   </table>
