@@ -187,7 +187,7 @@ class Article(ndb.Model):
 
   # Methodology
   methodology = ndb.KeyProperty(kind='Methodology')
-  # learning_goals = ndb.KeyProperty(kind='LearningGoal', repeated=True)
+  learning_goals = ndb.KeyProperty(kind='LearningGoal', repeated=True)
 
   @property
   def author_names(self):
