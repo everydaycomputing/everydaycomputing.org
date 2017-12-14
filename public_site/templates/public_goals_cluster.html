@@ -6,7 +6,7 @@
 <div class="container">
   <h1>Research Methodology</h1>
   <p>Something...</p>
-  
+
     <form action="/goals/cluster/insert/" method="post">
     <div>
       <label for="domain">Cluster Name:
@@ -15,7 +15,7 @@
     </div>
     <div><br><input type="submit" class="btn btn-large btn-primary"></div>
 
-   
+
    <br/>
   <br/>
   <hr>
@@ -35,7 +35,7 @@
     <tbody>
       {% for goal in objects %}
       <input type="hidden" name="selected" value="{{ goal.key.urlsafe() }}">
-
+      {% if goal != None %}
       <tr>
         <td>{{ goal.age_level | join(",") }}</td>
         <td>{{ goal._domainFromLiteratureReview }}</td>
@@ -43,17 +43,16 @@
         <td>{{ goal._support }}</td>
         <td>{{ goal.goal }}</td>
       </tr>
+      {% endif %}
       {% endfor %}
-      
+
     </tbody>
   </table>
-  
-  
+
+
   </form>
-  
-  
+
+
 </div>
 
 {% endblock %}
-
-

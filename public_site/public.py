@@ -22,8 +22,9 @@ import logging
 #from database_site.admin_models import *
 #from database_site.admin_category import *
 
-from site_database import *
+from public_site_database import *
 from public_site import *
+from site_database import *
 from methodology import *
 
 
@@ -50,7 +51,7 @@ from site_database import *
 # from public_site_database.main import PublicResourcePage as PublicResourcePage
 from public_site_database.main import PublicArticlePage as PublicArticlePage
 from public_site_database.main import PublicArticleCategoryHandler as PublicArticleCategoryHandler
-from public_site_database import *
+
 #
 
 
@@ -233,13 +234,16 @@ class PageGoalsClusterInsert(webapp2.RequestHandler):
 #
 ################################################################################
 class PageGoals(webapp2.RequestHandler):
-  """ About the project page for the public facing website
+  """The Goals sort and filter utility.
+  Located at: everydaycomputing.org/goals/
   """
   def post(self):
+    # Get the values from the filtering form on the website
     domain=int(self.request.get('domain'))
     grade_level=int(self.request.get('grade_level'))
     concept=int(self.request.get('concept'))
 
+    # Construct the query
     query = LearningGoal.query(LearningGoal.domainFromLiteratureReview==domain,LearningGoal.age_level==grade_level,LearningGoal.domain==concept)
     #.order(-Article.timestamp.created)
     articles = query.fetch()
@@ -251,7 +255,6 @@ class PageGoals(webapp2.RequestHandler):
       'url': users.create_logout_url(self.request.uri),
       'url_linktext': "Logout"
     }
-
     template = JINJA_ENVIRONMENT.get_template('templates/public_literature_goals.html')
     self.response.write(template.render(template_values))
 
