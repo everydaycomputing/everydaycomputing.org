@@ -11,13 +11,16 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /dump/.*
+  script: public_site.dump.app
+
 - url: /.*
   script: public_site.public.APP
 
 - url: /tools/trajectory/.*
   script: backend_tools.tool.app
   #login: required
-  auth_fail_action: unauthorized
+  #auth_fail_action: unauthorized
 
 libraries:
 - name: webapp2

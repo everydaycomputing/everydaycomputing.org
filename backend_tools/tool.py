@@ -28,8 +28,6 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
                                        autoescape=True)
 
 
-
-
 class NodeHandler(webapp2.RequestHandler):
     def get(self,trajectory_key):
         logging.info("Hi")
@@ -115,7 +113,10 @@ class TrajectoryHandler(webapp2.RequestHandler):
         self.redirect(self.request.uri)
 
 
-##
+
+
+
+    ##
 ##
 ##
 
