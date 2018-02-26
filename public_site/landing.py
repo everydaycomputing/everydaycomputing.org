@@ -26,6 +26,7 @@ class HomePage(webapp2.RequestHandler):
          # Loop through the dictionary and print out some basic info (for debugging)
          self.response.write(structured_dictionary)
 
+
 class AboutPage(webapp2.RequestHandler):
     """About the project page for the public facing website."""
 

@@ -45,7 +45,8 @@ class ArticleDump(webapp2.RequestHandler):
     self.response.headers['Content-Type'] = 'text/plain'
     self.response.write("HI")
 
-    query = Article.query()    articles = query.fetch()
+    query = Article.query()
+    articles = query.fetch()
 
     for article in articles:
         outputString = ''
