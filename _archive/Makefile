@@ -9,7 +9,7 @@ upload_local_database:
 		--filename=data.sql3 \
 		--application=dev~everydaycomputingorg \
 		--num_threads=1 \
-		--url=http://localhost:53814/_ah/remote_api 
+		--url=http://localhost:53814/_ah/remote_api
 
 local:
 	./../google-cloud-sdk/platform/google_appengine/dev_appserver.py .
