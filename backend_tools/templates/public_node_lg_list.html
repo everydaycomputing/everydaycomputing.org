@@ -1,0 +1,46 @@
+{% extends "templates/public_base_template.html" %}
+
+{% block body %}
+
+
+<section class="bg-primary" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">{{trajectory_title}}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br/>
+<br/>
+
+<div class="container">
+
+
+
+  <table class="table table-striped display">
+    <thead>
+      <tr>
+        <th>Goal</th>
+        <th>Support</th>
+        <th>Article Source</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for goal in lgs %}
+      <tr>
+        <td>{{ goal[0] }}</td>
+        <td>{{ goal[1] }}</td>
+        <td><a href="/public/resource/article/{{goal[2]}}/">View Article Summary.</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "public_site/templates/public_base_template.html" %}
+{% extends "templates/public_base_template.html" %}
 
 {% block body %}
 
@@ -159,9 +159,13 @@
             <td>{{ goal._domainFromLiteratureReview }}</td>
             <td>{{ goal._domain }}</td>
             <td>{{ goal._support }}</td>
-            <td><a target="_blank" href="http://everydaycomputing.org/resource/article/{{ goal.article.urlsafe() }}/">{{ goal.goal }}</a></td>
+            <td>                {% if goal.article != None %}
+              <a target="_blank" href="http://everydaycomputing.org/resource/article/{{ goal.article.urlsafe() }}/">{{ goal.goal }}</a>
+
+                  {% endif %}    </td>
             <td><a target="_blank" href="http://everydaycomputing.org/goals/cluster/">{{ goal.cluster | join(",") }}</a></td>
           </tr>
+
           {% endfor %}
         </tbody>
       </table>

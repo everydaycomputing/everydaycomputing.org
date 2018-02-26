@@ -22,6 +22,7 @@
                     <!-- Custom CSS -->
                     <link rel="stylesheet" href="/static/css/creative.css" type="text/css">
                     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" type="text/css">
+                    <link rel="stylesheet" href="/static/style.css" type="text/css"/>
                       <style>
                         .text-muted {
                           text-align:left;
@@ -56,6 +57,12 @@
                        </script>
                      <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
                        </script>
+
+                       <script type="text/javascript" language="javascript" src="   https://cdn.datatables.net/plug-ins/1.10.15/dataRender/ellipsis.js">
+                         </script>
+
+
+
                       </head>
 
   <body id="page-top">
@@ -78,10 +85,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a class="page-scroll" href="/about/">About</a>
+              <a id="vis-list" class="page-scroll" href="/about/">About</a>
             </li>
             <li>
-              <a class="page-scroll" href="http://blog.everydaycomputing.org">Blog</a>
+              <a id="vis-list" class="page-scroll" href="http://blog.everydaycomputing.org">Blog</a>
+            </li>
+            <li>
+              <a id="vis-list" class="page-scroll" href="http://blog.everydaycomputing.org/publications">Publications</a>
+            </li>
+            <li>
+              <a id="vis-list" class="page-scroll" href="/public/resource/">Resources</a>
             </li>
             <li>
              <a class="page-scroll" href="http://blog.everydaycomputing.org/publications">Publications</a>
@@ -95,7 +108,7 @@
              </li>
              -->
             <li>
-              <a href="/resource/">Login</a>
+              <a id="vis-list" href="/resource/">Login</a>
             </li>
           </ul>
         </div>

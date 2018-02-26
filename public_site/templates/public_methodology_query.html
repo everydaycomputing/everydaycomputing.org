@@ -1,4 +1,4 @@
-{% extends "public_site/templates/public_base_template.html" %} {% block body %}
+{% extends "templates/public_base_template.html" %} {% block body %}
 
 <script type="text/javascript" class="init">
     $(document).ready(function() {
@@ -10,10 +10,14 @@
 
         // DataTable
         var table = $('#example').DataTable({
-            scrollY: "500px",
+            scrollY: "700px",
             scrollX: false,
             scrollCollapse: true,
-            paging: false
+            paging: false,
+            columnDefs: [ {
+       targets: [7,8,9],
+       render: $.fn.dataTable.render.ellipsis( 100 )
+     } ]
 
         });
 
@@ -55,6 +59,7 @@
         <table id="example" class="table table-striped cell-border display" width="100%">
             <thead>
                 <tr>
+                    <th>Article</th>
                     <th>Gender</th>
                     <th>Sample<br/>Size</th>
                     <th>SES</th>
@@ -63,10 +68,12 @@
                     <th>Environment</th>
                     <th>Data Analytic<br/>Technique</th>
                     <th>Data Collection<br/>Instrument</th>
+                    <th>Findings</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
+                    <th>Article</th>
                     <th>Gender</th>
                     <th>Sample<br/>Size</th>
                     <th>SES</th>
@@ -75,12 +82,14 @@
                     <th>Environment</th>
                     <th>Data Analytic<br/>Technique</th>
                     <th>Data Collection<br/>Instrument</th>
+                    <th>Findings</th>
 
                 </tr>
             </tfoot>
             <tbody>
                 {% for result in results %}
                 <tr>
+                    <td><a href='{{ result._article_url}}' target='_new'>{{ result._article | truncate(100) }}</a></td>
                     <td>{{ result.sample_gender | join(",") }}</td>
                     <td>{{ result.sample_size | default("-") }}</td>
                     <td>{{ result.sample_ses | default("-") }}</td>
@@ -89,7 +98,8 @@
                     <td>{{ result.sample_environment | join(",") }}</td>
                     <td><b>{{ result.sample_data_analytic_technique | join(",") }}</b><br>{{ result.sample_data_analytic_technique_note }}</td>
                     <td>{{ result.sample_data_collection_instrument }}</td>
-                    
+                    <td>{{ result._article_findings }}</td>
+
                 </tr>
                 {% endfor %}
             </tbody>

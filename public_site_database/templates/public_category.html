@@ -1,0 +1,134 @@
+{% extends "templates/public_base_template.html" %}
+
+{% block body %}
+
+<div class="container">
+
+  <div class="flash flash-warn" style="background-color: white">
+    <a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}" style="color: #f05f40"><span>{{article.citation}}</span></a>
+    <!--<span>{{article.citation}}<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}"></a></span>-->
+    <!--{% for author in article.author_names %}
+    <span>{{ author.family_name}},&nbsp;{{ author.given_name}}</span>
+    {% endfor %}.
+    <span>({{ article.year}}).</span>
+    <span>"<a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}">{{ article.title}}</a>."</span>
+    <span>{{ article.journal}}.</span>
+    <span>{{ article.pages}}.</span>-->
+  </div>
+  <hr>
+</div>
+
+
+<!-- --------------------------------------------------------------- SUMMARY -->
+<div class="container about-that">
+  <h1>Summary
+  </h1>
+</div>
+
+<div class="container about-that">
+  <div class="columns">
+
+    <div class="column">
+      <p><b>Type:</b> {{ article.type | join(",") }}</p>
+      <p><b>Purpose:</b> {{ article.purpose }}</p>
+      <p><b>Findings:</b> {{ article.findings }}</p>
+      <p><b>Recommendations:</b> {{ article.recommendations }}</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------- METHODOLOGY -->
+{% if ( (article._methodology.sample_size != 0) 
+  or (article._methodology.sample_gender == 'male' or article._methodology.sample_gender == 'female') 
+  or (article._methodology.sample_ethnicity in ['Caucasian', 'African American', 'Hispanic', 'Asian PI', 'Native American', 'Multiracial', 'Other']) 
+  or (article._methodology.sample_size_of_school != 0) 
+  or (article._methodology.sample_participant_type != "") 
+  or (article._methodology in ['in school', 'after school', 'informal setting']) 
+  or (article._methodology.sample_setting in ['rural', 'urban', 'public', 'private']) 
+  or (article._methodology.sample_disability_status in ['Mild', 'Moderate', 'Severe']) 
+  or (article._methodology.sample_notes != "") ) %}
+<div class="container about-that">
+  <hr/>
+  <h1>Methodology</h1>
+</div>
+
+<div class="container about-that">
+  <div class="columns">
+    {% if article._methodology.sample_size != 0 %}
+    <div class="one-fourth column">
+      <p><b>Sample Size:</b> {{ article._methodology.sample_size }}</p>
+    </div>
+    {% endif %}
+    {% if article._methodology.sample_gender == 'male' or article._methodology.sample_gender == 'female' %}
+    <div class="one-fourth column">
+      <p><b>Gender:</b> {{ article._methodology.sample_gender | join(",") }}</p>
+    </div>
+    {% endif %}
+    {% if article._methodology.sample_ethnicity in ['Caucasian', 'African American', 'Hispanic', 'Asian PI', 'Native American', 'Multiracial', 'Other'] %}
+    <div class="one-fourth column">
+      <p><b>Ethnicity:</b> {{ article._methodology.sample_ethnicity | join(",") }}</p>
+    </div>
+    {% endif %}
+    {% if article._methodology.sample_size_of_school != 0 %}
+    <div class="one-fourth column">
+      <p><b>School Size:</b> {{ article._methodology.sample_size_of_school }}</p>
+    </div>
+    {% endif %}
+
+
+    <!-- row 2 -->
+    {% if article._methodology.sample_participant_type != "" %}
+    <div class="one-fourth column">
+      <p><b>Participant Type:</b> {{ article._methodology.sample_participant_type }}</p>
+    </div>
+    {% endif %}
+    {% if article._methodology in ['in school', 'after school', 'informal setting'] %}
+    <div class="one-fourth column">
+      <p><b>Environment:</b> {{ article._methodology.sample_environment | join(",") }}</p>
+    </div>
+    {% endif %}
+    {% if article._methodology.sample_setting in ['rural', 'urban', 'public', 'private'] %}
+    <div class="one-fourth column">
+      <p><b>Setting:</b> {{ article._methodology.sample_setting | join(",") }}</p>
+    </div>
+    {% endif %}
+    {% if article._methodology.sample_disability_status in ['Mild', 'Moderate', 'Severe'] %}
+    <div class="one-fourth column">
+      <p><b>Disability Status:</b> {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+    {% endif %}
+
+  </div>
+  {% if article._methodology.sample_notes != "" %}
+  <div>
+    <p><b>Notes:</b> {{ article._methodology.sample_notes }}</p>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+
+<!-- ----------------------------------------------------------- METHODOLOGY -->
+
+
+<!--
+ <div class="container about-that">
+ <div class="columns">
+
+ {% for category in categories %}
+
+ <div class="one-half column">
+ <h2>{{ category|title }}</h2>
+ <p>Something usefull here...</p>
+ </p><a href="{{application_url}}/article/add/{{ category }}/{{key}}/" class="btn">Edit {{ category }}</a></p>
+ <br/>
+ </div>
+ {% endfor %}
+
+ </div>
+ </div>
+ -->
+
+{% endblock %}

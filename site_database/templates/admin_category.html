@@ -1,0 +1,135 @@
+{% extends "templates/base_template.html" %}
+
+{% block body %}
+
+<div class="container">
+
+  <div class="flash flash-warn" style="background-color: white">
+    <a href="https://scholar.google.com/scholar?hl=en&q={{ article.title }} {{article.journal}} {{article.year}}" style="color: #f05f40"><span>{{article.citation}}</span></a>
+  </div>
+  <hr>
+</div>
+
+
+<!-- --------------------------------------------------------------- SUMMARY -->
+<div class="container about-that">
+  <h1>Summary
+    <a href="{{application_url}}/resource/article/edit/summary/{{key}}/" class="btn right">Edit Summary</a>
+  </h1>
+</div>
+
+<div class="container about-that">
+  <div class="columns">
+
+    <div class="one-half column">
+      <p>Type: {{ article.type | join(",") }}</p>
+      <p>Purpose: {{ article.purpose }}</p>
+
+    </div>
+
+    <div class="one-half column">
+      <p>Findings: {{ article.findings }}</p>
+      <p>Recommendations: {{ article.recommendations }}</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------- METHODOLOGY -->
+<div class="container about-that">
+  <hr/>
+  <h1>Methodology
+    <a href="{{application_url}}/resource/article/edit/methodology/{{key}}/" class="btn right">Edit Methodology</a></h1>
+  </h1>
+</div>
+
+<div class="container about-that">
+  <div class="columns">
+    <div class="one-fourth column">
+      <p>Sample Size: {{ article._methodology.sample_size }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Gender: {{ article._methodology.sample_gender | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Ethnicity: {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>School Size: {{ article._methodology.sample_size_of_school }}</p>
+    </div>
+
+
+    <!-- row 2 -->
+    <div class="one-fourth column">
+      <p>Participant Type: {{ article._methodology.sample_participant_type }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Environment: {{ article._methodology.sample_environment | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Setting: {{ article._methodology.sample_setting | join(",") }}</p>
+    </div>
+    <div class="one-fourth column">
+      <p>Disability Status: {{ article._methodology.sample_disability_status | join(",") }}</p>
+    </div>
+
+  </div>
+
+  <div>
+    <p>Notes: {{ article._methodology.sample_notes }}</p>
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------- METHODOLOGY -->
+<div class="container about-that">
+  <hr/>
+  <h1>Learning Goals <span class="counter">{{ article.learning_goals | length}} </span>
+
+    <a href="{{application_url}}/resource/article/goal/insert/{{key}}/" class="btn right">Add New Learning Goal</a>
+    </h1>
+  <table style="width:100%;border-color:gray;">
+    {% for goal in article.learning_goals %}
+    <tr class="{{ loop.cycle('odd', 'even') }}">
+
+      <td>
+        {% set gae_goal = goal.get() %}
+        {% if gae_goal != None %}
+        <a href="{{application_url}}/resource/article/goal/edit/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}">{{ goal.get()._domain }}</a>
+        <p>
+        Goal: {{ goal.get().goal }}<br/>
+        Age Level: {{ goal.get().age_level | join(",") }}</p>
+      </td>
+      <td>
+        <!--<a href="{{application_url}}/resource/article/goal/delete/{{key}}/?learning_goal_key={{ goal.get().key.urlsafe() }}" style="color:red;">Delete</a>-->
+      </td>
+      {% else %}
+      <td>missing</td><td>record</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+  <hr/>
+
+</div>
+
+<!--
+ <div class="container about-that">
+ <div class="columns">
+
+ {% for category in categories %}
+
+ <div class="one-half column">
+ <h2>{{ category|title }}</h2>
+ <p>Something usefull here...</p>
+ </p><a href="{{application_url}}/article/add/{{ category }}/{{key}}/" class="btn">Edit {{ category }}</a></p>
+ <br/>
+ </div>
+ {% endfor %}
+
+ </div>
+ </div>
+ -->
+
+{% endblock %}

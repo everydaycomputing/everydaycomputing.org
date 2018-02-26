@@ -1,0 +1,86 @@
+{% extends "templates/base_vis_template.html" %}
+{% block body %}
+
+{% if (elements is defined) and elements %}
+<script src="/static/code-s.js"></script>
+{% for dict in elements %}
+<script>
+  var dict =  {{ dict|safe }} ;
+  accept_data( dict );
+</script>
+{% endfor %}
+{% endif %}
+<div id="cy">
+</div>
+
+<div class="btn-container">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div id="visualization-navbar" class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a id="vis-brand" class="navbar-brand page-scroll" href="/">Everyday Computing</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a id="vis-list" class="page-scroll" style="color: rgba(255,255,255,.7);" href="/about/">About</a>
+            </li>
+            <li>
+              <a id="vis-list" class="page-scroll"  style="color: rgba(255,255,255,.7);"href="http://blog.everydaycomputing.org">Blog</a>
+            </li>
+            <li>
+              <a id="vis-list" class="page-scroll"  style="color: rgba(255,255,255,.7);"href="http://blog.everydaycomputing.org/publications">Publications</a>
+            </li>
+            <li>
+              <a id="vis-list" class="page-scroll"  style="color: rgba(255,255,255,.7);"href="/public/resource/">Resources</a>
+            </li>
+            <li id="vis-dropdown">
+              <a id="vis-dropdown" class="dropdown-toggle" data-toggle="dropdown"  style="color: rgba(255,255,255,.7);"href="#">Visualizations
+                <span class="caret" style="border-top-color: rgba(255,255,255,.7); border-bottom-color: rgba(255,255,255,.7);"></span></a>
+              <ul id="visualization-navbar" class="dropdown-menu">
+                <li><a id="vis-option" href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/">Sequence</a></li>
+                <li><a id="vis-option" href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/">Repetition</a></li>
+                <li><a id="vis-option" href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/">Conditionals</a></li>
+              </ul> 
+            </li>
+            <li>
+              <a id="vis-list" class="page-scroll"  style="color: rgba(255,255,255,.7);" href="/resource/">Login</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  <div class="hoverable"><input type='button' id='beginning' class='view_btn btn' value='Beginning'></div>
+  <div class="hoverable"><input type='button' id='intermediate' class='view_btn btn' value='Intermediate'></div>
+  <div class="hoverable"><input type='button' id='advanced' class='view_btn btn' value='Advanced'></div>
+  <div class="hoverable"><input type='button' id='view1' class='view_btn btn' value='View 1'></div>
+  <div class="hoverable"><input type='button' id='view2' class='view_btn btn' value='View 2'></div>
+  <div class="hoverable"><input type='button' id='view3' class='view_btn btn' value='View 3'></div>
+  <div class="hoverable"><input type='button' id='unplugged-btn' class='view_btn square1 btn' value='Unplugged'></div>
+  <div class="hoverable"><input type='button' id='programming-btn' class='view_btn square2 btn' value='Programming'></div>
+  {% if trajectory_name == 'Sequence' %}
+  <div class="hoverable"><input type='button' id='scratch-btn' class='view_btn btn' value='Scratch Activities' onclick="window.open('https://docs.google.com/document/d/10U6SxhnJjL6dP9dO5LyUyxpTl1GXGZpt2M_6Ufynx64/');"></div>
+  <div class="hoverable"><input type='button' id='off-comp-btn' class='view_btn btn' value='Unplugged Activities' onclick="window.open('https://docs.google.com/document/d/1z6hgDUyLIOHqKlli1xHwlLdBIY5yayvrpEq0fj6IKi0/');"></div>
+  {% endif %}
+  {% if trajectory_name == 'Repetition' %}
+  <div class="hoverable"><input type='button' id='scratch-btn' class='view_btn btn' value='Scratch Activities' onclick="window.open('https://docs.google.com/document/d/1XgxrLPvwzGTZvWkDGC_otX8Iswezs3k4lMUok8qyjjM/');"></div>
+  <div class="hoverable"><input type='button' id='off-comp-btn' class='view_btn btn' value='Unplugged Activities' onclick="window.open('https://docs.google.com/document/d/1aBTlz7uHpSiSiUPWXReqnR7Yi_ivURZ3E8m5Eo2bZtg/');"></div>
+  {% endif %}
+  {% if trajectory_name == 'Conditionals' %}
+  <div class="hoverable"><input type='button' id='scratch-btn' class='view_btn btn' value='Scratch Activities' onclick="window.open('https://docs.google.com/document/d/183q1gmfA1ZRsLsbwD4lGvWzBD6aEutnCuVs9wgmi1rE/');"></div>
+  <div class="hoverable"><input type='button' id='off-comp-btn' class='view_btn btn' value='Unplugged Activities' onclick="window.open('https://docs.google.com/document/d/1LOSGWKV9jxcraYx8tUnAerp9L4Uh-a3fA6uchEdb9vs/');"></div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,11 +1,7 @@
-application: everydaycomputingorg
-version: uno
+service: default
 runtime: python27
-api_version: 1
 threadsafe: true
-
-builtins:
-- remote_api: on
+api_version: 1
 
 handlers:
 - url: /favicon\.ico
@@ -15,22 +11,39 @@ handlers:
 - url: /static
   static_dir: static
 
-- url: /resource/.*
-  script: everydaycomputing.APP
-  login: required
+- url: /dump/.*
+  script: public_site.dump.app
 
 - url: /.*
-  script: public.APP
+  script: public_site.public.APP
+
+- url: /tools/trajectory/.*
+  script: backend_tools.tool.app
+  #login: required
+  #auth_fail_action: unauthorized
 
 libraries:
 - name: webapp2
   version: latest
 - name: jinja2
   version: latest
+- name: ssl
+  version: latest
+
+builtins:
+- remote_api: on
+- deferred: on
+- appstats: on
 
 env_variables:
-  CLOUDSQL_DB: genes
+  DJANGO_SETTINGS_MODULE: 'myapp.settings'
 
+#error_handlers:
+#  - file: default_error.html
+#  - error_code: over_quota
+#    file: over_quota.html
+
+#
 skip_files:
 - ^(.*/)?#.*#$
 - ^(.*/)?.*~$

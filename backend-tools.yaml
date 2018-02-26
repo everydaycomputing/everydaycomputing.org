@@ -1,0 +1,27 @@
+# api-backend.yaml
+
+service: backend-tools
+runtime: python27
+threadsafe: true
+version: 1
+api_version: 1
+
+handlers:
+
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: backend_tools.tool.app
+  #login: required
+
+builtins:
+- appstats: on
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+- name: ssl
+  version: latest
