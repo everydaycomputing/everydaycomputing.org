@@ -1,32 +1,20 @@
-""" Public facing site """
+"""Public facing site that contains the landing page and about page."""
 
 import os
-import urllib
-import random
-
-#
-from google.appengine.api import mail
-from google.appengine.ext import vendor
-from webapp2_extras import routes
-
-# Add any libraries install in the "lib" folder.
-vendor.add('lib')
-import tweepy
-
+#import tweepy
 import jinja2
 import webapp2
 import logging
 
-# Custom imports
-#from database_site.google.appengine.ext import ndb
-#from database_site.admin_models import *
-#from database_site.admin_category import *
+from google.appengine.ext import vendor
+from webapp2_extras import routes
 
+# Custom imports
 from public_site_database import *
+from landing import AboutPage, HomePage
 from public_site import *
 from site_database import *
 from methodology import *
-
 
 from backend_tools.tool import MainPage as ToolPage
 from backend_tools.tool import *
@@ -52,56 +40,15 @@ from site_database import *
 from public_site_database.main import PublicArticlePage as PublicArticlePage
 from public_site_database.main import PublicArticleCategoryHandler as PublicArticleCategoryHandler
 
-#
+# Add any libraries install in the "lib" folder.
+vendor.add('lib')
 
-
-JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-                                       extensions=['jinja2.ext.autoescape'],
-                                       autoescape=True)
-
-
-
-
-class HomePage(webapp2.RequestHandler):
-  """ Handlers for the public facing website.
-    """
-
-  def get(self):
-    """
-      """
-    template_values = {}
-
-    template = JINJA_ENVIRONMENT.get_template('templates/public_home.html')
-    self.response.write(template.render(template_values))
-
-
-  def post(self):
-    self.response.write("-------------------------------------------------")
-    #self.response.write(structured_dictionary)
-
-    # structured_dictionary is the body of the post (which is the json file)
-    structured_dictionary = json.loads(self.request.body)
-
-    # Loop through the dictionary and print out some basic info (for debugging)
-    self.response.write(structured_dictionary)
-
-
-class AboutPage(webapp2.RequestHandler):
-  """ About the project page for the public facing website
-
-    """
-  def get(self):
-    template_values = {}
-    template = JINJA_ENVIRONMENT.get_template('templates/public_about.html')
-    self.response.write(template.render(template_values))
+JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)), extensions=['jinja2.ext.autoescape'], autoescape=True)
 
 
 ################################################################################
 class PageLiterature(webapp2.RequestHandler):
-  """ About the project page for the public facing website
-
-    """
-
+  """ About the project page for the public facing website."""
   def get(self):
     # Fetch all articles
     articles_query = Article.query()#.order(-Article.timestamp.created)
@@ -120,11 +67,7 @@ class PageLiterature(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('templates/public_literature_query.html')
     self.response.write(template.render(template_values))
 
-################################################################################
-#
-#
-#
-#
+
 ################################################################################
 class PageMethodology(webapp2.RequestHandler):
   """ Search and filtering for the Methodology database """
@@ -143,8 +86,6 @@ class PageMethodology(webapp2.RequestHandler):
     template = JINJA_ENVIRONMENT.get_template('templates/public_methodology_query.html')
     self.response.write(template.render(template_values))
 
-################################################################################
-#
 ################################################################################
 class PageGoalsCluster(webapp2.RequestHandler):
   """ About the project page for the public facing website
@@ -229,9 +170,7 @@ class PageGoalsClusterInsert(webapp2.RequestHandler):
 
 
 ################################################################################
-#
 # Cluster Creator
-#
 ################################################################################
 class PageGoals(webapp2.RequestHandler):
   """The Goals sort and filter utility.
