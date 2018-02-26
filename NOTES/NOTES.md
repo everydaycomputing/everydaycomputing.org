@@ -39,8 +39,8 @@ Hits the live datastore and pulls in down to data.sql3 file.
 
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=./EverydayComputingOrg-a3501e320e92.json
-/Applications/google-cloud-sdk/platform/google_appengine/appcfg.py
-appcfg.py download_data --application=everydaycomputingorg --url=http://everydaycomputingorg.appspot.com/_ah/remote_api --filename=data.sql3
+
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py download_data --application=everydaycomputingorg --url=http://everydaycomputingorg.appspot.com/_ah/remote_api --filename=data.sql3
 ```
 
 Upload the Datastore Backup to Local Development Server
@@ -77,8 +77,7 @@ With microservice architecture you do not need to specify the application (see f
 ```
 or with different data file:
 ```
- /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py upload_data --filename=data_20170806.sql3  
- --url=http://localhost:52249/_ah/remote_api --oauth2_access_token=ya29.Glz8A5pSeSMRAcZugWcS4fOgZi1OnGEPSMXdPvQlLynQQ2IHLvni6EiOF4CIz10gAn0WPhiS1EsZEFj6F17tvUC_GcQqJjWipMB2cVZVdwVCqjBvwC8YYnNbexOHDg
+ /Applications/google-cloud-sdk/platform/google_appengine/appcfg.py upload_data --filename=data_20170806.sql3 --url=http://localhost:59313/_ah/remote_api --oauth2_access_token=ya29.Glz8A5pSeSMRAcZugWcS4fOgZi1OnGEPSMXdPvQlLynQQ2IHLvni6EiOF4CIz10gAn0WPhiS1EsZEFj6F17tvUC_GcQqJjWipMB2cVZVdwVCqjBvwC8YYnNbexOHDg
 ```
 
 Update App Engine Server
@@ -113,7 +112,7 @@ History:
 
 ## Update Cron Jobs ##
 ```
-gcloud app deploy cron.yaml
+gcloud app deploy cron.yaml --project everydaycomputingorg
 ````
 
 
