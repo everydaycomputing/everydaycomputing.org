@@ -194,6 +194,7 @@ tr {
 #vis-btn{
   border: solid 1px;
   border-color: white;
+  margin-bottom: 1em;
 }
 
 #vis-btn:hover{
