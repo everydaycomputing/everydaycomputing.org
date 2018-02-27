@@ -146,7 +146,8 @@ tr {
 }
 
 
-#vis-list:hover {
+.navbar-default .navbar-nav>li>a.vis-list:focus,
+.navbar-default .navbar-nav>li>a.vis-list:hover {
   background-color: #f26f50;
 }
 
