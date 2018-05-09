@@ -233,3 +233,16 @@ tr {
   background-color: #f05f40;
 }
 */
+
+/** About Page **/
+.row.display-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row.display-flex > [class*='col-'] {
+/*   flex-grow: 1; */
+  flex:1;
+  flex-basis: 230px;
+  margin: 5px;
+}
