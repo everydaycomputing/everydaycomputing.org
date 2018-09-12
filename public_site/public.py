@@ -11,7 +11,7 @@ from webapp2_extras import routes
 
 # Custom imports
 from public_site_database import *
-from landing import AboutPage, HomePage
+from landing import AboutPage, HomePage, ProfessionalDevelopmentPage
 from public_site import *
 from site_database import *
 from methodology import *
@@ -245,6 +245,7 @@ class PublicVisualizationPage(webapp2.RequestHandler):
 APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=HomePage, name='home'),
                                webapp2.Route('/about/', handler=AboutPage, name='home'),
+                               webapp2.Route('/pd/', handler=ProfessionalDevelopmentPage, name='home'),
                                webapp2.Route('/literature/', handler=PageLiterature),
                                webapp2.Route('/methodology/', handler=PageMethodology),
                                webapp2.Route('/goals/', handler=PageGoals),
