@@ -287,13 +287,16 @@ tr {
 .row.display-flex-team > [class*='col-'] {
 /*   flex-grow: 1; */
   flex:1;
-  flex-basis: 230px;
+  /* flex-basis: 230px; */
+  flex-basis: 380px;
   margin: 2em 0.5em;
 }
 
 .team-thumb {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 150px; */
+  width: 250px;
+  height: 250px;
   background-color: #fed136;
   color: #fff;
   border-radius: 100%;
