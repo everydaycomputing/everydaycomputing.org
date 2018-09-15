@@ -35,6 +35,11 @@ footer .container {
 .bg-primary p {
   font-size: 2.5rem;
 }
+
+.showcase-image {
+  max-width: 100%;
+}
+
 #cy {
   position: absolute;
   left: 0;
@@ -294,4 +299,37 @@ tr {
   border-radius: 100%;
   border: 7px solid #f1f1f1;
   text-align: center;
+}
+
+/** Professional Development Page **/
+
+.pd-advert .row > [class*='col-'] {
+  padding: 2em;
+  font-size: 1.1em;
+}
+
+.pd-advert h3 {
+  font-size: 2.5em;
+}
+
+.pd-advert p {
+  font-size: 1.8em;
+}
+
+.pd-advert .pd-advert-aside {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.pd-location {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.pd-title {
+  font-style: italic;
+}
+
+.pd-date {
+  font-size: 1.8em;
 }
