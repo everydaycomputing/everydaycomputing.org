@@ -162,9 +162,22 @@ tr {
   color: rgba(255,255,255,.7);
 }
 
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+    color: white;
+}
+
+@media(min-width:768px) {
+  .navbar-default.affix .navbar-header .navbar-brand:hover,
+  .navbar-default.affix .navbar-header .navbar-brand:focus {
+    color: white;
+    background-color: #f26f50;
+  }
+}
 
 .navbar-default .navbar-nav>li>a.vis-list:focus,
 .navbar-default .navbar-nav>li>a.vis-list:hover {
+  color: white;
   background-color: #f26f50;
 }
 
