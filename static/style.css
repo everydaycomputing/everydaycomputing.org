@@ -25,6 +25,11 @@ p {
 
 footer {
   font-size: 1.5em;
+  border-top: 1px solid #c0c0c0;
+}
+
+footer .container {
+  padding: 20px;
 }
 
 .bg-primary p {
