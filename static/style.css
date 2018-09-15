@@ -284,6 +284,7 @@ tr {
 }
 */
 
+
 /** About Page **/
 .row.display-flex {
 	display: flex;
@@ -310,6 +311,11 @@ tr {
   text-align: center;
 }
 
+.row.display-flex-team h3 {
+  font-size: 3.5em;
+}
+
+
 /** Professional Development Page **/
 
 .pd-advert .row > [class*='col-'] {
@@ -317,12 +323,16 @@ tr {
   font-size: 1.1em;
 }
 
-.pd-advert h3 {
-  font-size: 2.5em;
-}
-
 .pd-advert p {
   font-size: 1.8em;
+}
+
+.pd-advert .pd-advert-tagline {
+  font-size: 2.1em;
+}
+
+.pd-advert-icon {
+  font-size: 10em;
 }
 
 .pd-advert .pd-advert-aside {
@@ -330,8 +340,13 @@ tr {
   font-style: italic;
 }
 
+.pd-past .row > div {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+
 .pd-location {
-  font-size: 1.25em;
+  font-size: 1.125em;
   font-weight: bold;
 }
 
@@ -340,5 +355,10 @@ tr {
 }
 
 .pd-date {
-  font-size: 1.8em;
+  font-size: 2.5em;
 }
+
+.pd-desc {
+  font-size: 2em;
+}
+
