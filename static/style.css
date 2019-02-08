@@ -29,6 +29,16 @@ p {
   font-size: 2rem;
 }
 
+.center {
+  text-align: center;
+}
+
+OL.footnotes>LI:target {
+  background-color:#efefef;
+  font-weight:bold
+}
+
+
 footer {
   font-size: 1.5em;
   border-top: 1px solid #c0c0c0;
