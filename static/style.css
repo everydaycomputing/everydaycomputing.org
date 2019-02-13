@@ -350,6 +350,7 @@ tr {
   font-style: italic;
 }
 
+.pd-upcoming .row > div,
 .pd-past .row > div {
   margin-top: 4em;
   margin-bottom: 4em;
