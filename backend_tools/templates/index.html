@@ -10,6 +10,36 @@
 </script>
 {% endfor %}
 {% endif %}
+
+
+<div id="vis-directions">
+  <h2>Directions</h2>
+  <p>Nodes:</p>
+  <ul>
+    <li>Click on a node to cycle between Learning goal, Activity goal, & Summary goal</li>
+    <li>Right-click on a node to view its literature support</li>
+  </ul>
+  <p>Edges:</p>
+  <ul>
+    <li><em>(if applicable)</em> Right-click on an edge to view its associated activity (if applicable)</li>
+  </ul>
+  <p>Buttons:</p>
+  <ul>
+    <!-- <li>Beginning, Intermediate, or Advanced button to show the relevant paths for that skill level</li> -->
+    <li><strong>Beginning button:</strong> show only relevant nodes categorized as beginning skill level</li>
+    <li><strong>Intermediate button:</strong> show only relevant nodes categorized as beginning or intermediate skill level</li>
+    <li><strong>Advanced button:</strong> show all nodes</li>
+    <!-- <li>Click View 1, View 2, or View 3 to switch all nodes to show the Learning goal (View 1), Activity goal (View 2), or Summary goal (View 3)</li> -->
+    <li><strong>View 1 button:</strong> switch all nodes to show the Learning goal</li>
+    <li><strong>View 2 button:</strong> switch all nodes to show the Activity goal</li>
+    <li><strong>View 3 button:</strong> switch all nodes to show the Summary goal</li>
+    <li><strong>Unplugged button:</strong> show only nodes categorized as Unplugged</li>
+    <li><strong>Programming button:</strong> show only nodes categorized as Programming</li>
+    <li><em>(if applicable)</em> <strong>Unplugged Activities button:</strong> view associated unplugged activities for this trajectory</li>
+    <li><em>(if applicable)</em> <strong>Scratch Activities button:</strong> view associated Scratch activities for this trajectory</li>
+  </ul>
+</div>
+
 <div id="cy">
 </div>
 
