@@ -33,6 +33,15 @@ p {
   text-align: center;
 }
 
+/** Add space above certain fragment identifiers to get below the sticky header for deep-linking **/
+.paddedAnchor:before {
+  content: " ";
+  display: inline-block;
+  margin-top: -70px;
+  height: 115px;
+  visibility: hidden;
+}
+
 OL.footnotes>LI:target {
   background-color:#efefef;
   font-weight:bold
