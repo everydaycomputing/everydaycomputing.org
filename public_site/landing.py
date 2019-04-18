@@ -42,3 +42,13 @@ class ProfessionalDevelopmentPage(webapp2.RequestHandler):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/public_pd.html')
         self.response.write(template.render(template_values))
+
+class HomePageExample(webapp2.RequestHandler):
+    """Professional Development page for the public facing website."""
+
+    def get(self,example_id):
+        template_values = {
+            'example_id': example_id
+        }
+        template = JINJA_ENVIRONMENT.get_template('templates/public_homepage_example.html')
+        self.response.write(template.render(template_values))
