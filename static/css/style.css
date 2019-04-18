@@ -16,6 +16,19 @@ h4 { font-size: 3rem; }
 h5 { font-size: 2.75rem; }
 h6 { font-size: 2.5rem; }
 
+a {
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
 table{
   margin: 0 auto;
   width: 100%;
@@ -47,6 +60,10 @@ OL.footnotes>LI:target {
   font-weight:bold
 }
 
+
+/* header {
+  background-image: url("/static/img/splash-2-kids-at-board.jpg");
+} */
 
 footer {
   font-size: 1.5em;
@@ -211,7 +228,8 @@ tr {
 }
 
 #visualization-navbar {
-  background-color: #f05f40; 
+  /* background-color: #f05f40;  */
+  background-color: #337ab7;
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif; 
   text-transform: uppercase; 
   font-size: 13px; 
@@ -222,31 +240,22 @@ tr {
   color: rgba(255,255,255,.7);
 }
 
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
-    color: white;
-}
 
-@media(min-width:768px) {
-  .navbar-default.affix .navbar-header .navbar-brand:hover,
-  .navbar-default.affix .navbar-header .navbar-brand:focus {
-    color: white;
-    background-color: #f26f50;
-  }
-}
 
-.navbar-default .navbar-nav>li>a.vis-list:focus,
+
+/* .navbar-default .navbar-nav>li>a.vis-list:focus,
 .navbar-default .navbar-nav>li>a.vis-list:hover {
   color: white;
   background-color: #f26f50;
-}
+} */
 
 #vis-dropdown {
   color: rgba(255,255,255,.7);
 }
 
 #vis-dropdown:hover {
-  background-color: #f26f50;
+  /* background-color: #f26f50; */
+  background-color: #337ab7;
 }
 
 #vis-option {
@@ -258,11 +267,13 @@ tr {
   color: #333333;
 }
 .navbar-default .navbar-nav > .open > a {
-  background-color: #f26f50 !important;
+  /* background-color: #f26f50 !important; */
+  background-color: #337ab7 !important;
 }
 
 #admin-mast {
-  background-color: #f05f40; 
+  /* background-color: #f05f40;  */
+  background-color: #337ab7;
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif; 
   text-transform: uppercase; 
   font-size: 13px; 
@@ -279,7 +290,8 @@ tr {
 }
 
 #resource-btn:hover{
-  color:#f05f40;
+  /* color:#f05f40; */
+  color: #337ab7;
 }
 
 #vis-btn{
@@ -290,7 +302,8 @@ tr {
 
 #vis-btn:hover{
   background-color:white;
-  color: #f05f40;
+  /* color: #f05f40; */
+  color: #337ab7;
 }
 /*
 #resource-home-btn {
