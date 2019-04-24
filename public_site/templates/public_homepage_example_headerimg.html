@@ -1,0 +1,691 @@
+{% extends "templates/public_base_template.html" %}
+
+{% block body %}
+
+{% if example_id is defined %}
+
+<style>
+
+    {% if example_id == '1' %}
+header {
+    background-image: url("/static/img/splash-2-kids-at-board.jpg");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '2' %}
+
+header {
+    background-image: url("/static/img/splash-2-kids-sharing-computer.jpeg");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '3' %}
+
+header {
+    background-image: url("/static/img/splash-kids-at-computers.jpeg");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '4' %}
+
+header {
+    background-image: url("/static/img/splash-like-coding.jpeg");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '5' %}
+
+header {
+    background-image: url("/static/img/splash-todd-working-with-kids.jpg");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '5' %}
+
+header {
+    background-image: url("/static/img/splash-todd-working-with-kids.jpg");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '6' %}
+
+header {
+    background-image: url("/static/img/splash-fish3.png");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% elif example_id == '7' %}
+
+header {
+    background-image: url("/static/img/splash-fish3.png");
+    background-color: rgba(40,96,144,0.25);
+    background-blend-mode: screen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header .btn {
+    text-shadow: initial;
+}
+
+header h1 {
+    color: white;
+    /* background-color: rgba(51,122,183,0.6); */
+    /* display: inline; */
+    padding: 0.2em 0.3em;
+}
+
+header .header-content .header-content-inner p {
+    color: white;
+}
+
+.header-content-inner {
+    /* background-color: rgba(51,122,183,0.7); */
+    /* background-color: rgba(0,0,255,0.3); */
+    /* background-color: rgba(40,96,144,0.5); */
+    padding: 3em 0;
+}
+
+@media (min-width: 768px) {
+    header .header-content .header-content-inner {
+        max-width: 900px;
+    }
+    .navbar-default {
+        background-color: rgba(40,96,144,0.5);
+/*         background-color: rgba(255,255,255,0.5); */
+/*         background-color: rgba(37,63,107,.5); */
+    }
+    .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
+        color: white;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: white;
+    }
+}
+
+    {% endif %}
+
+</style>
+
+{% endif %}
+
+  <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Everyday Computing</h1>
+                <hr>
+                <p>Prototype learning trajectories for computer science at grades K-5</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Learning Trajectories for Everyday Computing</h2>
+                    <hr class="light">
+                    <p class="text-faded">
+                        LTEC-2 is a collaborative NSF STEM+C project between the University of Florida, UChicago STEM Center, University of Illinois at Urbana Champaign, and the University of Illinois at Chicago. The project seeks to understand how to integrate computational thinking into elementary mathematics. This work involves the development and evaluation of integrated elementary mathematics and computer science/computational thinking lessons that align with learning trajectories for elementary computational thinking. Our research attempts to understand how students' understanding of fractions is influenced by experiences with integrated lessons that combine mathematics with computational thinking.
+                        <!-- UChicago STEM and the University of Illinois at Urbana-Champaign’s College of Education propose a two-year STEM+C Track 1 Exploratory Integration project, "EI: Learning Trajectories for Integrating K-5 Computer Science and Mathematics," which will create prototype learning trajectories for computer science at Grades K-5. Each trajectory will span multiple grades and will include a target goal, intermediate objectives, performance expectations, sample tasks and assessments, and hypothetical learning paths. The prototype learning trajectories, including the sample tasks and assessments, will be designed to fit with Everyday Mathematics 4 (EM4), the elementary curriculum from the University of Chicago School Mathematics Project. Since EM4 is newly revised to closely align with the Common Core State Standards for Mathematics (CCSS-M), the tasks and assessments will also be usable with other instructional materials aligned with CCSS-M. The learning trajectories (LTs) will be developed and tested in collaboration with 18 teachers and 4 teacher-leaders in public schools in Champaign, Illinois. -->
+                        <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <section class="services" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+<iframe id="vimeo_player_1" src="http://player.vimeo.com/video/164178655?api=1&player_id=vimeo_player_1&byline=0" width="100%" height="425px" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+                    <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  <!--
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Sturdy Templates</h3>
+                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  -->
+  <!--
+<section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/Isaacs.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="/static/img/portfolio/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="/static/img/portfolio/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/DianaCropped.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Diana Franklin
+                                </div>
+                                <div class="project-name">
+                                    CEMSE
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+<!--
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/DianaCropped.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Diana Franklin
+                                </div>
+                                <div class="project-name">
+                                    CEMSE
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="static/img/portfolio/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <!--<div class="call-to-action">
+                <h2>Free Download at Start Bootstrap!</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
+            </div>
+          -->
+        </div>
+    </aside>
+
+
+{% endblock %}

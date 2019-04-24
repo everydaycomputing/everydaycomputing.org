@@ -244,7 +244,7 @@ class PublicVisualizationPage(webapp2.RequestHandler):
 """
 APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=HomePage, name='home'),
-                               webapp2.Route('/home-example/<example_id:\d+>/', handler=HomePageExample, name='home'),
+                               webapp2.Route('/home-example/<style_id>/<example_id:\d+>/', handler=HomePageExample, name='home'),
                                webapp2.Route('/about/', handler=AboutPage, name='home'),
                                webapp2.Route('/pd/', handler=ProfessionalDevelopmentPage, name='home'),
                                webapp2.Route('/literature/', handler=PageLiterature),

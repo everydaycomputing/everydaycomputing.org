@@ -3,10 +3,9 @@
 {% block body %}
 
 {% if example_id is defined %}
+
 <style>
-    {% if example_id == '1' %}
 header {
-    background-image: url("/static/img/splash-2-kids-at-board.jpg");
     background-color: rgba(40,96,144,0.25);
     background-blend-mode: screen;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -50,8 +49,59 @@ header .header-content .header-content-inner p {
         color: white;
     }
 }
+
+    {% if example_id == '1' %}
+    
+header {
+    background-image: url("/static/img/splash-2-kids-at-board.jpg");
+}
+
+    {% elif example_id == '2' %}
+
+header {
+    background-image: url("/static/img/splash-2-kids-sharing-computer.jpeg");
+}
+
+    {% elif example_id == '3' %}
+
+header {
+    background-image: url("/static/img/splash-kids-at-computers.jpeg");
+}
+
+    {% elif example_id == '4' %}
+
+header {
+    background-image: url("/static/img/splash-like-coding.jpeg");
+}
+
+    {% elif example_id == '5' %}
+
+header {
+    background-image: url("/static/img/splash-todd-working-with-kids.jpg");
+}
+
+    {% elif example_id == '5' %}
+
+header {
+    background-image: url("/static/img/splash-todd-working-with-kids.jpg");
+}
+
+    {% elif example_id == '6' %}
+
+header {
+    background-image: url("/static/img/splash-fish3.png");
+}
+
+    {% elif example_id == '7' %}
+
+header {
+    background-image: url("/static/img/splash-fish3.png");
+}
+
     {% endif %}
+
 </style>
+
 {% endif %}
 
   <header>
