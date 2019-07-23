@@ -2,15 +2,38 @@
 
 {% block body %}
 
+<style>
+#videos .video-container {
+  margin: 1em 0;
+}
+</style>
 
 <section class="bg-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
         <!-- <h2 class="section-heading">Learning Trajectories for Everyday Computing</h2> -->
-        <h1>About Us</h1>
+        <h1>About LTEC</h1>
         <hr class="light">
-        <p class="text-faded">
+        <a id="vis-btn" href="#why" class="btn btn-primary btn-xl page-scroll">Why it Matters</a>
+        &nbsp;
+        <a id="vis-btn" href="#questions" class="btn btn-primary btn-xl page-scroll">Research Questions</a>
+        &nbsp;
+        <a id="vis-btn" href="#methodology" class="btn btn-primary btn-xl page-scroll">Methodology</a>
+        <br />
+        <a id="vis-btn" href="/about/team/" class="btn btn-primary btn-xl page-scroll">Meet the team</a>
+        &nbsp;
+        <a id="vis-btn" href="#videos" class="btn btn-primary btn-xl page-scroll">Videos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <p>
           Learning Trajectories for Everyday Computing (LTEC-2) is a collaborative NSF STEM+C project between the University of Florida, UChicago STEM Center, University of Illinois at Urbana Champaign, and the University of Illinois at Chicago. The project seeks to understand how to integrate computational thinking into elementary mathematics. This work involves the development and evaluation of integrated elementary mathematics and computer science/computational thinking lessons that align with learning trajectories for elementary computational thinking. Our research attempts to understand how students' understanding of fractions is influenced by experiences with integrated lessons that combine mathematics with computational thinking.
           <!-- UChicago STEM and the University of Illinois at Urbana-Champaign’s College of Education propose a two-year STEM+C Track 1 Exploratory Integration project, "EI: Learning Trajectories for Integrating K-5 Computer Science and Mathematics," which will create prototype learning trajectories for computer science at Grades K-5. Each trajectory will span multiple grades and will include a target goal, intermediate objectives, performance expectations, sample tasks and assessments, and hypothetical learning paths. The prototype learning trajectories, including the sample tasks and assessments, will be designed to fit with Everyday Mathematics 4 (EM4), the elementary curriculum from the University of Chicago School Mathematics Project. Since EM4 is newly revised to closely align with the Common Core State Standards for Mathematics (CCSS-M), the tasks and assessments will also be usable with other instructional materials aligned with CCSS-M. The learning trajectories (LTs) will be developed and tested in collaboration with 18 teachers and 4 teacher-leaders in public schools in Champaign, Illinois.</p> -->
           <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
@@ -19,365 +42,147 @@
   </div>
 </section>
 
-
-
-
-<section>
+<section id="why" class="bg-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading">The Team</h2>
+        <h2 class="section-heading">Why it matters</h2>
+        <hr class="light">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor scelerisque nisi sit amet aliquet. Aenean id aliquam dolor, ac volutpat ligula. Duis in libero consequat eros maximus blandit sit amet a neque. Etiam suscipit ipsum iaculis orci vestibulum ullamcorper. Morbi ultrices, neque et interdum egestas, nunc mauris dictum nunc, in lobortis velit nunc et velit. Integer scelerisque lobortis ante, venenatis consequat est congue nec. Fusce in lacus a nisi efficitur porttitor. Aliquam eleifend augue bibendum arcu lobortis, et tincidunt purus consequat. Aliquam mollis tempus tellus, at cursus purus ultrices et. Fusce facilisis erat sit amet justo molestie, in cursus nulla sodales. Pellentesque tincidunt orci arcu, eget fermentum dolor efficitur in.
+        </p>
+        <p>
+            Aliquam erat volutpat. Duis vulputate blandit vulputate. In vehicula dapibus nisi, quis lacinia lorem venenatis ut. Vestibulum venenatis rhoncus turpis, eget hendrerit libero elementum nec. Quisque rutrum velit at viverra convallis. Proin vitae leo vestibulum, sollicitudin sapien eu, luctus dui. Praesent rhoncus odio sit amet ligula consequat facilisis. Morbi dignissim non purus ac varius. Donec congue ante ut blandit ornare. Donec nisi felis, iaculis vitae est in, suscipit tincidunt nisl. Nunc ullamcorper sagittis metus tristique rutrum. In non porta est, sit amet posuere neque. Fusce laoreet justo nec feugiat rhoncus. Morbi sed imperdiet tellus.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Research Questions</h2>
+        <hr class="light">
+        <p>
+            Nullam at eleifend orci. Sed a ante quam. Pellentesque faucibus augue turpis, sed pretium nibh varius sit amet. Duis lacinia, justo vitae varius maximus, est ante laoreet lectus, quis convallis ex elit vel nibh. Nam scelerisque nunc id nisl lacinia bibendum. Nulla posuere sit amet velit sit amet sagittis. Curabitur orci ex, feugiat vitae fringilla eu, aliquam vitae tortor. Aenean in nisi ornare ipsum laoreet tempor. Fusce iaculis eros a tellus finibus, sed bibendum diam cursus. Phasellus molestie odio molestie, ullamcorper erat et, fringilla massa. Sed in ex sapien. Nunc faucibus arcu sit amet lobortis feugiat.
+        </p>
+        <p>
+            Ut vitae massa in tortor convallis facilisis et ut risus. Suspendisse potenti. Phasellus ornare massa sed leo porta tempus. Nunc molestie suscipit turpis. Maecenas fermentum, purus ut iaculis feugiat, risus mauris sagittis lectus, vitae dignissim ex nibh ac urna. Morbi scelerisque leo ac velit fringilla fermentum. Integer at malesuada nisi. In quis enim at est ullamcorper iaculis et non magna.
+        </p>
+        <p>
+            Curabitur turpis enim, ullamcorper et sapien et, iaculis ornare augue. Pellentesque vel aliquet lectus. Vestibulum eu diam sed sem facilisis aliquet. Suspendisse potenti. Maecenas in urna fringilla, egestas tellus quis, suscipit dolor. Fusce congue sit amet erat et sollicitudin. Vivamus venenatis ante a purus iaculis efficitur. Mauris et pellentesque sapien, ut semper nunc. Maecenas tortor augue, placerat nec ullamcorper eget, tempor at augue. Etiam malesuada commodo orci, sed laoreet leo cursus a. Quisque consectetur mauris et rutrum condimentum. Donec ultricies diam dui, ut cursus sapien ullamcorper pretium. Sed at dolor ex. Pellentesque in consequat ante. Nullam at diam laoreet, ultrices diam a, pellentesque nisl.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="methodology" class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Methodology</h2>
+        <hr class="light">
+        <p>
+            Vivamus blandit massa erat, sed ultrices elit viverra ut. Nullam egestas hendrerit feugiat. Proin sed commodo arcu. In eget malesuada purus. Morbi sollicitudin dignissim leo quis viverra. Maecenas congue leo nec arcu pulvinar condimentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis consectetur, urna eu lacinia fringilla, ligula urna tincidunt ante, sit amet feugiat justo sem sed est. Nullam quis ipsum mi. Sed eleifend eu ipsum in semper. Morbi tristique consectetur feugiat. Donec eget aliquam ex, vel condimentum quam. Ut magna enim, blandit eu erat sit amet, consequat ultricies ex. Vestibulum tempor magna vel tortor fermentum, a pretium odio molestie.
+        </p>
+        <p>
+            Etiam eget consectetur libero, et egestas massa. Cras accumsan malesuada odio, quis efficitur eros malesuada ut. Integer vestibulum non sapien ut convallis. Suspendisse consequat nibh id venenatis egestas. Maecenas volutpat pretium suscipit. In lectus justo, cursus sit amet accumsan ac, finibus eget orci. Proin iaculis ante vel elementum pharetra. Sed placerat, ligula quis pulvinar pretium, lacus erat lacinia quam, ac condimentum nunc urna non augue. Sed placerat dolor ac euismod dictum.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Videos</h2>
         <hr class="primary">
+        <p>
+          The following videos can give you a sense of the background and history of the LTEC project.
+        </p>
       </div>
     </div>
   </div>
 
   <div class="container">
-    <div class="row display-flex display-flex-team">
-      
-      <!-- -------------------------------------------------------------------------------- Maya -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="maya-israel">
-        <div>
-          <img src="/static/img/portfolio/Maya.png" class="img-circle team-thumb" alt="">
-          <h3>Maya Israel</h3>
-          <p class="text-muted">
-            LTEC Role: Principal Investigator (PI)<br/>
-            Associate Professor<br />
-            School of Teaching and Learning<br/>
-            College of Education<br/>
-            University of Florida<br/>
-            <a href="mailto:misrael@coe.ufl.edu">misrael@coe.ufl.edu</a><br/>
-            <a href="https://twitter.com/misrael09">@misrael09</a><br/>
-            <a href="http://blog.everydaycomputing.org/2017/06/30/staff-profile-maya/">Maya's Profile</a>
-          </p>
+    <div class="row">
+
+        <div class="col-lg-6 col-md-12 col-sm-12 text-center video-container">
+          <div>
+            <a href="https://stemforall2016.videohall.com/presentations/691" target="_blank" class="block">
+              <img src="/static/img/video-thumb-videohall-2016.PNG" class="showcase-image" alt="" />
+              <p>
+                2016 STEM Video Townhall:
+                <br />Learning Trajectories for Everyday Computing (LTEC)
+              </p>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- -------------------------------------------------------------------------------- Diana -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="diana-franklin">
-        <div>
-          <img src="/static/img/portfolio/DianaCropped.jpg" class="img-circle team-thumb" alt="">
-          <h3>Diana Franklin</h3>
-          <p class="text-muted">
-            LTEC Role: Co-Principal Investigator (Co-PI)<br/>
-            Research Associate Professor, Department of Computer Science<br/>
-            UChicago STEM Education<br/>
-            The University of Chicago<br/>
-            <a href="mailto:dmfranklin@uchicago.edu">dmfranklin@uchicago.edu</a><br/>
-            <a href="http://blog.everydaycomputing.org/2017/05/22/staff-profile-diana/">Diana's Profile</a>
-          </p>
+        <div class="col-lg-6 col-md-12 col-sm-12 text-center video-container">
+          <div>
+            <a href="https://stemforall2017.videohall.com/presentations/961" target="_blank" class="block">
+              <img src="/static/img/video-thumb-videohall-2017.PNG" class="showcase-image" alt="" />
+              <p>
+                2017 STEM Video Townhall:
+                <br />LTEC: Learning Trajectories for Integrating K-5 CS &amp; Math
+              </p>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- -------------------------------------------------------------------------------- Andy -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="andy-isaacs">
-        <div>
-          <img src="/static/img/portfolio/andy.jpg" class="img-circle team-thumb" alt="">
-          <h3>Andy Isaacs</h3>
-          <p class="text-muted">
-            LTEC Role: Co-Principal Investigator (Co-PI)<br/>
-            Director,  UChicago STEM Education<br/>
-            Director, Everyday Mathematics Revisions<br/>
-            The University of Chicago<br/>
-            <a href="mailto:aisaacs@uchicago.edu">aisaacs@uchicago.edu</a><br/>
-            <a href="https://twitter.com/maththoth">@maththoth</a><br/>
-            <a href="http://blog.everydaycomputing.org/2017/07/20/staff-profile-andy/">Andy's Profile</a>
-          </p>
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 text-center video-container">
+          <div>
+            <a href="https://stemforall2018.videohall.com/presentations/1131" target="_blank" class="block">
+              <img src="/static/img/video-thumb-videohall-2018.PNG" class="showcase-image" alt="" />
+              <p>
+                2018 STEM Video Townhall:
+                <br />Learning Trajectories for Everyday Computing
+              </p>
+            </a>
+          </div>
         </div>
-      </div>
-      
-      <!-- -------------------------------------------------------------------------------- Katie -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="katie-rich">
-        <div>
-          <img src="/static/img/portfolio/rich.jpg" class="img-circle team-thumb" alt="">
-          <h3>Katie Rich</h3>
-          <p class="text-muted">Graduate Student in Educational Psychology and Educational Technology<br/> Michigan State University<br/>
-            <a href="mailto:richkat3@msu.edu">richkat3@msu.edu</a><br/>
-            <a href="https://twitter.com/KatietheCurious">@KatietheCurious</a><br/>
-            <a href="https://katiethecurious.com/about/" target="_blank">Katie's Profile</a>
-          </p>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 text-center video-container">
+          <div>
+            <a href="https://stemforall2019.videohall.com/presentations/1392" target="_blank" class="block">
+              <img src="/static/img/video-thumb-videohall-2019-cropped.png" class="showcase-image" alt="" />
+              <p>
+                2019 STEM Video Townhall:
+                <br />Action Fractions! Integrating Math &amp; CT at Grades 3 &amp; 4
+              </p>
+            </a>
+          </div>
         </div>
-      </div>
-      
-      <!-- -------------------------------------------------------------------------------- Carla -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="carla-strickland">
-        <div>
-          <img src="/static/img/portfolio/carla.jpg" class="img-circle team-thumb" alt="">
-          <h3>Carla Strickland</h3>
-          <p class="text-muted">Digital Development Manager<br/>
-            UChicago STEM Education<br/>
-            The University of Chicago<br/>
-            <a href="mailto:castrickland@uchicago.edu">castrickland@uchicago.edu</a><br/>
-            <a href="https://twitter.com/CisForCarla">@CisForCarla</a>
-          </p>
-        </div>
-      </div>
 
-      <!-- -------------------------------------------------------------------------------- Todd -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="todd-lash">
-        <div>
-          <img src="/static/img/portfolio/lash.jpeg" class="img-circle team-thumb" alt="">
-          <h3>Todd Lash</h3>
-          <p class="text-muted">
-            Instructional Coach for Computer Science and Computational Thinking<br/>
-            Kenwood Elementary, Champaign, IL<br/>
-            <a href="mailto:lashtodd@u4sd.org">lashtodd@u4sd.org</a><br/>
-            <a href="https://twitter.com/Todd_Lash">@Todd_Lash</a><br/>
-            <a href="http://blog.everydaycomputing.org/2017/02/07/letc-profile-todd-last/" target="_blank">Todd's Profile</a>
-           </p>
-        </div>
-      </div>
-      
-      <!-- -------------------------------------------------------------------------------- Brian Gane -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="brian-gane">
-        <div>
-          <img src="/static/img/portfolio/brian-gane.jpg" class="img-circle team-thumb" alt="">
-          <h3>Brian Gane</h3>
-          <p class="text-muted">
-            Visiting Research Assistant Professor<br/>
-            Learning Sciences Research Institute, University of Illinois at Chicago<br/>
-            <a href="mailto:bgane@uic.edu">bgane@uic.edu</a>
-           </p>
-        </div>
-      </div>
-
-      <!-- -------------------------------------------------------------------------------- Megan Deiger -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="megan-deiger">
-        <div>
-          <img src="/static/img/portfolio/megan-deiger.jpg" class="img-circle team-thumb" alt="">
-          <h3>Megan Deiger, PhD</h3>
-          <p class="text-muted">
-            Assistant Research Professor<br/>
-            Loyola University Chicago<br/>
-            <a href="http://www.luc.edu/cse/">Center for Science and Math Education</a><br />
-            <a href="mailto:mdeiger@luc.edu">mdeiger@luc.edu</a><br/>
-          </p>
-       </div>
-     </div>
-
-     <!-- -------------------------------------------------------------------------------- Donna Eatinger -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="donna-eatinger">
-       <div>
-         <img src="/static/img/portfolio/donna-eatinger.jpg" class="img-circle team-thumb" alt="">
-         <h3>Donna Eatinger</h3>
-         <p class="text-muted">
-           School Development Specialist<br/>
-           UChicago STEM Education<br/>
-           The University of Chicago<br/>
-           <a href="mailto:dmeatinger@uchicago.edu">dmeatinger@uchicago.edu</a>
-         </p>
-       </div>
-     </div>
-
-     <!-- -------------------------------------------------------------------------------- Yin-Chan Janet Liao -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="janet-liao">
-       <div>
-         <img src="/static/img/portfolio/janet-liao.jpg" class="img-circle team-thumb" alt="">
-         <h3>Yin-Chan Janet Liao</h3>
-         <p class="text-muted">
-           Post-Doctoral Scholar<br/>
-           UChicago STEM Education<br/>
-           The University of Chicago<br/>
-           <a href="mailto:liao33@uchicago.edu">liao33@uchicago.edu</a><br />
-           <a href="https://twitter.com/janetliao33">@janetliao33</a>
-         </p>
-       </div>
-     </div>
-
-     <!-- -------------------------------------------------------------------------------- Yasemin Cicek -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="yasemin-cicek">
-       <div>
-         <img src="/static/img/portfolio/yasemin-cicek.jpg" class="img-circle team-thumb" alt="">
-         <h3>Yasemin Cicek</h3>
-         <p class="text-muted">
-           Graduate Student in Curriculum and Instruction<br/>
-           Digital Environments for Learning, Teaching, and Agency (DELTA)<br/>
-           University of Illinois at Urbana-Champaign<br/>
-           <a href="mailto:ycicek2@illinois.edu">ycicek2@illinois.edu</a><br />
-           <a href="https://twitter.com/TrYaseminCicek">@TrYaseminCicek</a>
-         </p>
-       </div>
-     </div>
-
-     <!-- ---------------------------------------------------------------------------------- Noor Elagha -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="noor-elagha">
-       <div>
-         <img src="/static/img/portfolio/noor-elagha.jpg" class="img-circle team-thumb" alt="">
-         <h3>Noor Elagha</h3>
-         <p class="text-muted">
-            Graduate Student in Cognitive Psychology<br/>
-            University of Illinois at Chicago<br/>
-           <a href="mailto:nelagh2@uic.edu">nelagh2@uic.edu</a>
-         </p>
-       </div>
-     </div>
-     
-     <!-- -------------------------------------------------------------------------------- John Hampton -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="john-hampton">
-       <div>
-         <img src="/static/img/portfolio/john-hampton.jpg" class="img-circle team-thumb" alt="">
-         <h3>John Hampton</h3>
-         <p class="text-muted">
-           Doctoral Student in Educational Technology<br/>
-           University of Florida<br/>
-           <a href="mailto:ufxero@ufl.edu">ufxero@ufl.edu</a><br/>
-           <a href="https://twitter.com/hampthephd">@hampthephd</a>
-         </p>
-       </div>
-     </div>
-      
-     <!-- -------------------------------------------------------------------------------- Ruohan Liu -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="ruohan-liu">
-       <div>
-         <img src="/static/img/portfolio/ruohan-liu.jpg" class="img-circle team-thumb" alt="">
-         <h3>Ruohan Liu</h3>
-         <p class="text-muted">
-           Doctoral Student in Educational Technology<br/>
-           University of Florida<br/>
-           <a href="mailto:liuruohan1990@ufl.edu">liuruohan1990@ufl.edu</a><br/>
-           <a href="https://twitter.com/RuohanLiu1">@RuohanLiu1</a>
-         </p>
-       </div>
-     </div>
-      
-     <!-- -------------------------------------------------------------------------------- Feiya Luo -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="feiya-luo">
-       <div>
-         <img src="/static/img/portfolio/feiya-luo.jpg" class="img-circle team-thumb" alt="">
-         <h3>Feiya Luo</h3>
-         <p class="text-muted">
-           Doctoral Student in Educational Technology<br/>
-           University of Florida<br/>
-           <a href="mailto:sophia.l1998@ufl.edu">sophia.l1998@ufl.edu</a><br/>
-           <a href="https://twitter.com/FeiyaLuo">@FeiyaLuo</a>
-         </p>
-       </div>
-     </div>
-      
-     <!-- -------------------------------------------------------------------------------- Wei Yan -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="wei-yan">
-       <div>
-         <img src="/static/img/portfolio/wei-yan.jpg" class="img-circle team-thumb" alt="">
-         <h3>Wei Yan</h3>
-         <p class="text-muted">
-           Doctoral Student in Educational Technology<br/>
-           University of Florida<br/>
-           <a href="mailto:wei1993yan@ufl.edu">wei1993yan@ufl.edu</a>
-         </p>
-       </div>
-     </div>
-
-     <!-- ----------------------------------------------------------------------------- Michael McKelvey -->
-     <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="michael-mckelvey">
-       <div>
-         <img src="/static/img/portfolio/michael-mckelvey.jpg" class="img-circle team-thumb" alt="">
-         <h3>Michael McKelvey</h3>
-         <p class="text-muted">
-           Coordinator of Engagement Technology &amp; New Media<br/>
-           Office for Mathematics, Science, and Technology Education (MSTE)<br/>
-           College of Education<br/>
-           University of Illinois at Urbana-Champaign<br/>
-           <a href="mailto:mmckelve@illinois.edu">mmckelve@illinois.edu</a><br />
-         </p>
-       </div>
-     </div>
-    
     </div> <!-- /.row -->
-
   </div> <!-- /.container -->
-
 </section>
 
-
-<section>
+<!-- <section class="bg-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Past Team members</h2>
-        <hr class="primary">
+        <h2 class="section-heading">More about us</h2>
+        <hr class="light">
+        <br>
+        <a id="vis-btn" href="/about/team/" class="btn btn-primary btn-xl page-scroll">Meet the team</a>
+        &nbsp;
+        <a id="vis-btn" href="/public/resource/" class="btn btn-primary btn-xl page-scroll">Resources</a>
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="row display-flex display-flex-team">
-      
-      <!-- -------------------------------------------------------------------------------- George -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="george-reese">
-        <div>
-          <img src="/static/img/portfolio/reese.jpg" class="img-circle team-thumb" alt="">
-          <h3>George Reese</h3>
-          <p class="text-muted">
-            Director of the Mathematics, Science and Technology Office<br/>
-            University of Illinois at Urbana-Champaign<br/>
-            <a href="mailto:reese@illinois.edu">reese@illinois.edu</a><br/>
-            <a href="https://twitter.com/mstegeorge">@mstegeorge</a><br/>
-            <a href="http://blog.everydaycomputing.org/2017/03/06/staff-profile-george/" target="_blank">George's Profile</a>
-          </p>
-        </div>
-      </div>
-      
-      <!-- -------------------------------------------------------------------------------- Cheryl -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="cheryl-moran">
-        <div>
-          <img src="/static/img/portfolio/cheryl.jpg" class="img-circle team-thumb" alt="">
-          <h3>Cheryl Moran</h3>
-          <p class="text-muted">Senior Curriculum Developer<br/>
-            UChicago STEM Education<br/>
-            The University of Chicago<br/>
-            <a href="mailto:cgmoran@uchicago.edu">cgmoran@uchicago.edu</a><br/>
-            <a href="http://blog.everydaycomputing.org/2017/02/20/staff-profile-cheryl-moran/" target="_blank">Cheryl's Profile</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- -------------------------------------------------------------------------------- Andrew -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="andrew-binkowski">
-        <div>
-          <img src="/static/img/portfolio/andrewb.jpg" class="img-circle team-thumb" alt="">
-          <h3>Andrew Binkowski</h3>
-          <p class="text-muted">
-            Asst Clinical Professor, Department of Computer Science<br/>
-            Senior Fellow, Computation Institute<br/>
-            The University of Chicago<br/>
-            <a href="mailto:abinkowski@uchicago.edu">abinkowski@uchicago.edu</a></p>
-          </p>
-        </div>
-      </div>
-      
-      <!-- -------------------------------------------------------------------------------- Quentin -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="quentin-wherfel">
-        <div>
-          <img src="/static/img/portfolio/Wherfel.jpg" class="img-circle team-thumb" alt="">
-          <h3>Quentin Wherfel</h3>
-          <p class="text-muted">
-            Doctoral Student in the Department of Special Education<br/>
-            University of Illinois at Urbana-Champaign<br/>
-            <a href="mailto:wherfel2@illinois.edu">wherfel2@illinois.edu</a><br/>
-            <a href="http://education.illinois.edu/sped/about-the-department/current-students" target="_blank">Quentin's Profile</a>
-          </p>
-        </div>
-      </div>
-      
-      <!-- -------------------------------------------------------------------------------- Jelena -->
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="jelena-pokimica">
-        <div>
-          <img src="/static/img/portfolio/JelenaP.jpg" class="img-circle team-thumb" alt="">
-          <h3>Jelena Pokimica</h3>
-          <p class="text-muted">
-            Doctoral Student in Education Policy, Organization and Leadership (EPOL)<br/>
-            University of Illinois at Urbana-Champaign<br/>
-            <a href="mailto:pokimic2@illinois.edu">pokimic2@illinois.edu</a>
-          </p>
-        </div>
-      </div>
-      
-    </div> <!-- /.row -->
-  </div> <!-- /.container -->
-
-</section>
-
-
+</section> -->
 
 <aside class="bg-dark">
   <div class="container text-center">
@@ -388,6 +193,29 @@
      -->
   </div>
 </aside>
+
+
+
+<!-- ----------------------------------------------------------- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Stay in Touch</h2>
+        <hr class="primary">
+        <p>Want to keep up to date with Everyday Computing? Follow up on Twitter or send us an email!</p>
+      </div>
+      <div class="col-lg-4 col-lg-offset-2 text-center">
+        <i class="fab fa-twitter fa-5x wow bounceIn"></i>
+        <p><a href="http://twitter.com/everydayCS">@everydayCS</a></p>
+      </div>
+      <div class="col-lg-4 text-center">
+        <i class="fas fa-envelope fa-5x wow bounceIn" data-wow-delay=".1s"></i>
+        <p><a href="mailto:everydaycsproject@gmail.com">everydaycsproject@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 {% endblock %}
