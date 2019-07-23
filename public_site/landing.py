@@ -35,6 +35,14 @@ class AboutPage(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/public_about.html')
         self.response.write(template.render(template_values))
 
+class TeamPage(webapp2.RequestHandler):
+    """Team page for the public facing website."""
+
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/public_team.html')
+        self.response.write(template.render(template_values))
+
 class ProfessionalDevelopmentPage(webapp2.RequestHandler):
     """Professional Development page for the public facing website."""
 
