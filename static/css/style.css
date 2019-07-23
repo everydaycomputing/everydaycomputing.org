@@ -42,8 +42,24 @@ p {
   font-size: 2rem;
 }
 
+ul {
+  font-size: 2rem;
+}
+
 .center {
   text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.block {
+  display: block;
 }
 
 /** Add space above certain fragment identifiers to get below the sticky header for deep-linking **/
@@ -70,9 +86,32 @@ footer {
   border-top: 1px solid #c0c0c0;
 }
 
+footer p {
+  margin: 0;
+}
 footer .container {
   padding: 20px;
 }
+
+footer .container > .row {
+  display: flex;
+  align-items: center;
+
+}
+
+footer .nsf {
+  margin: 1em 0 3em 0;
+}
+
+footer .nsf .nsf-logo img {
+  width: 75%;
+}
+
+footer .social-media a {
+  text-decoration: none;
+  margin: 0 0.25em;
+}
+
 
 .bg-primary p {
   font-size: 2.5rem;
@@ -80,6 +119,37 @@ footer .container {
 
 .showcase-image {
   max-width: 100%;
+}
+
+.icon-big {
+  font-size: 10em;
+}
+
+.icon-huge {
+  font-size: 20em;
+}
+
+.icon-laptop-divide-container-outer {
+  position: relative;
+}
+.icon-laptop-divide-container-inner {
+  display: inline-block;
+  position: relative;
+}
+.icon-laptop-under-divide {
+  position: relative;
+}
+/* Position the minus sign over the laptop screen */
+.icon-divide-over-laptop {
+  position: absolute;
+  left: 35%;
+  font-size: 4.25em;
+  top: 17%;
+}
+/* Scale back the minus sign size when huge icon size is set on the outer container */
+.icon-laptop-divide-container-outer.icon-huge .icon-divide-over-laptop {
+  font-size: 0.425em;
+  top: 25%;
 }
 
 /* #cy {
@@ -382,10 +452,6 @@ tr {
 
 .pd-advert .pd-advert-tagline {
   font-size: 2.1em;
-}
-
-.pd-advert-icon {
-  font-size: 10em;
 }
 
 .pd-advert .pd-advert-aside {
