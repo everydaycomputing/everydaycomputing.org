@@ -65,3 +65,11 @@ class HomePageExample(webapp2.RequestHandler):
             webapp2.abort(404)
         
         self.response.write(template.render(template_values))
+
+class VideosPage(webapp2.RequestHandler):
+    """Videos page for the public facing website."""
+
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/public_videos.html')
+        self.response.write(template.render(template_values))
