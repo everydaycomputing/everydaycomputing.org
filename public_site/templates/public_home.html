@@ -1,45 +1,135 @@
 {% extends "templates/public_base_template.html" %}
 
 {% block body %}
-  <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>Everyday Computing</h1>
+    <header>
+        <div class="header-content-homepage">
+            <div class="header-content-homepage-inner">
+                
+                <!-- <h1>Everyday Computing</h1>
                 <hr>
                 <p>Prototype learning trajectories for computer science at grades K-5</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
+                <!-- <video></video> -->
+                <img src="/static/img/video-thumb-videohall-2018.PNG" alt="" style="width: 100%;" />
+            </div>
+            <div class="header-content-homepage-inner">
+                <h2>About Everyday Computing</h2>
+                <p>
+                    <!-- LTEC-2 is a collaborative NSF STEM+C project between the University of Florida, UChicago STEM Center, University of Illinois at Urbana Champaign, and the University of Illinois at Chicago. The project seeks to understand how to integrate computational thinking into elementary mathematics. This work involves the development and evaluation of integrated elementary mathematics and computer science/computational thinking lessons that align with learning trajectories for elementary computational thinking. Our research attempts to understand how students' understanding of fractions is influenced by experiences with integrated lessons that combine mathematics with computational thinking. -->
+                    Learning Trajectories for Everyday Computing is a collaborative NSF STEM+C project which seeks to understand how to integrate computational thinking into elementary mathematics.
+                </p>
+
+                <p>
+                    <a href="/about/" class="btn btn-default btn-xl page-scroll">Find Out More</a>
+                </p>
             </div>
         </div>
     </header>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                    <div class="service-box">
+                        <span class="fab fa-creative-commons-pd-alt text-primary icon-big" aria-hidden="true"></span>
+                        <h3>Professional Development</h3>
+                        <p>
+                            We offer professional development for teachers looking to integrate computational thinking and computer science into their mathematics curriculum.
+                        </p>
+
+                        <p>
+                            <br />
+                            <a href="/pd/" class="btn btn-primary btn-xl wow tada" style="visibility: visible; animation-name: tada;">Learn more<span class="sr-only"> about our professional development opportunities</span></a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                    <div class="service-box">
+                        <div class="icon-laptop-divide-container-outer">
+                            <div class="icon-laptop-divide-container-inner">
+                                <span class="fas fa-laptop text-primary icon-laptop-under-divide icon-big" aria-hidden="true"></span>
+                                <span class="fas fa-divide text-primary icon-divide-over-laptop" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <h3>Action Fractions Lessons</h3>
+                        <p>
+                            Action Fractions is an integrated mathematics-computational thinking curriculum, designed using Everyday Mathematics. This course focuses on 3rd and 4th grade fractions instruction, providing 10 hours of instruction per year to augment any existing mathematics curriculum.
+                        </p>
+
+                        <p>
+                            <br />
+                            <a href="https://www.canonlab.org/actionfractionslessons" class="btn btn-primary btn-xl wow tada" style="visibility: visible; animation-name: tada;">View sample lessons</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                    <div class="service-box">
+                        <span class="fas fa-code-branch text-primary icon-big" aria-hidden="true"></span>
+                        <h3>Learning Trajectories</h3>
+                        <p>
+                            We have developed learning trajectories for computer science at grades K-5. We have published learning trajectories for the topics of Sequence, Repetition, Conditionals, Decomposition, & Debugging.
+                        </p>
+
+                        <p>
+                            <br />
+                            <a href="/public/visualization/" class="btn btn-primary btn-xl wow tada" style="visibility: visible; animation-name: tada;">View Learning Trajectories</a>
+                        </p>
+                    </div>
+                </div>        
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section> <!-- /#services -->
 
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Learning Trajectories for Everyday Computing</h2>
+                    <h2 class="section-heading">Our Mission</h2>
                     <hr class="light">
                     <p class="text-faded">
-                        LTEC-2 is a collaborative NSF STEM+C project between the University of Florida, UChicago STEM Center, University of Illinois at Urbana Champaign, and the University of Illinois at Chicago. The project seeks to understand how to integrate computational thinking into elementary mathematics. This work involves the development and evaluation of integrated elementary mathematics and computer science/computational thinking lessons that align with learning trajectories for elementary computational thinking. Our research attempts to understand how students' understanding of fractions is influenced by experiences with integrated lessons that combine mathematics with computational thinking.
-                        <!-- UChicago STEM and the University of Illinois at Urbana-Champaign’s College of Education propose a two-year STEM+C Track 1 Exploratory Integration project, "EI: Learning Trajectories for Integrating K-5 Computer Science and Mathematics," which will create prototype learning trajectories for computer science at Grades K-5. Each trajectory will span multiple grades and will include a target goal, intermediate objectives, performance expectations, sample tasks and assessments, and hypothetical learning paths. The prototype learning trajectories, including the sample tasks and assessments, will be designed to fit with Everyday Mathematics 4 (EM4), the elementary curriculum from the University of Chicago School Mathematics Project. Since EM4 is newly revised to closely align with the Common Core State Standards for Mathematics (CCSS-M), the tasks and assessments will also be usable with other instructional materials aligned with CCSS-M. The learning trajectories (LTs) will be developed and tested in collaboration with 18 teachers and 4 teacher-leaders in public schools in Champaign, Illinois. -->
-                        <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
+                        Insert text here describing our core mission, or perhaps "Why it matters" or "Research Questions"?
+                    </p>
+                    <p>
+                        <a href="/about/" class="btn btn-default btn-xl">Learn more about our work</a>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-
- <section class="services" id="about">
+    <section id="partners">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-<iframe id="vimeo_player_1" src="http://player.vimeo.com/video/164178655?api=1&player_id=vimeo_player_1&byline=0" width="100%" height="425px" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
-                    <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
+                    <h2 class="section-heading sr-only">Partners</h2>
                 </div>
             </div>
-        </div>
-    </section>
+            <!--
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+                    <img src="/static/img/logos/UChicago_STEM_ED_logo3-01.png" alt="University of Chicago STEM Education Center" style="width: 80%;">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+                    <img src="/static/img/logos/uf-college-of-education_official-logo.png" alt="University of Florida College of Education" style="width: 90%;">
+                </div>
+            </div> --> <!-- /.row -->
+            
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <img src="/static/img/logos/uf-college-of-education_official-logo.png" alt="University of Florida College of Education" class="logo-uf">
+                    <img src="/static/img/logos/UChicago_STEM_ED_logo3-01.png" alt="University of Chicago STEM Education Center" class="logo-uchicago">
+                </div>
+            </div> <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <img src="/static/img/logos/Illinois-Wordmark-Horizontal-Full-Color-RGB.png" alt="University of Illinois at Urbana-Champaign" class="logo-illinois">
+                    <img src="/static/img/logos/CAMP.CIRC.LG.RED.png" alt="University of Illinois at Chicago" class="logo-uic">
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section> <!-- /#partners -->
 
 
   <!--
@@ -292,6 +382,27 @@
           -->
         </div>
     </aside>
+    
+    <!-- ----------------------------------------------------------- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Stay in Touch</h2>
+                <hr class="primary">
+                <p>Want to keep up to date with Everyday Computing? Follow up on Twitter or send us an email!</p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-2 text-center">
+                <i class="fab fa-twitter fa-5x wow bounceIn"></i>
+                <p><a href="http://twitter.com/everydayCS">@everydayCS</a></p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fas fa-envelope fa-5x wow bounceIn" data-wow-delay=".1s"></i>
+                <p><a href="mailto:everydaycsproject@gmail.com">everydaycsproject@gmail.com</a></p>
+            </div>
+            </div>
+        </div>
+    </section>
 
 
 {% endblock %}
