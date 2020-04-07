@@ -12,6 +12,10 @@ a:hover,
 a:focus {
     color: #286090;
 }
+
+.bg-primary a:not(.btn) {
+	color: #fff;
+}
   
 .bg-primary {
 	background-color: #337ab7;

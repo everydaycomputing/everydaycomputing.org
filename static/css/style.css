@@ -622,7 +622,7 @@ tr {
 
 /** Lessons Page **/
 .sample-lessons figure {
-  margin: 3em 0;
+  margin: 0 0 3em 0;
 }
 .sample-lessons img {
   max-width: 100%;
@@ -634,7 +634,7 @@ tr {
 }
 @media (min-width: 1200px) {
   .sample-lessons figure {
-    margin: 2em 0;
+    margin: 0 0 2em 0;
   }
   .sample-lessons img {
     max-height: 280px;
