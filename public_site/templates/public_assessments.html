@@ -1,0 +1,197 @@
+{% set includeMagnific = true %}
+{% extends "templates/public_base_template.html" %}
+
+{% block body %}
+
+<!-- Magnific Lightbox implementation -->
+<script>
+
+// Reusable function to lightboxify a section in case items are dynamically added to the page
+function lightboxify() {
+  // Load each gallery separately
+  jQuery('.lightbox').each(function() {
+    jQuery(this).magnificPopup({
+      delegate: 'a.gallery-item', // the selector for gallery item
+      type: 'image',
+      gallery:{
+        enabled:true
+      },
+      image: {
+        verticalFit: true,
+        titleSrc: function(item) {
+          return jQuery(item.el).closest('figure').find('figcaption').text() + '<br /><a href=\"' + jQuery(item.el).attr('href') + '\" target=\"_blank\">View image #' + (jQuery(item.el).closest('li').index() + 1) + ' at full size in a new tab</a>';
+        }
+      },
+    });
+  });
+}
+
+jQuery(document).ready(function() {
+  lightboxify();
+});
+</script>
+
+<section class="bg-primary" id="intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Action Fractions Assessments</h2>
+        <hr class="light">
+        <br>
+        <p class="text-faded">
+			We have developed assessments to be used at different points after teaching the <a href="/lessons/" class="">Action Fractions lessons</a>. These assessments are grade-specific and organized to be used after teaching multiple lessons.
+        </p>
+        <a id="vis-btn" href="#about" class="btn btn-primary btn-xl page-scroll">About our Assessments</a>
+        <!-- &nbsp;
+        <a id="vis-btn" href="#lesson-fraction-circles" class="btn btn-primary btn-xl page-scroll">Sample Lesson: Fraction Circles 1</a>
+        &nbsp;
+        <a id="vis-btn" href="#lesson-frog-fly" class="btn btn-primary btn-xl page-scroll">Sample Lesson: The Frog and the Fly</a>
+        &nbsp;
+        <a id="vis-btn" href="#more-lessons" class="btn btn-primary btn-xl page-scroll">More Lessons</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>About our Assessments</h2>
+        <hr>
+        <p>
+			Each grade has three assessments, to be used after every four lessons. The assessments are designed and developed according to each Learning Trajectory, so for instance there are assessment items that measure students' knowledge, skills, and abilities with sequence, with conditionals, etc.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 
+<section class="bg-primary" id="lesson-fraction-circles">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center">
+        <h2>Fraction Circles 1</h2>
+        <hr class="light">
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center">
+        <h3>Activity Summary</h3>
+        <p>
+          Students use Scratch to create representations of fractions using fraction circle pieces, by modifying a functioning example program. They decompose the fraction (a/b) that they want to represent into a sum of unit fractions (1/b), and express this as a number sentence. They learn that the denominator (b) represents the number of equal parts needed to make a whole and that the numerator (a) represents the number of parts being considered. They program the computer -- using custom blocks -- to select the size of the unit fraction, the number of unit fractions needed to represent the fraction, the fraction circle picture, and the corresponding number sentence. Students’ exploration is guided by the use of the example program and a journal page.
+        </p>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center">
+        <h3>Fraction Circles 1 Samples</h3>
+      </div>
+    </div>
+    <ul class="row align-items-center sample-lessons nodecor lightbox">
+      <li class="col-lg-4 col-md-6 col-sm-12 text-center">
+        <figure>
+          <a class="gallery-item" href="/static/img/lessons/lesson-sample-fraction-circles-1-project-image.png">
+            <img src="/static/img/lessons/lesson-sample-fraction-circles-1-project-image.png"
+              class="sample-lesson"
+              alt="Scratch project stage for Fraction Circles 1 lesson, depicting a circle with 2 segments filled in and many fractional segment options below it" />
+          </a>
+          <figcaption>Fraction Circles 1 Scratch project stage</figcaption>
+        </figure>
+      </li>
+      <li class="col-lg-4 col-md-6 col-sm-12 text-center">
+        <figure>
+          <a class="gallery-item" href="/static/img/lessons/lesson-sample-fraction-circles-1-script.png">
+            <img src="/static/img/lessons/lesson-sample-fraction-circles-1-script.png"
+              class="sample-lesson"
+              alt="Demo of a code block segment from the Fraction Circles 1 Scratch project" />
+            </a>
+          <figcaption>Fraction Circles 1 Scratch project code blocks</figcaption>
+        </figure>
+      </li>
+      <li class="col-lg-4 col-md-6 col-sm-12 text-center">
+        <figure>
+          <a class="gallery-item" href="/static/img/lessons/lesson-sample-fraction-circles-1-tipp-see.png">
+            <img src="/static/img/lessons/lesson-sample-fraction-circles-1-tipp-see.png"
+              class="sample-lesson"
+              alt="TIPP&SEE worksheet for Fraction Circles 1 lesson. TIPP&SEE describes the process students are encouraged to follow: get a 'TIPP' from the project page (Read carefully: Title, Instructions, Purpose, then Play the project), then SEE inside (First click on the Sprite pieces, then find the Event; Explore)" />
+          </a>
+          <figcaption>Fraction Circles 1 <abbr title="Title, Instructions, Purpose, Play; & Sprite, Event, Explore">TIPP&SEE</abbr> worksheet</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="lesson-frog-fly">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center">
+        <h2>The Frog and the Fly</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center">
+        <h3>Activity Summary</h3>
+        <p>
+          Children attempt to move a frog to the end of a number line, starting with incorrect arguments in their code. Children make guesses and modify the code to partition the line segment into equal fractional parts and catch a fly at the end.
+        </p>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center">
+        <h3>The Frog and the Fly Samples</h3>
+      </div>
+    </div>
+    <ul class="row align-items-center sample-lessons nodecor lightbox">
+      <li class="col-lg-4 col-md-6 col-sm-12 text-center">
+        <figure>
+          <a class="gallery-item" href="/static/img/lessons/lesson-sample-the-frog-and-the-fly-project-image.png">
+            <img src="/static/img/lessons/lesson-sample-the-frog-and-the-fly-project-image.png"
+              class="sample-lesson"
+              alt="Scratch project stage for The Frog and the Fly lesson, depicting a frog and a fly over a numberline; the frog at point 0 and the fly near point 1" />
+          </a>
+          <figcaption>The Frog and the Fly Scratch project stage</figcaption>
+        </figure>
+      </li>
+      <li class="col-lg-4 col-md-6 col-sm-12 text-center">
+        <figure>
+          <a class="gallery-item" href="/static/img/lessons/lesson-sample-the-frog-and-the-fly-script.png">
+            <img src="/static/img/lessons/lesson-sample-the-frog-and-the-fly-script.png"
+              class="sample-lesson"
+              alt="Demo of a code block segment from the The Frog and the Fly Scratch project" />
+            </a>
+          <figcaption>The Frog and the Fly Scratch project code blocks</figcaption>
+        </figure>
+      </li>
+      <li class="col-lg-4 col-md-6 col-sm-12 text-center">
+        <figure>
+          <a class="gallery-item" href="/static/img/lessons/lesson-sample-the-frog-and-the-fly-tipp-see.png">
+            <img src="/static/img/lessons/lesson-sample-the-frog-and-the-fly-tipp-see.png"
+              class="sample-lesson"
+              alt="TIPP&SEE worksheet for The Frog and the Fly lesson. TIPP&SEE describes the process students are encouraged to follow: get a 'TIPP' from the project page (Read carefully: Title, Instructions, Purpose, then Play the project), then SEE inside (First click on the Sprite pieces, then find the Event; Explore)" />
+          </a>
+          <figcaption>The Frog and the Fly <abbr title="Title, Instructions, Purpose, Play; & Sprite, Event, Explore">TIPP&SEE</abbr> worksheet</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section> -->
+
+<aside class="bg-dark" id="more-lessons">
+  <div class="container text-center">
+    <div class="call-to-action">
+      <h2>Interested in learning more about our assessments?</h2>
+      <a href="mailto:everydaycsproject@gmail.com" class="btn btn-default btn-xl wow tada">Contact Us</a>
+      </div>
+  </div>
+</aside>
+
+<!-- <section class="bg-dark">
+    <div class="container text-center">
+      
+    </div>
+  </section> -->
+
+{% endblock %}
