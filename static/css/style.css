@@ -547,6 +547,11 @@ tr {
 }
 
 /** About Page **/
+#videos .video-container {
+  margin: 1em 0;
+}
+
+/** Team Page **/
 .row.display-flex {
 	display: flex;
 	flex-wrap: wrap;
