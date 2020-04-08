@@ -573,8 +573,14 @@ tr {
 */
 
 /** Homepage **/
-#partners img {
-  margin: 1em 2em;
+.partner-images img {
+  margin: 2em;
+}
+.partner-images-first {
+  margin-top: 2em;
+}
+.partner-images-last {
+  margin-bottom: 3em;
 }
 .logo-uf {
   width: 45%;
