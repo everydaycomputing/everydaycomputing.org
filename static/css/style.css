@@ -53,6 +53,7 @@ ul {
   font-size: 2rem;
 }
 
+/* Remove decor (bullets/numbers) from list display */
 ul.nodecor,
 ol.nodecor {
   list-style: none;
@@ -63,6 +64,34 @@ ol.nodecor {
 ul.nodecor li::before,
 ol.nodecor li::before {
   content: "\200B";
+}
+
+/* Transform list with FontAwesome bullets into set of large block with enormous, light bg bullets */
+ul.row.fa-ul {
+  margin-left: 0;
+}
+ul.row.fa-ul li {
+  padding: 3em;
+}
+ul.row.fa-ul li .fa-li {
+  /* Remove all padding from icon container */
+  width: initial;
+  line-height: 0;
+
+  /* Centered icon */
+  /* font-size: 12rem;
+  left: 50%;
+  margin-left: -6rem;
+  top: 50%;
+  margin-top: -6rem; */
+
+  /* Offset left icon */
+  font-size: 14rem;
+  top: 0.1em;
+  left: 0;
+  
+  color: rgba(51, 122, 183,0.15);
+  transform: rotate(-10deg);
 }
 
 .center {
