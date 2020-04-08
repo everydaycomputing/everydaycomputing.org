@@ -2,6 +2,7 @@
 import os
 import jinja2
 import webapp2
+import random
 
 JINJA_ENVIRONMENT = jinja2.Environment(\
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)), \
@@ -12,7 +13,14 @@ class HomePage(webapp2.RequestHandler):
     """Handlers for the public facing website."""
 
     def get(self):
-        template_values = {}
+        # Define possible video IDs
+        video_ids = ['164178655','214983140','266544098','332316962']
+        # Select random video to display
+        video_id = random.choice(video_ids)
+        # Pass video ID to template
+        template_values = {
+            'video_id': video_id
+        }
         template = JINJA_ENVIRONMENT.get_template('templates/public_home.html')
         self.response.write(template.render(template_values))
 
