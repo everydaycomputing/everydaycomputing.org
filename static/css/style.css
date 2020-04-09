@@ -110,6 +110,11 @@ ul.row.fa-ul li .fa-li {
   display: block;
 }
 
+.hangingindent {
+  padding-left: 35px;
+  text-indent: -35px;
+}
+
 /** Add space above certain fragment identifiers to get below the sticky header for deep-linking **/
 .paddedAnchor:before {
   content: " ";
