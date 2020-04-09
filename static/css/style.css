@@ -215,45 +215,46 @@ header .header-content .header-content-inner p {
 }
 
 .navbar-default .navbar-header .navbar-brand {
-/* color: #337ab7; */
-color: white;
+  color: #337ab7;
+  /* color: white; */
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
-color: white;
-background-color: #286090;
+  color: white;
+  background-color: #286090;
 }
 
 .navbar-default .nav > li>a:hover,
+.navbar-default .nav>li>a:focus:hover,
 .navbar-default .nav>li>a:focus {
   color: white;
-background-color: #286090;
+  background-color: #286090;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-/* color: #337ab7!important; */
-color: white;
-background-color: #337ab7;
+  /* color: #337ab7!important; */
+  color: white;
+  background-color: #337ab7;
 }
 
 @media (min-width: 768px) {
   header .header-content .header-content-inner {
-      max-width: 900px;
+    max-width: 900px;
   }
   .navbar-default {
       background-color: #337ab7;
       /* background-color: rgba(40,96,144,1); */
       /* background-color: rgba(40,96,144,0.5); */
-/*         background-color: rgba(255,255,255,0.5); */
-/*         background-color: rgba(37,63,107,.5); */
+      /* background-color: rgba(255,255,255,0.5); */
+      /* background-color: rgba(37,63,107,.5); */
   }
   .navbar-default .nav > li>a, .navbar-default .nav>li>a:focus {
-      color: white;
+    color: white;
   }
   .navbar-default .navbar-header .navbar-brand {
-      color: white;
+    color: white;
   }
 
 
@@ -269,6 +270,7 @@ background-color: #337ab7;
   }
 
   .navbar-default.affix .nav > li>a:hover,
+  .navbar-default.affix .nav>li>a:focus:hover,
   .navbar-default.affix .nav>li>a:focus {
       color: white;
   background-color: #286090;

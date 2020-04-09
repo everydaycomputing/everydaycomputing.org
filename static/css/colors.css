@@ -21,51 +21,6 @@ a:focus {
 	background-color: #337ab7;
 }
 
-.navbar-default .navbar-header .navbar-brand {
-	/* color: #337ab7; */
-	color: white;
-}
-
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
-	color: white;
-	background-color: #337ab7;
-}
-
-.navbar-default .nav > li>a:hover,
-.navbar-default .nav>li>a:focus {
-    color: white;
-	background-color: #337ab7;
-}
-
-.navbar-default .nav > li.active>a,
-.navbar-default .nav>li.active>a:focus {
-	/* color: #337ab7!important; */
-	color: white;
-	background-color: #337ab7;
-}
-
-@media(min-width:768px) {
-
-    .navbar-default.affix .navbar-header .navbar-brand {
-        font-size: 14px;
-        color: #337ab7;
-    }
-
-    .navbar-default.affix .navbar-header .navbar-brand:hover,
-    .navbar-default.affix .navbar-header .navbar-brand:focus {
-		color: white;
-		background-color: #337ab7;
-    }
-
-    .navbar-default.affix .nav > li>a:hover,
-    .navbar-default.affix .nav>li>a:focus {
-        color: white;
-		background-color: #337ab7;
-    }
-
-}
-
 .portfolio-box .portfolio-box-caption {
 	background: rgba(40,96,144,.9);
 }
