@@ -29,9 +29,9 @@ class TweetHandler(webapp2.RequestHandler):
     consumer_key = "QuOJBKX2FRsUPk9drwg2YOyE0"
     consumer_secret = "MGTBmDPn3NiNXhzqJbX2yCzyWzQrIiPrK8l4MQyvfPFIil6AgM"
 
-    status = ["What is going on at Everyday Computing?  Read our latest blog post:  http://blog.everydaycomputing.org/",\
-    "Kids. Computers. Math. Read more about it at http://blog.everydaycomputing.org",\
-    "Everyday Computing news: http://blog.everydaycomputing.org"]
+    status = ["What is going on at Everyday Computing?  Read our latest blog post:  https://blog.everydaycomputing.org/",\
+    "Kids. Computers. Math. Read more about it at https://blog.everydaycomputing.org",\
+    "Everyday Computing news: https://blog.everydaycomputing.org"]
 
     def post(self):
         """Tasks are only made on get() requests"""
