@@ -323,7 +323,7 @@ footer .container > .row {
 }
 
 footer .nsf {
-  margin: 1em 0 3em 0;
+  margin: 1em -15px 3em;
 }
 
 footer .nsf .nsf-logo img {
