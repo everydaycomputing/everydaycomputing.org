@@ -732,23 +732,23 @@ tr {
   font-size: 2em;
 }
 
-/** Lessons Page **/
-.sample-lessons figure {
+/** Lessons & Assessments Page **/
+.sample-items figure {
   margin: 0 0 3em 0;
 }
-.sample-lessons img {
+.sample-items img {
   max-width: 100%;
 }
 @media (min-width: 992px) {
-  .sample-lessons img {
+  .sample-items img {
     max-height: 320px;
   }
 }
 @media (min-width: 1200px) {
-  .sample-lessons figure {
+  .sample-items figure {
     margin: 0 0 2em 0;
   }
-  .sample-lessons img {
+  .sample-items img {
     max-height: 280px;
   }
 }
