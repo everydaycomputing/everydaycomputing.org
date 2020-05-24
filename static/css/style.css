@@ -46,11 +46,13 @@ table{
 }
 
 p {
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  font-size: 2.5rem;
 }
 
-ul {
-  font-size: 2rem;
+ul, ol {
+  /* font-size: 2rem; */
+  font-size: 2.5rem;
 }
 
 /* Remove decor (bullets/numbers) from list display */
@@ -184,6 +186,9 @@ header {
 /* .header-content-homepage p {
   font-size: 1.75rem;
 } */
+.header-content-homepage p {
+  font-size: 2rem;
+}
 .header-content-homepage p:last-child {
   margin-bottom: 0;
 }
@@ -310,6 +315,7 @@ footer {
 }
 
 footer p {
+  font-size: 2rem;
   margin: 0;
 }
 footer .container {
@@ -333,11 +339,6 @@ footer .nsf .nsf-logo img {
 footer .social-media a {
   text-decoration: none;
   margin: 0 0.25em;
-}
-
-
-.bg-primary p {
-  font-size: 2.5rem;
 }
 
 .showcase-image {
