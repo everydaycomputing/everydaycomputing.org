@@ -112,9 +112,20 @@ ul.row.fa-ul li .fa-li {
   display: block;
 }
 
-.hangingindent {
+ul.hangingindent,
+ol.hangingindent {
+  list-style: none;
+  padding-left: 0;
+}
+ul.hangingindent li,
+ol.hangingindent li {
   padding-left: 35px;
   text-indent: -35px;
+}
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/list-style#Accessibility_concerns */
+ul.hangingindent li::before,
+ol.hangingindent li::before {
+  content: "\200B";
 }
 
 /** Add space above certain fragment identifiers to get below the sticky header for deep-linking **/
