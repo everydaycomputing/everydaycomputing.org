@@ -72,9 +72,23 @@ ol.nodecor li::before {
 ul.row.fa-ul {
   margin-left: 0;
 }
+
+ul.row.display-flex.fa-ul {
+  justify-content: center;
+}
+
 ul.row.fa-ul li {
   padding: 3em;
 }
+
+ul.row.fa-ul.row.display-flex.fa-ul-junto li {
+  display: flex;
+  align-items: center;
+  padding: 3em 0em 3em 5em;
+  min-width: 355px;
+  max-width: 400px;
+}
+
 ul.row.fa-ul li .fa-li {
   /* Remove all padding from icon container */
   width: initial;
@@ -94,6 +108,18 @@ ul.row.fa-ul li .fa-li {
   
   color: rgba(51, 122, 183,0.15);
   transform: rotate(-10deg);
+}
+
+ul.row.fa-ul.fa-ul-junto li .fa-li {
+  font-size: 7rem;
+  margin-left: -9rem;
+  top: initial;
+  left: initial;
+  display: block;
+}
+
+.bg-primary ul.row.fa-ul li .fa-li {
+  color: rgba(0, 0, 0,0.15);
 }
 
 .center {
