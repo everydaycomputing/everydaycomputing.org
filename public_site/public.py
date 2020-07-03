@@ -246,7 +246,7 @@ APP = webapp2.WSGIApplication([
                                webapp2.Route('/', handler=HomePage, name='home'),
                                webapp2.Route('/home-example/<style_id>/<example_id:\d+>/', handler=HomePageExample, name='home'),
                                webapp2.Route('/about/', handler=AboutPage, name='home'),
-                               webapp2.Route('/about/team/', handler=TeamPage, name='home'),
+                               webapp2.Route('/about/team/<photo_num:\d?>', handler=TeamPage, name='home'),
                                webapp2.Route('/pd/', handler=ProfessionalDevelopmentPage, name='home'),
                                webapp2.Route('/lessons/', handler=LessonsPage, name='home'),
                                webapp2.Route('/assessments/', handler=AssessmentsPage, name='home'),

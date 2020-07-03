@@ -2,6 +2,13 @@
 
 {% block body %}
 
+{# Default to first photo #}
+{% set photo_idx = 1 %}
+
+{# If photo num passed in, use it if it's in the range of available photos #}
+{% if photo_num | int >= 1 and photo_num | int <= 4 %}
+  {% set photo_idx = photo_num %}
+{% endif %}
 
 <section class="bg-primary">
   <div class="container">
@@ -105,7 +112,7 @@
       <!-- -------------------------------------------------------------------------------- Carla -->
       <div class="col-lg-4 col-md-6 col-sm-12 text-center paddedAnchor" id="carla-strickland">
         <div>
-          <img src="/static/img/portfolio/carla.jpg" class="img-circle team-thumb" alt="">
+          <img src="/static/img/portfolio/carla-strickland-{{ photo_idx }}.jpg" class="img-circle team-thumb" alt="">
           <h3>Carla Strickland</h3>
           <p class="text-muted">Digital Development Manager<br/>
             UChicago STEM Education<br/>
