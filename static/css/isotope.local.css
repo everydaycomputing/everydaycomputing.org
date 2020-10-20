@@ -1,0 +1,9 @@
+.filter-button-group {
+	margin-bottom: 2em;
+}
+
+.filter-button-group button,
+.filter-button-group .btn {
+	font-size: 1.5em;
+	margin: 0.5em 0.75em;
+}

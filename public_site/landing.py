@@ -62,7 +62,7 @@ class ProfessionalDevelopmentPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class HomePageExample(webapp2.RequestHandler):
-    """Professional Development page for the public facing website."""
+    """Demos for possible new homepage designs (2019/2020) for the public facing website."""
 
     def get(self,style_id,example_id):
         template_values = {
@@ -77,15 +77,23 @@ class HomePageExample(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class LessonsPage(webapp2.RequestHandler):
-    """Professional Development page for the public facing website."""
+    """Lesson samples page for the public facing website."""
 
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/public_lessons.html')
         self.response.write(template.render(template_values))
 
+class LessonsActionFractionsPage(webapp2.RequestHandler):
+    """Lessons listing page for the public facing website."""
+
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/public_lessons_action_fractions.html')
+        self.response.write(template.render(template_values))
+
 class AssessmentsPage(webapp2.RequestHandler):
-    """Professional Development page for the public facing website."""
+    """Assessment examples page for the public facing website."""
 
     def get(self):
         template_values = {}
@@ -93,7 +101,7 @@ class AssessmentsPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class PublicationsPage(webapp2.RequestHandler):
-    """Professional Development page for the public facing website."""
+    """Publications & Presentations page for the public facing website."""
 
     def get(self):
         template_values = {}
