@@ -1,0 +1,795 @@
+{%
+	set gradeData = {
+		'grade-3': {
+			'grade_title':'3rd Grade',
+			'text_about':'Intro text for 3rd grade curriculum lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
+			'num_lessons': 12,
+			'num_assessments': 5,
+			'curriculum': [
+				'grade-3-assessment-boy',
+				'brownie-bites',
+				'animal-number-story',
+				'sharing-equally',
+				'fraction-circles-1',
+				'grade-3-assessment-early',
+				'polygon-partners',
+				'fraction-circles-2',
+				'storyboarding-fraction-comic-strip',
+				'fraction-comic-animation',
+				'grade-3-assessment-mid',
+				'fraction-number-line-exploration',
+				'frog-and-fly',
+				'fraction-number-line-mysteries',
+				'my-fraction-number-story',
+				'grade-3-assessment-late',
+				'grade-3-assessment-eoy'
+			]
+		},
+		'grade-4': {
+			'grade_title':'4th Grade',
+			'text_about':'Intro text for 4th grade curriculum lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
+			'num_lessons': 12,
+			'num_assessments': 5,
+			'lessons': [
+				["1.1", "2.2"]
+			]
+		}
+	}
+%}
+
+{%
+	set curriculumData = {
+		'grade-3-assessment-boy': {
+			'type': 'Assessment',
+			'num': '1',
+			'title': 'Grade 3 Beginning of Year Assessment',
+			'description': 'The Beginning-of-Year Assessment can be used to gauge children’s readiness for the content they will encounter early in third grade.',
+			'mode': 'unplugged',
+			'summary': '<p></p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': '',
+			'prev_curriculum_item': '',
+			'next_curriculum_item': 'brownie-bites',
+		},
+		'brownie-bites': {
+			'type': 'Lesson',
+			'num': '1',
+			'title': 'Brownie Bites',
+			'description': 'Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.',
+			'mode': 'computer-based',
+			'summary': '<p>Children attempt to have their teacher achieve a goal (cutting a playdough brownie to share equally between four friends) by giving step-by-step instructions. The teacher tells children ahead of time that she will behave like a computer - acting exactly as they tell her to, without inferring any information that might seem obvious - so they should think carefully about the detail and precision of their instructions. Children then suggest steps for the teacher to follow to share the brownie. The teacher follows the directions very narrowly, not assuming any information they do not say. Once they have successfully worked together to achieve the goal, the teacher ends the activity by having children recall every verb they used to instruct the teacher.</p>',
+			'math_connections': '<p>Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.</p>',
+			'cs_connections': '<p>Computers require that their instructions be specific, precise directions for what they should do, and under what conditions they should do it. Here children explore the importance of precise instructions within a mathematical context.</p>',
+			'review_4th': 'y',
+			'prev_curriculum_item': 'grade-3-assessment-boy',
+			'next_curriculum_item': 'animal-number-story',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-brownie-bites-cover.png',
+				'alt': 'Screenshot: brownie being divided into pieces',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-brownie-bites.png',
+					'alt': 'Screenshot: brownie being divided into pieces',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1koB8z50oSjdKUc3lIXXJDz-POTXIG8k6',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1m3xxR7gB7R_7-YxB2DzuL8TBeJY5BBwL',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1Q4A8PIRfCd3ysSCqVvSexY-p3oKyuT7zBrK46N3PYmQ',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1b5P2pI9tZs46WJZRPgy2fJc_FZf4mxDl',
+					'filetype': 'notebook',
+				}
+			],
+		},
+		'animal-number-story': {
+			'type': 'Lesson',
+			'num': '2',
+			'title': 'Animal Number Story',
+			'description': 'Children learn how to access the Scratch website and their class’s projects. They explore the Scratch workspace and understand the components. Children use and remix a simple project illustrating a number story.',
+			'mode': 'computer-based',
+			'summary': '<p>Children learn how to access the Scratch website and their class’s projects. They explore the Scratch workspace and understand the components. Children use and remix a simple project illustrating a number story.</p>',
+			'math_connections': '<p>Children use Scratch to show a simple number story. 12 + 9 = 21</p>',
+			'cs_connections': '<p>Children explore the Scratch workspace. Children learn that the Scratch workspace and computer programs are made up of different parts. They search for and try out different commands and learn which changes in commands and simple parameters can change the program’s output.</p>',
+			'review_4th': 'y',
+			'prev_curriculum_item': 'brownie-bites',
+			'next_curriculum_item': 'sharing-equally',
+			'cover_img': {
+				'url': '/static/img/lessons/new/lesson-animal-number-story-cover.png',
+				'alt': 'Scratch project stage depicting a crab telling a hippo "I have 12 counters"',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-animal-number-story.png',
+					'alt': 'Scratch project stage depicting a crab telling a hippo "I have 12 counters"',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1koXE6c62i6ZHi8ofWC_v7gG9FXGMzHmF',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1M8zNz42zL0w-p82GqibwJx9wOAWoHmT6',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'TIPP&SEE Poster',
+					'url': 'https://drive.google.com/open?id=12oz1ChHtt-rQR12kSaP_2jpWH4fZ2UHx',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1_qmtF9qJbgyaxWr1OC1_DJROon8zm7yrZgkJIVqItZI',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1M52OKQpbNkSMUzxxq7ssbx77_2EB335i',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/227391112/',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'sharing-equally': {
+			'type': 'Lesson',
+			'num': '3',
+			'title': 'Sharing Equally',
+			'description': 'Children review how to access the Scratch workspace and their Class Studio. Children use and remix a simple project about equal sharing to explore how changing the blocks in a project can change the outcome.',
+			'mode': 'computer-based',
+			'summary': '<p>Children review how to access the Scratch workspace and their Class Studio. Children use and remix a simple project about equal sharing to explore how changing the blocks in a project can change the outcome.</p>',
+			'math_connections': '<p>Children practice sharing counters equally (with leftovers) and write a division number model.</p>',
+			'cs_connections': '<p>Children practice using Scratch and attend to the role of different parts of the interface and the code.</p>',
+			'review_4th': 'y',
+			'prev_curriculum_item': 'animal-number-story',
+			'next_curriculum_item': 'fraction-circles-1',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-sharing-equally-cover.png',
+				'alt': 'Scratch project stage depicting 2 cats sharing toy mice',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-sharing-equally.png',
+					'alt': 'Scratch project stage depicting 2 cats sharing toy mice',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1kp0tmP5nwC3u3nl8y4E39CeeZ1Sai9Xo',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1HRBKrECGwbKXFb7yN0APf0WrolmLvvGM',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1IoNqxfylf8tC8iEsK8PMMoNmeJiNKJ-Rsg-eym5u29A',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1sI2bp3DhFL0oeXfog6-roLsBUEriMaDu',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/225444068/',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'fraction-circles-1': {
+			'type': 'Lesson',
+			'num': '4',
+			'title': 'Fraction Circles 1',
+			'description': 'Students use Scratch to create representations of fractions using fraction circle pieces, by modifying a functioning example program.',
+			'mode': 'computer-based',
+			'summary': '<p>Students use Scratch to create representations of fractions using fraction circle pieces, by modifying a functioning example program. They decompose the fraction (a/b) that they want to represent into a sum of unit fractions (1/b), and express this as a number sentence. They learn that the denominator (b) represents the number of equal parts needed to make a whole and that the numerator (a) represents the number of parts being considered. They program the computer, using custom blocks, to select the size of the unit fraction, the number of unit fractions needed to represent the fraction, the fraction circle picture, and the corresponding number sentence. Students’ exploration is guided by the use of the example program and a journal page.</p>',
+			'math_connections': '<p>Students use Fraction Circle pieces to represent a fraction as a sum of unit fractions.</p>',
+			'cs_connections': '<p>Students learn how to instruct the computer to place fraction circle pieces rather than physically placing pieces themselves. Students build scripts with a small set of custom instructions. They will navigate the Scratch environment, add/remove/repeat blocks, work with custom blocks, and run a project.</p>',
+			'review_4th': 'y',
+			'prev_curriculum_item': 'sharing-equally',
+			'next_curriculum_item': 'grade-3-assessment-early',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-sample-fraction-circles-1-project-image-cover.png',
+				'alt': 'Scratch project stage for Fraction Circles 1 lesson, depicting a circle with 2 segments filled in and many fractional segment options below it',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-sample-fraction-circles-1-project-image.png',
+					'alt': 'Scratch project stage for Fraction Circles 1 lesson, depicting a circle with 2 segments filled in and many fractional segment options below it',
+					'caption': 'Fraction Circles 1 Scratch project stage',
+				},
+				{
+					'url': '/static/img/lessons/lesson-sample-fraction-circles-1-script.png',
+					'alt': 'Demo of a code block segment from the Fraction Circles 1 Scratch project',
+					'caption': 'Fraction Circles 1 Scratch project code blocks',
+				},
+				{
+					'url': '/static/img/lessons/lesson-sample-fraction-circles-1-tipp-see.png',
+					'alt': 'TIPP&SEE worksheet for Fraction Circles 1 lesson, with questions meant to help the student investigate how the associated Scratch activity works',
+					'caption': 'Fraction Circles 1 <abbr title="Title, Instructions, Purpose, Play; &amp; Sprite, Event, Explore">TIPP&amp;SEE</abbr> worksheet',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1l32BdEJTgIff796UrBnVoUsOKHVTyrYZ',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1M9vS6PYUgbjJzximx8049hqCG7Ri0Qmm',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Fraction Pieces',
+					'url': 'https://drive.google.com/open?id=1gx32PSUSDp0MseVyclYfL5WJxogX9Pc9',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1g0rKRoQW9-9H4RJAowTM_Ouhx2lbhi1ROz9iENWV1Ts',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=10oxo4mhpI_Cahq95JUm2d-l9V7TULGLT',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/211001031',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'grade-3-assessment-early': {
+			'type': 'Assessment',
+			'num': '2',
+			'title': 'Grade 3 Early Assessment',
+			'description': 'The Early Assessment can be used to gauge children’s understanding of the first 4 lessons.',
+			'mode': 'paper-based',
+			'summary': '<p></p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'fraction-circles-1',
+			'next_curriculum_item': 'polygon-partners',
+		},
+		'polygon-partners': {
+			'type': 'Lesson',
+			'num': '5',
+			'title': 'Polygon Partners',
+			'mode': 'unplugged',
+			'summary': '<p>Children draw polygons on Geoboard Dot Paper based on general descriptions given by their teacher. After comparing results to see that their polygons are similar but not the same, the teacher leads a discussion about how the instructions could be changed to make sure every student draws the exact same shape. Children are reminded of how computers interpret instructions and work in partnerships, attempting to write the instructions as though their partner is a computer.</p><p>Partners follow the instructions they receive to draw the shape, being careful not to interpret them beyond exactly what is written. Then, partners compare their drawings with the original shapes and discuss how they could improve the precision and completeness of each of their instructions to make the shapes match more closely. Finally, children discuss what aspects of the instructions helped them accurately complete the drawing, and what made it more difficult, with an emphasis on how computers narrowly interpret instructions.</p>',
+			'math_connections': '<p>Children practice describing polygons, as they reinforce different defining characteristics of shapes.</p>',
+			'cs_connections': '<p>Children practice writing a complete set of instructions in advance, prior to having a partner “execute” them. They also work together to debug their instructions, and note how the outcome improves as they improve the specificity, precision, and completeness of their instructions.</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'grade-3-assessment-early',
+			'next_curriculum_item': 'fraction-circles-2',
+			'cover_img': {
+				'url': '/static/img/lessons/new/lesson-polygon-partners-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-polygon-partners.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1vK19O6h3o0C_LV0rnNGZ0RwaNcB4YtQf',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1zAyq1reJs7dFfR0WLy8Z39NfxdZFlwGg',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Shape Cards',
+					'url': 'https://drive.google.com/open?id=1zDloqI6TOwwQA7zCVVSaX9GHdVtDRv_t',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1F38wWiPeXLvy5xcQuJpMTtasLvjGr728SyoTUfUYOR0',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1ct-dgHAs6wyOGO1JqpqjlSBI9xP7FT12',
+					'filetype': 'notebook',
+				}
+			],
+		},
+		'fraction-circles-2': {
+			'type': 'Lesson',
+			'num': '6',
+			'title': 'Fraction Circles 2',
+			'mode': 'computer-based',
+			'summary': '<p>Children explore creating fractions of different-size wholes. They use a small set of instructions to represent different fraction circle pieces. First, they explore how the same fraction circle piece changes fraction as the whole changes  (e.g., using the pink ½ piece as the whole), using the “Set Whole [color]” block. Then, they explore how changing the “Set piece [color]” changes the fraction when the ‘set whole color pink’ block stays the same. Finally, they note that keeping the “Set 1/[x]” constant at ½ but varying the whole changes which color piece is selected – that is, the piece that is ½ of a whole depends on the size of that whole. Teachers guide children’s exploration of these ideas as they complete a fractions sheet.</p>',
+			'math_connections': '<p>Children represent fractions using different-sized wholes.</p>',
+			'cs_connections': '<p>Children explore the idea that there are multiple ways to reach a desired solution using a limited set of instructions. Depending on the desired goal and strategy, different instructions will be needed.</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'polygon-partners',
+			'next_curriculum_item': 'storyboarding-fraction-comic-strip',
+			'cover_img': {
+				'url': '/static/img/lessons/new/lesson-fraction-circles-2-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-fraction-circles-2.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1vOCHw6a0VKGQA633Mu0oORAhzKk5GdAO',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1zNvIaJz6D04Zb3bUwda2EUA17kCUSnQK',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1VssDKMl3xwSX5dZZGcRY3u2F9djYTQupaPs33UiwNrw',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1VavfOPExCjN8WeD1NJEaK0c5hnMH7NQR',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher Project (Fraction Circles 1)',
+					'url': 'https://scratch.mit.edu/projects/211001031',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/213717863',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'storyboarding-fraction-comic-strip': {
+			'type': 'Lesson',
+			'num': '7',
+			'title': 'Storyboarding: Fraction Comic Strip',
+			'mode': 'unplugged',
+			'summary': '<p>Children create an animated number story in Scratch using equivalent Fraction Number Cards. They use their story to create a Storyboard, paying particular attention to the order of the events, and how they can show the important parts of the story in picture format, and how they can connect the events through pictures, words, and actions. Partners then review each other’s storyboards and give feedback. Children revise their storyboards (if needed) based on their partners'' feedback.</p>',
+			'math_connections': '<p>Children identify equivalent fraction cards.</p>',
+			'cs_connections': '<p>Children prepare to create animations in Scratch, by decomposing a simple story into a comic strip Storyboard with 4 scenes.</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'fraction-circles-2',
+			'next_curriculum_item': 'fraction-comic-animation',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-storyboarding-fraction-comic-strip-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-storyboarding-fraction-comic-strip.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1ZeOcvCckP6_JAg7ORnB3ouMCMFTh5xhT',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Storyboards',
+					'url': 'https://drive.google.com/open?id=1Zj1l0r-H_RUVW_RNnYeGTnJU9za0vA_N',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Fraction Cards',
+					'url': 'https://drive.google.com/open?id=1d7JPpi9bFSLRkuSsVDt4hmz07uqC4KPx',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1S_ata0tprjn1H9Vjq6trQQeJO4fiOYCf_1tmqyMjPzk',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1SNMfJxAbJCNlRNbDfTBZQdxs5fuG8wRW',
+					'filetype': 'notebook',
+				}
+			],
+		},
+		'fraction-comic-animation': {
+			'type': 'Lesson',
+			'num': '8',
+			'title': 'Fraction Comic Animation',
+			'mode': 'computer-based',
+			'summary': '<p>Children use their Fraction Comic Strip Storyboard to animate a Fraction Comic in Scratch.</p>',
+			'math_connections': '<p>Children plan a number story comparing equivalent Fraction Cards.</p>',
+			'cs_connections': '<p>Children prepare to create animations in Scratch, by decomposing a simple number story into a comic with 4 scenes. They learn to use wait blocks to synchronize the actions on the stage given a limited set of instructions (commands).</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'storyboarding-fraction-comic-strip',
+			'next_curriculum_item': 'grade-3-assessment-mid',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-fraction-comic-animation-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-fraction-comic-animation.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1__aH59u5bGj4umPBhKue5MP0q43UyZMJ',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1-LIWuFUXPjGddMFGwbb9xxQbfI_0TsCBQfEWoQSsl5I',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1VxIMcbleRlU1gJsoj1jgvi7L-zcVJ_EE',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher Project',
+					'url': 'https://scratch.mit.edu/projects/251701629/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/262796710/',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'grade-3-assessment-mid': {
+			'type': 'Assessment',
+			'num': '3',
+			'title': 'Grade 3 Mid Assessment',
+			'description': 'The Mid Assessment can be used to gauge children’s understanding of the first 8 lessons.',
+			'mode': 'paper-based',
+			'summary': '<p></p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'fraction-comic-animation',
+			'next_curriculum_item': 'fraction-number-line-exploration',
+		},
+		'fraction-number-line-exploration': {
+			'type': 'Lesson',
+			'num': '9',
+			'title': 'Fraction Number Line Exploration',
+			'mode': 'computer-based',
+			'summary': '<p>Children enter a fraction into a custom ''walk:__'' block, then see their sprite walk that fraction along the number line. Children explore fractional values and distances on a number line. The  number line will show the divisions corresponding to the entered unit fraction. The sprite will take the number of steps based on the fraction blocks (each block results in one step). Children follow an exploration worksheet that guides them through the process of exploring new custom ''walk:__'' blocks and sequencing in Scratch. Children create different sequences of instructions to make the sprite walk to a particular spot on the boardwalk. All distances are expressed in fractions. Children progress to a task to create a path to several different places in a pre-planned order.  Finally, children explore the outcome when the blocks are placed in different orders.</p>',
+			'math_connections': '<p>Children extend their understanding of fractions on a number line.</p>',
+			'cs_connections': '<p>Children build scripts with a small set of instructions. Children explore sequencing the blocks and breaking down a distance into smaller parts. They explore custom movement blocks.</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'grade-3-assessment-mid',
+			'next_curriculum_item': 'frog-and-fly',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-fraction-number-line-exploration-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-fraction-number-line-exploration.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1_j6cEmqEUfYRxgE3tYHj5fl8-IdFAvTv',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1g1VIyK8d6tAdf0yuD8-Aj7Jyq_mAR1oA',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Fraction Strips',
+					'url': 'https://drive.google.com/open?id=1h-iTrkl_7TZ08Z0oVo9j02MuWoIY4986',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1fYqCQEG4byvwLRx2uDrg6tkVCTo-gTyRtK88hoAwghI',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1HXR7ch0GBFeDny-p06MrCm9HqymYaJzp',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/282816475',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'frog-and-fly': {
+			'type': 'Lesson',
+			'num': '10',
+			'title': 'The Frog and The Fly',
+			'mode': 'computer-based',
+			'summary': '<p>Children attempt to move a frog to the end of a number line, starting with incorrect arguments in their code. Children make guesses and modify the code to partition the line segment into equal fractional parts and catch a fly at the end.</p>',
+			'math_connections': '<p>Children partition a line segment into equal fractional parts.</p>',
+			'cs_connections': '<p>Children explore using the repeat block and practice debugging code using test, observe, adjust, repeat to arrive at an expected output.</p>',
+			'review_4th': 'y',
+			'prev_curriculum_item': 'fraction-number-line-exploration',
+			'next_curriculum_item': 'fraction-number-line-mysteries',
+			'cover_img': {
+					'url': '/static/img/lessons/lesson-sample-the-frog-and-the-fly-project-image-cover.png',
+					'alt': 'Scratch project stage for The Frog and the Fly lesson, depicting a frog and a fly over a numberline; the frog at point 0 and the fly near point 1',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-sample-the-frog-and-the-fly-project-image.png',
+					'alt': 'Scratch project stage for The Frog and the Fly lesson, depicting a frog and a fly over a numberline; the frog at point 0 and the fly near point 1',
+					'caption': 'The Frog and the Fly Scratch project stage',
+				},
+				{
+					'url': '/static/img/lessons/lesson-sample-the-frog-and-the-fly-script.png',
+					'alt': 'Demo of a code block segment from the The Frog and the Fly Scratch project',
+					'caption': 'The Frog and the Fly Scratch project code blocks',
+				},
+				{
+					'url': '/static/img/lessons/lesson-sample-the-frog-and-the-fly-tipp-see.png',
+					'alt': 'TIPP&SEE worksheet for The Frog and the Fly lesson, with questions meant to help the student investigate how the associated Scratch activity works',
+					'caption': 'The Frog and the Fly <abbr title="Title, Instructions, Purpose, Play; &amp; Sprite, Event, Explore">TIPP&amp;SEE</abbr> worksheet',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1R5FMtsQW4a-cvHYlKBHr0p-qqbL9Z0Yz',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1PPg1ghKBBthmCjFY9GAzhLwSTp_qTwP9',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1bOb2YNKkJR4qMz7uHvsXL8RqvdwUofwBAuNNGGd_L94',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1LuqdosxBwr9uvqkGiJB2DtbIBBD3f9o1',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/216652633',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'fraction-number-line-mysteries': {
+			'type': 'Lesson',
+			'num': '11',
+			'title': 'Fraction Number Line Mysteries',
+			'mode': 'computer-based',
+			'summary': '<p>Children solve a Fraction Number Line Mystery in which they read clues to identify a fraction on a number line. They invent their own Mystery project, use a storyboard organizer to plan each clue (with a drawing), and modify a Scratch program that uses each clue to solve the mystery.</p>',
+			'math_connections': '<p>Children locate fractions on a number line, including equivalent fractions with different denominators.</p>',
+			'cs_connections': '<p>Children use known CS concepts, such as repetition, and new Scratch blocks such as hide/show, go to, and wait. The activities in this lesson require breaking a problem into smaller parts - decomposition.</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'frog-and-fly',
+			'next_curriculum_item': 'my-fraction-number-story',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-fraction-number-line-mysteries-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-fraction-number-line-mysteries.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1_qHL-snHMzcDD6Jscfb1iifA0vTPkXYS',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=11PEqZunbb_NMNz8rQrajIJ0QQbg9WzlQ',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Storyboards',
+					'url': 'https://drive.google.com/open?id=10RG96l77IGkSsJxlYgwfNs0kXFPPJylh',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1kDlGCvJ-_nx5nqRDx4bhn8uLgK09EFMTp3m5rCJjmH8',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1UEGuK-53Y4B4lkGcfEmhxMQVroIFMIGv',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher Demo Project',
+					'url': 'https://scratch.mit.edu/projects/302071264/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/309655313/',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'my-fraction-number-story': {
+			'type': 'Lesson',
+			'num': '12',
+			'title': 'My Fraction Number Story (2-day lesson)',
+			'mode': 'computer-based',
+			'summary': '<p>Children create their own projects in Scratch to demonstrate what they have learned both about fractions and about programming. The teacher first reviews with children what coding blocks they have learned to use. Then children plan their project with the planning sheets, before continuing on to create the program. In addition to the base project, children may choose to work on the extension activity that challenges them to use more advanced blocks to change the background, add sound, and so on. If time allows, students can invite their peers to interact with and/or remix the program they have created.</p>',
+			'math_connections': '<p>Children plan and create a number story about fractions.</p>',
+			'cs_connections': '<p>Children create an animated story in Scratch using previously learned coding blocks.</p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'fraction-number-line-mysteries',
+			'next_curriculum_item': 'grade-3-assessment-late',
+			'cover_img': {
+				'url': '/static/img/lessons/lesson-my-fraction-number-story-cover.png',
+				'alt': '',
+			},
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/lesson-my-fraction-number-story.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1_xaI7r1m8mUQuiggJsTyKh8Uw8eyrBzL',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1ZZ4Syg1rtmFVKcSnK6mG8Imo7_frobp9',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Storyboards',
+					'url': 'https://drive.google.com/open?id=1ZZPzeuEXvkRX7v9Gkm30VpSdmCKH8CDN',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1kzx8jOsOX5UcE_Qj0LlvciRNk0wCOMCKO5ZqWVsaDNs',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=14PPi5TlWpnsa36JTlpYlUOl18xxMVhXm',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher Demo - Comparison URL Project',
+					'url': 'https://scratch.mit.edu/projects/313550727/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Teacher Demo - Unit Fraction Project',
+					'url': 'https://scratch.mit.edu/projects/314166222/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Starter - Comparison Project',
+					'url': 'https://scratch.mit.edu/projects/314184123/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Starter - Unit Fraction Project',
+					'url': 'https://scratch.mit.edu/projects/314179283/',
+					'filetype': 'scratch',
+				},
+			],
+		},
+		'grade-3-assessment-late': {
+			'type': 'Assessment',
+			'num': '4',
+			'title': 'Grade 3 Late Assessment',
+			'description': 'The Late Assessment can be used to gauge children’s understanding of all 12 lessons.',
+			'mode': 'paper-based',
+			'summary': '<p></p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'my-fraction-number-story',
+			'next_curriculum_item': 'grade-3-assessment-eoy',
+		},
+		'grade-3-assessment-eoy': {
+			'type': 'Assessment',
+			'num': '5',
+			'title': 'Grade 3 End of Year Assessment',
+			'description': 'The End-of-Year Assessment can be used to gauge how well children retained their understanding of all 12 lessons.',
+			'mode': 'paper-based',
+			'summary': '<p></p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_curriculum_item': 'grade-3-assessment-late',
+			'next_curriculum_item': '',
+		},
+	}
+%}

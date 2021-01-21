@@ -11,7 +11,7 @@ from webapp2_extras import routes
 
 # Custom imports
 from public_site_database import *
-from landing import AboutPage, TeamPage, HomePage, ProfessionalDevelopmentPage, HomePageExample, LessonsPage, LessonsActionFractionsPage, AssessmentsPage, PublicationsPage
+from landing import AboutPage, TeamPage, HomePage, ProfessionalDevelopmentPage, HomePageExample, LessonsPage, LessonsActionFractionsPage, LessonsActionFractionsGradePage, LessonsActionFractionsCurriculumPage, AssessmentsPage, PublicationsPage
 from public_site import *
 from site_database import *
 from methodology import *
@@ -250,6 +250,8 @@ APP = webapp2.WSGIApplication([
                                webapp2.Route('/pd/', handler=ProfessionalDevelopmentPage, name='home'),
                                webapp2.Route('/lessons/', handler=LessonsPage, name='home'),
                                webapp2.Route('/lessons/action-fractions/', handler=LessonsActionFractionsPage, name='home'),
+                               webapp2.Route('/lessons/action-fractions/<grade>/', handler=LessonsActionFractionsGradePage, name='home'),
+                               webapp2.Route('/lessons/action-fractions/<grade>/<curriculum>', handler=LessonsActionFractionsCurriculumPage, name='home'),
                                webapp2.Route('/assessments/', handler=AssessmentsPage, name='home'),
                                webapp2.Route('/publications/', handler=PublicationsPage, name='home'),
                                webapp2.Route('/literature/', handler=PageLiterature),

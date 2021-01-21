@@ -21,12 +21,26 @@ a:focus {
 	background-color: #337ab7;
 }
 
+.bg-secondary a:not(.btn) {
+	color: white;
+}
+  
+.bg-secondary {
+	/* color: white; */
+	background-color: rgba(196, 196, 196, 0.25);
+}
+
+
 .portfolio-box .portfolio-box-caption {
 	background: rgba(40,96,144,.9);
 }
 
 .text-primary {
     color: #286090;
+}
+
+.text-secondary {
+    color: #333;
 }
 
 /* Buttons */
@@ -79,3 +93,54 @@ a:focus {
 		color: #337ab7;
 		background-color: #fff;
 	}
+
+
+.btn-secondary {
+	border-color: rgb(239, 239, 239);
+	color: #333;
+	background-color: rgb(239, 239, 239);
+}
+	
+	.btn-secondary:hover,
+	.btn-secondary:focus,
+	.btn-secondary.focus,
+	.btn-secondary:active,
+	.btn-secondary.active,
+	.open > .dropdown-toggle.btn-secondary {
+		color: #333;
+		background-color: rgb(204, 204, 204);
+		border-color: rgb(204, 204, 204);
+	}
+
+	.btn-secondary:active,
+	.btn-secondary.active,
+	.open > .dropdown-toggle.btn-secondary {
+		background-image: none;
+	}
+
+	.btn-secondary.disabled,
+	.btn-secondary[disabled],
+	fieldset[disabled] .btn-secondary,
+	.btn-secondary.disabled:hover,
+	.btn-secondary[disabled]:hover,
+	fieldset[disabled] .btn-secondary:hover,
+	.btn-secondary.disabled:focus,
+	.btn-secondary[disabled]:focus,
+	fieldset[disabled] .btn-secondary:focus,
+	.btn-secondary.disabled.focus,
+	.btn-secondary[disabled].focus,
+	fieldset[disabled] .btn-secondary.focus,
+	.btn-secondary.disabled:active,
+	.btn-secondary[disabled]:active,
+	fieldset[disabled] .btn-secondary:active,
+	.btn-secondary.disabled.active,
+	.btn-secondary[disabled].active,
+	fieldset[disabled] .btn-secondary.active {
+		border-color: rgb(204, 204, 204);
+		background-color: rgb(204, 204, 204);
+	}
+
+	.btn-secondary .badge {
+		color: rgb(239, 239, 239);;
+		background-color: #333;
+	}	

@@ -92,6 +92,27 @@ class LessonsActionFractionsPage(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/public_lessons_action_fractions.html')
         self.response.write(template.render(template_values))
 
+class LessonsActionFractionsGradePage(webapp2.RequestHandler):
+    """Grade-level Lessons listing page for the public facing website."""
+
+    def get(self,grade):
+        template_values = {
+            'grade': grade
+        }
+        template = JINJA_ENVIRONMENT.get_template('templates/public_lessons_action_fractions_grade.html')
+        self.response.write(template.render(template_values))
+
+class LessonsActionFractionsCurriculumPage(webapp2.RequestHandler):
+    """Lesson/Assessment info page for the public facing website."""
+
+    def get(self,grade,curriculum):
+        template_values = {
+            'grade': grade,
+            'curriculum': curriculum
+        }
+        template = JINJA_ENVIRONMENT.get_template('templates/public_lessons_action_fractions_curriculum.html')
+        self.response.write(template.render(template_values))
+
 class AssessmentsPage(webapp2.RequestHandler):
     """Assessment examples page for the public facing website."""
 

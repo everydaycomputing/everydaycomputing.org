@@ -1,0 +1,285 @@
+{% from "data_curriculum.jinja" import gradeData,curriculumData %}
+{% set includeMagnific = true %}
+{% extends "templates/public_base_template.html" %}
+
+{% block body %}
+
+<style>
+  /* See https://type-scale.com/?size=18&scale=1.200&text=A%20Visual%20Type%20Scale&font=Open%20Sans&fontweight=400&bodyfont=body_font_default&bodyfontweight=400&lineheight=1.75&backgroundcolor=%23ffffff&fontcolor=%23000000&preview=false */
+  /* Note: use px values as rems, since we set body to 10px for easier math */
+  h1,.h1 { font-size: 4.479rem; }
+  h2 { font-size: 3.732rem; }
+  h3 { font-size: 3.110rem; }
+  h4 { font-size: 2.592rem; }
+  h5 { font-size: 2.160rem; }
+  h6 { font-size: 2.0rem; font-weight: bold; }
+
+  small, .text_small { font-size: 0.833rem; }
+  .text_large { font-size: 2.5rem; }
+
+  p { font-size: 1.8rem; margin: 1rem 0; }
+
+  ul, ol { font-size: 1.8rem; }
+
+</style>
+
+<!-- Magnific Lightbox implementation -->
+<script>
+
+// Reusable function to lightboxify a section in case items are dynamically added to the page
+function lightboxify() {
+  // Load each gallery separately
+  jQuery('.lightbox').each(function() {
+    jQuery(this).magnificPopup({
+      delegate: 'a.gallery-item', // the selector for gallery item
+      type: 'image',
+      gallery:{
+        enabled:true
+      },
+      image: {
+        verticalFit: true,
+        titleSrc: function(item) {
+          return jQuery(item.el).closest('figure').find('figcaption').text() + '<br /><a href=\"' + jQuery(item.el).attr('href') + '\" target=\"_blank\">View image #' + (jQuery(item.el).closest('li').index() + 1) + ' at full size in a new tab</a>';
+        }
+      },
+    });
+  });
+}
+
+jQuery(document).ready(function() {
+  lightboxify();
+});
+</script>
+
+{% if gradeData[grade] and curriculum in gradeData[grade]['curriculum'] and curriculumData[curriculum] %}
+
+<section id="lessons-main" class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
+        <div class="h1 section-heading">{{ gradeData[grade]['grade_title'] }} {{ curriculumData[curriculum]['type'] }}: {{curriculumData[curriculum]['title']}}</div>
+        <hr class="light">
+        <br>
+        <p class="text-faded">
+          {{ curriculumData[curriculum]['description'] }}
+        </p>
+        <br>
+        <p>
+          <a href="./" class="btn btn-default btn-secondary btn-xl prev">
+            Back to {{ gradeData[grade]['grade_title'] }} curriculum
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curriculum-images">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>Sample Images</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+
+      {% if curriculumData[curriculum]['thumbs'] %}
+
+        <ul class="row align-items-center sample-items nodecor lightbox">
+        
+        {% for thumbInfo in curriculumData[curriculum]['thumbs'] %}
+
+        
+          <li class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <figure>
+              <a class="gallery-item block" href="{{ thumbInfo['url'] }}">
+                <img src="{{ thumbInfo['url'] }}" class="sample-lesson" alt="{{ thumbInfo['alt'] }}">
+              </a>
+
+              {% if thumbInfo['caption'] %}
+
+              <figcaption>{{ thumbInfo['caption']|safe }}</figcaption>
+
+              {% else %}
+
+              <figcaption>Sample Item #{{ loop.index }}</figcaption>
+
+              {% endif %}
+
+            </figure>
+          </li>
+
+        {% endfor %}
+
+        </ul>
+
+      {% else %}
+
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-0 text-center">
+        <div class="card padding-0">
+          <div class="card-body padding-0">
+            <div class="asset-placeholder asset-placeholder-widescreen">
+              <div class="asset-placeholder-inner">
+                <div class="asset-placeholder-contents">
+                  Thumbnail #1
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-0 text-center">
+        <div class="card padding-0">
+          <div class="card-body padding-0">
+            <div class="asset-placeholder asset-placeholder-widescreen">
+              <div class="asset-placeholder-inner">
+                <div class="asset-placeholder-contents">
+                  Thumbnail #2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-0 text-center">
+        <div class="card padding-0">
+          <div class="card-body padding-0">
+            <div class="asset-placeholder asset-placeholder-widescreen">
+              <div class="asset-placeholder-inner">
+                <div class="asset-placeholder-contents">
+                  Thumbnail #3
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<section id="curriculum-resources" class="bg-secondary">
+  <div class="container">
+    <div class="row margin-4-bottom">
+      <div class="col-xs-12 text-center">
+         <h2>Resources for this lesson</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 text-left">
+        <h3 class="inline-block margin-1-right">Lesson Mode:</h3>
+        <p class="inline-block text_large">{{ curriculumData[curriculum]['mode'] }}</p>
+
+        <h3>Activity Summary:</h3>
+        {{ curriculumData[curriculum]['summary']|safe }}
+
+        <h3>Math Connections:</h3>
+        {{ curriculumData[curriculum]['math_connections']|safe }}
+
+        <h3>CS Connections:</h3>
+        {{ curriculumData[curriculum]['cs_connections']|safe }}
+      </div>
+      <div class="col-xs-12 col-sm-6 text-left">
+        <div class="card bg-white">
+          <div class="card-body">
+            <div class="padding-0-top padding-3-right padding-3-bottom padding-3-left">
+              <h3>Downloadable Materials:</h3>
+              <ul class='nodecor curriculum-materials'>
+
+              {% for materialInfo in curriculumData[curriculum]['materials'] %}
+
+              <li class='block margin-2-top'><a href="{{ materialInfo.url }}" class="btn btn-default btn-primary btn-xl download {{ materialInfo.filetype }}">{{ materialInfo.title }}</a></li>
+
+              {% else %}
+
+              <li>No materials for this {{ curriculumData[curriculum]['type'] }}</li>
+
+              {% endfor %}
+
+              </ul>
+
+              <h3 class="margin-3-top">Scratch Projects:</h3>
+              <ul class='nodecor curriculum-materials'>
+
+              {% for scratchInfo in curriculumData[curriculum]['scratch_projects'] %}
+
+              <li class='block margin-2-top'><a href="{{ scratchInfo.url }}" class="btn btn-default btn-primary btn-xl download {{ scratchInfo.filetype }}">{{ scratchInfo.title }}</a></li>
+
+              {% else %}
+
+              <li>No Scratch projects for this {{ curriculumData[curriculum]['type'] }}</li>
+
+              {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curriculum-navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 margin-3-bottom text-center">
+        <h3>Previous Item:</h3>
+        {% if curriculumData[curriculum]['prev_curriculum_item'] %}
+
+          <p>
+            Before beginning this {{ curriculumData[curriculum]['type'] }}, please complete the
+            <em>{{ curriculumData[curriculumData[curriculum]['prev_curriculum_item']]['title'] }}</em> {{ curriculumData[curriculumData[curriculum]['prev_curriculum_item']]['type'] }}.
+          </p>
+          <a href="{{ curriculumData[curriculum]['prev_curriculum_item'] }}" class="btn btn-default btn-primary btn-xl prev">{{ curriculumData[curriculumData[curriculum]['prev_curriculum_item']]['title'] }}</a>
+
+        {% else %}
+
+          <p><em>This is the first curriculum item in the sequence.</em></p>
+
+        {% endif %}
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 margin-3-bottom text-center">
+        <h3>Next Item:</h3>
+        {% if curriculumData[curriculum]['next_curriculum_item'] %}
+
+          <p>
+            After completing this {{ curriculumData[curriculum]['type'] }}, continue on with the
+            <em>{{ curriculumData[curriculumData[curriculum]['next_curriculum_item']]['title'] }}</em> {{ curriculumData[curriculumData[curriculum]['next_curriculum_item']]['type'] }}.
+          </p>
+          <a href="{{ curriculumData[curriculum]['next_curriculum_item'] }}" class="btn btn-default btn-primary btn-xl next">{{ curriculumData[curriculumData[curriculum]['next_curriculum_item']]['title'] }}</a>
+
+        {% else %}
+
+          <p><em>This is the last curriculum item in the sequence.</em></p>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% else %}
+
+<section id="lessons-main" class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
+        <div class="h1 section-heading">Curriculum item not found</div>
+        <hr class="light">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
+
+{% endblock %}

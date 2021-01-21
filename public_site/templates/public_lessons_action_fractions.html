@@ -1,35 +1,36 @@
+{% from "data_curriculum.jinja" import gradeData %}
 {% set includeIsotope = true %}
 {% extends "templates/public_base_template.html" %}
 
 {% block body %}
 
-<style>
+<!-- <style>
 .isotope-grid > .isotope-grid-item {
   height: 450px;
 }
-</style>
+</style> -->
 
 <!-- Isotope implementation -->
-<script>
+<!-- <script>
 
-  var iso = new Isotope( '.isotope-grid', {
-  itemSelector: '.isotope-grid-item',
-  layoutMode: 'fitRows'
-});
+// var iso = new Isotope( '.isotope-grid', {
+//   itemSelector: '.isotope-grid-item',
+//   layoutMode: 'fitRows'
+// });
 
-document.addEventListener("DOMContentLoaded", function(){
-  var filtersElem = document.querySelector('.filter-button-group');
-  filtersElem.addEventListener( 'click', function( event ) {
-    // only work with buttons
-    if ( !matchesSelector( event.target, 'button' ) ) {
-      return;
-    }
-    var filterValue = event.target.getAttribute('data-filter');
-    // use matching filter function
-    // filterValue = filterFns[ filterValue ] || filterValue;
-    iso.arrange({ filter: filterValue });
-  });
-});
+// document.addEventListener("DOMContentLoaded", function(){
+//   var filtersElem = document.querySelector('.filter-button-group');
+//   filtersElem.addEventListener( 'click', function( event ) {
+//     // only work with buttons
+//     if ( !matchesSelector( event.target, 'button' ) ) {
+//       return;
+//     }
+//     var filterValue = event.target.getAttribute('data-filter');
+//     // use matching filter function
+//     // filterValue = filterFns[ filterValue ] || filterValue;
+//     iso.arrange({ filter: filterValue });
+//   });
+// });
 
 // jQuery(document).ready(function() {
 //   var $grid = $('.isotope-grid').isotope({
@@ -41,13 +42,32 @@ document.addEventListener("DOMContentLoaded", function(){
 //     $grid.isotope({ filter: filterValue });
 //  });
 // });
-</script>
+</script> -->
 
-<section class="bg-primary" id="intro">
+<style>
+  /* See https://type-scale.com/?size=18&scale=1.200&text=A%20Visual%20Type%20Scale&font=Open%20Sans&fontweight=400&bodyfont=body_font_default&bodyfontweight=400&lineheight=1.75&backgroundcolor=%23ffffff&fontcolor=%23000000&preview=false */
+  /* Note: use px values as rems, since we set body to 10px for easier math */
+  h1,.h1 { font-size: 4.479rem; }
+  h2 { font-size: 3.732rem; }
+  h3 { font-size: 3.110rem; }
+  h4 { font-size: 2.592rem; }
+  h5 { font-size: 2.160rem; }
+  h6 { font-size: 2.0rem; font-weight: bold; }
+
+  small, .text_small { font-size: 0.833rem; }
+
+  p { font-size: 1.8rem; margin: 1rem 0; }
+
+  ul, ol { font-size: 1.8rem; }
+
+</style>
+
+<section id="lessons-main" class="bg-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Action Fractions Lessons</h2>
+        <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
+        <div class="h1 section-heading">Action Fractions Lessons</div>
         <hr class="light">
         <br>
         <p class="text-faded">
@@ -65,44 +85,212 @@ document.addEventListener("DOMContentLoaded", function(){
   </div>
 </section>
 
-<section id="all-lesson">
+<section id="lessons-video">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-12 text-center">
-        <h2>All Lessons</h2>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>[Video Intro Title]</h2>
         <hr>
       </div>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-lg-12 text-center">
-        <p>
-          Select filters below to refine the list of assessments you're interested in.
-        </p>
-        <h3>Grade Level</h3>
-        <div class="button-group filter-button-group">
-          <button class="btn btn-primary" data-filter="*">All</button>
-          <button class="btn btn-secondary" data-filter=".frog">3rd Grade</button>
-          <button class="btn btn-secondary" data-filter=".scratch">4th Grade</button>
-        </div>
-        <!-- Removed for now, per Carla's suggestion -->
-        <!-- <h3>Topic</h3>
-        <div class="button-group filter-button-group">
-          <button class="btn btn-primary" data-filter="*">All</button>
-          <button class="btn btn-secondary" data-filter=".sequence">Sequence</button>
-          <button class="btn btn-secondary" data-filter=".decomposition">Decomposition</button>
-          <button class="btn btn-secondary" data-filter=".fractions">Fractions</button>
-          <button class="btn btn-secondary" data-filter=".scratch-basics">Scratch Basics</button>
-          <button class="btn btn-secondary" data-filter=".addition">Addition</button>
-        </div> -->
-        <h3>Type</h3>
-        <div class="button-group filter-button-group">
-          <button class="btn btn-primary" data-filter="*">All</button>
-          <button class="btn btn-secondary" data-filter=".unplugged">Unplugged</button>
-          <button class="btn btn-secondary" data-filter=".plugged">Plugged</button>
+      <div class="col-xs-10 col-xs-offset-1 text-center">
+        <div class="card padding-0">
+          <div class="card-body padding-0">
+            <div class="asset-placeholder asset-placeholder-widescreen">
+              <div class="asset-placeholder-inner">
+                <div class="asset-placeholder-contents">
+                  VIDEO
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row align-items-center sample-items nodecor isotope-grid"> <!-- data-isotope='{ "itemSelector": ".isotope-grid-item", "layoutMode": "fitRows" }'> -->
+  </div>
+</section>
+
+<section id="lessons-grades" class="bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+         <h2>View the Action Fractions Curriculum</h2>
+      </div>
+    </div>
+    <div class="row margin-4-top">
+      {% for gradeKey, gradeInfo in gradeData.items() %}
+      <!-- <div class="col-xs-12 col-sm-6 text-center"> -->
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 text-center margin-4-bottom">
+        <div class="row">
+          <!-- <div class="col-xs-12 col-md-10 col-md-offset-1 text-center"> -->
+          <div class="col-xs-12 text-center height-max">
+            <div class="card bg-primary padding-0">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Explore {{gradeInfo['grade_title']}} Curriculum</h3>
+                  <div class="row">
+                    <div class="col-xs-6 left">
+                      <div class="tag block-left">
+                        {{gradeInfo['num_lessons']}} lessons
+                      </div>
+                    </div>
+                    <div class="col-xs-6 right">
+                      <div class="tag block-right">
+                        {{gradeInfo['num_assessments']}} assessments
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        {{gradeInfo['text_about']}}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./{{gradeKey}}/" class="btn btn-default btn-xl">
+                        View {{gradeInfo['grade_title']}} Curriculum
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- <div class="row margin-4-top">
+      <div class="col-xs-12 col-sm-6 text-center">
+        <div class="row">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
+            <div class="card bg-primary padding-0">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Explore 3rd Grade Curriculum</h3>
+                  <div class="row">
+                    <div class="col-xs-6 left">
+                      <div class="tag block-left">
+                        12 lessons
+                      </div>
+                    </div>
+                    <div class="col-xs-6 right">
+                      <div class="tag block-right">
+                        4 assessments
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./grade-3/" class="btn btn-default btn-xl">
+                        View 3rd Grade Curriculum
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 text-center">
+        <div class="row">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
+            <div class="card bg-primary padding-0">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Explore 4th Grade Curriculum</h3>
+                  <div class="row">
+                    <div class="col-xs-6 left">
+                      <div class="tag block-left">
+                        12 lessons
+                      </div>
+                    </div>
+                    <div class="col-xs-6 right">
+                      <div class="tag block-right">
+                        4 assessments
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./grade-4/" class="btn btn-default btn-xl">
+                        View 4th Grade Curriculum
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<section id="lessons-about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>About Action Fractions</h2>
+        <hr>
+      </div>
+      <div class="col-xs-12 text-center">
+        <p>
+          Action Fraction lessons can be divided into three categories: unplugged, skill building and culminating project. Each year of instruction includes approximately 12 activities. Major concepts are often introduced first in an unplugged activity, followed by several skill building activities. Each year concludes with an open-ended, culminating project.
+        </p>
+        <p>
+          Most skill-building lessons follow a similar format. First, the context is set in the mathematics context and the Computational Thinking (CT) context. Next, students are presented with example code that illustrates the use of a CT concept for exploring a mathematics concept. Students are stepped through the example code in three steps using the TIPP&SEE learning strategy: observing how it currently works, inspecting the code and predicting what code blocks had particular effects, then making small changes to new code blocks in order to better understand the code. Then the students use those code blocks to make their own scripts according to prompts in journal pages.
+        </p>
+        <p>
+          Actions Fractions has an associated set of assessments that are designed to reveal students’ developing CT competencies along the different CT learning trajectories
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section id="lessons-video">
+  <div class="container">
+    <div class="row sample-items nodecor isotope-grid">
       <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-3 type-unplugged">
         <img src="/static/img/lessons/lesson-brownie-bits.webp"
           class="sample-lesson"
@@ -141,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function(){
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <aside class="bg-dark" id="more-lessons">
   <div class="container text-center">

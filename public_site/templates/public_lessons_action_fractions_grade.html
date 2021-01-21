@@ -1,0 +1,473 @@
+{% from "data_curriculum.jinja" import gradeData,curriculumData %}
+{% set includeIsotope = true %}
+{% extends "templates/public_base_template.html" %}
+
+{% block body %}
+
+<style>
+  /* See https://type-scale.com/?size=18&scale=1.200&text=A%20Visual%20Type%20Scale&font=Open%20Sans&fontweight=400&bodyfont=body_font_default&bodyfontweight=400&lineheight=1.75&backgroundcolor=%23ffffff&fontcolor=%23000000&preview=false */
+  /* Note: use px values as rems, since we set body to 10px for easier math */
+  h1,.h1 { font-size: 4.479rem; }
+  h2 { font-size: 3.732rem; }
+  h3 { font-size: 3.110rem; }
+  h4 { font-size: 2.592rem; }
+  h5 { font-size: 2.160rem; }
+  h6 { font-size: 2.0rem; font-weight: bold; }
+
+  small, .text_small { font-size: 0.833rem; }
+
+  p { font-size: 1.8rem; margin: 1rem 0; }
+
+  ul, ol { font-size: 1.8rem; }
+
+</style>
+
+<section id="lessons-main" class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
+        <div class="h1 section-heading">{{gradeData[grade]['grade_title']}} Curriculum</div>
+        <hr class="light">
+        <br>
+        <p class="text-faded">
+          {{gradeData[grade]['text_about']}}
+        </p>
+        <!-- <a id="vis-btn" href="#about" class="btn btn-primary btn-xl page-scroll">About Action Fractions</a>
+        &nbsp;
+        <a id="vis-btn" href="#lesson-fraction-circles" class="btn btn-primary btn-xl page-scroll">Sample Lesson: Fraction Circles 1</a>
+        &nbsp;
+        <a id="vis-btn" href="#lesson-frog-fly" class="btn btn-primary btn-xl page-scroll">Sample Lesson: The Frog and the Fly</a>
+        &nbsp;
+        <a id="vis-btn" href="#more-lessons" class="btn btn-primary btn-xl page-scroll">More Lessons</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lessons-howtouse">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>How to use this curriculum</h2>
+        <hr>
+      </div>
+      <div class="col-xs-12 text-left">
+        <p>
+          This section contains info about how important it is to use the lessons in sequence, tips for integration into existing curriculum, using the assessments, etc
+        </p>
+        <p>
+          text for 3rd grade curriculum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at egestas dui. Nullam tellus elit, molestie vel luctus ut, rutrum luctus leo. Integer at metus risus. Morbi mi ipsum, tempus vel mauris nec, volutpat imperdiet nunc. Donec venenatis, purus id auctor consequat, lectus tellus venenatis risus, nec ultrices magna tellus ac urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed a porta massa, sit amet aliquet augue. Aenean convallis est ut justo lacinia, ac efficitur orci consequat. Integer eleifend vehicula erat at fermentum.
+        </p>
+        <p>
+          Donec ac hendrerit felis. Aliquam rutrum sodales consequat. Aliquam at metus blandit, pharetra dui rhoncus, vestibulum elit. Donec vitae ipsum ut ligula rutrum suscipit et id velit. Aenean eleifend, ipsum id ullamcorper sodales, nisl nisl suscipit ex, ut ullamcorper dolor dolor quis est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia placerat quam non finibus.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lessons-listing" class="bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+         <h2>{{gradeData[grade]['grade_title']}} Lessons &amp; Assessments</h2>
+      </div>
+    </div>
+
+    {% if gradeData[grade]['curriculum'] %}
+
+      <div class="row row-equal-heights margin-4-top">
+
+      {% for gradeID in gradeData[grade]['curriculum'] %}
+        {% if curriculumData[gradeID] %}
+
+          {% if curriculumData[gradeID]['type'] == 'Assessment' %}
+        
+          <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 text-center margin-4-bottom"> <!-- Assessment-specific styles -->
+            <div class="row height-max">
+              <div class="col-xs-12 text-center height-max">
+                <div class="card bg-secondary padding-0 height-max"> <!-- Assessment-specific styles -->
+                  <div class="card-body padding-0">
+                    <div class="asset-placeholder asset-placeholder-short"> <!-- Assessment-specific styles -->
+                      <div class="asset-placeholder-inner">
+                        <div class="asset-placeholder-contents">
+                          Image
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-contents padding-2">
+                      <h3>{{curriculumData[gradeID]['type']}} {{curriculumData[gradeID]['num']}}: {{curriculumData[gradeID]['title']}}</h3>
+                      <div class="row margin-2-top">
+                        <div class="col-xs-12">
+                          <p>
+                            {{curriculumData[gradeID]['description']}}
+                          </p>
+                        </div>
+                      </div>
+                      <!-- <div>
+                        <div class="tag tag-inline">
+                          Sequence
+                        </div>
+                        <div class="tag tag-inline">
+                          Decomposition
+                        </div>
+                        <div class="tag tag-inline">
+                          Fractions
+                        </div>
+                      </div> -->
+                      <div class="row margin-2-top">
+                        <div class="col-xs-12">
+                          <a href="./{{gradeID}}" class="btn btn-default btn-primary btn-xl"> <!-- Assessment-specific styles -->
+                            View {{curriculumData[gradeID]['title']}}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% endif %}
+
+          {% if curriculumData[gradeID]['type'] == 'Lesson' %}
+        
+            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 text-center margin-4-bottom"> <!-- Lesson-specific styles -->
+              <div class="row height-max">
+                <!-- <div class="col-xs-12 col-md-10 col-md-offset-1 text-center height-max"> -->
+                <div class="col-xs-12 text-center height-max">
+                  <div class="card bg-primary padding-0 height-max"> <!-- Lesson-specific styles -->
+                    <div class="card-body padding-0">
+                      
+                      {% if curriculumData[gradeID]['cover_img'] %}
+                      
+                      <div class="asset-placeholder asset-placeholder-widescreen"> <!-- Lesson-specific styles -->
+                        <div class="asset-placeholder-inner">
+                          <div class="card-thumb asset-placeholder-contents"
+                            style="background-image: url('{{ curriculumData[gradeID]['cover_img']['url'] }}');"
+                            class=""> <!-- Lesson-specific styles -->
+                          </div>
+                        </div>
+                      </div>
+
+                      {% else %}
+
+                      <div class="asset-placeholder asset-placeholder-widescreen"> <!-- Lesson-specific styles -->
+                        <div class="asset-placeholder-inner">
+                          <div class="asset-placeholder-contents">
+                            Placeholder Image
+                          </div>
+                        </div>
+                      </div>
+
+                      {% endif %}
+
+                      <div class="card-contents padding-2">
+                        <h3>{{curriculumData[gradeID]['type']}} {{curriculumData[gradeID]['num']}}: {{curriculumData[gradeID]['title']}}</h3>
+                        <div class="row margin-2-top">
+                          <div class="col-xs-12">
+                            <p>
+                              {{curriculumData[gradeID]['description']}}
+                            </p>
+                          </div>
+                        </div>
+                        <!-- <div>
+                          <div class="tag tag-inline">
+                            Sequence
+                          </div>
+                          <div class="tag tag-inline">
+                            Decomposition
+                          </div>
+                          <div class="tag tag-inline">
+                            Fractions
+                          </div>
+                        </div> -->
+                        <div class="row margin-2-top">
+                          <div class="col-xs-12">
+                            <a href="./{{gradeID}}" class="btn btn-default btn-secondary btn-xl"> <!-- Lesson-specific styles -->
+                              View {{curriculumData[gradeID]['title']}}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          {% endif %}
+
+        {% endif %}
+      {% endfor %}
+
+      </div>
+
+    {% endif %}
+
+
+    <!-- <div class="row row-equal-heights margin-4-top">
+      <div class="col-xs-12 col-sm-6 text-center margin-4-bottom">
+        <div class="row height-max">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 text-center height-max">
+            <div class="card bg-primary padding-0 height-max">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Lesson 1: Brownie Bites</h3>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="tag tag-inline">
+                      Sequence
+                    </div>
+                    <div class="tag tag-inline">
+                        Decomposition
+                    </div>
+                    <div class="tag tag-inline">
+                        Fractions
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./brownie-bites" class="btn btn-default btn-xl">
+                        View Brownie Bites
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 text-center margin-4-bottom">
+        <div class="row height-max">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 text-center height-max">
+            <div class="card bg-primary padding-0 height-max">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Lesson 2: Animal Number Story</h3>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        Children learn how to access the Scratch website and their class’s projects. They explore the Scratch workspace and understand the components. Children use and remix a simple project illustrating a number story.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="tag tag-inline">
+                      Scratch Basics
+                    </div>
+                    <div class="tag tag-inline">
+                        Addition
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./animal-number-story" class="btn btn-default btn-xl">
+                        View Animal Number Story
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="row row-equal-heights">
+      <div class="col-xs-12 col-sm-6 text-center margin-4-bottom">
+        <div class="row height-max">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 text-center height-max">
+            <div class="card bg-primary padding-0 height-max">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Lesson 1: Brownie Bites</h3>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="tag tag-inline">
+                      Sequence
+                    </div>
+                    <div class="tag tag-inline">
+                        Decomposition
+                    </div>
+                    <div class="tag tag-inline">
+                        Fractions
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./brownie-bites" class="btn btn-default btn-xl">
+                        View Brownie Bites
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 text-center margin-4-bottom">
+        <div class="row height-max">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 text-center height-max">
+            <div class="card bg-primary padding-0 height-max">
+              <div class="card-body padding-0">
+                <div class="asset-placeholder asset-placeholder-widescreen">
+                  <div class="asset-placeholder-inner">
+                    <div class="asset-placeholder-contents">
+                      Image
+                    </div>
+                  </div>
+                </div>
+                <div class="card-contents padding-2">
+                  <h3>Lesson 2: Animal Number Story</h3>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <p>
+                        Children learn how to access the Scratch website and their class’s projects. They explore the Scratch workspace and understand the components. Children use and remix a simple project illustrating a number story.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="tag tag-inline">
+                      Scratch Basics
+                    </div>
+                    <div class="tag tag-inline">
+                        Addition
+                    </div>
+                  </div>
+                  <div class="row margin-2-top">
+                    <div class="col-xs-12">
+                      <a href="./animal-number-story" class="btn btn-default btn-xl">
+                        View Animal Number Story
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+  </div>
+</section>
+
+<section id="lessons-about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>About Action Fractions</h2>
+        <hr>
+      </div>
+      <div class="col-xs-12 text-center">
+        <p>
+          Action Fraction lessons can be divided into three categories: unplugged, skill building and culminating project. Each year of instruction includes approximately 12 activities. Major concepts are often introduced first in an unplugged activity, followed by several skill building activities. Each year concludes with an open-ended, culminating project.
+        </p>
+        <p>
+          Most skill-building lessons follow a similar format. First, the context is set in the mathematics context and the Computational Thinking (CT) context. Next, students are presented with example code that illustrates the use of a CT concept for exploring a mathematics concept. Students are stepped through the example code in three steps using the TIPP&SEE learning strategy: observing how it currently works, inspecting the code and predicting what code blocks had particular effects, then making small changes to new code blocks in order to better understand the code. Then the students use those code blocks to make their own scripts according to prompts in journal pages.
+        </p>
+        <p>
+          Actions Fractions has an associated set of assessments that are designed to reveal students’ developing CT competencies along the different CT learning trajectories
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section id="lessons-video">
+  <div class="container">
+    <div class="row sample-items nodecor isotope-grid">
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-3 type-unplugged">
+        <img src="/static/img/lessons/lesson-brownie-bits.webp"
+          class="sample-lesson"
+          alt="Brownie Bits lesson" />
+        <h3>Brownie Bits</h3>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-3">
+        <img src="/static/img/lessons/lesson-animal-number-story.webp"
+          class="sample-lesson"
+          alt="Animal Number Story lesson" />
+        <h3>Animal Number Story</h3>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-3">
+        <img src="/static/img/lessons/lesson-sharing-equally.webp"
+          class="sample-lesson"
+          alt="Sharing Equally lesson" />
+        <h3>Sharing Equally</h3>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-4">
+        <img src="/static/img/lessons/lesson-introducing-conditionals-rounding-shortcut.webp"
+          class="sample-lesson"
+          alt="Introducing Conditionals: A Rounding Shortcut lesson" />
+        <h3>Introducing Conditionals: A Rounding Shortcut</h3>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-4">
+        <img src="/static/img/lessons/lesson-zoo-animals.webp"
+          class="sample-lesson"
+          alt="Zoo Animals lesson" />
+        <h3>Zoo Animals</h3>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center isotope-grid-item card grade-4">
+        <img src="/static/img/lessons/lesson-robot-boxes.webp"
+          class="sample-lesson"
+          alt="Robot Boxes lesson" />
+        <h3>Robot Boxes</h3>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<aside class="bg-dark" id="more-lessons">
+  <div class="container text-center">
+    <div class="call-to-action">
+      <h2>Interested in seeing more Action Fractions lessons?</h2>
+      <a href="https://www.canonlab.org/actionfractionslessons" class="btn btn-default btn-xl wow tada">View our Action Fractions Lessons</a>
+      </div>
+  </div>
+</aside>
+
+<!-- <section class="bg-dark">
+    <div class="container text-center">
+      
+    </div>
+  </section> -->
+
+{% endblock %}
