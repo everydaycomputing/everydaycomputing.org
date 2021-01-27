@@ -112,6 +112,32 @@ ol.nodecor li::before {
 	background-image: url("/static/img/icons/arrow-right-333.svg");
 }
 
+.btn.up,
+.btn.up:active {
+	background-image: url("/static/img/icons/arrow-up.png");
+  background-position: left 25px center;
+	background-repeat: no-repeat;
+	padding-left: 60px;
+}
+
+.btn.btn-secondary.up,
+.btn.btn-secondary.up:active {
+	background-image: url("/static/img/icons/arrow-up-333.svg");
+}
+
+.btn.down,
+.btn.down:active {
+	background-image: url("/static/img/icons/arrow-down.png");
+  background-position: left 25px center;
+	background-repeat: no-repeat;
+	padding-left: 60px;
+}
+
+.btn.btn-secondary.down,
+.btn.btn-secondary.down:active {
+	background-image: url("/static/img/icons/arrow-down-333.svg");
+}
+
 .btn.scratch,
 .btn.scratch:active {
 	background-image: url("/static/img/icons/scratch.png");
