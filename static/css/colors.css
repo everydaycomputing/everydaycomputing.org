@@ -22,7 +22,8 @@ a:focus {
 }
 
 .bg-secondary a:not(.btn) {
-	color: white;
+	/* color: white; */
+	color: #337ab7;
 }
   
 .bg-secondary {
