@@ -1122,9 +1122,9 @@ tr {
 }
 
 /** Lessons & Assessments Navigator **/
-ul.curriculum-materials { }
-ul.curriculum-materials li { }
-ul.curriculum-materials li a { font-size: 2rem; text-transform: none; }
+ul.item-materials { }
+ul.item-materials li { }
+ul.item-materials li a { font-size: 2rem; text-transform: none; }
 
 /** Visualization Styles **/
 

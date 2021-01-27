@@ -1,4 +1,4 @@
-{% from "data_curriculum.jinja" import gradeData,curriculumData %}
+{% from "data_instructional_materials.jinja" import gradeData,materialsData %}
 {% set includeIsotope = true %}
 {% extends "templates/public_base_template.html" %}
 
@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
-        <div class="h1 section-heading">{{gradeData[grade]['grade_title']}} Curriculum</div>
+        <div class="h1 section-heading">{{gradeData[grade]['grade_title']}} Instructional Materials</div>
         <hr class="light">
         <br>
         <p class="text-faded">
@@ -49,7 +49,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <h2>How to use this curriculum</h2>
+        <h2>How to use these materials</h2>
         <hr>
       </div>
       <div class="col-xs-12 text-left">
@@ -57,7 +57,7 @@
           This section contains info about how important it is to use the lessons in sequence, tips for integration into existing curriculum, using the assessments, etc
         </p>
         <p>
-          text for 3rd grade curriculum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at egestas dui. Nullam tellus elit, molestie vel luctus ut, rutrum luctus leo. Integer at metus risus. Morbi mi ipsum, tempus vel mauris nec, volutpat imperdiet nunc. Donec venenatis, purus id auctor consequat, lectus tellus venenatis risus, nec ultrices magna tellus ac urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed a porta massa, sit amet aliquet augue. Aenean convallis est ut justo lacinia, ac efficitur orci consequat. Integer eleifend vehicula erat at fermentum.
+          text for these instructional materials Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at egestas dui. Nullam tellus elit, molestie vel luctus ut, rutrum luctus leo. Integer at metus risus. Morbi mi ipsum, tempus vel mauris nec, volutpat imperdiet nunc. Donec venenatis, purus id auctor consequat, lectus tellus venenatis risus, nec ultrices magna tellus ac urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed a porta massa, sit amet aliquet augue. Aenean convallis est ut justo lacinia, ac efficitur orci consequat. Integer eleifend vehicula erat at fermentum.
         </p>
         <p>
           Donec ac hendrerit felis. Aliquam rutrum sodales consequat. Aliquam at metus blandit, pharetra dui rhoncus, vestibulum elit. Donec vitae ipsum ut ligula rutrum suscipit et id velit. Aenean eleifend, ipsum id ullamcorper sodales, nisl nisl suscipit ex, ut ullamcorper dolor dolor quis est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia placerat quam non finibus.
@@ -75,14 +75,14 @@
       </div>
     </div>
 
-    {% if gradeData[grade]['curriculum'] %}
+    {% if gradeData[grade]['materials'] %}
 
       <div class="row row-equal-heights margin-4-top">
 
-      {% for gradeID in gradeData[grade]['curriculum'] %}
-        {% if curriculumData[gradeID] %}
+      {% for gradeID in gradeData[grade]['materials'] %}
+        {% if materialsData[gradeID] %}
 
-          {% if curriculumData[gradeID]['type'] == 'Assessment' %}
+          {% if materialsData[gradeID]['type'] == 'Assessment' %}
         
           <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 text-center margin-4-bottom"> <!-- Assessment-specific styles -->
             <div class="row height-max">
@@ -97,11 +97,11 @@
                       </div>
                     </div>
                     <div class="card-contents padding-2">
-                      <h3>{{curriculumData[gradeID]['type']}} {{curriculumData[gradeID]['num']}}: {{curriculumData[gradeID]['title']}}</h3>
+                      <h3>{{materialsData[gradeID]['type']}} {{materialsData[gradeID]['num']}}: {{materialsData[gradeID]['title']}}</h3>
                       <div class="row margin-2-top">
                         <div class="col-xs-12">
                           <p>
-                            {{curriculumData[gradeID]['description']}}
+                            {{materialsData[gradeID]['description']}}
                           </p>
                         </div>
                       </div>
@@ -119,7 +119,7 @@
                       <div class="row margin-2-top">
                         <div class="col-xs-12">
                           <a href="./{{gradeID}}" class="btn btn-default btn-primary btn-xl"> <!-- Assessment-specific styles -->
-                            View {{curriculumData[gradeID]['title']}}
+                            View {{materialsData[gradeID]['title']}}
                           </a>
                         </div>
                       </div>
@@ -132,7 +132,7 @@
 
           {% endif %}
 
-          {% if curriculumData[gradeID]['type'] == 'Lesson' %}
+          {% if materialsData[gradeID]['type'] == 'Lesson' %}
         
             <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 text-center margin-4-bottom"> <!-- Lesson-specific styles -->
               <div class="row height-max">
@@ -141,12 +141,12 @@
                   <div class="card bg-primary padding-0 height-max"> <!-- Lesson-specific styles -->
                     <div class="card-body padding-0">
                       
-                      {% if curriculumData[gradeID]['cover_img'] %}
+                      {% if materialsData[gradeID]['cover_img'] %}
                       
                       <div class="asset-placeholder asset-placeholder-widescreen"> <!-- Lesson-specific styles -->
                         <div class="asset-placeholder-inner">
                           <div class="card-thumb asset-placeholder-contents"
-                            style="background-image: url('{{ curriculumData[gradeID]['cover_img']['url'] }}');"
+                            style="background-image: url('{{ materialsData[gradeID]['cover_img']['url'] }}');"
                             class=""> <!-- Lesson-specific styles -->
                           </div>
                         </div>
@@ -165,11 +165,11 @@
                       {% endif %}
 
                       <div class="card-contents padding-2">
-                        <h3>{{curriculumData[gradeID]['type']}} {{curriculumData[gradeID]['num']}}: {{curriculumData[gradeID]['title']}}</h3>
+                        <h3>{{materialsData[gradeID]['type']}} {{materialsData[gradeID]['num']}}: {{materialsData[gradeID]['title']}}</h3>
                         <div class="row margin-2-top">
                           <div class="col-xs-12">
                             <p>
-                              {{curriculumData[gradeID]['description']}}
+                              {{materialsData[gradeID]['description']}}
                             </p>
                           </div>
                         </div>
@@ -187,7 +187,7 @@
                         <div class="row margin-2-top">
                           <div class="col-xs-12">
                             <a href="./{{gradeID}}" class="btn btn-default btn-secondary btn-xl"> <!-- Lesson-specific styles -->
-                              View {{curriculumData[gradeID]['title']}}
+                              View {{materialsData[gradeID]['title']}}
                             </a>
                           </div>
                         </div>
@@ -455,14 +455,14 @@
   </div>
 </section> -->
 
-<aside class="bg-dark" id="more-lessons">
+<!-- <aside class="bg-dark" id="more-lessons">
   <div class="container text-center">
     <div class="call-to-action">
       <h2>Interested in seeing more Action Fractions lessons?</h2>
       <a href="https://www.canonlab.org/actionfractionslessons" class="btn btn-default btn-xl wow tada">View our Action Fractions Lessons</a>
       </div>
   </div>
-</aside>
+</aside> -->
 
 <!-- <section class="bg-dark">
     <div class="container text-center">

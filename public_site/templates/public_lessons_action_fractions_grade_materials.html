@@ -1,4 +1,4 @@
-{% from "data_curriculum.jinja" import gradeData,curriculumData %}
+{% from "data_instructional_materials.jinja" import gradeData,materialsData %}
 {% set includeMagnific = true %}
 {% extends "templates/public_base_template.html" %}
 
@@ -51,23 +51,23 @@ jQuery(document).ready(function() {
 });
 </script>
 
-{% if gradeData[grade] and curriculum in gradeData[grade]['curriculum'] and curriculumData[curriculum] %}
+{% if gradeData[grade] and materials in gradeData[grade]['materials'] and materialsData[materials] %}
 
 <section id="lessons-main" class="bg-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
         <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
-        <div class="h1 section-heading">{{ gradeData[grade]['grade_title'] }} {{ curriculumData[curriculum]['type'] }}: {{curriculumData[curriculum]['title']}}</div>
+        <div class="h1 section-heading">{{ gradeData[grade]['grade_title'] }} {{ materialsData[materials]['type'] }}: {{materialsData[materials]['title']}}</div>
         <hr class="light">
         <br>
         <p class="text-faded">
-          {{ curriculumData[curriculum]['description'] }}
+          {{ materialsData[materials]['description'] }}
         </p>
         <br>
         <p>
           <a href="./" class="btn btn-default btn-secondary btn-xl prev">
-            Back to {{ gradeData[grade]['grade_title'] }} curriculum
+            Back to {{ gradeData[grade]['grade_title'] }} materials
           </a>
         </p>
       </div>
@@ -75,7 +75,7 @@ jQuery(document).ready(function() {
   </div>
 </section>
 
-<section id="curriculum-images">
+<section id="item-images">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
@@ -85,11 +85,11 @@ jQuery(document).ready(function() {
     </div>
     <div class="row">
 
-      {% if curriculumData[curriculum]['thumbs'] %}
+      {% if materialsData[materials]['thumbs'] %}
 
         <ul class="row align-items-center sample-items nodecor lightbox">
         
-        {% for thumbInfo in curriculumData[curriculum]['thumbs'] %}
+        {% for thumbInfo in materialsData[materials]['thumbs'] %}
 
         
           <li class="col-sm-12 col-md-6 col-lg-4 text-center">
@@ -165,7 +165,7 @@ jQuery(document).ready(function() {
   </div>
 </section>
 
-<section id="curriculum-resources" class="bg-secondary">
+<section id="item-resources" class="bg-secondary">
   <div class="container">
     <div class="row margin-4-bottom">
       <div class="col-xs-12 text-center">
@@ -175,46 +175,46 @@ jQuery(document).ready(function() {
     <div class="row">
       <div class="col-xs-12 col-sm-6 text-left">
         <h3 class="inline-block margin-1-right">Lesson Mode:</h3>
-        <p class="inline-block text_large">{{ curriculumData[curriculum]['mode'] }}</p>
+        <p class="inline-block text_large">{{ materialsData[materials]['mode'] }}</p>
 
         <h3>Activity Summary:</h3>
-        {{ curriculumData[curriculum]['summary']|safe }}
+        {{ materialsData[materials]['summary']|safe }}
 
         <h3>Math Connections:</h3>
-        {{ curriculumData[curriculum]['math_connections']|safe }}
+        {{ materialsData[materials]['math_connections']|safe }}
 
         <h3>CS Connections:</h3>
-        {{ curriculumData[curriculum]['cs_connections']|safe }}
+        {{ materialsData[materials]['cs_connections']|safe }}
       </div>
       <div class="col-xs-12 col-sm-6 text-left">
         <div class="card bg-white">
           <div class="card-body">
             <div class="padding-0-top padding-3-right padding-3-bottom padding-3-left">
               <h3>Downloadable Materials:</h3>
-              <ul class='nodecor curriculum-materials'>
+              <ul class='nodecor item-materials'>
 
-              {% for materialInfo in curriculumData[curriculum]['materials'] %}
+              {% for materialInfo in materialsData[materials]['materials'] %}
 
               <li class='block margin-2-top'><a href="{{ materialInfo.url }}" class="btn btn-default btn-primary btn-xl download {{ materialInfo.filetype }}">{{ materialInfo.title }}</a></li>
 
               {% else %}
 
-              <li>No materials for this {{ curriculumData[curriculum]['type'] }}</li>
+              <li>No materials for this {{ materialsData[materials]['type'] }}</li>
 
               {% endfor %}
 
               </ul>
 
               <h3 class="margin-3-top">Scratch Projects:</h3>
-              <ul class='nodecor curriculum-materials'>
+              <ul class='nodecor item-materials'>
 
-              {% for scratchInfo in curriculumData[curriculum]['scratch_projects'] %}
+              {% for scratchInfo in materialsData[materials]['scratch_projects'] %}
 
               <li class='block margin-2-top'><a href="{{ scratchInfo.url }}" class="btn btn-default btn-primary btn-xl download {{ scratchInfo.filetype }}">{{ scratchInfo.title }}</a></li>
 
               {% else %}
 
-              <li>No Scratch projects for this {{ curriculumData[curriculum]['type'] }}</li>
+              <li>No Scratch projects for this {{ materialsData[materials]['type'] }}</li>
 
               {% endfor %}
 
@@ -227,38 +227,38 @@ jQuery(document).ready(function() {
   </div>
 </section>
 
-<section id="curriculum-navigation">
+<section id="materials-navigation">
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 margin-3-bottom text-center">
         <h3>Previous Item:</h3>
-        {% if curriculumData[curriculum]['prev_curriculum_item'] %}
+        {% if materialsData[materials]['prev_item'] %}
 
           <p>
-            Before beginning this {{ curriculumData[curriculum]['type'] }}, please complete the
-            <em>{{ curriculumData[curriculumData[curriculum]['prev_curriculum_item']]['title'] }}</em> {{ curriculumData[curriculumData[curriculum]['prev_curriculum_item']]['type'] }}.
+            Before beginning this {{ materialsData[materials]['type'] }}, please complete the
+            <em>{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['prev_item']]['type'] }}.
           </p>
-          <a href="{{ curriculumData[curriculum]['prev_curriculum_item'] }}" class="btn btn-default btn-primary btn-xl prev">{{ curriculumData[curriculumData[curriculum]['prev_curriculum_item']]['title'] }}</a>
+          <a href="{{ materialsData[materials]['prev_item'] }}" class="btn btn-default btn-primary btn-xl prev">{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</a>
 
         {% else %}
 
-          <p><em>This is the first curriculum item in the sequence.</em></p>
+          <p><em>This is the first item in the instructional sequence.</em></p>
 
         {% endif %}
       </div>
       <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 margin-3-bottom text-center">
         <h3>Next Item:</h3>
-        {% if curriculumData[curriculum]['next_curriculum_item'] %}
+        {% if materialsData[materials]['next_item'] %}
 
           <p>
-            After completing this {{ curriculumData[curriculum]['type'] }}, continue on with the
-            <em>{{ curriculumData[curriculumData[curriculum]['next_curriculum_item']]['title'] }}</em> {{ curriculumData[curriculumData[curriculum]['next_curriculum_item']]['type'] }}.
+            After completing this {{ materialsData[materials]['type'] }}, continue on with the
+            <em>{{ materialsData[materialsData[materials]['next_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['next_item']]['type'] }}.
           </p>
-          <a href="{{ curriculumData[curriculum]['next_curriculum_item'] }}" class="btn btn-default btn-primary btn-xl next">{{ curriculumData[curriculumData[curriculum]['next_curriculum_item']]['title'] }}</a>
+          <a href="{{ materialsData[materials]['next_item'] }}" class="btn btn-default btn-primary btn-xl next">{{ materialsData[materialsData[materials]['next_item']]['title'] }}</a>
 
         {% else %}
 
-          <p><em>This is the last curriculum item in the sequence.</em></p>
+          <p><em>This is the last item in the instructional sequence.</em></p>
 
         {% endif %}
       </div>
@@ -268,12 +268,12 @@ jQuery(document).ready(function() {
 
 {% else %}
 
-<section id="lessons-main" class="bg-primary">
+<section id="materials-main" class="bg-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
         <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
-        <div class="h1 section-heading">Curriculum item not found</div>
+        <div class="h1 section-heading">Item not found</div>
         <hr class="light">
       </div>
     </div>

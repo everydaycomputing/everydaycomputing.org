@@ -2,10 +2,10 @@
 	set gradeData = {
 		'grade-3': {
 			'grade_title':'3rd Grade',
-			'text_about':'Intro text for 3rd grade curriculum lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
+			'text_about':'Intro text for 3rd grade instructional materials lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
 			'num_lessons': 12,
 			'num_assessments': 5,
-			'curriculum': [
+			'materials': [
 				'grade-3-assessment-boy',
 				'brownie-bites',
 				'animal-number-story',
@@ -27,10 +27,10 @@
 		},
 		'grade-4': {
 			'grade_title':'4th Grade',
-			'text_about':'Intro text for 4th grade curriculum lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
+			'text_about':'Intro text for 4th grade instructional materials lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
 			'num_lessons': 12,
 			'num_assessments': 5,
-			'lessons': [
+			'materials': [
 				["1.1", "2.2"]
 			]
 		}
@@ -38,36 +38,39 @@
 %}
 
 {%
-	set curriculumData = {
+	set materialsData = {
 		'grade-3-assessment-boy': {
 			'type': 'Assessment',
 			'num': '1',
 			'title': 'Grade 3 Beginning of Year Assessment',
 			'description': 'The Beginning-of-Year Assessment can be used to gauge children’s readiness for the content they will encounter early in third grade.',
-			'mode': 'unplugged',
+			'mode': 'paper-based',
 			'summary': '<p></p>',
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': '',
-			'prev_curriculum_item': '',
-			'next_curriculum_item': 'brownie-bites',
+			'prev_item': '',
+			'next_item': 'brownie-bites',
 		},
 		'brownie-bites': {
 			'type': 'Lesson',
 			'num': '1',
 			'title': 'Brownie Bites',
 			'description': 'Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.',
-			'mode': 'computer-based',
+			'mode': 'unplugged',
 			'summary': '<p>Children attempt to have their teacher achieve a goal (cutting a playdough brownie to share equally between four friends) by giving step-by-step instructions. The teacher tells children ahead of time that she will behave like a computer - acting exactly as they tell her to, without inferring any information that might seem obvious - so they should think carefully about the detail and precision of their instructions. Children then suggest steps for the teacher to follow to share the brownie. The teacher follows the directions very narrowly, not assuming any information they do not say. Once they have successfully worked together to achieve the goal, the teacher ends the activity by having children recall every verb they used to instruct the teacher.</p>',
 			'math_connections': '<p>Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.</p>',
 			'cs_connections': '<p>Computers require that their instructions be specific, precise directions for what they should do, and under what conditions they should do it. Here children explore the importance of precise instructions within a mathematical context.</p>',
 			'review_4th': 'y',
-			'prev_curriculum_item': 'grade-3-assessment-boy',
-			'next_curriculum_item': 'animal-number-story',
+			'prev_item': 'grade-3-assessment-boy',
+			'next_item': 'animal-number-story',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-brownie-bites-cover.png',
 				'alt': 'Screenshot: brownie being divided into pieces',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-brownie-bites.png',
@@ -108,12 +111,15 @@
 			'math_connections': '<p>Children use Scratch to show a simple number story. 12 + 9 = 21</p>',
 			'cs_connections': '<p>Children explore the Scratch workspace. Children learn that the Scratch workspace and computer programs are made up of different parts. They search for and try out different commands and learn which changes in commands and simple parameters can change the program’s output.</p>',
 			'review_4th': 'y',
-			'prev_curriculum_item': 'brownie-bites',
-			'next_curriculum_item': 'sharing-equally',
+			'prev_item': 'brownie-bites',
+			'next_item': 'sharing-equally',
 			'cover_img': {
 				'url': '/static/img/lessons/new/lesson-animal-number-story-cover.png',
 				'alt': 'Scratch project stage depicting a crab telling a hippo "I have 12 counters"',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-animal-number-story.png',
@@ -166,12 +172,15 @@
 			'math_connections': '<p>Children practice sharing counters equally (with leftovers) and write a division number model.</p>',
 			'cs_connections': '<p>Children practice using Scratch and attend to the role of different parts of the interface and the code.</p>',
 			'review_4th': 'y',
-			'prev_curriculum_item': 'animal-number-story',
-			'next_curriculum_item': 'fraction-circles-1',
+			'prev_item': 'animal-number-story',
+			'next_item': 'fraction-circles-1',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-sharing-equally-cover.png',
 				'alt': 'Scratch project stage depicting 2 cats sharing toy mice',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-sharing-equally.png',
@@ -219,12 +228,15 @@
 			'math_connections': '<p>Students use Fraction Circle pieces to represent a fraction as a sum of unit fractions.</p>',
 			'cs_connections': '<p>Students learn how to instruct the computer to place fraction circle pieces rather than physically placing pieces themselves. Students build scripts with a small set of custom instructions. They will navigate the Scratch environment, add/remove/repeat blocks, work with custom blocks, and run a project.</p>',
 			'review_4th': 'y',
-			'prev_curriculum_item': 'sharing-equally',
-			'next_curriculum_item': 'grade-3-assessment-early',
+			'prev_item': 'sharing-equally',
+			'next_item': 'grade-3-assessment-early',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-sample-fraction-circles-1-project-image-cover.png',
 				'alt': 'Scratch project stage for Fraction Circles 1 lesson, depicting a circle with 2 segments filled in and many fractional segment options below it',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-sample-fraction-circles-1-project-image.png',
@@ -287,8 +299,8 @@
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'fraction-circles-1',
-			'next_curriculum_item': 'polygon-partners',
+			'prev_item': 'fraction-circles-1',
+			'next_item': 'polygon-partners',
 		},
 		'polygon-partners': {
 			'type': 'Lesson',
@@ -299,12 +311,15 @@
 			'math_connections': '<p>Children practice describing polygons, as they reinforce different defining characteristics of shapes.</p>',
 			'cs_connections': '<p>Children practice writing a complete set of instructions in advance, prior to having a partner “execute” them. They also work together to debug their instructions, and note how the outcome improves as they improve the specificity, precision, and completeness of their instructions.</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'grade-3-assessment-early',
-			'next_curriculum_item': 'fraction-circles-2',
+			'prev_item': 'grade-3-assessment-early',
+			'next_item': 'fraction-circles-2',
 			'cover_img': {
 				'url': '/static/img/lessons/new/lesson-polygon-partners-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-polygon-partners.png',
@@ -349,12 +364,15 @@
 			'math_connections': '<p>Children represent fractions using different-sized wholes.</p>',
 			'cs_connections': '<p>Children explore the idea that there are multiple ways to reach a desired solution using a limited set of instructions. Depending on the desired goal and strategy, different instructions will be needed.</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'polygon-partners',
-			'next_curriculum_item': 'storyboarding-fraction-comic-strip',
+			'prev_item': 'polygon-partners',
+			'next_item': 'storyboarding-fraction-comic-strip',
 			'cover_img': {
 				'url': '/static/img/lessons/new/lesson-fraction-circles-2-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-fraction-circles-2.png',
@@ -406,12 +424,15 @@
 			'math_connections': '<p>Children identify equivalent fraction cards.</p>',
 			'cs_connections': '<p>Children prepare to create animations in Scratch, by decomposing a simple story into a comic strip Storyboard with 4 scenes.</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'fraction-circles-2',
-			'next_curriculum_item': 'fraction-comic-animation',
+			'prev_item': 'fraction-circles-2',
+			'next_item': 'fraction-comic-animation',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-storyboarding-fraction-comic-strip-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-storyboarding-fraction-comic-strip.png',
@@ -456,12 +477,15 @@
 			'math_connections': '<p>Children plan a number story comparing equivalent Fraction Cards.</p>',
 			'cs_connections': '<p>Children prepare to create animations in Scratch, by decomposing a simple number story into a comic with 4 scenes. They learn to use wait blocks to synchronize the actions on the stage given a limited set of instructions (commands).</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'storyboarding-fraction-comic-strip',
-			'next_curriculum_item': 'grade-3-assessment-mid',
+			'prev_item': 'storyboarding-fraction-comic-strip',
+			'next_item': 'grade-3-assessment-mid',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-fraction-comic-animation-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-fraction-comic-animation.png',
@@ -509,8 +533,8 @@
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'fraction-comic-animation',
-			'next_curriculum_item': 'fraction-number-line-exploration',
+			'prev_item': 'fraction-comic-animation',
+			'next_item': 'fraction-number-line-exploration',
 		},
 		'fraction-number-line-exploration': {
 			'type': 'Lesson',
@@ -521,12 +545,15 @@
 			'math_connections': '<p>Children extend their understanding of fractions on a number line.</p>',
 			'cs_connections': '<p>Children build scripts with a small set of instructions. Children explore sequencing the blocks and breaking down a distance into smaller parts. They explore custom movement blocks.</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'grade-3-assessment-mid',
-			'next_curriculum_item': 'frog-and-fly',
+			'prev_item': 'grade-3-assessment-mid',
+			'next_item': 'frog-and-fly',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-fraction-number-line-exploration-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-fraction-number-line-exploration.png',
@@ -578,12 +605,15 @@
 			'math_connections': '<p>Children partition a line segment into equal fractional parts.</p>',
 			'cs_connections': '<p>Children explore using the repeat block and practice debugging code using test, observe, adjust, repeat to arrive at an expected output.</p>',
 			'review_4th': 'y',
-			'prev_curriculum_item': 'fraction-number-line-exploration',
-			'next_curriculum_item': 'fraction-number-line-mysteries',
+			'prev_item': 'fraction-number-line-exploration',
+			'next_item': 'fraction-number-line-mysteries',
 			'cover_img': {
 					'url': '/static/img/lessons/lesson-sample-the-frog-and-the-fly-project-image-cover.png',
 					'alt': 'Scratch project stage for The Frog and the Fly lesson, depicting a frog and a fly over a numberline; the frog at point 0 and the fly near point 1',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-sample-the-frog-and-the-fly-project-image.png',
@@ -640,12 +670,15 @@
 			'math_connections': '<p>Children locate fractions on a number line, including equivalent fractions with different denominators.</p>',
 			'cs_connections': '<p>Children use known CS concepts, such as repetition, and new Scratch blocks such as hide/show, go to, and wait. The activities in this lesson require breaking a problem into smaller parts - decomposition.</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'frog-and-fly',
-			'next_curriculum_item': 'my-fraction-number-story',
+			'prev_item': 'frog-and-fly',
+			'next_item': 'my-fraction-number-story',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-fraction-number-line-mysteries-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-fraction-number-line-mysteries.png',
@@ -702,12 +735,15 @@
 			'math_connections': '<p>Children plan and create a number story about fractions.</p>',
 			'cs_connections': '<p>Children create an animated story in Scratch using previously learned coding blocks.</p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'fraction-number-line-mysteries',
-			'next_curriculum_item': 'grade-3-assessment-late',
+			'prev_item': 'fraction-number-line-mysteries',
+			'next_item': 'grade-3-assessment-late',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-my-fraction-number-story-cover.png',
 				'alt': '',
 			},
+			'lts': [
+				'',
+			],
 			'thumbs': [
 				{
 					'url': '/static/img/lessons/lesson-my-fraction-number-story.png',
@@ -775,8 +811,8 @@
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'my-fraction-number-story',
-			'next_curriculum_item': 'grade-3-assessment-eoy',
+			'prev_item': 'my-fraction-number-story',
+			'next_item': 'grade-3-assessment-eoy',
 		},
 		'grade-3-assessment-eoy': {
 			'type': 'Assessment',
@@ -788,8 +824,8 @@
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
-			'prev_curriculum_item': 'grade-3-assessment-late',
-			'next_curriculum_item': '',
+			'prev_item': 'grade-3-assessment-late',
+			'next_item': '',
 		},
 	}
 %}
