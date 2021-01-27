@@ -48,6 +48,36 @@
   </div>
 </section>
 
+<section id="listing" class="bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>Quick List of {{gradeData[grade]['grade_title']}} materials</h2>
+        <hr>
+      </div>
+      <div class="col-xs-12 text-left">
+
+        {% if gradeData[grade]['materials'] %}
+
+          <ul>
+            
+          {% for gradeID in gradeData[grade]['materials'] %}
+            {% if materialsData[gradeID] %}
+
+              <li>{{materialsData[gradeID]['type']}}: <a href="./{{gradeID}}">{{materialsData[gradeID]['title']}}</a></li>
+
+            {% endif %}
+          {% endfor %}
+          
+          </ul>
+
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="how-to-use">
   <div class="container">
     <div class="row">
