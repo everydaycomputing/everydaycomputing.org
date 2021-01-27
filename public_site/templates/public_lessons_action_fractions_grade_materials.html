@@ -66,16 +66,18 @@ jQuery(document).ready(function() {
         </p>
         <br>
         <p>
-          <a href="./" class="btn btn-default btn-secondary btn-xl prev">
-            Back to {{ gradeData[grade]['grade_title'] }} materials
-          </a>
+          <a id="vis-btn" href="#sample-images" class="btn btn-primary btn-xl page-scroll">Sample Images</a>
+          &nbsp;
+          <a id="vis-btn" href="#item-resources" class="btn btn-primary btn-xl page-scroll">Resources</a>
+          &nbsp;
+          <a id="vis-btn" href="#materials-navigation" class="btn btn-primary btn-xl page-scroll">Materials Navigation</a>
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="item-images">
+<section id="sample-images">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
@@ -234,10 +236,10 @@ jQuery(document).ready(function() {
         <h3>Previous Item:</h3>
         {% if materialsData[materials]['prev_item'] %}
 
-          <p>
+          <!-- <p>
             Before beginning this {{ materialsData[materials]['type'] }}, please complete the
             <em>{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['prev_item']]['type'] }}.
-          </p>
+          </p> -->
           <a href="{{ materialsData[materials]['prev_item'] }}" class="btn btn-default btn-primary btn-xl prev">{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</a>
 
         {% else %}
@@ -250,10 +252,10 @@ jQuery(document).ready(function() {
         <h3>Next Item:</h3>
         {% if materialsData[materials]['next_item'] %}
 
-          <p>
+          <!-- <p>
             After completing this {{ materialsData[materials]['type'] }}, continue on with the
             <em>{{ materialsData[materialsData[materials]['next_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['next_item']]['type'] }}.
-          </p>
+          </p> -->
           <a href="{{ materialsData[materials]['next_item'] }}" class="btn btn-default btn-primary btn-xl next">{{ materialsData[materialsData[materials]['next_item']]['title'] }}</a>
 
         {% else %}
@@ -261,6 +263,13 @@ jQuery(document).ready(function() {
           <p><em>This is the last item in the instructional sequence.</em></p>
 
         {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 margin-4-top text-center">
+        <a href="./" class="btn btn-default btn-primary btn-xl up">
+          Back to {{ gradeData[grade]['grade_title'] }} materials
+        </a>
       </div>
     </div>
   </div>
