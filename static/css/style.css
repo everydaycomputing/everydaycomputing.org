@@ -16,6 +16,14 @@ h4 { font-size: 3rem; }
 h5 { font-size: 2.75rem; }
 h6 { font-size: 2.5rem; }
 
+section.narrow {
+  padding: 4rem 0;
+}
+
+section.narrow:first-of-type {
+  padding-top: 8rem;
+}
+
 a {
   text-decoration: underline;
 }
