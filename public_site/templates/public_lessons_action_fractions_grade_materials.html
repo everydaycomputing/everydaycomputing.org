@@ -72,6 +72,11 @@ jQuery(document).ready(function() {
           &nbsp;
           <a id="vis-btn" href="#materials-navigation" class="btn btn-primary btn-xl page-scroll">Materials Navigation</a>
         </p>
+        <p class="margin-2-top">
+          <a href="./" class="btn btn-default btn-secondary btn-xl up">
+            Back to {{ gradeData[grade]['grade_title'] }} materials
+          </a>
+        </p>
       </div>
     </div>
   </div>
@@ -265,13 +270,13 @@ jQuery(document).ready(function() {
         {% endif %}
       </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-12 margin-4-top text-center">
         <a href="./" class="btn btn-default btn-primary btn-xl up">
           Back to {{ gradeData[grade]['grade_title'] }} materials
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
