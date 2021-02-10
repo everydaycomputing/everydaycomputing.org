@@ -6,7 +6,6 @@
 			'num_lessons': 12,
 			'num_assessments': 5,
 			'materials': [
-				'grade-3-assessment-boy',
 				'brownie-bites',
 				'animal-number-story',
 				'sharing-equally',
@@ -22,7 +21,6 @@
 				'fraction-number-line-mysteries',
 				'my-fraction-number-story',
 				'grade-3-assessment-late',
-				'grade-3-assessment-eoy'
 			]
 		},
 		'grade-4': {
@@ -39,19 +37,6 @@
 
 {%
 	set materialsData = {
-		'grade-3-assessment-boy': {
-			'type': 'Assessment',
-			'num': '1',
-			'title': 'Grade 3 Beginning of Year Assessment',
-			'description': 'The Beginning-of-Year Assessment can be used to gauge children’s readiness for the content they will encounter early in third grade.',
-			'mode': 'paper-based',
-			'summary': '<p></p>',
-			'math_connections': '<p></p>',
-			'cs_connections': '<p></p>',
-			'review_4th': '',
-			'prev_item': '',
-			'next_item': 'brownie-bites',
-		},
 		'brownie-bites': {
 			'type': 'Lesson',
 			'num': '1',
@@ -62,7 +47,7 @@
 			'math_connections': '<p>Children review equal shares by dividing a brownie into four equal shares, and reinforces the idea that shares can be equal size, even if they are different shapes.</p>',
 			'cs_connections': '<p>Computers require that their instructions be specific, precise directions for what they should do, and under what conditions they should do it. Here children explore the importance of precise instructions within a mathematical context.</p>',
 			'review_4th': 'y',
-			'prev_item': 'grade-3-assessment-boy',
+			'prev_item': '',
 			'next_item': 'animal-number-story',
 			'cover_img': {
 				'url': '/static/img/lessons/lesson-brownie-bites-cover.png',
@@ -122,9 +107,14 @@
 			],
 			'thumbs': [
 				{
-					'url': '/static/img/lessons/lesson-animal-number-story.png',
+					'url': '/static/img/lessons/lesson-grade3-animal-number-story-scratch-stage.png',
 					'alt': 'Scratch project stage depicting a crab telling a hippo "I have 12 counters"',
-					'caption': '',
+					'caption': 'Animal Number Story Scratch project stage',
+				},
+				{
+					'url': '/static/img/lessons/lesson-grade3-animal-number-story-scratch-blocks.png',
+					'alt': '',
+					'caption': 'Animal Number Story Scratch project code blocks',
 				},
 			],
 			'materials': [
@@ -291,7 +281,7 @@
 		},
 		'grade-3-assessment-early': {
 			'type': 'Assessment',
-			'num': '2',
+			'num': '1',
 			'title': 'Grade 3 Early Assessment',
 			'description': 'The Early Assessment can be used to gauge children’s understanding of the first 4 lessons.',
 			'mode': 'paper-based',
@@ -525,7 +515,7 @@
 		},
 		'grade-3-assessment-mid': {
 			'type': 'Assessment',
-			'num': '3',
+			'num': '2',
 			'title': 'Grade 3 Mid Assessment',
 			'description': 'The Mid Assessment can be used to gauge children’s understanding of the first 8 lessons.',
 			'mode': 'paper-based',
@@ -803,7 +793,7 @@
 		},
 		'grade-3-assessment-late': {
 			'type': 'Assessment',
-			'num': '4',
+			'num': '3',
 			'title': 'Grade 3 Late Assessment',
 			'description': 'The Late Assessment can be used to gauge children’s understanding of all 12 lessons.',
 			'mode': 'paper-based',
@@ -812,19 +802,6 @@
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
 			'prev_item': 'my-fraction-number-story',
-			'next_item': 'grade-3-assessment-eoy',
-		},
-		'grade-3-assessment-eoy': {
-			'type': 'Assessment',
-			'num': '5',
-			'title': 'Grade 3 End of Year Assessment',
-			'description': 'The End-of-Year Assessment can be used to gauge how well children retained their understanding of all 12 lessons.',
-			'mode': 'paper-based',
-			'summary': '<p></p>',
-			'math_connections': '<p></p>',
-			'cs_connections': '<p></p>',
-			'review_4th': 'n',
-			'prev_item': 'grade-3-assessment-late',
 			'next_item': '',
 		},
 	}
