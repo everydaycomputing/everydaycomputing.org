@@ -538,6 +538,31 @@ OL.footnotes>LI:target {
   color: rgba(0,0,0,0.5);
 }
 
+.assessment-progress svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Light fill (i.e. current assessment) */
+.assessment-progress-1 svg .circle1,
+.assessment-progress-2 svg .circle2,
+.assessment-progress-3 svg .circle3 {
+  fill: rgb(51, 122, 183, 0.5);
+}
+
+/* Dark fill (i.e. past assessment) */
+.assessment-progress-2 svg .circle1,
+.assessment-progress-3 svg .circle1,
+.assessment-progress-3 svg .circle2 {
+  fill: rgb(51, 122, 183, 1);
+}
+
+/* Empty fill (i.e. future assessment) */
+.assessment-progress-1 svg .circle2,
+.assessment-progress-1 svg .circle3,
+.assessment-progress-2 svg .circle3 {
+  fill: transparent;
+}
 
 header {
   min-height: initial;
