@@ -34,45 +34,6 @@ a.btn {
   white-space: normal;
 }
 
-figcaption {
-  font-size: 2rem;
-  font-style: italic;
-  margin: 1em auto;
-  max-width: 80%;
-}
-
-table{
-  margin: 0 auto;
-  width: 100%;
-  clear: both;
-  border-collapse: collapse;
-  table-layout: fixed;
-  word-wrap:break-word;
-}
-
-p {
-  /* font-size: 2rem; */
-  font-size: 2.5rem;
-}
-
-ul, ol {
-  /* font-size: 2rem; */
-  font-size: 2.5rem;
-}
-
-/* Remove decor (bullets/numbers) from list display */
-ul.nodecor,
-ol.nodecor {
-  list-style: none;
-  padding-left: 0;
-}
-
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/list-style#Accessibility_concerns */
-ul.nodecor li::before,
-ol.nodecor li::before {
-  content: "\200B";
-}
-
 .btn.download,
 .btn.download:active {
 	background-image: url("/static/img/icons/arrow-down.png");
@@ -170,6 +131,45 @@ ol.nodecor li::before {
 	background-position: 25px center;
 	background-repeat: no-repeat;
   padding-left: 60px;
+}
+
+figcaption {
+  font-size: 2rem;
+  font-style: italic;
+  margin: 1em auto;
+  max-width: 80%;
+}
+
+table{
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap:break-word;
+}
+
+p {
+  /* font-size: 2rem; */
+  font-size: 2.5rem;
+}
+
+ul, ol {
+  /* font-size: 2rem; */
+  font-size: 2.5rem;
+}
+
+/* Remove decor (bullets/numbers) from list display */
+ul.nodecor,
+ol.nodecor {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/list-style#Accessibility_concerns */
+ul.nodecor li::before,
+ol.nodecor li::before {
+  content: "\200B";
 }
 
 /* Transform list with FontAwesome bullets into set of large block with enormous, light bg bullets */
