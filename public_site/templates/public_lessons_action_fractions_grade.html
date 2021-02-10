@@ -1,4 +1,4 @@
-{% from "data_instructional_materials.jinja" import gradeData,materialsData %}
+{% from "data_instructional_materials.jinja" import gradeData,materialsData,iconMap %}
 {% set includeIsotope = true %}
 {% extends "templates/public_base_template.html" %}
 
@@ -140,7 +140,15 @@
                     </div>
                     <div class="card-contents padding-2">
                       <h3>{{materialsData[gradeID]['type']}} {{materialsData[gradeID]['num']}}: {{materialsData[gradeID]['title']}}</h3>
-                      <div class="row margin-2-top">
+                      <div class="row">
+                        <div class="col-xs-12 center">
+                          <div class="tag tag-inline">
+                            {{ iconMap[materialsData[gradeID]['mode']]|safe }}
+                            {{ materialsData[gradeID]['mode'] }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="col-xs-12">
                           <p>
                             {{materialsData[gradeID]['description']}}
@@ -208,7 +216,15 @@
 
                       <div class="card-contents padding-2">
                         <h3>{{materialsData[gradeID]['type']}} {{materialsData[gradeID]['num']}}: {{materialsData[gradeID]['title']}}</h3>
-                        <div class="row margin-2-top">
+                        <div class="row">
+                          <div class="col-xs-12 center">
+                            <div class="tag tag-inline">
+                              {{ iconMap[materialsData[gradeID]['mode']]|safe }}
+                              {{ materialsData[gradeID]['mode'] }}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
                           <div class="col-xs-12">
                             <p>
                               {{materialsData[gradeID]['description']}}
