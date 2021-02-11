@@ -82,6 +82,8 @@ jQuery(document).ready(function() {
   </div>
 </section>
 
+{% if materialsData[materials]['type'] == "Lesson" %}
+
 <section id="sample-images" class="narrow">
   <div class="container">
     <div class="row">
@@ -172,11 +174,13 @@ jQuery(document).ready(function() {
   </div>
 </section>
 
+{% endif %}
+
 <section id="item-resources" class="narrow bg-secondary">
   <div class="container">
     <div class="row margin-4-bottom">
       <div class="col-xs-12 text-center">
-         <h2>Resources for this lesson</h2>
+         <h2>Resources for this {{ materialsData[materials]['type']|lower }}</h2>
       </div>
     </div>
     <div class="row">
@@ -206,7 +210,7 @@ jQuery(document).ready(function() {
 
               {% else %}
 
-              <li>No materials for this {{ materialsData[materials]['type'] }}</li>
+              <li>No materials for this {{ materialsData[materials]['type']|lower }}</li>
 
               {% endfor %}
 
@@ -221,7 +225,7 @@ jQuery(document).ready(function() {
 
               {% else %}
 
-              <li>No Scratch projects for this {{ materialsData[materials]['type'] }}</li>
+              <li>No Scratch projects for this {{ materialsData[materials]['type']|lower }}</li>
 
               {% endfor %}
 
@@ -242,8 +246,8 @@ jQuery(document).ready(function() {
         {% if materialsData[materials]['prev_item'] %}
 
           <!-- <p>
-            Before beginning this {{ materialsData[materials]['type'] }}, please complete the
-            <em>{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['prev_item']]['type'] }}.
+            Before beginning this {{ materialsData[materials]['type']|lower }}, please complete the
+            <em>{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['prev_item']]['type']|lower }}.
           </p> -->
           <a href="{{ materialsData[materials]['prev_item'] }}" class="btn btn-default btn-primary btn-xl prev">{{ materialsData[materialsData[materials]['prev_item']]['title'] }}</a>
 
@@ -258,8 +262,8 @@ jQuery(document).ready(function() {
         {% if materialsData[materials]['next_item'] %}
 
           <!-- <p>
-            After completing this {{ materialsData[materials]['type'] }}, continue on with the
-            <em>{{ materialsData[materialsData[materials]['next_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['next_item']]['type'] }}.
+            After completing this {{ materialsData[materials]['type']|lower }}, continue on with the
+            <em>{{ materialsData[materialsData[materials]['next_item']]['title'] }}</em> {{ materialsData[materialsData[materials]['next_item']]['type']|lower }}.
           </p> -->
           <a href="{{ materialsData[materials]['next_item'] }}" class="btn btn-default btn-primary btn-xl next">{{ materialsData[materialsData[materials]['next_item']]['title'] }}</a>
 
