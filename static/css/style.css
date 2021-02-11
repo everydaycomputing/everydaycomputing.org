@@ -354,12 +354,14 @@ OL.footnotes>LI:target {
   font-weight:bold
 }
 
+/* Put this class on a row for which each direct descendant should have equal heights */
 .row-equal-heights {
   display: flex;
   display: -webkit-flex;
   flex-wrap: wrap;
 }
 
+/* Note: DO NOT put this class on a direct descendant of .row-equal-heights; only for use on descendants further down */
 .height-max {
   height: 100%;
 }
@@ -1220,6 +1222,53 @@ tr {
 }
 
 /** Lessons & Assessments Navigator **/
+ul.materials-toc,
+ul.materials-toc li {
+  list-style: none;
+  list-style-type: none;
+  margin: 0 0 0.5rem 0;
+  padding: 0.5rem;
+}
+
+.materials-toc-item {
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-template-rows: min-content auto;
+  /* grid-gap: 0.5rem; */
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .materials-toc-item {
+    grid-template-columns: 25% auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .materials-toc-item {
+    grid-template-columns: 20% auto;
+  }
+}
+
+.materials-toc-item .materials-toc-icon {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+  place-self: center;
+  font-size: 3.5rem;
+}
+
+.materials-toc-item .materials-toc-type {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  font-size: 0.85em;
+}
+
+.materials-toc-item .materials-toc-title {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
 ul.item-materials { }
 ul.item-materials li { }
 ul.item-materials li a { font-size: 2rem; text-transform: none; }
