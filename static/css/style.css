@@ -538,6 +538,38 @@ OL.footnotes>LI:target {
   color: rgba(0,0,0,0.5);
 }
 
+.image-examples {
+  perspective: 100px; /* Set consistent perspective for child images */
+}
+
+.image-examples img {
+	width: 50%;
+	position: absolute;
+	top: 55%;
+	left: 45%;
+	/* 	transform: skew(-10deg,0deg) rotate(0deg) translateX(-50%) translateY(-50%); */
+	/* transform: skew(13deg,-4deg) rotate(5deg); */
+  transform: rotateY(-2deg);
+	border: 5px solid #337ab7;
+	/* 	border: 5px solid white; */
+	box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+}
+
+.image-examples img:nth-of-type(1) {
+	top: 40%;
+	left: 40%;
+}
+
+.image-examples img:nth-of-type(2) {
+	top: 25%;
+	left: 20%;
+}
+
+.image-examples img:nth-of-type(3) {
+	top: 10%;
+	left: 5%;
+}
+
 .assessment-progress svg {
   width: 100%;
   height: auto;
