@@ -410,6 +410,11 @@ OL.footnotes>LI:target {
   border-bottom: 1px solid #e6e6f2;
 }
 
+/* Only show bottom border for <summary> used as card header when details container is open */
+details:not([open]) summary.card-header {
+	border-bottom: none;
+}
+
 /* Remove rounded corners
 .card-header:first-child {
   border-radius: 8px 8px 0 0;
