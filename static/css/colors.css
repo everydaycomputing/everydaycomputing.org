@@ -45,6 +45,22 @@ a:focus {
 }
 
 /* Buttons */
+.btn-outline,
+.btn-default.btn-outline {
+	border: 3px solid rgb(44, 106, 159);
+}
+
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-default.btn-outline:hover,
+.btn-default.btn-outline:focus,
+.btn-default.btn-outline:active {
+	border-color: rgb(44, 106, 159);
+	background-color: rgb(44,106,159);
+	color: white;
+}
+
 .btn-primary {
 	border-color: #337ab7;
 	color: #fff;
@@ -93,6 +109,16 @@ a:focus {
 	.btn-primary .badge {
 		color: #337ab7;
 		background-color: #fff;
+	}
+	
+	.btn-primary.btn-outline {
+		border: 3px solid rgb(239, 239, 239);
+	}
+
+	.btn-primary.btn-outline:hover,
+	.btn-primary.btn-outline:focus,
+	.btn-primary.btn-outline:active {
+		border-color: rgb(239, 239, 239);
 	}
 
 
@@ -144,4 +170,14 @@ a:focus {
 	.btn-secondary .badge {
 		color: rgb(239, 239, 239);;
 		background-color: #333;
-	}	
+	}
+	
+	.btn-secondary.btn-outline {
+		border: 3px solid rgb(44, 106, 159);
+	}
+
+	.btn-secondary.btn-outline:hover,
+	.btn-secondary.btn-outline:focus,
+	.btn-secondary.btn-outline:active {
+		border-color: rgb(44, 106, 159);
+	}
