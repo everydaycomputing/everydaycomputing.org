@@ -119,6 +119,16 @@ a.btn {
 .btn.pdf:active {
 	background-image: url("/static/img/icons/icon-pdf.svg");
 	background-position: 25px center;
+  background-size: 19px 20px;
+	background-repeat: no-repeat;
+	padding-left: 60px;
+}
+
+.btn.pdf-red,
+.btn.pdf-red:active {
+	background-image: url("/static/img/icons/icon-pdf-red.svg");
+	background-position: 25px center;
+  background-size: 25px 25px;
 	background-repeat: no-repeat;
 	padding-left: 60px;
 }
@@ -126,6 +136,15 @@ a.btn {
 .btn.gslides,
 .btn.gslides:active {
   background-image: url("/static/img/icons/icon-gslides.svg");
+  background-size: 25px 25px;
+	background-position: 25px center;
+	background-repeat: no-repeat;
+  padding-left: 60px;
+}
+
+.btn.gdocs,
+.btn.gdocs:active {
+  background-image: url("/static/img/icons/icon-gdocs.svg");
   background-size: 25px 25px;
 	background-position: 25px center;
 	background-repeat: no-repeat;
@@ -178,6 +197,17 @@ ol.nodecor {
 ul.nodecor li::before,
 ol.nodecor li::before {
   content: "\200B";
+}
+
+/* Right arrow bullets */
+ul.arrow-right,
+ul li.arrow-right {
+  list-style-image: url('/static/img/icons/arrow-right-333.svg');
+}
+
+ul.arrow-right-grey,
+ul li.arrow-right-grey {
+  list-style-image: url('/static/img/icons/arrow-right-sm-333.svg');
 }
 
 /* Transform list with FontAwesome bullets into set of large block with enormous, light bg bullets */
@@ -1274,9 +1304,12 @@ ul.materials-toc li {
   grid-row-start: 2;
 }
 
-ul.item-materials { }
-ul.item-materials li { }
 ul.item-materials li a { font-size: 2rem; text-transform: none; }
+
+ul.item-topics li {
+  font-size: 2rem;
+  padding: 1rem;
+}
 
 /** Visualization Styles **/
 
