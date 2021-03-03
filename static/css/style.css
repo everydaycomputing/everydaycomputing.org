@@ -1304,7 +1304,16 @@ ul.materials-toc li {
   grid-row-start: 2;
 }
 
-ul.item-materials li a { font-size: 2rem; text-transform: none; }
+/* inline-block on <ul> plus 100% width on <a> element below gives us equal widths for <a> elements */
+ul.item-materials {
+  display: inline-block;
+}
+
+ul.item-materials li a {
+  font-size: 2rem;
+  text-transform: none;
+  width: 100%;
+}
 
 ul.item-topics li {
   font-size: 2rem;

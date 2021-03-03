@@ -183,7 +183,7 @@ jQuery(document).ready(function() {
   <div class="container">
     <div class="row margin-4-bottom">
       <div class="col-xs-12 text-center">
-         <h2>Resources for this {{ materialsData[materials]['type']|lower }}</h2>
+         <h2>Resources for {{ materialsData[materials]['title'] }}</h2>
       </div>
     </div>
     
@@ -209,7 +209,7 @@ jQuery(document).ready(function() {
             <div class="padding-0-top padding-3-right padding-3-bottom padding-3-left">
 
               <!-- Lesson: Materials -->
-              <h3>Downloadable Materials:</h3>
+              <h3>Materials:</h3>
               <ul class='nodecor item-materials'>
 
               {% for materialInfo in materialsData[materials]['materials'] %}
@@ -264,19 +264,28 @@ jQuery(document).ready(function() {
 
     {% elif materialsData[materials]['type'] == "Assessment" %}
 
+    <!-- Assessment: Assessment Summary -->
+    <div class="row margin-4-bottom">
+      <div class="col-xs-10 col-xs-offset-1">
+          <h3>Assessment Summary</h3>
+          {{ materialsData[materials]['summary']|safe }}
+      </div>
+    </div>
+
     <div class="row">
-      <div class="col-xs-12 card bg-secondary">
+      <div class="col-xs-12 card bg-white">
         <div class="card-body">
 
-          <!-- Assessment: Materials -->
           <div class="col-xs-12">
+            
+            <!-- Assessment: Materials -->
             <div class="col-xs-12 col-sm-6 text-left">
-              <h3>Downloadable Materials:</h3>
+              <h3>Materials:</h3>
               <ul class='nodecor item-materials'>
 
                 {% for materialInfo in materialsData[materials]['materials'] %}
 
-                  <li class='block margin-2-top'><a href="{{ materialInfo.url }}" class="btn btn-default btn-secondary btn-outline btn-xl {{ materialInfo.filetype }}">{{ materialInfo.title }}</a></li>
+                  <li class='block margin-2-top'><a href="{{ materialInfo.url }}" class="btn btn-default btn-outline btn-xl {{ materialInfo.filetype }}">{{ materialInfo.title }}</a></li>
 
                   {% else %}
 
@@ -288,23 +297,21 @@ jQuery(document).ready(function() {
             </div>
 
             <!-- Assessment: Topics -->
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 text-left">
-                <h3>Topics:</h3>
-                <ul class='item-topics'>
+            <div class="col-xs-12 col-sm-5 col-sm-offset-1 text-left">
+              <h3>Topics:</h3>
+              <ul class='item-topics'>
 
-                  {% for topicName in materialsData[materials]['topics'] %}
+                {% for topicName in materialsData[materials]['topics'] %}
 
-                    <li class="arrow-right-grey margin-2-top">{{ topicName }}</li>
+                  <li class="arrow-right-grey margin-2-top">{{ topicName }}</li>
 
-                    {% else %}
+                  {% else %}
 
-                    <li class='block margin-2-top'>No topics for this {{ materialsData[materials]['type']|lower }}</li>
+                  <li class='block margin-2-top'>No topics for this {{ materialsData[materials]['type']|lower }}</li>
 
-                  {% endfor %}
-                
-                </ul>
-              </div>
+                {% endfor %}
+              
+              </ul>
             </div>
 
             {% endif %}
@@ -319,7 +326,7 @@ jQuery(document).ready(function() {
 <section id="materials-navigation" class="narrow">
   <div class="container card">
     <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 margin-3-bottom text-center">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 margin-3-bottom text-center">
         <h3>Previous Item:</h3>
         {% if materialsData[materials]['prev_item'] %}
 
@@ -335,7 +342,7 @@ jQuery(document).ready(function() {
 
         {% endif %}
       </div>
-      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 margin-3-bottom text-center">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-2 margin-3-bottom text-center">
         <h3>Next Item:</h3>
         {% if materialsData[materials]['next_item'] %}
 
