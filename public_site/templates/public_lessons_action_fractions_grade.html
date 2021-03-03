@@ -74,9 +74,11 @@
               {% if materialsData[gradeID]['type']|lower == 'lesson' %}
                 {% set liClass = 'col-xs-6 col-sm-3' %}
                 {% set itemClass = '' %}
+                {% set itemTitle = materialsData[gradeID]['title'] %}
               {% elif materialsData[gradeID]['type']|lower == 'assessment' %}
                 {% set liClass = 'col-xs-12' %}
                 {% set itemClass = 'col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4' %}
+                {% set itemTitle = materialsData[gradeID]['title_short'] %}
               {% else %}
                 {% set liClass = '' %}
                 {% set itemClass = '' %}
@@ -86,7 +88,7 @@
                 <div class="materials-toc-item card {{ itemClass }} height-max">
                   <div class="materials-toc-icon">{{ iconMap[materialsData[gradeID]['type']]|safe }}</div>
                   <div class="materials-toc-type">{{ materialsData[gradeID]['type'] }} #{{ materialsData[gradeID]['num'] }}:</div>
-                  <div class="materials-toc-title"><a href="./{{ gradeID }}">{{ materialsData[gradeID]['title'] }}</a></div>
+                  <div class="materials-toc-title"><a href="./{{ gradeID }}">{{ itemTitle }}</a></div>
                 </div>
               </li>
 

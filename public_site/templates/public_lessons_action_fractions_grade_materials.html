@@ -59,7 +59,14 @@ jQuery(document).ready(function() {
     <div class="row">
       <div class="col-lg-12 text-center">
         <!-- Temporary hack to keep Creative theme from auto-sizing H1 -->
-        <div class="h1 section-heading">{{ gradeData[grade]['grade_title'] }} {{ materialsData[materials]['type'] }}: {{materialsData[materials]['title']}}</div>
+        <div class="h1 section-heading">
+          {% if materialsData[materials]['type']|lower == "lesson" %}
+            {{ gradeData[grade]['grade_title'] }}
+            {{ materialsData[materials]['type'] }}:
+          {% endif %}
+
+          {{materialsData[materials]['title']}}
+        </div>
         <hr class="light">
         <br>
         <p class="text-faded">
@@ -67,7 +74,7 @@ jQuery(document).ready(function() {
         </p>
         <br>
         <p>
-          {% if materialsData[materials]['type'] == "Lesson" %}
+          {% if materialsData[materials]['type']|lower == "lesson" %}
           <a id="vis-btn" href="#sample-images" class="btn btn-primary btn-xl page-scroll">Sample Images</a>
           &nbsp;
           {% endif %}
@@ -85,7 +92,7 @@ jQuery(document).ready(function() {
   </div>
 </section>
 
-{% if materialsData[materials]['type'] == "Lesson" %}
+{% if materialsData[materials]['type']|lower == "lesson" %}
 
 <section id="sample-images" class="narrow">
   <div class="container">
@@ -187,7 +194,7 @@ jQuery(document).ready(function() {
       </div>
     </div>
     
-    {% if materialsData[materials]['type'] == "Lesson" %}
+    {% if materialsData[materials]['type']|lower == "lesson" %}
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 text-left">
@@ -262,7 +269,7 @@ jQuery(document).ready(function() {
       </div>
     </div>
 
-    {% elif materialsData[materials]['type'] == "Assessment" %}
+    {% elif materialsData[materials]['type']|lower == "assessment" %}
 
     <!-- Assessment: Assessment Summary -->
     <div class="row margin-4-bottom">
