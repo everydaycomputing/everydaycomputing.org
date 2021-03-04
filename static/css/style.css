@@ -575,6 +575,16 @@ details:not([open]) summary.card-header {
   color: rgba(0,0,0,0.5);
 }
 
+.asset-placeholder .asset-placeholder-contents .showcase-image {
+  position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
 .image-examples {
   perspective: 100px; /* Set consistent perspective for child images */
 }
@@ -844,14 +854,7 @@ footer .social-media a {
 }
 
 .showcase-image {
-  position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-  /* max-width: 100%; */
+  max-width: 100%;
 }
 
 .icon-big {
