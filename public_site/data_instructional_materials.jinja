@@ -30,7 +30,21 @@
 			'num_lessons': 12,
 			'num_assessments': 3,
 			'materials': [
-				["1.1", "2.2"]
+				'introducing-conditionals',
+				'zoo-animals',
+				'robot-boxes',
+				'math-chat',
+				'grade-4-assessment-early',
+				'pizza-sharing',
+				'ambling-animals',
+				'comparing-fractions-slicing-sandwiches',
+				'comparing-fractions-same-numerators',
+				'grade-4-assessment-mid',
+				'adding-fractions-same-denominators',
+				'subtracting-fractions-same-denominators',
+				'getting-mack-home',
+				'storyboarding-time-for-lunch-mack',
+				'grade-4-assessment-late',
 			],
 			'cover_content': '<img src="/static/img/lessons/grade-4/lesson-01-introducing-conditionals-rounding-shortcut-cover.png"><img src="/static/img/lessons/grade-4/lesson-02-zoo-animals-cover.png"><img src="/static/img/lessons/grade-4/lesson-03-robot-boxes-cover.png">',
 		}
@@ -601,12 +615,33 @@
 			'title_short': 'Mid Assessment',
 			'description': 'The Grade 3 Mid Assessment can be used to gauge students\' understanding of important CT content from the previous four lessons.',
 			'mode': 'paper-based',
-			'summary': '<p></p>',
+			'summary': '<p>This assessment includes 10 items from two CT topics (4 Decomposition items; 6 Sequencing items). Three of the ten items use images of the Scratch interface and/or Scratch blocks. All 10 items have a scoring guide and/or rubric included in the teacher assessment guide, along with other information to help with interpreting student responses.</p>',
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
 			'prev_item': 'fraction-comic-animation',
 			'next_item': 'fraction-number-line-exploration',
+			'materials': [
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'gdocs',
+				},
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+				{
+					'title': 'Student Printables',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+			],
+			'topics': [
+				'Decomposition',
+				'Sequencing',
+			],
 		},
 		'fraction-number-line-exploration': {
 			'type': 'Lesson',
@@ -929,12 +964,901 @@
 			'title_short': 'Late Assessment',
 			'description': 'The Grade 3 Late Assessment can be used to gauge students\' understanding of important CT content from the previous four lessons.',
 			'mode': 'paper-based',
-			'summary': '<p></p>',
+			'summary': '<p>This assessment includes 6 items from two CT topics (3 Sequencing items; 3 Repetition). Four of the six items use images of the Scratch interface and/or Scratch blocks. All 6 items have a scoring guide and/or rubric included in the teacher assessment guide, along with other information to help with interpreting student responses.</p>',
 			'math_connections': '<p></p>',
 			'cs_connections': '<p></p>',
 			'review_4th': 'n',
 			'prev_item': 'my-fraction-number-story',
 			'next_item': '',
+			'materials': [
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'gdocs',
+				},
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+				{
+					'title': 'Student Printables',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+			],
+			'topics': [
+				'Sequencing',
+				'Repetition',
+			],
+		},
+
+		'introducing-conditionals': {
+			'type': 'Lesson',
+			'num': '1',
+			'title': 'Introducing Conditionals: A Rounding Shortcut',
+			'description': 'DESCRIPTION',
+			'mode': 'unplugged',
+			'summary': '<p>Students learn and practice a strategy for rounding whole numbers. "A Rounding Shortcut <a href=\'https://drive.google.com/open?id=1JNK6KSYigpGid-bsDjtHllkNWSjLM88h\' target=\'_blank\'>SRB p87</a>" Method (rounding to thousands):</p><ol><li>Find the digit in the hundreds place.</li><li>Look at the digit to the right of the hundreds place.</li><li>If the digit is less than 5, round down.</li><li>If the digit is 5 or greater, round up.</li></ol><p>Teacher leads a discussion introducing students to the terms condition and conditional statement. They learn the explicit If-Then format, and convert each of statements #3 and #4 in the method above to If-Then format.</p>',
+			'math_connections': '<p>Students learn and practice a strategy for rounding whole numbers.</p>',
+			'cs_connections': '<p>Programmers often write code using conditionals (<strong>If-Then</strong> statements): <strong>If</strong> statements that indicate a condition the computer should evaluate as met or not met (i.e. as true or false), and <strong>Then</strong> statements that indicate what the computer should do if the if condition is true. In this activity students think about both the condition they are evaluating (Is the digit less than 5?) and what happens if the condition is met, or true (round down).</p>',
+			'review_4th': 'n',
+			'prev_item': '',
+			'next_item': 'zoo-animals',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-01-introducing-conditionals-rounding-shortcut-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-01-introducing-conditionals-rounding-shortcut-cover.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1voMzLuJlNJAEPbraQhrE3XXubygaP85l',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1xsxBOcMIl2NmgJ6S72XrspvEKyDOqyWt0vNeV_Uw2WM',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1EPh7-1i-rmAGl4t32zzU3jrZz4fJDZHa',
+					'filetype': 'notebook',
+				}
+			],
+			'topics': [
+				'Conditionals',
+				'Rounding whole numbers',
+			],
+		},
+		'zoo-animals': {
+			'type': 'Lesson',
+			'num': '2',
+			'title': 'Zoo Animals Number Story',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Children learn how to access the Scratch website and their class’s projects. They explore the Scratch workspace and understand the components. Children use and remix a simple project illustrating a number story.</p>',
+			'math_connections': '<p>Children use Scratch to show a multistep number story.</p>',
+			'cs_connections': '<p>Children explore the Scratch workspace. Children learn that the Scratch workspace and computer programs are made up of different parts. They search for and try out different commands and learn which changes in commands and simple parameters can change the program’s output.</p>',
+			'review_4th': 'n',
+			'prev_item': 'introducing-conditionals',
+			'next_item': 'robot-boxes',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-02-zoo-animals-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-02-zoo-animals-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-02-zoo-animals-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1abZs6IPThJrZIei5EoQurvQ19wnGCHwF',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1bZQEzISvR-q5SxjVjQg6IuW1nVn8tiMX',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'TIPP&SEE Poster',
+					'url': 'https://drive.google.com/open?id=12oz1ChHtt-rQR12kSaP_2jpWH4fZ2UHx',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1eaZbwNeXZts-jfsIIVpzc-AnDahuDRdxbGXxy0r0jw8',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1w6eIeUUJT1dN3cM_SToixqVXLXTdBrx5',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/236238013/',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Scratch Basics',
+				'Multi-step number story',
+			],
+		},
+		'robot-boxes': {
+			'type': 'Lesson',
+			'num': '3',
+			'title': 'Introducing Variables: Robot Boxes',
+			'description': 'DESCRIPTION',
+			'mode': 'unplugged',
+			'summary': '<p>Students work in small groups to play a game: <em>Robot Boxes</em>. One student plays the part of the Robot, which executes a given set of instructions (an algorithm containing variables) to walk out a rectangle. One student plays the part of the Filler, who assigns values to variables. One student plays the part of the Calculator, which uses variable values to calculate the area or perimeter of the rectangle by applying formulas.</p>',
+			'math_connections': '<p>Students are given the length and width of a rectangle and must find the area or perimeter by applying formulas.</p>',
+			'cs_connections': '<p>Students are introduced to variables. They learn that variables have different types, and how they can be used in computer programs.</p>',
+			'review_4th': 'n',
+			'prev_item': 'zoo-animals',
+			'next_item': 'math-chat',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-03-robot-boxes-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-03-robot-boxes-cover.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1w0RMHnkC0nDacXcTfBIloxaTi56cr-tB',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1KPASpIsH2g11R9gLt1e34qBGSq8i1Wav',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1SOE8EN4VezRlzxIwnpIhi5kVPT5wuYmhE9ATgy4Ybsg',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1n6APKvAW3a05SRAG76cRufF6WFpb6Mib',
+					'filetype': 'notebook',
+				}
+			],
+			'topics': [
+				'Variables',
+				'Area and Perimeter',
+			],
+		},
+		'math-chat': {
+			'type': 'Lesson',
+			'num': '4',
+			'title': 'Variables: Math Chat',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students explore how variables can be used in numerical calculations by making two changes to a program. First, they fix the erroneous mathematical calculation of the area of a rectangle in the program. Second, they add a calculation for the perimeter of a rectangle.</p>',
+			'math_connections': '<p>Students use formulas for the area and perimeter of rectangles.</p>',
+			'cs_connections': '<p>Students use variables in a program for the first time. They use variables to store data (input) and use operators to make and display calculations (output).</p>',
+			'review_4th': 'n',
+			'prev_item': 'robot-boxes',
+			'next_item': 'grade-4-assessment-early',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-04-math-chat-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-04-math-chat-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-04-math-chat-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1x8bMgTVfGwmXmaOgth1J0Kxcs2H03KuW',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1-nCDHBIU1p1Po7xbV5OCPcFZ3sG7OFi0',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1Q0W6POH5fVTrZ6t84-aX1yiij6Dx1oB6n9MemXNqLR0',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1jiiQ1az8cz4uKKSbZvO5QPuPUdeVUgF-',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher Project',
+					'url': 'https://scratch.mit.edu/projects/238759009/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/239362753/',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Variables',
+				'Area and Perimeter',
+			],
+		},
+		'grade-4-assessment-early': {
+			'type': 'Assessment',
+			'num': '1',
+			'title': 'Grade 4 Early Assessment',
+			'title_short': 'Early Assessment',
+			'description': 'The Grade 4 Early Assessment can be used to gauge students\' understanding of important CT content from the previous four lessons.',
+			'mode': 'paper-based',
+			'summary': '<p>This assessment includes 9 items from four CT topics (1 Decomposition item; 4 Variables; 2 Conditional items; 2 Sequencing items). Four of the 9 items use images of the Scratch interface and/or Scratch blocks. All 9 items have a scoring guide and/or rubric included in the teacher assessment guide, along with other information to help with interpreting student responses.</p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_item': 'math-chat',
+			'next_item': 'pizza-sharing',
+			'materials': [
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'gdocs',
+				},
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+				{
+					'title': 'Student Printables',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+			],
+			'topics': [
+				'Decomposition',
+				'Variables',
+				'Conditionals',
+				'Sequencing',
+			],
+		},
+		'pizza-sharing': {
+			'type': 'Lesson',
+			'num': '5',
+			'title': 'Fraction Circles: Pizza Sharing',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>This activity has three phases. First, students independently solve an equal sharing problem on paper. Second, the teacher leads a discussion eliciting different solution strategies for solving the problem from the students. For each solution, the teacher walks students through what a corresponding programming solution would look like. Third, the students code equal sharing solutions involving a loop.</p>',
+			'math_connections': '<p>Students extend their understanding of fraction equivalence by solving problems involving equally shared pizzas.</p>',
+			'cs_connections': '<p>Students get an introduction to the use of variables and decomposition in problem solving. Students use their knowledge of repetition when decomposing a problem.</p>',
+			'review_4th': 'n',
+			'prev_item': 'grade-4-assessment-early',
+			'next_item': 'ambling-animals',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-05-pizza-sharing-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-05-pizza-sharing-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-05-pizza-sharing-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1C-V1nWYWnki3xhWnFwKZZ4itBZlVk6bV',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1C482tHbCnj2rNsfck0ZUh2bWLCv_RrlC',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1kf5FMr1k3ga8dc0-ydRMou76hh_9y7qg5kGKhXF2MGo',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1l9MQZSUyzi7sJDk3oKcn49xktgQEmOaO',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/210743380',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Sequence',
+				'Repetition',
+				'Decomposition',
+				'Equal Parts',
+			],
+		},
+		'ambling-animals': {
+			'type': 'Lesson',
+			'num': '6',
+			'title': 'Ambling Animals',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students are introduced to Variables and Conditionals in a Scratch project which represents two fractions on a number line and asks the user to identify the larger of the two. Students remix code in order to ask a user their name, and then use it in a say block. They also use variables in a conditional statement to compare user input to the correct answer and report the result.</p>',
+			'math_connections': '<p>Students compare fractions represented on number lines.</p>',
+			'cs_connections': '<p>Students use variables to store user input for later use in a say block. Students also combine variables and conditionals to compare the user’s answer to a problem and return feedback about whether it is correct.</p>',
+			'review_4th': 'n',
+			'prev_item': 'pizza-sharing',
+			'next_item': 'comparing-fractions-slicing-sandwiches',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-06-ambling-animals-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-06-ambling-animals-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-06-ambling-animals-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1Ra5_RZ1GZUz1j6RxfK0GtJHbKqlMNgNw',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1ReUzYRmrjeLVmnko7EUCEin_O25-fxzr',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1OwXvOYzZwYCJCiGkTAYnVGr2xUlC1Fbx5xgOFgj-gBo',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=15gjtpOGK0QPFTfVppm1R6kplcQa-x6Pb',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/259190866',
+					'filetype': 'scratch',
+				}
+			],
+			'topics': [
+				'Variables',
+				'Conditionals',
+				'Comparing fractions',
+			],
+		},
+		'comparing-fractions-slicing-sandwiches': {
+			'type': 'Lesson',
+			'num': '7',
+			'title': 'Comparing Fractions: Slicing Sandwiches',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students use Scratch to compare fractional parts of sandwiches to determine if sandwich A is greater or less than sandwich B. They will program the computer to cut the sandwich in equal parts (based on the denominator) and then display a certain number of these sandwich parts (based on the numerator). They will program inequality rules and the computer will compare the fractions and identify the correct inequality symbol.</p>',
+			'math_connections': '<p>Students compare fractions with the same denominators using a number line and a visual (sandwich). They discuss rules, such as the same denominators mean that both wholes will be divided into the same number of parts, each part is the same size, the smaller the denominator the size of the parts is larger, and that the numerator and denominator together will determine the inequality.</p>',
+			'cs_connections': '<p>The students use variables to represent fractions in comparing multiple conditions which will result in different results (true or false). Students work with conditionals to compare fractions and validate the result. Students will see how the use of variables in conditionals can give different outcomes.</p>',
+			'review_4th': 'n',
+			'prev_item': 'ambling-animals',
+			'next_item': 'comparing-fractions-same-numerators',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-07-comparing-fractions-slicing-sandwiches-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-07-comparing-fractions-slicing-sandwiches-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-07-comparing-fractions-slicing-sandwiches-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1BpGeVWPTbOECcgg2gCZsuu7irvX-A-S9',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1C-FHJ3nWeb8NjjEtYEYgyoUoMscnbmMe',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1jdLIgJAXsPHZVe1PdcG63egPsqO-oFAIkHDe-979A_Q',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1AchYc5IINysnwHUkz9EsKNfg8_cpIjXM',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/210103535',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Repetition',
+				'Conditionals',
+				'Variables',
+				'Comparing fractions: (Same Denominator)',
+			],
+		},
+		'comparing-fractions-same-numerators': {
+			'type': 'Lesson',
+			'num': '8',
+			'title': 'Comparing Fractions: Same Numerators',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students use Scratch to compare fractional parts of sandwiches. They will program the computer to cut the sandwich in equal parts (based on the denominator) and then display a certain number of these sandwich parts (based on the numerator). They will program rules representing greater than, less than, or equal to that are then used to identify the correct symbol when comparing fractions.</p>',
+			'math_connections': '<p>Students compare fractions with the same numerators on a number line. Students develop rules for how to determine whether one fraction is greater than, less than, or equal to another fraction with the same numerators by looking at the denominators.</p>',
+			'cs_connections': '<p>Students use variables and multiple if, then conditions. Students see how the use of variables in conditionals can result in different outcomes.</p>',
+			'review_4th': 'n',
+			'prev_item': 'comparing-fractions-slicing-sandwiches',
+			'next_item': 'grade-4-assessment-mid',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-08-comparing-fractions-same-numerators-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-08-comparing-fractions-same-numerators-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-08-comparing-fractions-same-numerators-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1DO2PUSdys5SdOTNVp0E3IkBTkxt8GXCv',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1DJBs6N-aXhscR1PeGEN9ZY-A_9tuuNv6',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1CS9BXGTB5LSI3vAW0geUt9rSv67o2371-PS0TrSfSb0',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=14Cg8y7dtCAyBg4JjMG1HAv0x6TFMcWb2',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/210105678',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Conditionals',
+				'Decomposition',
+				'Debugging',
+				'Comparing fractions: (Same Numerator)',
+			],
+		},
+		'grade-4-assessment-mid': {
+			'type': 'Assessment',
+			'num': '2',
+			'title': 'Grade 4 Mid Assessment',
+			'title_short': 'Mid Assessment',
+			'description': 'The Grade 4 Mid Assessment can be used to gauge students\' understanding of important CT content from the previous four lessons.',
+			'mode': 'paper-based',
+			'summary': '<p>This assessment includes 10 items from four CT topics (1 Decomposition item; 4 Variables; 3 Conditional items; 2 Repetition items). Six of the 10 items use images of the Scratch interface and/or Scratch blocks. All 9 items have a scoring guide and/or rubric included in the teacher assessment guide, along with other information to help with interpreting student responses.</p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_item': 'comparing-fractions-same-numerators',
+			'next_item': 'adding-fractions-same-denominators',
+			'materials': [
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'gdocs',
+				},
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+				{
+					'title': 'Student Printables',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+			],
+			'topics': [
+				'Decomposition',
+				'Variables',
+				'Conditionals',
+				'Sequencing',
+			],
+		},
+		'adding-fractions-same-denominators': {
+			'type': 'Lesson',
+			'num': '9',
+			'title': 'Adding Fractions: Same Denominators',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students complete an activity sheet that prompts them to find combinations of two or three different fractions with the same denominators, that add up to the same total.</p>',
+			'math_connections': '<p>Students add fractions with the same denominators and different numerators on a number line and using a fraction circle. Students find different combinations of fractions with same denominators and different numerators that add up to the same total.</p>',
+			'cs_connections': '<p>Students use variables to represent denominator values. The denominator variable is reused in multiple lines of code. They explore how a sensing condition can be used to determine an outcome.</p>',
+			'review_4th': 'n',
+			'prev_item': 'grade-4-assessment-mid',
+			'next_item': 'subtracting-fractions-same-denominators',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-09-adding-fractions-same-denominators-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-09-adding-fractions-same-denominators-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-09-adding-fractions-same-denominators-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1ae79luAoHaVWKXKbr0nKgbtOcIffi--f',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1ib81HLj0emEL7e-bRxzqXFFlauGIzqje',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1oY_6CNe1qGWorxDZIc7gf9yJyckt_dXvkIS_4glmsUc',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1aVlY8yqFi-XjZ7spBMuLbExd7Qz_fWc-',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/210099188/',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Variables',
+				'Adding Fractions with same Denominators',
+			],
+		},
+		'subtracting-fractions-same-denominators': {
+			'type': 'Lesson',
+			'num': '10',
+			'title': 'Subtracting Fractions: Same Denominators',
+			'description': 'DESCRIPTION',
+			'mode': 'unplugged',
+			'summary': '<p>Students solve subtraction number stories that use fractions and think about the steps that are repeated. They consider how they know when to stop a repetition, and map different strategies onto kinds of repetition in computer science.</p>',
+			'math_connections': '<p>Students solve a number story involving subtracting fractions less than one with same denominator.</p>',
+			'cs_connections': '<p>Students consider when and why you might use countable or conditional repetition when subtracting fractions.</p>',
+			'review_4th': 'n',
+			'prev_item': 'adding-fractions-same-denominators',
+			'next_item': 'getting-mack-home',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-subtracting-fractions-same-denominators-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-subtracting-fractions-same-denominators-cover.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1MxUEX5RDomK2ItaNrD-K6pOlsbC8jLKg',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1AH3GBLm5w15hmPJ1MCE2mGLHWpQXD9sbek9cxvHfaWI',
+					'filetype': 'gslides',
+				},
+				{
+					'title': 'SMART Notebook',
+					'url': 'https://drive.google.com/open?id=1FrA_6D4N5WT7SiuNFKlE5P3CqbXpeloq',
+					'filetype': 'notebook',
+				}
+			],
+			'scratch_projects': [
+			],
+			'topics': [
+				'Repetition',
+				'Subtracting fractions',
+			],
+		},
+		'getting-mack-home': {
+			'type': 'Lesson',
+			'num': '11',
+			'title': 'Getting Mack Home',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students will use a countable then a conditional loop to solve a subtraction problem. They will use a particular problem (involving a dog getting sopping wet in a puddle), solve the number story math problem, and use the result to implement the solution. First, the problem will use a countable loop where the number of repeats (steps) needed for the dog to walk to the puddle is known. They will model their code after this countable loop, add this new code to the existing script, and enter the number of repeats (steps) needed to walk home. Then, they will solve the same problem when the puddle can be placed anywhere. This time, they aren’t able to solve the problem beforehand, and they must using a conditional loop to detect when they are home. They will model their code after the loop that detects when the dog encounters the puddle, and add this new code that uses a conditional sensing loop to detect when the dog has gotten home.</p>',
+			'math_connections': '<p>Subtracting fractions less than one with same denominators.</p>',
+			'cs_connections': '<p>When writing code, computer programmers can choose to have a command repeat a set number of times or until a condition is met (conditional repetition). This activity helps students think about when and why you might use countable or conditional repetition (loops) when subtracting fractions.</p>',
+			'review_4th': 'n',
+			'prev_item': 'subtracting-fractions-same-denominators',
+			'next_item': 'storyboarding-time-for-lunch-mack',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-11-getting-mack-home-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-11-getting-mack-home-scratch-stage.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-11-getting-mack-home-scratch-blocks.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1a8VI1S4oIZtibWpGs47_1LdZG23GN8LV',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=16H3bKkkMYZJhlpnsT93Z7vCQLxjmlyk4',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Slide Deck',
+					'url': 'https://drive.google.com/open?id=1m72xIexhwms0z938AAFpaNAEDlbvPHiAOcr-cMuwmPI',
+					'filetype': 'gslides',
+				},
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher/Student Project',
+					'url': 'https://scratch.mit.edu/projects/210105463/',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Repetition',
+				'Subtracting fractions',
+			],
+		},
+		'storyboarding-time-for-lunch-mack': {
+			'type': 'Lesson',
+			'num': '12',
+			'title': 'Storyboarding: Time for Lunch, Mack! (2-day lesson)',
+			'description': 'DESCRIPTION',
+			'mode': 'computer-based',
+			'summary': '<p>Students create an animated number story using mixed numbers subtraction in Scratch. First they write and solve their own number story. Then, they use their story to create a Storyboard, paying particular attention to the order of the events, the timing of the events, how they can show the important parts of the story in picture format, and how they can connect the events through pictures, words, and actions. Partners then review each other’s storyboards and give feedback. Students make revisions (if needed) then use their Storyboard to create their animated story in Scratch.</p>',
+			'math_connections': '<p>Students solve a multi-step number story using subtraction of mixed numbers.</p>',
+			'cs_connections': '<p>Students plan to create number story animations in Scratch, by thinking about the steps, sequence, timing, and repetition of the story they need to illustrate.</p>',
+			'review_4th': 'n',
+			'prev_item': 'getting-mack-home',
+			'next_item': 'grade-4-assessment-late',
+			'cover_img': {
+				'url': '/static/img/lessons/grade-4/lesson-12-storyboarding-time-for-lunch-mack-cover.png',
+				'alt': '',
+			},
+			'lts': [
+				'',
+			],
+			'thumbs': [
+				{
+					'url': '/static/img/lessons/grade-4/lesson-12-storyboarding-time-for-lunch-mack-scratch-stage-day1.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-12-storyboarding-time-for-lunch-mack-scratch-blocks-day1.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-12-storyboarding-time-for-lunch-mack-scratch-stage-day2.png',
+					'alt': '',
+					'caption': '',
+				},
+				{
+					'url': '/static/img/lessons/grade-4/lesson-12-storyboarding-time-for-lunch-mack-scratch-blocks-day2.png',
+					'alt': '',
+					'caption': '',
+				},
+			],
+			'materials': [
+				{
+					'title': 'Teacher Lesson Guide',
+					'url': 'https://drive.google.com/open?id=1aqNfsk1iF2Io5gXHFIDIZCufO-AcahDd',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Student Printables',
+					'url': 'https://drive.google.com/open?id=1CdBSM7EUQ4ImycS9Q7c7Hos4PGIX19SL',
+					'filetype': 'pdf',
+				},
+				{
+					'title': 'Storyboard',
+					'url': 'https://drive.google.com/open?id=1CXlDlDOpv2JH2YzG7NSji-ypPuzhxir1',
+					'filetype': 'notebook',
+				},
+			],
+			'scratch_projects': [
+				{
+					'title': 'Teacher Project',
+					'url': 'https://scratch.mit.edu/projects/373636787/',
+					'filetype': 'scratch',
+				},
+				{
+					'title': 'Student Project',
+					'url': 'https://scratch.mit.edu/projects/373528821/',
+					'filetype': 'scratch',
+				},
+			],
+			'topics': [
+				'Decomposition',
+				'Mixed Fractions on a Number Line',
+			],
+		},
+		'grade-4-assessment-late': {
+			'type': 'Assessment',
+			'num': '3',
+			'title': 'Grade 4 Late Assessment',
+			'title_short': 'Late Assessment',
+			'description': 'The Grade 4 Late Assessment can be used to gauge students\' understanding of important CT content from the previous four lessons.',
+			'mode': 'paper-based',
+			'summary': '<p>This assessment includes 7 items from two CT topics (4 Variables; 3 Repetition items). Five of the 7 items use images of the Scratch interface and/or Scratch blocks. All 7 items have a scoring guide and/or rubric included in the teacher assessment guide, along with other information to help with interpreting student responses</p>',
+			'math_connections': '<p></p>',
+			'cs_connections': '<p></p>',
+			'review_4th': 'n',
+			'prev_item': 'storyboarding-time-for-lunch-mack',
+			'next_item': '',
+			'materials': [
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'gdocs',
+				},
+				{
+					'title': 'Teacher Assessment Guide',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+				{
+					'title': 'Student Printables',
+					'url': '#',
+					'filetype': 'pdf-red',
+				},
+			],
+			'topics': [
+				'Variables',
+				'Repetition',
+			],
 		},
 	}
 %}
