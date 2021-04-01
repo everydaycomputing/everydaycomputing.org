@@ -1,4 +1,4 @@
-{% from "data_instructional_materials.jinja" import gradeData %}
+{% from "data_instructional_materials.jinja" import gradeData,iconMap %}
 {% set includeIsotope = true %}
 {% extends "templates/public_base_template.html" %}
 
@@ -144,7 +144,7 @@
                         {{gradeInfo['num_lessons']}} lessons
                       </div>
                       <div class="tag tag-inline">
-                        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+                        {{ iconMap['Assessment']|safe }}
                         {{gradeInfo['num_assessments']}} assessments
                       </div>
                     </div>
