@@ -62,7 +62,7 @@ jQuery(document).ready(function() {
         <div class="h1 section-heading">
           {% if materialsData[materials]['type']|lower == "lesson" %}
             {{ gradeData[grade]['grade_title'] }}
-            {{ materialsData[materials]['type'] }}:
+            {{ materialsData[materials]['type'] }}
           {% endif %}
 
           {{materialsData[materials]['title']}}
@@ -198,16 +198,19 @@ jQuery(document).ready(function() {
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 text-left">
-        <h3 class="inline-block margin-1-right">Lesson Mode:</h3>
-        <p class="inline-block text_large">{{ materialsData[materials]['mode'] }}</p>
+        <h3 class="margin-1-right">Lesson Mode</h3>
+        <p class="text_large">
+          {{ iconMap[materialsData[materials]['mode']]|safe }}
+          {{ materialsData[materials]['mode'] }}
+        </p>
 
-        <h3>Activity Summary:</h3>
+        <h3>Activity Summary</h3>
         {{ materialsData[materials]['summary']|safe }}
 
-        <h3>Math Connections:</h3>
+        <h3>Math Connections</h3>
         {{ materialsData[materials]['math_connections']|safe }}
 
-        <h3>CS Connections:</h3>
+        <h3>CS Connections</h3>
         {{ materialsData[materials]['cs_connections']|safe }}
       </div>
       <div class="col-xs-12 col-sm-6 text-left">
@@ -216,7 +219,7 @@ jQuery(document).ready(function() {
             <div class="padding-0-top padding-3-right padding-3-bottom padding-3-left">
 
               <!-- Lesson: Materials -->
-              <h3>Materials:</h3>
+              <h3>Materials</h3>
               <ul class='nodecor item-materials'>
 
               {% for materialInfo in materialsData[materials]['materials'] %}
@@ -232,7 +235,7 @@ jQuery(document).ready(function() {
               </ul>
 
               <!-- Lesson: Scratch Projects -->
-              <h3 class="margin-3-top">Scratch Projects:</h3>
+              <h3 class="margin-3-top">Scratch Projects</h3>
               <ul class='nodecor item-materials'>
 
               {% for scratchInfo in materialsData[materials]['scratch_projects'] %}
@@ -248,7 +251,7 @@ jQuery(document).ready(function() {
               </ul>
 
               <!-- Lesson: Topics -->
-              <h3>Topics:</h3>
+              <h3>Topics</h3>
               <ul class='item-topics'>
                 
                 {% for topicName in materialsData[materials]['topics'] %}
@@ -287,7 +290,7 @@ jQuery(document).ready(function() {
             
             <!-- Assessment: Materials -->
             <div class="col-xs-12 col-sm-6 text-left">
-              <h3>Materials:</h3>
+              <h3>Materials</h3>
               <ul class='nodecor item-materials'>
 
                 {% for materialInfo in materialsData[materials]['materials'] %}
@@ -305,7 +308,7 @@ jQuery(document).ready(function() {
 
             <!-- Assessment: Topics -->
             <div class="col-xs-12 col-sm-5 col-sm-offset-1 text-left">
-              <h3>Topics:</h3>
+              <h3>Topics</h3>
               <ul class='item-topics'>
 
                 {% for topicName in materialsData[materials]['topics'] %}
@@ -334,7 +337,7 @@ jQuery(document).ready(function() {
   <div class="container card">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 margin-3-bottom text-center">
-        <h3>Previous Item:</h3>
+        <h3>Previous Item</h3>
         {% if materialsData[materials]['prev_item'] %}
 
           <!-- <p>
@@ -350,7 +353,7 @@ jQuery(document).ready(function() {
         {% endif %}
       </div>
       <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-2 margin-3-bottom text-center">
-        <h3>Next Item:</h3>
+        <h3>Next Item</h3>
         {% if materialsData[materials]['next_item'] %}
 
           <!-- <p>
