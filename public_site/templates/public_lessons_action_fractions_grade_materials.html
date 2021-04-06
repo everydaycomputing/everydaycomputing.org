@@ -62,7 +62,7 @@ jQuery(document).ready(function() {
         <div class="h1 section-heading">
           {% if materialsData[materials]['type']|lower == "lesson" %}
             {{ gradeData[grade]['grade_title'] }}
-            {{ materialsData[materials]['type'] }}
+            {{ materialsData[materials]['type'] }}:
           {% endif %}
 
           {{materialsData[materials]['title']}}
