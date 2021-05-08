@@ -228,7 +228,7 @@ jQuery(document).ready(function() {
 
               {% else %}
 
-              <li>No materials for this {{ materialsData[materials]['type']|lower }}</li>
+              <li><em>Materials are not currently available for this {{ materialsData[materials]['type']|lower }}</em></li>
 
               {% endfor %}
 
@@ -299,7 +299,7 @@ jQuery(document).ready(function() {
 
                   {% else %}
 
-                  <li class='block margin-2-top'>No materials for this {{ materialsData[materials]['type']|lower }}</li>
+                  <li class='block margin-2-top'><em>Materials are not currently available for this {{ materialsData[materials]['type']|lower }}</em></li>
 
                 {% endfor %}
               
