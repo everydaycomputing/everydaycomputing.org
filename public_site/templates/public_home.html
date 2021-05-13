@@ -1,6 +1,56 @@
 {% extends "templates/public_base_template.html" %}
 
 {% block body %}
+    <style>
+        .header-content-homepage-inner:first-child {
+            padding: 4rem 2rem;
+        }
+        figure.photo {
+            border: 6px solid #fff;
+            background-color: white;
+            transform: rotate(-1deg) translate(1%,-1%);
+            box-shadow: 4px 4px 5px 0px rgb(0 0 0 / 50%);
+        }
+        .header-content-homepage-inner figure {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        .header-content-homepage-inner figure img {
+            max-width: 100%;
+        }
+        .header-content-homepage-inner figure figcaption {
+            border-top: 1px solid rgba(51, 122, 183,0.15);
+            font-weight: bold;
+            font-size: 2.25rem;
+            margin: 2rem 0 0 0;
+            padding: 1rem;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: 1600px) {
+            .header-content-homepage-inner:first-child {
+                width: 50%;
+            }
+
+            .header-content-homepage-inner:last-child {
+                width: 50%;
+                padding: 0.5rem 13rem;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .header-content-homepage-inner:first-child {
+                width: 45%;
+            }
+
+            .header-content-homepage-inner:last-child {
+                width: 55%;
+                /* padding: 0.5rem 13rem; */
+            }
+        }
+    </style>
+
     <header>
         <div class="header-content-homepage">
             <div class="header-content-homepage-inner">
@@ -11,7 +61,11 @@
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
                 <!-- <video></video> -->
                 <!-- <img src="/static/img/video-thumb-videohall-2018.PNG" alt="" style="width: 100%;" /> -->
-                {% include "templates/include_random_video.html" %}
+                {# {% include "templates/include_random_video.html" %} #}
+                <figure class="photo">
+                    <img src="/static/img/video-showcase-2021.png" alt="STEM for All Video Showcase - May 11-18, 2021" />
+                    <figcaption><a href="https://videohall.com/p/2110">Join us at the STEM for All Video Showcase!</a></figcaption>
+                </figure>
             </div>
             <div class="header-content-homepage-inner">
                 <h2>About Everyday Computing</h2>
