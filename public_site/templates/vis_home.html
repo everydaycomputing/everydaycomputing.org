@@ -1,6 +1,47 @@
+{% set includeMagnific = true %}
 {% extends "templates/public_base_template.html" %}
 
 {% block body %}
+
+<style>
+.mfp-bg {
+  opacity: 0.9;
+}
+.mfp-img {
+  background-color: white;
+}
+.mfp-bottom-bar {
+  margin-top: 0;
+}
+</style>
+
+<!-- Magnific Lightbox implementation -->
+<script>
+
+// Reusable function to lightboxify a section in case items are dynamically added to the page
+function lightboxify() {
+  // Load each gallery separately
+  jQuery('.lightbox').each(function() {
+    jQuery(this).magnificPopup({
+      delegate: 'a.gallery-item', // the selector for gallery item
+      type: 'image',
+      gallery:{
+        enabled:true
+      },
+      image: {
+        verticalFit: true,
+        titleSrc: function(item) {
+          return jQuery(item.el).find('img').attr('alt') + '<br /><a href=\"' + jQuery(item.el).attr('href') + '\" target=\"_blank\">View image #' + (jQuery(item.el).closest('.trajectory').index() + 1) + ' at full size in a new tab</a>';
+        }
+      },
+    });
+  });
+}
+
+jQuery(document).ready(function() {
+  lightboxify();
+});
+</script>
 
 <section class="bg-primary" id="about">
   <div class="container">
@@ -47,12 +88,16 @@
   </div>
 
   <div class="container">
-    <div class="row">
+    <div class="row lightbox">
 
-        <div id="lt-sequence" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor">
+        <div id="lt-sequence" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor trajectory">
             <div>
-              <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/"><h3>Sequence</h3></a>
-              <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/"><img src="/static/img/trajectories/SequenceLT.png" class="showcase-image" alt=""></a>
+              {# <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/"><h3>Sequence</h3></a>
+              <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgMDflwoM/visualization/"><img src="/static/img/trajectories/SequenceLT.png" class="showcase-image" alt=""></a> #}
+              <h3>Sequence</h3>
+              <a class="gallery-item" href="/static/img/trajectories/SequenceLT.png">
+                <img src="/static/img/trajectories/SequenceLT.png" class="showcase-image" alt="Sequence Trajectory">
+              </a>
               <p>
 
               </p>
@@ -62,10 +107,14 @@
             </div>
           </div>
 
-          <div id="lt-repetition" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor">
+          <div id="lt-repetition" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor trajectory">
               <div>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/"><h3>Repetition</h3></a>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/"><img src="/static/img/trajectories/RepetitionLT.png" class="showcase-image" alt=""></a>
+                {# <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/"><h3>Repetition</h3></a>
+                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKDEjgoM/visualization/"><img src="/static/img/trajectories/RepetitionLT.png" class="showcase-image" alt=""></a> #}
+                <h3>Repetition</h3>
+                <a class="gallery-item" href="/static/img/trajectories/RepetitionLT.png">
+                  <img src="/static/img/trajectories/RepetitionLT.png" class="showcase-image" alt="Repetition Trajectory">
+                </a>
                 <p>
 
                 </p>
@@ -75,10 +124,14 @@
               </div>
             </div>
 
-            <div id="lt-conditionals" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor">
+            <div id="lt-conditionals" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor trajectory">
               <div>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/"><h3>Conditionals</h3></a>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/"><img src="/static/img/trajectories/ConditionalsLT.png" class="showcase-image" alt=""></a>
+                {# <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/"><h3>Conditionals</h3></a>
+                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCSnwoM/visualization/"><img src="/static/img/trajectories/ConditionalsLT.png" class="showcase-image" alt=""></a> #}
+                <h3>Conditionals</h3>
+                <a class="gallery-item" href="/static/img/trajectories/ConditionalsLT.png">
+                  <img src="/static/img/trajectories/ConditionalsLT.png" class="showcase-image" alt="Conditionals Trajectory">
+                </a>
                 <p>
 
                 </p>
@@ -88,10 +141,14 @@
               </div>
             </div>
 
-            <div id="lt-decomposition" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor">
+            <div id="lt-decomposition" class="col-lg-6 col-md-12 col-sm-12 text-center paddedAnchor trajectory">
               <div>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCZkAoM/visualization/"><h3>Decomposition</h3></a>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCZkAoM/visualization/"><img src="/static/img/trajectories/DraftDecompositionLT.png" class="showcase-image" alt=""></a>
+                {# <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCZkAoM/visualization/"><h3>Decomposition</h3></a>
+                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCZkAoM/visualization/"><img src="/static/img/trajectories/DraftDecompositionLT.png" class="showcase-image" alt=""></a> #}
+                <h3>Decomposition</h3>
+                <a class="gallery-item" href="/static/img/trajectories/DraftDecompositionLT.png">
+                  <img src="/static/img/trajectories/DraftDecompositionLT.png" class="showcase-image" alt="Decomposition Trajectory">
+                </a>
                 <p>
 
                 </p>
@@ -101,10 +158,14 @@
               </div>
             </div>
 
-            <div id="lt-debugging" class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 text-center paddedAnchor">
+            <div id="lt-debugging" class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 text-center paddedAnchor trajectory">
               <div>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCOgQoM/visualization/"><h3>Debugging</h3></a>
-                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCOgQoM/visualization/"><img src="/static/img/trajectories/DebuggingLT.jpg" class="showcase-image" alt=""></a>
+                {# <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCOgQoM/visualization/"><h3>Debugging</h3></a>
+                <a href="/tools/trajectory/ahZzfmV2ZXJ5ZGF5Y29tcHV0aW5nb3JncjELEgpUcmFqZWN0b3J5IgpUUkFKRUNUT1JZDAsSClRyYWplY3RvcnkYgICAgKCOgQoM/visualization/"><img src="/static/img/trajectories/DebuggingLT.jpg" class="showcase-image" alt=""></a> #}
+                <h3>Debugging</h3>
+                <a class="gallery-item" href="/static/img/trajectories/DebuggingLT.jpg">
+                  <img src="/static/img/trajectories/DebuggingLT.jpg" class="showcase-image" alt="Debugging Trajectory">
+                </a>
                 <p>
 
                 </p>
