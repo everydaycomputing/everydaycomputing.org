@@ -42,6 +42,11 @@ a.btn {
   white-space: normal;
 }
 
+.btn-xxl {
+  font-size: 3rem;
+	padding: 3rem 6rem;
+}
+
 .btn.download,
 .btn.download:active {
 	background-image: url("/static/img/icons/arrow-down.png");
