@@ -269,6 +269,29 @@ ul.row.fa-ul.fa-ul-junto li .fa-li {
   color: rgba(0, 0, 0,0.15);
 }
 
+/* General Bootstrap 3 tweaks */
+.row.display-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row.display-flex.center-vertically {
+  align-items: center;
+}
+
+/* Put this class on a row for which each direct descendant should have equal heights */
+.row-equal-heights {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
+/* Note: DO NOT put this class on a direct descendant of .row-equal-heights; only for use on descendants further down */
+.height-max {
+  height: 100%;
+}
+
+
 .center {
   text-align: center;
 }
@@ -387,18 +410,6 @@ ol.hangingindent li::before {
 OL.footnotes>LI:target {
   background-color:#efefef;
   font-weight:bold
-}
-
-/* Put this class on a row for which each direct descendant should have equal heights */
-.row-equal-heights {
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-}
-
-/* Note: DO NOT put this class on a direct descendant of .row-equal-heights; only for use on descendants further down */
-.height-max {
-  height: 100%;
 }
 
 /* Card */
@@ -887,6 +898,16 @@ footer .social-media a {
   font-size: 4.25em;
   top: 17%;
 }
+/* Responsively scale laptop icon */
+.icon-laptop-divide-container-outer.responsive-icon {
+  font-size: 1rem;
+}
+@media (min-width: 992px) {
+ .icon-laptop-divide-container-outer.responsive-icon {
+    font-size: 2rem;
+  } 
+}
+
 /* Scale back the minus sign size when huge icon size is set on the outer container */
 .icon-laptop-divide-container-outer.icon-huge .icon-divide-over-laptop {
   font-size: 0.425em;
@@ -1180,11 +1201,6 @@ tr {
 }
 
 /** Team Page **/
-.row.display-flex {
-	display: flex;
-	flex-wrap: wrap;
-}
-
 .row.display-flex-team > [class*='col-'] {
 /*   flex-grow: 1; */
   flex:1;
