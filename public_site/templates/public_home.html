@@ -1,7 +1,10 @@
 {% extends "templates/public_base_template.html" %}
 
 {% block body %}
+    <!--
     <style>
+        // For use with photo-style homepage announcement
+
         .header-content-homepage-inner:first-child {
             padding: 4rem 2rem;
         }
@@ -50,6 +53,7 @@
             }
         }
     </style>
+    -->
 
     <header>
         <div class="header-content-homepage">
@@ -61,11 +65,11 @@
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
                 <!-- <video></video> -->
                 <!-- <img src="/static/img/video-thumb-videohall-2018.PNG" alt="" style="width: 100%;" /> -->
-                {# {% include "templates/include_random_video.html" %} #}
-                <figure class="photo">
+                {% include "templates/include_random_video.html" %}
+                {# <figure class="photo">
                     <img src="/static/img/video-showcase-2021.png" alt="STEM for All Video Showcase - May 11-18, 2021" />
-                    <figcaption><a href="https://videohall.com/p/2110">Join us at the STEM for All Video Showcase!</a></figcaption>
-                </figure>
+                    <figcaption><a href="https://videohall.com/p/2110">View our 2021 STEM for All Video Showcase entry!</a></figcaption>
+                </figure> #}
             </div>
             <div class="header-content-homepage-inner">
                 <h2>About Everyday Computing</h2>
